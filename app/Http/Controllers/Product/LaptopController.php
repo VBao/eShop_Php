@@ -57,8 +57,11 @@ class LaptopController extends Controller
         }
         $res['info'] = $this->productService->create($postInfo);
         foreach ($request->laptop as $key => $val) $postLaptop->$key = $val;
-        $postLaptop->id = 107;
+        $postLaptop->id=$res['info']->id;
         $res['laptop']=$this->laptopService->create($postLaptop);
+        $this->productService->createImages($request->image,$postLaptop->id);
+        unset($res['laptop']->id);
+        error_log('Insert completed');
         return response()->json($res);
     }
 }

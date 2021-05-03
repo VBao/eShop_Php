@@ -17,7 +17,6 @@ class CreateLaptopSpecsTable extends Migration
             $table->bigInteger('id')->primary()->unsigned();
             $table->foreignId('cpu_id')->references('id')->on('laptop_cpus');
             $table->foreignId('gpu_id')->references('id')->on('laptop_gpus');
-            $table->foreignId('max_ram_id')->references('id')->on('laptop_max_rams');
             $table->foreignId('ram_id')->references('id')->on('laptop_rams');
             $table->foreignId('rom_id')->references('id')->on('laptop_roms');
             $table->foreignId('os_id')->references('id')->on('laptop_os');

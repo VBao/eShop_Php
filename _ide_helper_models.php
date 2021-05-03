@@ -193,14 +193,6 @@ namespace App\Models\Product\Laptop{
 }
 
 namespace App\Models\Product\Laptop{
-/**
- * App\Models\Product\Laptop\maxRam
- *
- * @method static \Illuminate\Database\Eloquent\Builder|maxRam newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|maxRam newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|maxRam query()
- */
-	class maxRam extends \Eloquent {}
 }
 
 namespace App\Models\Product{

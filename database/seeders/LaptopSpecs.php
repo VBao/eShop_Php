@@ -85,13 +85,6 @@ class LaptopSpecs extends Seeder
             "16 GB, LPDDR4X, 4266 MHz",
             "16 GB, LPDDR4X, 4267 MHz"
         ];
-        $max_rams = [
-            "Không hỗ trợ nâng cấp",
-            "8GB",
-            "16GB",
-            "32GB",
-            "64GB"
-        ];
         $roms = [
             "1TB SSD M.2 PCIe",
             "512GB SSD M.2 NVMe",
@@ -228,7 +221,6 @@ class LaptopSpecs extends Seeder
         foreach ($cpus as $value) DB::table('laptop_cpus')->insert(['value' => $value]);
         foreach ($gpus as $value) DB::table('laptop_gpus')->insert(['value' => $value]);
         foreach ($rams as $value) DB::table('laptop_rams')->insert(['value' => $value]);
-        foreach ($max_rams as $value) DB::table('laptop_max_rams')->insert(['value' => $value]);
         foreach ($roms as $value) DB::table('laptop_roms')->insert(['value' => $value]);
         foreach ($screens as $value) DB::table('laptop_screens')->insert(['value' => $value]);
         foreach ($ports as $value) DB::table('laptop_ports')->insert(['value' => $value]);

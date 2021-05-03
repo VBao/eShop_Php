@@ -72,7 +72,10 @@ class ProductImpl implements IProductService
                 $productSpecs = $this->laptopService->getSpecsIndex($info->id);
                 $product->ram = $productSpecs['ram'];
                 $product->rom = $productSpecs['rom'];
-                $product->image = $this->image->newQuery()->where('info_id', $info->id)->first()->link_image;
+               $temp=   $this->image->newQuery()->where('info_id', $info->id)->first();
+               if($temp!=null) $product->image=$temp['link_image'];
+//                $img=   $this->image->newQuery()->where('info_id', $info->id)->first();
+//                $product->image =  $img->link_image;
                 $index->infos[] = $product;
             }
             $res[] = $index;
@@ -91,11 +94,23 @@ class ProductImpl implements IProductService
         $createInfo->description=$info->description;
         $createInfo->guarantee=$info->guarantee;
         $createInfo->price=$info->price;
-        $createInfo->brand_id=$info->brand;
-        $createInfo->type_id=$info->type;
+        $createInfo->brand_id=$info->brand_id;
+        $createInfo->type_id=$info->type_id;
         $createInfo->created_at=date('Y-m-d H:i:s');
         $createInfo->save();
         $createInfo->refresh();
         return $createInfo;
+    }
+
+    public function createImages($images,$id)
+    {
+        $res=[];
+        foreach ($images as $key => $image){
+            $img=new Image;
+            $img->link_image=$image;
+            $img->info_id=$id;
+            $img->save();
+            $res[]=$img;
+        }
     }
 }

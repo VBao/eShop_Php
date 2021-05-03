@@ -25,7 +25,6 @@ class LaptopImpl implements ILaptopService{
     protected Cpu $cpu;
     protected Gpu $gpu;
     protected Size $size;
-    protected maxRam $maxRam;
     protected Os $os;
     protected Screen $screen;
     protected Weight $weight;
@@ -48,14 +47,13 @@ class LaptopImpl implements ILaptopService{
      * @param Port $port
      * @param laptopSpec $laptop
      */
-    public function __construct(Ram $ram, Rom $rom, Cpu $cpu, Gpu $gpu, Size $size, maxRam $maxRam, Os $os, Screen $screen, Weight $weight, Battery $battery, Port $port, laptopSpec $laptop)
+    public function __construct(Ram $ram, Rom $rom, Cpu $cpu, Gpu $gpu, Size $size, Os $os, Screen $screen, Weight $weight, Battery $battery, Port $port, laptopSpec $laptop)
     {
         $this->ram = $ram;
         $this->rom = $rom;
         $this->cpu = $cpu;
         $this->gpu = $gpu;
         $this->size = $size;
-        $this->maxRam = $maxRam;
         $this->os = $os;
         $this->screen = $screen;
         $this->weight = $weight;
@@ -69,7 +67,7 @@ class LaptopImpl implements ILaptopService{
     {
         $res=[];
         $lap=$this->laptop->newQuery()->where('id',$id)->first();
-        $res['ram']=$this->ram->where('id',$lap->ram_id)->first()->value;
+        $res['ram']=$this->ram->newQuery()->where('id',$lap->ram_id)->first()->value;
         $res['rom']=$this->rom->newQuery()->where('id',$lap->rom_id)->first()->value;
         return $res;
     }
@@ -94,7 +92,6 @@ class LaptopImpl implements ILaptopService{
         $form=new createLaptopDto();
         $form->cpus=$this->cpu->allArr();
         $form->gpus=$this->gpu->allArr();
-        $form->max_ram=$this->maxRam->allArr();
         $form->rams=$this->ram->allArr();
         $form->roms=$this->rom->allArr();
         $form->ports=$this->port->allArr();
@@ -109,18 +106,21 @@ class LaptopImpl implements ILaptopService{
     public function create(postLaptopDto $lap)
     {
         $createLap=new laptopSpec;
-        $createLap->id =$lap->id ;
-        $createLap->os_id =$lap->os ;
-        $createLap->battery_id =$lap->battery ;
-        $createLap->weight_id =$lap->weight ;
-        $createLap->cpu_id =$lap->cpu ;
-        $createLap->screen_id =$lap->screen ;
-        $createLap->size_id =$lap->size ;
-        $createLap->gpu_id =$lap->gpu ;
-        $createLap->ram_id =$lap->ram ;
-        $createLap->rom_id =$lap->rom ;
-        $createLap->max_ram_id =$lap->maxRam;
-        $createLap->port_id =$lap->port;
+        foreach ($lap as $key => $value) {
+            $createLap->$key = $value;
+        }
+//        $createLap->id =$lap->id ;
+//        $createLap->os_id =$lap->os ;
+//        $createLap->battery_id =$lap->battery ;
+//        $createLap->weight_id =$lap->weight ;
+//        $createLap->cpu_id =$lap->cpu ;
+//        $createLap->screen_id =$lap->screen ;
+//        $createLap->size_id =$lap->size ;
+//        $createLap->gpu_id =$lap->gpu ;
+//        $createLap->ram_id =$lap->ram ;
+//        $createLap->rom_id =$lap->rom ;
+//        $createLap->max_ram_id =$lap->maxRam;
+//        $createLap->port_id =$lap->port;
         $createLap->created_at=date('Y-m-d H:i:s');
         $createLap->save();
         return $createLap;

@@ -6,4 +6,5 @@ interface IProductService{
     public function getInfos();
     public function getIndex();
     public function create(postInfoDto $info);
+    public function createImages($images,$id);
 }
