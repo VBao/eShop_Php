@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Models\Product;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class productInfo extends Model
+{
+    use HasFactory;
+
+//protected $casts=[
+//    'brand'=>Brand::class,
+//    'type'=>Type::class
+//];
+    public function images(){
+        return $this->hasMany('App\Models\Product\Image');
+    }
+
+    public function brands(){
+        return $this->belongsTo('App\Models\Product\Brand','id');
+    }
+
+    public function types(){
+//        return $this->belongsToMany('App\Models\Product\Type','types');
+        return $this->belongsTo('App\Models\Product\Type','id');
+    }
+
+    public function getIndex(int $brand_id)
+    {
+        return $this->newQuery()->where('brand_id',$brand_id)->orderBy('id','desc')->limit(5)->get();
+    }
+
+}
