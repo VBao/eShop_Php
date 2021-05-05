@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Product\InfoController;
 use App\Http\Controllers\Product\LaptopController;
+use App\Http\Controllers\TestingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,15 +20,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/index', [InfoController::class, 'index']);
-Route::prefix('products')->group(function () {
-    Route::prefix('laptop')->group(function () {
-        Route::resource('/', 'App\Http\Controllers\Product\LaptopController');
-        Route::get('/create', [LaptopController::class, 'createForm']);
-        Route::post('/create', [LaptopController::class, 'create']);
-    });
-});
+
 Route::get('/token', function () {
     return csrf_token();
 });
 
+
+Route::get('/index', [InfoController::class, 'index']);
+Route::prefix('products')->group(function () {
+    Route::resource('laptop', LaptopController::class)
+        ->parameters([
+            'laptop' => 'id'
+        ])->except('update','create','edit','store','destroy');
+    Route::get('/create', [LaptopController::class, 'getCreate']);
+    Route::post('/create', [LaptopController::class, 'postCreate']);
+    Route::get('/update/{id}', [LaptopController::class, 'getUpdate']);
+    Route::post('/update', [LaptopController::class, 'postUpdate']);
+});
+Route::post('test/',[TestingController::class,'testing']);

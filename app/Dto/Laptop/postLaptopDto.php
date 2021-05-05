@@ -10,7 +10,6 @@ class postLaptopDto
     public int $cpu;
     public int $gpu;
     public int $ram;
-    public int $maxRam;
     public int $size;
     public int $rom;
     public int $screen;

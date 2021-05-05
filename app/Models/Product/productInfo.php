@@ -31,4 +31,8 @@ class productInfo extends Model
         return $this->newQuery()->where('brand_id',$brand_id)->orderBy('id','desc')->limit(5)->get();
     }
 
+    public function getById(int $id){
+        return $this->newQuery()->where('id',$id)->first();
+    }
+
 }

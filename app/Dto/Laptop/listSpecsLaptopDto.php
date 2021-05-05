@@ -4,9 +4,7 @@
 namespace App\Dto\Laptop;
 
 
-use phpDocumentor\Reflection\Types\Collection;
-
-class createLaptopDto
+class listSpecsLaptopDto
 {
     public array $cpus;
     public array $gpus;

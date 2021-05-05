@@ -6,12 +6,11 @@ use App\Dto\productInfoGetList;
 use App\Models\Product\Brand;
 use App\Models\Product\productInfo;
 use App\Models\Product\Type;
-use Barryvdh\Debugbar\Controllers\BaseController;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 
-class Controller extends BaseController
+class Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
