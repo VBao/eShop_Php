@@ -3,12 +3,14 @@
 
 namespace App\Service\Impl;
 
+use App\Dto\FullLaptopModel;
 use App\Dto\Info\postInfoDto;
 use App\Dto\Info\showImage;
 use App\Dto\Info\showInfoDto;
 use App\Dto\Laptop\detailLaptopDto;
 use App\Dto\Laptop\indexProductDto;
 use App\Dto\Laptop\productInfoGetList;
+use App\Http\Resources\ShowListResource;
 use App\Models\Product\Brand;
 use App\Models\Product\Image;
 use App\Models\Product\Laptop\laptopSpec;
@@ -108,13 +110,13 @@ class ProductImpl implements IProductService
     {
         $response = new showInfoDto();
         $info = $this->info->newQuery()->where('id', $id)->first();
-        $response->id=$info->id;
-        $response->name=$info->name;
-        $response->price=$info->price;
-        $response->guarantee=$info->guarantee;
-        $brand_id=$info->brand_id;
-        $response->brand=Brand::query()->where('id',$brand_id)->first()->brand;
-        $response->description=$info->description;
+        $response->id = $info->id;
+        $response->name = $info->name;
+        $response->price = $info->price;
+        $response->guarantee = $info->guarantee;
+        $brand_id = $info->brand_id;
+        $response->brand = Brand::query()->where('id', $brand_id)->first()->brand;
+        $response->description = $info->description;
         return $response;
     }
 
@@ -132,29 +134,49 @@ class ProductImpl implements IProductService
     }
 
 
-    public function putImage($images,$id)
+    public function putImage($images, $id)
     {
-        foreach ($images as $key=>$value){
-            $oldImage=Image::query()->where('id',$key)->first();
-            $oldImage->link_image=$value;
+        foreach ($images as $key => $value) {
+            $oldImage = Image::query()->where('id', $key)->first();
+            $oldImage->link_image = $value;
             $oldImage->save();
         }
-        return Image::query()->where('info_id',$id)->get();
+        return Image::query()->where('info_id', $id)->get();
     }
 
     public function putInfo($newInfo)
     {
         $oldInfo = $this->info->getById($newInfo->id);
         foreach ($newInfo as $key => $value) {
-            $oldInfo->$key=$value;
+            $oldInfo->$key = $value;
         }
-        $oldInfo->updated_at=date('Y-m-d H:i:s');
+        $oldInfo->updated_at = date('Y-m-d H:i:s');
         $oldInfo->save();
         return $oldInfo;
     }
 
     public function getByType($id)
     {
-        return $this->info->where('type_id',$id)->get('id');
+        return $this->info->where('type_id', $id)->get('id');
+    }
+
+    public function search($keyword)
+    {
+        $res = [];
+        $test = $this->info->newQuery()->where('name', 'LIKE', $keyword . '%')->get(['id','type_id']);
+        foreach ($test as $val) {
+            if ($val->type_id ==1)$res[] = new ShowListResource(new FullLaptopModel($val->id));
+        }
+        return $res;
+    }
+
+    public function searchByType($keyword)
+    {
+        // TODO: Implement searchByType() method.
+    }
+
+    public function searchByBrand($keyword)
+    {
+        // TODO: Implement searchByBrand() method.
     }
 }

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Dto\Info\postInfoDto;
-use App\Dto\Laptop\postLaptopDto;
+use App\Dto\FullLaptopModel;
+use App\Http\Resources\ShowListResource;
 use App\Service\ILaptopService;
 use App\Service\IProductService;
-use Illuminate\Http\Request;
 
 class TestingController extends Controller
 {
@@ -24,17 +23,12 @@ class TestingController extends Controller
         $this->laptop = $laptop;
     }
 
-    public function testing(Request $request)
+    public function testing()
     {
-        $res=[];
-        $info=new postInfoDto;
-        $specs=new postLaptopDto();
-        foreach($request->info as $key =>$val) $info->$key=$val;
-        $specs->id=$info->id;
-        foreach($request->specs as $key =>$val) $specs->$key=$val;
-        $res['info']=$this->info->putInfo($info);
-        $res['specs']=$this->laptop->putLaptop($specs);
-        $res['images']=$this->info->putImage($request->images,$info->id);
-        return response()->json(['result'=>'updated']);
+        return response()->json(new ShowListResource(new FullLaptopModel(2)));
+    }
+    public function testing1($keywords)
+    {
+        return response()->json($this->info->search($keywords));
     }
 }

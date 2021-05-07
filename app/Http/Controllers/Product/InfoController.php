@@ -13,7 +13,7 @@ class InfoController extends Controller
 
     public function __construct(IProductService $productService)
     {
-        $this->productService=$productService;
+        $this->productService = $productService;
     }
 //
 //    public function list( $getType,$page = 1)
@@ -76,5 +76,9 @@ class InfoController extends Controller
         //
     }
 
+    public function search($keywords)
+    {
+        return response()->json($this->productService->search($keywords));
+    }
 
 }

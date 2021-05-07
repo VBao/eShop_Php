@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Product;
 
+use App\Dto\FullLaptopModel;
 use App\Dto\Info\postInfoDto;
 use App\Dto\Laptop\detailLaptopDto;
 use App\Dto\Laptop\postLaptopDto;
 use App\Dto\Laptop\showSpecsDto;
 use App\Dto\Laptop\updateLaptopDto;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\DetailsLaptopResource;
 use App\Http\Resources\ShowProductResource;
 use App\Models\Product\Image;
 use App\Service\ILaptopService;
@@ -92,7 +94,8 @@ class LaptopController extends Controller
                 'weight' => $response->spec->weight_id,
             ],
             'description' => $response->info->description,
-            'images' => $response->image
+            'images' => $response->image,
+            'spec_list'=>$response->specList
         ];
         return response()->json($a);
     }
@@ -128,12 +131,13 @@ class LaptopController extends Controller
             $postInfo->$key = $val;
         }
         $res['info'] = $this->productService->create($postInfo);
-        foreach ($request->laptop as $key => $val) $postLaptop->$key = $val;
+        foreach ($request->spec as $key => $val) $postLaptop->$key = $val;
         $postLaptop->id = $res['info']->id;
         $res['spec'] = $this->laptopService->create($postLaptop);
-        $this->productService->createImages($request->image, $postLaptop->id);
+        $this->productService->createImages($request->images, $postLaptop->id);
         error_log('=================Insert new laptop completed!=================');
-        return response()->json(['result' => 'created']);
+        return response()->json(new DetailsLaptopResource(new FullLaptopModel($res['info']->id)));
+//        return response()->json($request);
     }
 
     public function adminProducts(){
