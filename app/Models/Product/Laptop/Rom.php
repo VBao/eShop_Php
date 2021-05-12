@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Rom extends Model
 {
     use HasFactory;
-    protected $table='laptop_roms';
+
+    protected $table = 'laptop_roms';
 
     public function allArr(): array
     {
@@ -17,5 +18,17 @@ class Rom extends Model
             $temp[] = $item;
         }
         return $temp;
+    }
+
+    public function toArraysReact()
+    {
+        $res = [];
+        foreach (Rom::all() as $val) {
+            $temp = [];
+            $temp['value'] = $val->id;
+            $temp['text'] = $val->value;
+            $res[] = $temp;
+        }
+        return $res;
     }
 }

@@ -9,9 +9,15 @@ use App\Dto\Laptop\postLaptopDto;
 use App\Dto\Laptop\showSpecsDto;
 use App\Dto\Laptop\updateLaptopDto;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\BrandList;
 use App\Http\Resources\DetailsLaptopResource;
+use App\Http\Resources\Filters;
 use App\Http\Resources\ShowProductResource;
+use App\Models\Product\Brand;
 use App\Models\Product\Image;
+use App\Models\Product\Laptop\Cpu;
+use App\Models\Product\Laptop\Ram;
+use App\Models\Product\Laptop\Rom;
 use App\Service\ILaptopService;
 use App\Service\IProductService;
 use Illuminate\Http\JsonResponse;
@@ -20,18 +26,30 @@ use Illuminate\Http\Request;
 class LaptopController extends Controller
 {
     protected ILaptopService $laptopService;
-    protected IProductService $productService;
+    protected IProductService $productService;protected Brand $brand;
+    protected Ram $ram;
+    protected Rom $rom;
+    protected Cpu $cpu;
 
     /**
      * LaptopController constructor.
      * @param ILaptopService $laptopService
      * @param IProductService $productService
+     * @param Brand $brand
+     * @param Ram $ram
+     * @param Rom $rom
+     * @param Cpu $cpu
      */
-    public function __construct(ILaptopService $laptopService, IProductService $productService)
+    public function __construct(ILaptopService $laptopService, IProductService $productService, Brand $brand, Ram $ram, Rom $rom, Cpu $cpu)
     {
         $this->laptopService = $laptopService;
         $this->productService = $productService;
+        $this->brand = $brand;
+        $this->ram = $ram;
+        $this->rom = $rom;
+        $this->cpu = $cpu;
     }
+
 
     public function index()
     {
@@ -136,12 +154,12 @@ class LaptopController extends Controller
         $res['spec'] = $this->laptopService->create($postLaptop);
         $this->productService->createImages($request->images, $postLaptop->id);
         error_log('=================Insert new laptop completed!=================');
-        return response()->json(new DetailsLaptopResource(new FullLaptopModel($res['info']->id)));
-//        return response()->json($request);
+        return $this->show($res['info']->id);
     }
 
     public function adminProducts(){
         $res=[];
+        $tempAdd=[];
         foreach($this->productService->getByType(1) as $key => $val) {
             $tempProduct=$this->productService->getById($val->id);
             $tempInfo=[];
@@ -150,8 +168,15 @@ class LaptopController extends Controller
             $tempInfo['description']=$tempProduct->id;
             $tempInfo['brand']=$tempProduct->brand;
             foreach($this->laptopService->getSpecsAdmin($val->id) as $key => $value) $tempInfo[$key]=$value;
-            $res[]=$tempInfo;
+            $tempAdd[]=$tempInfo;
         }
+        $res['data']=$tempAdd;
+        $res['filter'] = [
+            'Brand' =>$this->brand->toArraysReact(),
+            'Ram' => $this->ram->toArraysReact(),
+            'Rom' => $this->rom->toArraysReact(),
+            'Cpu' => $this->cpu->toArraysReact()
+        ];
         return $res;
 
     }

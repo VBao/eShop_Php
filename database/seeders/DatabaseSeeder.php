@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(InfoSpecs::class);
         $this->call(TestValues::class);
         $this->call(Images::class);
-        // \App\Models\User::factory(10)->create();
+//         \App\Models\User::factory(10)->create();
+         $this->call(UserSeeder::class);
     }
 }

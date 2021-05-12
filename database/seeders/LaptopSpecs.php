@@ -86,24 +86,22 @@ class LaptopSpecs extends Seeder
             "16 GB, LPDDR4X, 4267 MHz"
         ];
         $roms = [
-            "1TB SSD M.2 PCIe",
-            "512GB SSD M.2 NVMe",
-            "512GB SSD M.2 SATA",
-            "HDD: 500 GB SATA3, Hỗ trợ khe cắm SSD M.2 PCIe",
+            "SSD 1TB M.2 PCIe",
+            "SSD 512GB M.2 NVMe",
+            "SSD 512GB M.2 SATA",
+            "HDD 500GB SATA3, Hỗ trợ khe cắm SSD M.2 PCIe",
             "SSD 256GB NVMe PCIe",
-            "256GB SSD M.2 NVMe",
-            "256GB SSD M.2 SATA",
+            "SSD 256GB M.2 NVMe",
+            "SSD 256GB M.2 SATA",
             "SSD 512GB NVMe PCIe",
             "SSD 256GB NVMe PCIe, Hỗ trợ khe cắm SSD M.2 PCIe",
             "SSD 256GB NVMe PCIe, Hỗ trợ khe cắm HDD SATA",
             "SSD 512GB NVMe PCIe, Hỗ trợ khe cắm HDD SATA",
             "SSD 512GB NVMe PCIe, Hỗ trợ khe cắm SSD M.2 PCIe",
-            "Hỗ trợ khe cắm HDD SATA, SSD 512GB NVMe PCIe, Hỗ trợ khe cắm SSD M.2 PCIe",
-            "SSD: 512 GB, M.2 PCIe",
-            "SSD: 512 GB, M.2 PCIe, Hỗ trợ khe cắm SSD M.2 PCIe",
-            "Intel Optane 32GB (H10), SSD 512 GB M.2 PCIe",
-            "Không hỗ trợ khe cắm HDD, SSD 512GB NVMe PCIe",
-            "Hỗ trợ thêm 2 khe cắm SSD M.2 PCIe, SSD 512GB NVMe PCI"
+            "SSD 512 GB M.2 PCIe",
+            "SSD 512 GB M.2 PCIe, Hỗ trợ khe cắm SSD M.2 PCIe",
+            "SSD 512GB NVMe PCIe, Không hỗ trợ khe cắm HDD",
+            "SSD 512GB NVMe PCI, Hỗ trợ thêm 2 khe cắm SSD M.2 PCIe"
         ];
 
         $screens = [

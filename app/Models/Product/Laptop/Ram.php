@@ -2,6 +2,7 @@
 
 namespace App\Models\Product\Laptop;
 
+use App\Models\Product\Brand;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,5 +18,16 @@ class Ram extends Model
             $temp[] = $item;
         }
         return $temp;
+    }
+    public function toArraysReact()
+    {
+        $res=[];
+        foreach (Ram::all() as $val){
+            $temp=[];
+            $temp['value']=$val->id;
+            $temp['text']=$val->value;
+            $res[]=$temp;
+        }
+        return $res;
     }
 }

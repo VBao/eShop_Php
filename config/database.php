@@ -51,12 +51,12 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'php'),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', 'ChiBao07032001'),
+            'url' => env('DATABASE_URL_PRODUCT'),
+            'host' => env('DB_HOST_PRODUCT', '127.0.0.1'),
+            'port' => env('DB_PORT_PRODUCT', '3306'),
+            'database' => env('DB_DATABASE_PRODUCT', 'php'),
+            'username' => env('DB_USERNAME_PRODUCT', 'root'),
+            'password' => env('DB_PASSWORD_PRODUCT', 'ChiBao07032001'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
@@ -68,6 +68,26 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
+//         Province DB
+//        'mysql_province' => [
+//            'driver' => 'mysql',
+//            'url' => env('DATABASE_URL_PROVINCE'),
+//            'host' => env('DB_HOST_PROVINCE', '127.0.0.1'),
+//            'port' => env('DB_PORT_PROVINCE', '3306'),
+//            'database' => env('DB_DATABASE_PROVINCE', 'php'),
+//            'username' => env('DB_USERNAME_PROVINCE', 'root'),
+//            'password' => env('DB_PASSWORD_PROVINCE', 'ChiBao07032001'),
+//            'unix_socket' => env('DB_SOCKET', ''),
+//            'charset' => 'utf8',
+//            'collation' => 'utf8_unicode_ci',
+//            'prefix' => '',
+//            'prefix_indexes' => true,
+//            'strict' => true,
+//            'engine' => null,
+//            'options' => extension_loaded('pdo_mysql') ? array_filter([
+//                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+//            ]) : [],
+//        ],
 
 //        'mysql' => [
 //            'driver' => 'mysql',

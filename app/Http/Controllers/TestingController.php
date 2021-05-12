@@ -31,4 +31,8 @@ class TestingController extends Controller
     {
         return response()->json($this->info->search($keywords));
     }
+    public function testing2($request)
+    {
+        return response()->json($this->info->search($request));
+    }
 }

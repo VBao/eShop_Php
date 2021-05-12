@@ -10,10 +10,16 @@ use App\Dto\Info\showInfoDto;
 use App\Dto\Laptop\detailLaptopDto;
 use App\Dto\Laptop\indexProductDto;
 use App\Dto\Laptop\productInfoGetList;
+use App\Http\Resources\BrandList;
+use App\Http\Resources\CC;
+use App\Http\Resources\Filters;
 use App\Http\Resources\ShowListResource;
 use App\Models\Product\Brand;
 use App\Models\Product\Image;
+use App\Models\Product\Laptop\Cpu;
 use App\Models\Product\Laptop\laptopSpec;
+use App\Models\Product\Laptop\Ram;
+use App\Models\Product\Laptop\Rom;
 use App\Models\Product\productInfo;
 use App\Service\ILaptopService;
 use App\Service\IProductService;
@@ -24,6 +30,9 @@ class ProductImpl implements IProductService
     protected productInfo $info;
     protected Brand $brand;
     protected Type $type;
+    protected Ram $ram;
+    protected Rom $rom;
+    protected Cpu $cpu;
     protected Image $image;
     protected ILaptopService $laptopService;
 
@@ -32,16 +41,24 @@ class ProductImpl implements IProductService
      * @param productInfo $info
      * @param Brand $brand
      * @param Type $type
+     * @param Ram $ram
+     * @param Rom $rom
+     * @param Cpu $cpu
+     * @param Image $image
+     * @param ILaptopService $laptopService
      */
-    public function __construct(productInfo $info, Brand $brand, Type $type, Image $image, ILaptopService $laptopService)
+    public function __construct(productInfo $info, Brand $brand, Type $type, Ram $ram, Rom $rom, Cpu $cpu, Image $image, ILaptopService $laptopService)
     {
         $this->info = $info;
         $this->brand = $brand;
         $this->type = $type;
+        $this->ram = $ram;
+        $this->rom = $rom;
+        $this->cpu = $cpu;
         $this->image = $image;
         $this->laptopService = $laptopService;
-
     }
+
 
     public function getInfos()
     {
@@ -63,12 +80,12 @@ class ProductImpl implements IProductService
                 $product->price = $info->price;
                 $productSpecs = $this->laptopService->getSpecsIndex($info->id);
                 $product->ram = explode(",", $productSpecs['ram'])[0];
-                $product->rom = explode(',', $productSpecs['rom'])[0];
+                $product->rom = explode(' ', $productSpecs['rom'])[0]." ".explode(' ', $productSpecs['rom'])[1];
                 $temp = $this->image->newQuery()->where('info_id', $info->id)->first();
                 if ($temp != null) $product->image = $temp['link_image'];
 //                $img=   $this->image->newQuery()->where('info_id', $info->id)->first();
 //                $product->image =  $img->link_image;
-                $index->infos[] = $product;
+                $index->results[] = $product;
             }
             $res[] = $index;
         }

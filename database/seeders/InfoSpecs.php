@@ -20,7 +20,7 @@ class InfoSpecs extends Seeder
             'Lenovo',
             'Acer',
             'Msi',
-            'Apple',
+            'Macbook',
             'Asus',
         ];
         $types=[

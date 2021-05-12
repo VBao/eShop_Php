@@ -11,4 +11,18 @@ class Brand extends Model
     public function infos(){
         return $this->hasMany('App\Models\Product\productInfo','brand_id','id');
     }
+
+    public function toArraysReact()
+    {
+        $res=[];
+        foreach (Brand::all() as $brand){
+            $temp_brand=[];
+            $temp_brand['value']=$brand->id;
+            $temp_brand['text']=$brand->brand;
+            $res[]=$temp_brand;
+        }
+        return $res;
+
+    }
+
 }

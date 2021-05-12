@@ -8,5 +8,5 @@ class productInfoGetList
 {
     public int $id;
     public string $brand;
-    public array $infos;
+    public array $results;
 }
