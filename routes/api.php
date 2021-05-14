@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\Account\UserController;
+use App\Http\Controllers\Product\DriveController;
 use App\Http\Controllers\Product\InfoController;
 use App\Http\Controllers\Product\LaptopController;
+use App\Http\Controllers\TestingController;
 use Illuminate\Http\Request;
 
 //use Illuminate\Support\Facades\Route;
@@ -26,17 +28,27 @@ use Illuminate\Http\Request;
 //Route::apiResource('test','App\Http\Controllers\Product\InfoController');
 //Route::get('/test/{page?}', 'App\Http\Controllers\ProductController@test');
 
-Route::get('/', [InfoController::class, 'index']);
+
 Route::prefix('products')->group(function () {
-    Route::resource('laptop', LaptopController::class)
-        ->parameters([
-            'laptop' => 'id'
-        ])->except('update', 'create', 'edit', 'store', 'destroy');
-    Route::get('/create', [LaptopController::class, 'getCreate']);
-    Route::post('/create', [LaptopController::class, 'postCreate']);
-    Route::get('/update/{id}', [LaptopController::class, 'getUpdate']);
-    Route::post('/update', [LaptopController::class, 'postUpdate']);
-    Route::get('/search/{keywords}', [InfoController::class, 'search']);
+    Route::prefix('laptop')->group(function () {
+        Route::get('/list/', [InfoController::class, 'index']);
+        Route::get('/create', [LaptopController::class, 'getCreate']);
+        Route::get('/get/{id}', [LaptopController::class, 'show']);
+        Route::post('/create', [LaptopController::class, 'postCreate']);
+        Route::get('/update/{id}', [LaptopController::class, 'getUpdate']);
+        Route::post('/update', [LaptopController::class, 'postUpdate']);
+        Route::get('/search/{keywords}', [InfoController::class, 'search']);
+    });
+    Route::prefix('drive')->group(function(){
+        Route::get('/get/{id}', [DriveController::class, 'show']);
+        Route::get('/create', [DriveController::class, 'getCreate']);
+        Route::post('/create', [DriveController::class, 'postCreate']);
+        Route::get('/update/{id}', [DriveController::class, 'getUpdate']);
+        Route::post('/update', [DriveController::class, 'postUpdate']);
+        Route::get('/search/{keywords}', [InfoController::class, 'search']);
+        Route::get('/list/{page=0}', [DriveController::class, 'index']);
+    });
+
 });
 //,'role.isAdmin'
 Route::group(['middleware' => ['api']], function () {
@@ -51,5 +63,4 @@ Route::group(['middleware' => ['api']], function () {
 Route::post('login', [UserController::class, 'authenticate']);
 Route::post('register', [UserController::class, 'register']);
 
-
-//Route::filter('/test',[\App\Http\Controllers\TestingController::class,'testing2']);
+Route::post('/test',[TestingController::class,'testing4']);

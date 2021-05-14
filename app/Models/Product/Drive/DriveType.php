@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Models\Product;
+namespace App\Models\Product\Drive;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Type extends Model
+class DriveType extends Model
 {
-    protected $table = 'types';
     use HasFactory;
 }

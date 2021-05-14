@@ -67,28 +67,32 @@ class ProductImpl implements IProductService
 
     public function getIndex(int $type = 0, int $brand = 0)
     {
-        if ($type == 0)
-            $res = array();
-        foreach ($this->brand->all() as $item) {
-            $index = new productInfoGetList;
-            $index->id = $item->id;
-            $index->brand = $item->brand;
-            foreach ($this->info->getIndex($item->id) as $info) {
-                $product = new indexProductDto();
-                $product->id = $info->id;
-                $product->name = $info->name;
-                $product->price = $info->price;
-                $productSpecs = $this->laptopService->getSpecsIndex($info->id);
-                $product->ram = explode(",", $productSpecs['ram'])[0];
-                $product->rom = explode(' ', $productSpecs['rom'])[0]." ".explode(' ', $productSpecs['rom'])[1];
-                $temp = $this->image->newQuery()->where('info_id', $info->id)->first();
-                if ($temp != null) $product->image = $temp['link_image'];
+        $res = array();
+//        if ($type == 1) {
+            foreach ($this->brand->where('type_id','=',1)->get() as $item) {
+                $index = new productInfoGetList;
+                $index->id = $item->id;
+                $index->brand = $item->brand;
+                foreach (productInfo::where([
+                    ['brand_id','=',$item->id],
+                    ['type_id','=',1],
+                    ])->get() as $info) {
+                    $product = new indexProductDto();
+                    $product->id = $info->id;
+                    $product->name = $info->name;
+                    $product->price = $info->price;
+                    $productSpecs = $this->laptopService->getSpecsIndex($info->id);
+                    $product->ram = explode(",", $productSpecs['ram'])[0];
+                    $product->rom = explode(' ', $productSpecs['rom'])[0] . " " . explode(' ', $productSpecs['rom'])[1];
+                    $temp = $this->image->newQuery()->where('info_id', $info->id)->first();
+                    if ($temp != null) $product->image = $temp['link_image'];
 //                $img=   $this->image->newQuery()->where('info_id', $info->id)->first();
 //                $product->image =  $img->link_image;
-                $index->results[] = $product;
+                    $index->results[] = $product;
+                }
+                $res[] = $index;
             }
-            $res[] = $index;
-        }
+//        }
         return $res;
     }
 
@@ -119,8 +123,12 @@ class ProductImpl implements IProductService
             $img->link_image = $image;
             $img->info_id = $id;
             $img->save();
-            $res[] = $img;
+            $temp = [];
+            $temp['link'] = $image;
+            $temp['id'] = $id;
+            $res[] = $temp;
         }
+        return $res;
     }
 
     public function getById($id)
@@ -131,8 +139,8 @@ class ProductImpl implements IProductService
         $response->name = $info->name;
         $response->price = $info->price;
         $response->guarantee = $info->guarantee;
-        $brand_id = $info->brand_id;
-        $response->brand = Brand::query()->where('id', $brand_id)->first()->brand;
+        $response->brand_id = $info->brand_id;
+        $response->type_id = $info->type_id;
         $response->description = $info->description;
         return $response;
     }
@@ -180,9 +188,9 @@ class ProductImpl implements IProductService
     public function search($keyword)
     {
         $res = [];
-        $test = $this->info->newQuery()->where('name', 'LIKE', $keyword . '%')->get(['id','type_id']);
+        $test = $this->info->newQuery()->where('name', 'LIKE', $keyword . '%')->get(['id', 'type_id']);
         foreach ($test as $val) {
-            if ($val->type_id ==1)$res[] = new ShowListResource(new FullLaptopModel($val->id));
+            if ($val->type_id == 1) $res[] = new ShowListResource(new FullLaptopModel($val->id));
         }
         return $res;
     }

@@ -6,6 +6,7 @@ use App\Dto\Laptop\listSpecsLaptopDto;
 use App\Dto\Laptop\detailLaptopDto;
 use App\Dto\Laptop\postLaptopDto;
 use App\Dto\Laptop\showSpecsDto;
+use App\Models\Product\Brand;
 use App\Models\Product\Laptop\Battery;
 use App\Models\Product\Laptop\Cpu;
 use App\Models\Product\Laptop\Gpu;
@@ -127,6 +128,7 @@ class LaptopImpl implements ILaptopService
         $form->weights = $this->weight->allArr();
         $form->batteries = $this->battery->allArr();
         $form->os = $this->os->allArr();
+        $form->brand =Brand::where('type_id',1)->get(['id','brand'])->toArray();
         return $form;
     }
 
@@ -154,8 +156,8 @@ class LaptopImpl implements ILaptopService
     public function getSpecsAdmin(int $id): array
     {
         $res = [];
-        $lap = $this->laptop->newQuery()->where('id', $id)->first();
-        $res['cpu'] = $this->cpu->newQuery()->where('id', $lap->cpu_id)->first()->value;
+        $lap = laptopSpec::where('id', 21)->get(['cpu_id','ram_id','rom_id'])->first();;
+        $res['cpu'] = Cpu::where('id',$lap->cpu_id)->first();
         $res['ram'] = $this->ram->newQuery()->where('id', $lap->ram_id)->first()->value;
         $res['rom'] = $this->rom->newQuery()->where('id', $lap->rom_id)->first()->value;
         return $res;

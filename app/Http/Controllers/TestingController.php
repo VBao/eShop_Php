@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Dto\FullLaptopModel;
 use App\Http\Resources\ShowListResource;
+use App\Models\Product\Laptop\laptopSpec;
 use App\Service\ILaptopService;
 use App\Service\IProductService;
+use Illuminate\Http\Request;
+
 
 class TestingController extends Controller
 {
@@ -34,5 +37,16 @@ class TestingController extends Controller
     public function testing2($request)
     {
         return response()->json($this->info->search($request));
+    }
+    public function testing3()
+    {
+        $lap = laptopSpec::where('id', 21)->get(['cpu_id','ram_id','rom_id'])->first();
+
+        return response()->json($lap->cpu_id);
+    }
+    public function testing4(Request $request)
+    {
+        if ($request->laptop)
+        return response()->json($request);
     }
 }

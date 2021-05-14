@@ -11,5 +11,6 @@ class showInfoDto
     public string $description;
     public int $guarantee;
     public int $price;
-    public string $brand;
+    public int $brand_id;
+    public int $type_id;
 }

@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class InfoSpecs extends Seeder
+class TypeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,15 +14,7 @@ class InfoSpecs extends Seeder
      */
     public function run()
     {
-        $brands=[
-            'Dell',
-            'Hp',
-            'Lenovo',
-            'Acer',
-            'Msi',
-            'Macbook',
-            'Asus',
-        ];
+
         $types=[
             'Laptop',
             'Drive',
@@ -30,8 +22,6 @@ class InfoSpecs extends Seeder
             'Mouse',
             'Keyboard',
         ];
-
-        foreach ($brands as $brand)DB::table('brands')->insert(['brand'=>$brand]);
         foreach ($types as $type)DB::table('types')->insert(['type'=>$type]);
     }
 }

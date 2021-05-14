@@ -26,7 +26,8 @@ use Illuminate\Http\Request;
 class LaptopController extends Controller
 {
     protected ILaptopService $laptopService;
-    protected IProductService $productService;protected Brand $brand;
+    protected IProductService $productService;
+    protected Brand $brand;
     protected Ram $ram;
     protected Rom $rom;
     protected Cpu $cpu;
@@ -68,7 +69,7 @@ class LaptopController extends Controller
                 'name' => $response->info->name,
                 'guarantee' => $response->info->guarantee,
                 'price' => $response->info->price,
-                'brand' => $response->info->brand,
+                'brand' => Brand::where('id',$response->info->brand_id)->first(),
                 'cpu' => $response->specs->cpu,
                 'gpu' => $response->specs->gpu,
                 'ram' => $response->specs->ram,
@@ -94,12 +95,16 @@ class LaptopController extends Controller
         $response->specList = $this->laptopService->getForm();
         $response->image = $this->productService->getImages($id);
         $a = [
-            'id' => $response->info->id,
             'info' => [
+                'id' => $response->info->id,
                 'name' => $response->info->name,
                 'guarantee' => $response->info->guarantee,
                 'price' => $response->info->price,
-                'brand' => $response->info->brand,
+                'brand_id' => $response->info->brand_id,
+                'type_id' => $response->info->type_id,
+                'description' => $response->info->description,
+            ],
+            'spec' => [
                 'cpu' => $response->spec->cpu_id,
                 'gpu' => $response->spec->gpu_id,
                 'ram' => $response->spec->ram_id,
@@ -111,9 +116,8 @@ class LaptopController extends Controller
                 'battery' => $response->spec->battery_id,
                 'weight' => $response->spec->weight_id,
             ],
-            'description' => $response->info->description,
             'images' => $response->image,
-            'spec_list'=>$response->specList
+            'spec_list' => $response->specList
         ];
         return response()->json($a);
     }
@@ -132,7 +136,6 @@ class LaptopController extends Controller
         return response()->json(['result' => 'updated']);
 
     }
-
 
 
     public function getCreate(): JsonResponse
@@ -157,22 +160,23 @@ class LaptopController extends Controller
         return $this->show($res['info']->id);
     }
 
-    public function adminProducts(){
-        $res=[];
-        $tempAdd=[];
-        foreach($this->productService->getByType(1) as $key => $val) {
-            $tempProduct=$this->productService->getById($val->id);
-            $tempInfo=[];
-            $tempInfo['id']=$tempProduct->id;
-            $tempInfo['name']=$tempProduct->id;
-            $tempInfo['description']=$tempProduct->id;
-            $tempInfo['brand']=$tempProduct->brand;
-            foreach($this->laptopService->getSpecsAdmin($val->id) as $key => $value) $tempInfo[$key]=$value;
-            $tempAdd[]=$tempInfo;
+    public function adminProducts()
+    {
+        $res = [];
+        $tempAdd = [];
+        foreach ($this->productService->getByType(1) as $key => $val) {
+            $tempProduct = $this->productService->getById($val->id);
+            $tempInfo = [];
+            $tempInfo['id'] = $tempProduct->id;
+            $tempInfo['name'] = $tempProduct->id;
+            $tempInfo['description'] = $tempProduct->id;
+            $tempInfo['brand'] = $tempProduct->brand_id;
+            foreach ($this->laptopService->getSpecsAdmin($val->id) as $key => $value) $tempInfo[$key] = $value;
+            $tempAdd[] = $tempInfo;
         }
-        $res['data']=$tempAdd;
+        $res['data'] = $tempAdd;
         $res['filter'] = [
-            'Brand' =>$this->brand->toArraysReact(),
+            'Brand' => $this->brand->toArraysReact(),
             'Ram' => $this->ram->toArraysReact(),
             'Rom' => $this->rom->toArraysReact(),
             'Cpu' => $this->cpu->toArraysReact()

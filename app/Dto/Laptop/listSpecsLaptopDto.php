@@ -16,4 +16,5 @@ class listSpecsLaptopDto
     public array $weights;
     public array $batteries;
     public array $os;
+    public array $brand;
 }
