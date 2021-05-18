@@ -23,7 +23,7 @@ class SpecUpdateResource extends JsonResource
             "read_id" => $this->read_id,
             "dimension_id" => $this->dimension_id,
             "rotation_id" => $this->rotation_id,
-            "type_id" => $this->type_id
+            "drive_type_id" => $this->type_id
         ];
     }
 }

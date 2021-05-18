@@ -15,8 +15,8 @@ class ImageResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id'=>$this->id,
-            'image'=>$this->link_image
+            'id'=>strval($this->id),
+            'img'=>$this->link_image
         ];
     }
 }

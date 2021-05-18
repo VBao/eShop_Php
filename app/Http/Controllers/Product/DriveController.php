@@ -115,8 +115,17 @@ class DriveController extends Controller
         }
         $response = [];
         $response['info'] = $this->productService->putInfo($info);
-        $this->driveService->create($request->spec, $response['info']->id);
-        $this->productService->putImage($request->image, $response['info']->id);
+        $drive=DriveSpecs::find($response['info']->id);
+        foreach ($request->spec as $key => $value){
+            if ($key=='drive_type_id') {
+                $drive->type_id = $value;
+            }else{
+                $drive->$key=$value;
+            }
+        }
+        $drive->save();
+//        $this->driveService->update($request->spec, $response['info']->id);
+        $this->productService->putImage($request->images, $response['info']->id);
         return response()->json(['notify'=>'updated'],202);
 
     }

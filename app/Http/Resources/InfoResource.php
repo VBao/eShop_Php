@@ -36,8 +36,8 @@ class InfoResource extends JsonResource
             'name' => $this->name,
             'price' => $this->price,
             "guarantee" => 19,
-            "brand" => Brand::where('id',$this->brand_id)->first(['id','brand']),
-            "type" => Type::where('id',$this->type_id)->first(),
+            "brand_id" => Brand::where('id',$this->brand_id)->first(['id','brand'])->id,
+            "type_id" => Type::where('id',$this->type_id)->first()->id,
             "description" => $this->description,
         ];
     }

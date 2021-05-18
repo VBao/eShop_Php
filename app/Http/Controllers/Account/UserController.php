@@ -79,7 +79,9 @@ class UserController extends Controller
                 'password' => \Auth::user()->name,
                 'email' => \Auth::user()->email,
                 'phone' => \Auth::user()->phone,
-                'address' => \Auth::user()->address,]
+                'address' => \Auth::user()->address,
+                'admin'=>\Auth::user()->is_admin
+                ]
         ]);
     }
 
