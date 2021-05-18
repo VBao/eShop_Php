@@ -14,10 +14,10 @@ class DriveSpecs extends Model
      * @var mixed
      */
 
-    public function types()
-    {
-        return $this->belongsTo(DriveType::class,'_id');
-    }
+//    public function types()
+//    {
+//        return $this->belongsTo(DriveType::class,'type_id');
+//    }
 
     public function reads()
     {

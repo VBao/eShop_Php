@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDriveBrandsTable extends Migration
+class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateDriveBrandsTable extends Migration
      */
     public function up()
     {
-        Schema::create('drive_brands', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('brand','30');
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('status_id')->references('id')->on('order_statuses');
+            $table->dateTime('created_at');
         });
     }
 
@@ -26,6 +28,6 @@ class CreateDriveBrandsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('drive_brands');
+        Schema::dropIfExists('orders');
     }
 }

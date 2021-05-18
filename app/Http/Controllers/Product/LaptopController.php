@@ -104,17 +104,17 @@ class LaptopController extends Controller
                 'type_id' => $response->info->type_id,
                 'description' => $response->info->description,
             ],
-            'spec' => [
-                'cpu' => $response->spec->cpu_id,
-                'gpu' => $response->spec->gpu_id,
-                'ram' => $response->spec->ram_id,
-                'size' => $response->spec->size_id,
-                'rom' => $response->spec->rom_id,
-                'screen' => $response->spec->screen_id,
-                'port' => $response->spec->port_id,
-                'os' => $response->spec->os_id,
-                'battery' => $response->spec->battery_id,
-                'weight' => $response->spec->weight_id,
+            'spec_id' => [
+                'cpu_id' => $response->spec->cpu_id,
+                'gpu_id' => $response->spec->gpu_id,
+                'ram_id' => $response->spec->ram_id,
+                'size_id' => $response->spec->size_id,
+                'rom_id' => $response->spec->rom_id,
+                'screen_id' => $response->spec->screen_id,
+                'port_id' => $response->spec->port_id,
+                'os_id' => $response->spec->os_id,
+                'battery_id' => $response->spec->battery_id,
+                'weight_id' => $response->spec->weight_id,
             ],
             'images' => $response->image,
             'spec_list' => $response->specList
@@ -124,16 +124,15 @@ class LaptopController extends Controller
 
     public function postUpdate(Request $request)
     {
-        $res = [];
         $info = new postInfoDto;
         $specs = new postLaptopDto();
         foreach ($request->info as $key => $val) $info->$key = $val;
         $specs->id = $info->id;
-        foreach ($request->specs as $key => $val) $specs->$key = $val;
-        $res['info'] = $this->info->putInfo($info);
-        $res['specs'] = $this->laptop->putLaptop($specs);
-        $res['images'] = $this->info->putImage($request->images, $info->id);
-        return response()->json(['result' => 'updated']);
+        foreach ($request->spec as $key => $val) $specs->$key = $val;
+        $this->productService->putInfo($info);
+        $this->laptopService->putLaptop($specs);
+        $this->productService->putImage($request->images, $info->id);
+        return response()->json(['notify'=>'updated'],202);
 
     }
 
@@ -154,10 +153,10 @@ class LaptopController extends Controller
         $res['info'] = $this->productService->create($postInfo);
         foreach ($request->spec as $key => $val) $postLaptop->$key = $val;
         $postLaptop->id = $res['info']->id;
-        $res['spec'] = $this->laptopService->create($postLaptop);
+        $this->laptopService->create($postLaptop);
         $this->productService->createImages($request->images, $postLaptop->id);
         error_log('=================Insert new laptop completed!=================');
-        return $this->show($res['info']->id);
+        return response()->json(['notify'=>'created'],201);
     }
 
     public function adminProducts()
@@ -168,9 +167,9 @@ class LaptopController extends Controller
             $tempProduct = $this->productService->getById($val->id);
             $tempInfo = [];
             $tempInfo['id'] = $tempProduct->id;
-            $tempInfo['name'] = $tempProduct->id;
-            $tempInfo['description'] = $tempProduct->id;
-            $tempInfo['brand'] = $tempProduct->brand_id;
+            $tempInfo['name'] = $tempProduct->name;
+            $tempInfo['description'] = $tempProduct->description;
+            $tempInfo['brand'] = Brand::find($tempProduct->brand_id)->brand;
             foreach ($this->laptopService->getSpecsAdmin($val->id) as $key => $value) $tempInfo[$key] = $value;
             $tempAdd[] = $tempInfo;
         }
@@ -182,6 +181,9 @@ class LaptopController extends Controller
             'Cpu' => $this->cpu->toArraysReact()
         ];
         return $res;
+
+    }
+    public function filter(Request $request){
 
     }
 }

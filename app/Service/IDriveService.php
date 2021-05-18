@@ -11,5 +11,7 @@ interface IDriveService
     public function update($drive);
     public function get($id);
     public function list();
+    public function index();
+    public function filter(array $filter);
 
 }

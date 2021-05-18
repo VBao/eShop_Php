@@ -8,9 +8,9 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\Response;
+use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\JWTAuth;
 use Illuminate\Support\Facades\Auth;
-//use Tymon\JWTAuth\Facades\JWTAuth;
 
 
 class UserController extends Controller
@@ -52,7 +52,7 @@ class UserController extends Controller
         if ($validator->fails()) return response()->json(['status' => $validator->messages()], 200);
 
         try {
-            if (!$token =Auth::attempt($credentials)) {
+            if (!$token = Auth::attempt($credentials)) {
                 return response()->json([
                     'success' => 'failed',
                     'message' => 'Login credentials invalid'
@@ -70,30 +70,38 @@ class UserController extends Controller
 //Token created, return with success response and jwt token
         return response()->json([
             'success' => 'success',
-            'token' => $token
+            'token' => $token,
+            'info' => ['name' => \Auth::user()->name,
+                'password' => \Auth::user()->name,
+                'email' => \Auth::user()->email,
+                'phone' => \Auth::user()->phone,
+                'address' => \Auth::user()->address,]
         ]);
     }
 
-    public function logout(Request $request){
-//        Validate token
-        $validator = Validator::make($request,[
-            'token' => 'required'
-        ]);
-        if ($validator->fails()) return response()->json(['error' => $validator->messages()],200);
-
+    public function logout(Request $request)
+    {
 //        Validated do logout
         try {
             JWTAuth::invalidate($request->token);
             return response()->json(['success']);
-        }catch (JWTException $ex){
-            return response()->json(['error' => false, 'message'=>'Sorry we can\'t logout'],Response::HTTP_INTERNAL_SERVER_ERROR);
+        } catch (JWTException $ex) {
+            return response()->json(['error' => false, 'message' => 'Sorry we can\'t logout'], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 
-    public function get_user(Request $request){
-        $validator = Validator::validate($request,['token'=>'required']);
+    public function get_user(Request $request)
+    {
+        $validator = Validator::validate($request, ['token' => 'required']);
 //        $user = JWTAuth::authenticate($request->token);
         $user = (new JWTAuth)->authenticate($request->token);
-        return response()->json(['user'=>$user,]);
+        return response()->json(['user' => $user,]);
+    }
+
+    public function reset_password(Request $request)
+    {
+        $auth = Auth::user();
+        $user=User::find($auth->id);
+        $user->password = $request->password;
     }
 }

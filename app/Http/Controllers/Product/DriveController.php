@@ -31,11 +31,11 @@ class DriveController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function index($page)
+    public function index()
     {
-//        return response()->json($this->driveService->);
+        return response()->json($this->driveService->list());
 
     }
 
@@ -64,10 +64,9 @@ class DriveController extends Controller
         }
         $response = [];
         $response['info'] = $this->productService->create($info);
-        $response['spec'] = $this->driveService->create($request->spec, $response['info']->id);
-        unset($response['spec']->id);
-        $response['image'] = $this->productService->createImages($request->image, $response['info']->id);
-        return response()->json($response);
+        $this->driveService->create($request->spec, $response['info']->id);
+        $this->productService->createImages($request->image, $response['info']->id);
+        return response()->json(['notify'=>'created'],201);
     }
 
 
@@ -109,9 +108,9 @@ class DriveController extends Controller
         }
         $response = [];
         $response['info'] = $this->productService->putInfo($info);
-        $response['spec'] = $this->driveService->create($request->spec, $response['info']->id);
-        unset($response['spec']->id);
-        $response['image'] = $this->productService->putImage($request->image, $response['info']->id);
-        return response()->json($response);
+        $this->driveService->create($request->spec, $response['info']->id);
+        $this->productService->putImage($request->image, $response['info']->id);
+        return response()->json(['notify'=>'updated'],202);
+
     }
 }

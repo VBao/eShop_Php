@@ -15,4 +15,5 @@ interface IProductService{
     public function getImages($id);
     public function putImage($images,$id);
     public function putInfo(postInfoDto $newInfo);
+    public function brandIndex();
 }

@@ -16,4 +16,6 @@ interface ILaptopService
     public function create(postLaptopDto $lap);
     public function putLaptop(postLaptopDto $lap);
     public function getSpecsAdmin(int $id);
+    public function filter(array $filter);
+    public function index();
 }

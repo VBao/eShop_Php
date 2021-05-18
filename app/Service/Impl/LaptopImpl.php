@@ -6,6 +6,8 @@ use App\Dto\Laptop\listSpecsLaptopDto;
 use App\Dto\Laptop\detailLaptopDto;
 use App\Dto\Laptop\postLaptopDto;
 use App\Dto\Laptop\showSpecsDto;
+use App\Http\Resources\LaptopIndexResource;
+use App\Http\Resources\ListLaptopResource;
 use App\Models\Product\Brand;
 use App\Models\Product\Laptop\Battery;
 use App\Models\Product\Laptop\Cpu;
@@ -18,8 +20,10 @@ use App\Models\Product\Laptop\Rom;
 use App\Models\Product\Laptop\Screen;
 use App\Models\Product\Laptop\Size;
 use App\Models\Product\Laptop\Weight;
+use App\Models\Product\productInfo;
 use App\Service\ILaptopService;
 use Database\Seeders\LaptopSpecs;
+use Illuminate\Database\Eloquent\Collection;
 
 
 class LaptopImpl implements ILaptopService
@@ -78,13 +82,15 @@ class LaptopImpl implements ILaptopService
 
     public function getList()
     {
+        return ListLaptopResource::collection(productInfo::where('type_id', 1)->get());
+//        return ListLaptopResource::collection(productInfo::where('type_id', 1)->get());
     }
 
-    public function getSpecs(int $lapId,$update=false)
+    public function getSpecs(int $lapId, $update = false)
     {
         $response = new showSpecsDto;
         $lapSpec = $this->laptop->newQuery()->where('id', $lapId)->first();
-        if ($update){
+        if ($update) {
             $response->port_id = $lapSpec->port->id;
             $response->ram_id = $lapSpec->ram->id;
             $response->rom_id = $lapSpec->rom->id;
@@ -95,7 +101,7 @@ class LaptopImpl implements ILaptopService
             $response->weight_id = $lapSpec->weight->id;
             $response->os_id = $lapSpec->os->id;
             $response->battery_id = $lapSpec->battery->id;
-        }else{
+        } else {
             $response->port = $lapSpec->port->value;
             $response->ram = $lapSpec->ram->value;
             $response->rom = $lapSpec->rom->value;
@@ -128,7 +134,7 @@ class LaptopImpl implements ILaptopService
         $form->weights = $this->weight->allArr();
         $form->batteries = $this->battery->allArr();
         $form->os = $this->os->allArr();
-        $form->brand =Brand::where('type_id',1)->get(['id','brand'])->toArray();
+        $form->brand = Brand::where('type_id', 1)->get(['id', 'brand'])->toArray();
         return $form;
     }
 
@@ -145,9 +151,9 @@ class LaptopImpl implements ILaptopService
 
     public function putLaptop(postLaptopDto $lap)
     {
-        $oldLap=laptopSpec::find($lap->id);
-        foreach ($lap as $key=>$value){
-            $oldLap->$key=$value;
+        $oldLap = laptopSpec::find($lap->id);
+        foreach ($lap as $key => $value) {
+            $oldLap->$key = $value;
         }
         $oldLap->save();
         return $oldLap;
@@ -156,10 +162,30 @@ class LaptopImpl implements ILaptopService
     public function getSpecsAdmin(int $id): array
     {
         $res = [];
-        $lap = laptopSpec::where('id', 21)->get(['cpu_id','ram_id','rom_id'])->first();;
-        $res['cpu'] = Cpu::where('id',$lap->cpu_id)->first();
+        $lap = laptopSpec::where('id', 21)->get(['cpu_id', 'ram_id', 'rom_id'])->first();;
+        $res['cpu'] = Cpu::where('id', $lap->cpu_id)->first()->value;
         $res['ram'] = $this->ram->newQuery()->where('id', $lap->ram_id)->first()->value;
         $res['rom'] = $this->rom->newQuery()->where('id', $lap->rom_id)->first()->value;
         return $res;
+    }
+
+    public function filter(array $filter)
+    {
+        $list_laptop = new Collection();
+        foreach ($filter['brand'] as $brand) {
+            foreach
+            (productInfo::where('brand_id', $brand)->whereBetween('price', [$filter['min_price'], $filter['max_price']])->get()
+             as $info) {
+                $laptop_spec = LaptopSpec::find($info->id);
+                if (in_array($laptop_spec->ram_id, $filter['ram']) || in_array($laptop_spec->rom_id, $filter))
+                    $list_laptop->add($info);
+            }
+        }
+        return ListLaptopResource::collection($list_laptop);
+    }
+
+    public function index()
+    {
+        return LaptopIndexResource::collection(Brand::where('type_id', 1)->get());
     }
 }
