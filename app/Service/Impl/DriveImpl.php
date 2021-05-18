@@ -27,7 +27,7 @@ use App\Service\IDriveService;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Collection;
 
- class DriveImpl implements IDriveService
+class DriveImpl implements IDriveService
 {
 
     public function getForm()
@@ -50,7 +50,11 @@ use Illuminate\Support\Collection;
         $createDrive = new DriveSpecs;
         $createDrive->id = $id;
         foreach ($drive as $property => $value) {
-            $createDrive->$property = $value;
+            if ($property=='drive_type_id') {
+                $createDrive->type_id = $value;
+            }else {
+                $createDrive->$property = $value;
+            }
         }
         $createDrive->save();
 //        if (!$createDrive->save()) throw new Exception();
@@ -85,7 +89,7 @@ use Illuminate\Support\Collection;
 //        foreach (Brand::where('type_id','=',2)->get() as $brand){
 //
 //        }
-        return DriveListResource::collection(productInfo::where('type_id',2)->get());
+        return DriveListResource::collection(productInfo::where('type_id', 2)->get());
     }
 
     public function filter(array $filter)
@@ -95,17 +99,26 @@ use Illuminate\Support\Collection;
             foreach
             (productInfo::where('brand_id', $brand)->whereBetween('price', [$filter['min_price'], $filter['max_price']])->get()
              as $info) {
-                $drive_spec=DriveSpecs::find($info->id);
-                if (in_array($drive_spec->capacity_id,$filter['capacity']) ||in_array($drive_spec->connect_id,$filter['connect']))
-                $list_drive->add($info);
+                $drive_spec = DriveSpecs::find($info->id);
+                if (in_array($drive_spec->capacity_id, $filter['capacity']) || in_array($drive_spec->connect_id, $filter['connect']))
+                    $list_drive->add($info);
             }
         }
         return DriveListResource::collection($list_drive);
     }
 
-     public function index()
-     {
+    public function index()
+    {
 //         return DriveIndexResource::collection(Brand::all());
-         return LaptopIndexResource::collection(Brand::where('type_id', 2)->get());
-     }
- }
+        return LaptopIndexResource::collection(Brand::where('type_id', 2)->get());
+    }
+
+    public function getSpecsAdmin($id)
+    {
+        $res = [];
+        $drive = DriveSpecs::where('id', $id)->get(['type_id', 'capacity_id'])->first();;
+        $res['type'] = DriveType::find($drive->type_id)->value;
+        $res['capacity'] = DriveCapacity::find($drive->capacity_id)->value;
+        return $res;
+    }
+}

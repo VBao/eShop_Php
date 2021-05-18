@@ -12,6 +12,8 @@ interface IDriveService
     public function get($id);
     public function list();
     public function index();
+    public function getSpecsAdmin($id);
     public function filter(array $filter);
+
 
 }

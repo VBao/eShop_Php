@@ -26,7 +26,7 @@ class Cpu extends Model
         $res = [];
         foreach (Rom::all() as $val) {
             $temp = [];
-            $temp['value'] = $val->id;
+            $temp['value'] = $val->value;
             $temp['text'] = $val->value;
             $res[] = $temp;
         }

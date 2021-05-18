@@ -175,13 +175,12 @@ class LaptopController extends Controller
         }
         $res['data'] = $tempAdd;
         $res['filter'] = [
-            'Brand' => $this->brand->toArraysReact(),
+            'Brand' => $this->brand->toArraysReact(1),
             'Ram' => $this->ram->toArraysReact(),
             'Rom' => $this->rom->toArraysReact(),
             'Cpu' => $this->cpu->toArraysReact()
         ];
         return $res;
-
     }
     public function filter(Request $request){
 

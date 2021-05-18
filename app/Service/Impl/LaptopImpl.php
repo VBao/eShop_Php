@@ -162,7 +162,7 @@ class LaptopImpl implements ILaptopService
     public function getSpecsAdmin(int $id): array
     {
         $res = [];
-        $lap = laptopSpec::where('id', 21)->get(['cpu_id', 'ram_id', 'rom_id'])->first();;
+        $lap = laptopSpec::where('id', $id)->get(['cpu_id', 'ram_id', 'rom_id'])->first();
         $res['cpu'] = Cpu::where('id', $lap->cpu_id)->first()->value;
         $res['ram'] = $this->ram->newQuery()->where('id', $lap->ram_id)->first()->value;
         $res['rom'] = $this->rom->newQuery()->where('id', $lap->rom_id)->first()->value;

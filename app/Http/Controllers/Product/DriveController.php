@@ -5,7 +5,11 @@ namespace App\Http\Controllers\Product;
 use App\Dto\Info\postInfoDto;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\DriveUpdateResource;
+use App\Http\Resources\FilterResource;
+use App\Models\Product\Brand;
+use App\Models\Product\Drive\DriveCapacity;
 use App\Models\Product\Drive\DriveSpecs;
+use App\Models\Product\Drive\DriveType;
 use App\Service\IDriveService;
 use App\Service\IProductService;
 use Illuminate\Http\Request;
@@ -15,16 +19,19 @@ class DriveController extends Controller
 {
     protected IDriveService $driveService;
     protected IProductService $productService;
+    protected Brand $brand;
 
     /**
      * DriveController constructor.
      * @param IDriveService $driveService
      * @param IProductService $productService
+     * @param Brand $brand
      */
-    public function __construct(IDriveService $driveService, IProductService $productService)
+    public function __construct(IDriveService $driveService, IProductService $productService, Brand $brand)
     {
         $this->driveService = $driveService;
         $this->productService = $productService;
+        $this->brand = $brand;
     }
 
 
@@ -65,7 +72,7 @@ class DriveController extends Controller
         $response = [];
         $response['info'] = $this->productService->create($info);
         $this->driveService->create($request->spec, $response['info']->id);
-        $this->productService->createImages($request->image, $response['info']->id);
+        $this->productService->createImages($request->images, $response['info']->id);
         return response()->json(['notify'=>'created'],201);
     }
 
@@ -112,5 +119,27 @@ class DriveController extends Controller
         $this->productService->putImage($request->image, $response['info']->id);
         return response()->json(['notify'=>'updated'],202);
 
+    }
+    public function adminProducts()
+    {
+        $res = [];
+        $tempAdd = [];
+        foreach ($this->productService->getByType(2) as $key => $val) {
+            $tempProduct = $this->productService->getById($val->id);
+            $tempInfo = [];
+            $tempInfo['id'] = $tempProduct->id;
+            $tempInfo['name'] = $tempProduct->name;
+            $tempInfo['description'] = $tempProduct->description;
+            $tempInfo['brand'] = Brand::find($tempProduct->brand_id)->brand;
+            foreach ($this->driveService->getSpecsAdmin($val->id) as $key => $value) $tempInfo[$key] = $value;
+            $tempAdd[] = $tempInfo;
+        }
+        $res['data'] = $tempAdd;
+        $res['filter'] = [
+            'Brand' => $this->brand->toArraysReact(2),
+            'type' => FilterResource::collection(DriveType::all()),
+            'capacity' => FilterResource::collection(DriveCapacity::all()),
+        ];
+        return $res;
     }
 }

@@ -195,7 +195,7 @@ public function getIndex(){}
 
     public function getByType($id)
     {
-        return $this->info->where('type_id', $id)->get('id');
+        return $this->info->where('type_id', $id)->orderByDesc('id')->get('id');
     }
 
     public function search($keyword)

@@ -61,14 +61,16 @@ Route::group(['middleware' => ['role.isAdmin']], function () {
         });
         Route::prefix('/products')->group(function () {
             Route::get('/spec_list', [InfoController::class, 'getAllSpecs']);
-            Route::get('/index', [LaptopController::class, 'adminProducts']);
+//            Route::get('/index', [LaptopController::class, 'adminProducts']);
             Route::prefix('laptop')->group(function () {
+                Route::get('/index', [LaptopController::class, 'adminProducts']);
                 Route::get('/create', [LaptopController::class, 'getCreate']);
                 Route::post('/create', [LaptopController::class, 'postCreate']);
                 Route::get('/update/{id}', [LaptopController::class, 'getUpdate']);
                 Route::post('/update', [LaptopController::class, 'postUpdate']);
             });
             Route::prefix('drive')->group(function () {
+                Route::get('/index', [DriveController::class, 'adminProducts']);
                 Route::get('/create', [DriveController::class, 'getCreate']);
                 Route::post('/create', [DriveController::class, 'postCreate']);
                 Route::get('/update/{id}', [DriveController::class, 'getUpdate']);
