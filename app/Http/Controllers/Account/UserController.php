@@ -17,11 +17,13 @@ class UserController extends Controller
 {
     public function register(Request $request)
     {
-        $data = $request->only('name', 'email', 'password');
+        $data = $request->only('name', 'email', 'password','address','phone');
         $validator = Validator::make($data, [
             'name' => 'required|string',
             'email' => 'required|string|unique:users',
-            'password' => 'required|string|min:6|max:50'
+            'password' => 'required|string|min:6|max:50',
+            'address'=>'required|string',
+            'phone'=>'required|string|min:10|max:10'
         ]);
 
         if ($validator->fails()) return response()->json(['error' => $validator->messages()], 200);
@@ -29,7 +31,9 @@ class UserController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->password)
+            'password' => bcrypt($request->password),
+            'address'=>$request->address,
+            'phone'=>$request->phone
         ]);
 
         return response()->json([
