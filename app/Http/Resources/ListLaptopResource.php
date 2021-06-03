@@ -18,7 +18,7 @@ class ListLaptopResource extends JsonResource
      */
     public function toArray($request)
     {
-        $spec=laptopSpec::find(1);
+        $spec=laptopSpec::find($this->id);
         return [
             'id'=>$this->id,
             'name'=>$this->name,

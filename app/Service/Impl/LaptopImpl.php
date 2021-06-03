@@ -121,8 +121,10 @@ class LaptopImpl implements ILaptopService
         // TODO: Implement update() method.
     }
 
-    public function getForm(): listSpecsLaptopDto
+    public function getForm(): array
     {
+        $info = [];
+        $info["info"]["brands"] = Brand::where('type_id', 1)->get(['id', 'brand'])->toArray();
         $form = new listSpecsLaptopDto();
         $form->cpus = $this->cpu->allArr();
         $form->gpus = $this->gpu->allArr();
@@ -134,8 +136,8 @@ class LaptopImpl implements ILaptopService
         $form->weights = $this->weight->allArr();
         $form->batteries = $this->battery->allArr();
         $form->os = $this->os->allArr();
-        $form->brand = Brand::where('type_id', 1)->get(['id', 'brand'])->toArray();
-        return $form;
+        $info["spec"]=$form;
+        return $info;
     }
 
     public function create(postLaptopDto $lap)

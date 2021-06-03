@@ -44,7 +44,7 @@ class DriveDetailsResource extends JsonResource
             'info' => ['name' => $info->name,
                 'guarantee' => $info->guarantee,
                 'price' => $info->price,
-                'brand' => Brand::where('id', $info->brand_id)->get(['id', 'brand'])->first(),
+                'brand' => Brand::where('id', $info->brand_id)->get(['id', 'brand'])->first()->brand,
                 'read' => DriveRead::find($this->read_id)->value,
                 'write' => DriveWrite::find($this->write_id)->value,
                 'cache' => DriveRead::find($this->cache_id)->value,

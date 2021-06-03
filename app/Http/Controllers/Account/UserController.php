@@ -76,7 +76,6 @@ class UserController extends Controller
             'success' => 'success',
             'token' => $token,
             'info' => ['name' => \Auth::user()->name,
-                'password' => \Auth::user()->name,
                 'email' => \Auth::user()->email,
                 'phone' => \Auth::user()->phone,
                 'address' => \Auth::user()->address,

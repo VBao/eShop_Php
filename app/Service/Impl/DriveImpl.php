@@ -33,15 +33,16 @@ class DriveImpl implements IDriveService
     public function getForm()
     {
         return [
-            'capacities' => DriveCapacity::all(),
+            'info' => ['brands' => Brand::query()->where('type_id', 2)->get(['id', 'brand'])],
+            'spec'=>['capacities' => DriveCapacity::all(),
             'caches' => DriveCache::all(),
             'connections' => DriveConnect::all(),
             'writes' => DriveWrite::all(),
             'reads' => DriveRead::all(),
             'dimensions' => DriveDimension::all(),
             'rotations' => DriveRotation::all(),
-            'types' => DriveType::all(),
-            'brands' => Brand::query()->where('type_id', 2)->get(['id', 'brand']),
+            'types' => DriveType::all(),]
+
         ];
     }
 
@@ -50,9 +51,9 @@ class DriveImpl implements IDriveService
         $createDrive = new DriveSpecs;
         $createDrive->id = $id;
         foreach ($drive as $property => $value) {
-            if ($property=='drive_type_id') {
+            if ($property == 'drive_type_id') {
                 $createDrive->type_id = $value;
-            }else {
+            } else {
                 $createDrive->$property = $value;
             }
         }

@@ -33,23 +33,25 @@ Route::get('/', [InfoController::class, 'index']);
 Route::prefix('products')->group(function () {
     Route::post('/filter', [InfoController::class, 'filter']);
     Route::prefix('laptop')->group(function () {
-        Route::get('/list', [InfoController::class, 'index']);
+        Route::get('/filter', [LaptopController::class, 'getFilter']);
+        Route::post('/filter', [LaptopController::class, 'postFilter']);
+        Route::post('/list/{page}', [InfoController::class, 'index']);
         Route::get('/get/{id}', [LaptopController::class, 'show']);
         Route::get('/search/{keywords}', [InfoController::class, 'search']);
     });
     Route::prefix('drive')->group(function () {
         Route::get('/get/{id}', [DriveController::class, 'show']);
+        Route::post('/filter', [DriveController::class, 'postFilter']);
         Route::get('/search/{keywords}', [InfoController::class, 'search']);
         Route::get('/list', [DriveController::class, 'index']);
     });
-
 });
 //,'role.isAdmin'
 Route::group(['middleware' => ['check_login']], function () {
-    Route::post('/cart_info',[PurchaseController::class,'cart_info']);
-    Route::post('/cart_post',[PurchaseController::class,'purchase']);
-    Route::get('/order/{id}',[PurchaseController::class,'detail']);
-    Route::get('/orders',[PurchaseController::class,'orders']);
+    Route::post('/cart_info', [PurchaseController::class, 'cart_info']);
+    Route::post('/cart_post', [PurchaseController::class, 'purchase']);
+    Route::get('/order/{id}', [PurchaseController::class, 'detail']);
+    Route::get('/orders', [PurchaseController::class, 'orders']);
     Route::prefix('/account')->group(function () {
         Route::post('reset-password', [UserController::class, 'reset_password']);
     });
@@ -61,7 +63,7 @@ Route::group(['middleware' => ['role.isAdmin']], function () {
         });
         Route::prefix('/products')->group(function () {
             Route::get('/spec_list', [InfoController::class, 'getAllSpecs']);
-//            Route::get('/index', [LaptopController::class, 'adminProducts']);
+            Route::get('/index', [LaptopController::class, 'adminProducts']);
             Route::prefix('laptop')->group(function () {
                 Route::get('/index', [LaptopController::class, 'adminProducts']);
                 Route::get('/create', [LaptopController::class, 'getCreate']);

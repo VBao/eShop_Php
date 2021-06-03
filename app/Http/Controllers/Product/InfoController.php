@@ -5,6 +5,12 @@ namespace App\Http\Controllers\Product;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\AllSpecsResource;
 use App\Http\Resources\SpecsListResource;
+use App\Models\Product\Brand;
+use App\Models\Product\Drive\DriveCapacity;
+use App\Models\Product\Drive\DriveType;
+use App\Models\Product\Laptop\Cpu;
+use App\Models\Product\Laptop\Ram;
+use App\Models\Product\Laptop\Screen;
 use App\Models\Product\Type;
 use App\Service\IDriveService;
 use App\Service\ILaptopService;
@@ -116,19 +122,19 @@ class InfoController extends Controller
 
     public function getAllSpecs()
     {
-        $specs=new SpecList();
-        $types=[];
-        foreach (Type::all() as $type){
-            $types[]=(object)[
-                'id'=>$type->id,
-                'value'=>$type->type
+        $specs = new SpecList();
+        $types = [];
+        foreach (Type::all() as $type) {
+            $types[] = (object)[
+                'id' => $type->id,
+                'value' => $type->type
             ];
         }
         $res = (object)
         [
             'type' => $types,
-            'laptop' =>(object)$specs->laptop(),
-            'drive' => (object) $specs->drive(),
+            'laptop' => (object)$specs->laptop(),
+            'drive' => (object)$specs->drive(),
         ];
         return response()->json($res);
     }

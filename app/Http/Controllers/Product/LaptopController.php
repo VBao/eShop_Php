@@ -12,16 +12,24 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\BrandList;
 use App\Http\Resources\DetailsLaptopResource;
 use App\Http\Resources\Filters;
+use App\Http\Resources\LaptopIndexResource;
+use App\Http\Resources\ListLaptopResource;
 use App\Http\Resources\ShowProductResource;
 use App\Models\Product\Brand;
 use App\Models\Product\Image;
 use App\Models\Product\Laptop\Cpu;
+use App\Models\Product\Laptop\laptopSpec;
 use App\Models\Product\Laptop\Ram;
 use App\Models\Product\Laptop\Rom;
+use App\Models\Product\Laptop\Screen;
+use App\Models\Product\productInfo;
 use App\Service\ILaptopService;
 use App\Service\IProductService;
+use Database\Seeders\LaptopSpecs;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
+use function PHPUnit\Framework\isEmpty;
 
 class LaptopController extends Controller
 {
@@ -57,11 +65,164 @@ class LaptopController extends Controller
         return $this->productService->getIndex();
     }
 
+    public function getFilter()
+    {
+        $res = [];
+        $filter['id'] = Type::query()->where('type', '=', 'Laptop')->first()->id;
+        $filter['value'] = (object)[
+            'brands' => Brand::query()->where('type_id', 1)->get(['id', 'brand']),
+            'rams' => Ram::all(),
+            'screens' => Screen::all(),
+            'cpus' => Cpu::all(),
+        ];
+        $res['filter'] = $filter;
+        $res['data'] = LaptopIndexResource::collection();
+        return response()->json($res);
+    }
+
+    private function ramOption($requestRam)
+    {
+        $ramLis = [];
+        $ramCheck = [];
+        foreach (Ram::all() as $item) {
+            $ram_size = explode(', ', $item->value, 2)[0];
+            if (!in_array($ram_size, $ramLis)) {
+                $ramLis[] = $ram_size;
+            }
+        }
+        if (!is_null($requestRam)) foreach ($requestRam as $searchRam) {
+            $activeRams = Ram::where('value', 'LIKE', "%" . $searchRam . "%")->get(['id']);
+            if (!is_null($activeRams)) {
+                $ramCheck[] = $searchRam;
+                $rams[] = ['value' => $searchRam, 'active' => true];
+            }
+        }
+        foreach (array_diff($ramLis, $ramCheck) as $inactiveRam) {
+            $rams[] = ['value' => $inactiveRam, 'active' => false];
+        }
+        return $rams;
+    }
+
+    private function screenOption($requestScreen)
+    {
+        $screenList = [];
+        $screenCheck = [];
+        foreach (Screen::all() as $item) {
+            $screen_size = explode(', ', $item->value, 2)[0];
+            if (!in_array($screen_size, $screenList)) {
+                $screenList[] = $screen_size;
+            }
+        }
+        if (!is_null($requestScreen)) foreach ($requestScreen as $searchScreen) {
+            $activeScreen = Screen::where('value', 'LIKE', "%" . $searchScreen . "%")->get(['id']);
+            if (!is_null($activeScreen)) {
+                $screenCheck[] = $searchScreen;
+                $screens[] = ['value' => $searchScreen, 'active' => true];
+            }
+        }
+        foreach (array_diff($screenList, $screenCheck) as $inactiveScreen) {
+            $screens[] = ['value' => $inactiveScreen, 'active' => false];
+        }
+        return $screens;
+    }
+
+    private function cpuOption($requestCpu)
+    {
+        $cpuList = [];
+        $cpuCheck = [];
+        foreach (Cpu::all() as $item) {
+            $cpu_value = explode(', ', $item->value, 2)[0];
+            if (!in_array($cpu_value, $cpuList)) {
+                $cpuList[] = $cpu_value;
+            }
+        }
+        if (!is_null($requestCpu)) foreach ($requestCpu as $searchCpu) {
+            $activeCpu = Cpu::where('value', 'LIKE', "%" . $searchCpu . "%")->get(['id']);
+            if (!is_null($activeCpu)) {
+                $cpuCheck[] = $searchCpu;
+                $cpus[] = ['value' => $searchCpu, 'active' => true];
+            }
+        }
+        foreach (array_diff($cpuList, $cpuCheck) as $inactiveScreen) {
+            $cpus[] = ['value' => $inactiveScreen, 'active' => false];
+        }
+        return $cpus;
+    }
+
+    public function postFilter(Request $request)
+    {
+        $laptop_brands = [];
+        foreach (Brand::where('type_id', '=', 1)->get(['id', 'brand']) as $brand)
+            $laptop_brands[] = (object)[
+                "id" => $brand->id,
+                "value" => $brand->brand,
+                "active" => in_array($brand->id, $request->laptop_brands)
+            ];
+        $filter = (object)[
+            'brands' => $laptop_brands,
+            'rams' => $this->ramOption($request->laptop_rams),
+            'screens' => $this->screenOption($request->laptop_screens),
+            'cpus' => $this->cpuOption($request->laptop_cpus)
+        ];
+
+        $rawInfo = [];
+        if ($request->laptop_brands != null) {
+            if ($request->price != null) {
+                foreach ($request->laptop_brands as $brand)
+                    $rawInfo = array_merge($rawInfo, productInfo::where('brand_id', '=', $brand)
+                        ->whereBetween('price', [$request->price[0], $request->price[1]])->get('id')->toArray());
+            } else {
+                foreach ($request->laptop_brands as $brand) {
+                    $rawInfo = productInfo::where('brand_id', '=', $brand)->get('id')->toArray();
+                }
+            }
+        } else {
+            $rawInfo = ($request->price != null) ? productInfo::where('type_id', '=', 1)->whereBetween('price', [$request->price[0], $request->price[1]])->get('id')->toArray() :
+                productInfo::where('type_id', '=', 1)->get('id')->toArray();
+        }
+        $data = [];
+        $activeScreen = [];
+        foreach ($request->laptop_screens as $item) {
+            foreach (Screen::where('value', 'LIKE', "%" . $item . "%")->get('id')->toArray() as $value)
+                $activeScreen[] = $value['id'];
+        }
+        $activeCpu = [];
+        foreach ($request->laptop_cpus as $item) {
+            foreach (Cpu::where('value', 'LIKE', "%" . $item . "%")->get(['id'])->toArray() as $value)
+                $activeCpu[] = $value['id'];
+        }
+        $activeRam = [];
+        foreach ($request->laptop_rams as $item) {
+            foreach (Ram::where('value', 'LIKE', "%" . $item . "%")->get(['id'])->toArray() as $value)
+                $activeRam[] = $value['id'];
+        }
+        if ($activeRam != null || $activeCpu != null || $activeScreen != null) {
+            foreach ($rawInfo as $info) {
+                $checkLaptop = laptopSpec::find($info['id']);
+                $a[] = $checkLaptop->ram_id;
+                if (in_array($checkLaptop->ram_id, $activeRam) || in_array($checkLaptop->screen_id, $activeScreen)
+                    || in_array($checkLaptop->cpu_id, $activeCpu))
+                    $data[] = new ListLaptopResource(productInfo::find($info['id']));
+            }
+        } else {
+            foreach ($rawInfo as $info) $data[] = new ListLaptopResource(productInfo::find($info['id']));
+        }
+
+        $data = ($request->page == 1) ? array_slice($data, 1, 12)
+            : array_slice($data, ($request->page - 1) * 12 + 1, ($request->page - 1) * 12 + 11);
+
+        return response()->json([
+            'filter' => $filter,
+            'data' => $data
+        ]);
+    }
+
     public function show($id)
     {
         $response = new detailLaptopDto();
         $response->info = $this->productService->getById($id);
         $response->specs = $this->laptopService->getSpecs($id);
+
         $response->image = $this->productService->getImages($id);
         $a = [
             'id' => $response->info->id,
@@ -69,7 +230,7 @@ class LaptopController extends Controller
                 'name' => $response->info->name,
                 'guarantee' => $response->info->guarantee,
                 'price' => $response->info->price,
-                'brand' => Brand::where('id',$response->info->brand_id)->first(),
+                'brand' => Brand::where('id', $response->info->brand_id)->first()->brand,
                 'cpu' => $response->specs->cpu,
                 'gpu' => $response->specs->gpu,
                 'ram' => $response->specs->ram,
@@ -89,35 +250,35 @@ class LaptopController extends Controller
 
     public function getUpdate($id)
     {
-        $response = new updateLaptopDto();
-        $response->info = $this->productService->getById($id);
-        $response->spec = $this->laptopService->getSpecs($id, true);
-        $response->specList = $this->laptopService->getForm();
-        $response->image = $this->productService->getImages($id);
+        $response = [];
+        $response['info'] = $this->productService->getById($id);
+        $response['spec'] = $this->laptopService->getSpecs($id, true);
+        $response['specList'] = $this->laptopService->getForm();
+        $response['image'] = $this->productService->getImages($id);
         $a = [
             'info' => [
-                'id' => $response->info->id,
-                'name' => $response->info->name,
-                'guarantee' => $response->info->guarantee,
-                'price' => $response->info->price,
-                'brand_id' => $response->info->brand_id,
-                'type_id' => $response->info->type_id,
-                'description' => $response->info->description,
+                'id' => $response['info']->id,
+                'name' => $response['info']->name,
+                'guarantee' => $response['info']->guarantee,
+                'price' => $response['info']->price,
+                'brand_id' => $response['info']->brand_id,
+                'type_id' => $response['info']->type_id,
+                'description' => $response['info']->description,
             ],
-            'spec_id' => [
-                'cpu_id' => $response->spec->cpu_id,
-                'gpu_id' => $response->spec->gpu_id,
-                'ram_id' => $response->spec->ram_id,
-                'size_id' => $response->spec->size_id,
-                'rom_id' => $response->spec->rom_id,
-                'screen_id' => $response->spec->screen_id,
-                'port_id' => $response->spec->port_id,
-                'os_id' => $response->spec->os_id,
-                'battery_id' => $response->spec->battery_id,
-                'weight_id' => $response->spec->weight_id,
+            'spec' => [
+                'cpu_id' => $response['spec']->cpu_id,
+                'gpu_id' => $response['spec']->gpu_id,
+                'ram_id' => $response['spec']->ram_id,
+                'size_id' => $response['spec']->size_id,
+                'rom_id' => $response['spec']->rom_id,
+                'screen_id' => $response['spec']->screen_id,
+                'port_id' => $response['spec']->port_id,
+                'os_id' => $response['spec']->os_id,
+                'battery_id' => $response['spec']->battery_id,
+                'weight_id' => $response['spec']->weight_id,
             ],
-            'images' => $response->image,
-            'spec_list' => $response->specList
+            'image' => $response['image'],
+            'spec_list' => $response['specList']
         ];
         return response()->json($a);
     }
@@ -132,7 +293,7 @@ class LaptopController extends Controller
         $this->productService->putInfo($info);
         $this->laptopService->putLaptop($specs);
         $this->productService->putImage($request->images, $info->id);
-        return response()->json(['notify'=>'updated'],202);
+        return response()->json(['notify' => 'updated'], 202);
 
     }
 
@@ -156,7 +317,7 @@ class LaptopController extends Controller
         $this->laptopService->create($postLaptop);
         $this->productService->createImages($request->images, $postLaptop->id);
         error_log('=================Insert new laptop completed!=================');
-        return response()->json(['notify'=>'created'],201);
+        return response()->json(['notify' => 'created'], 201);
     }
 
     public function adminProducts()
@@ -181,8 +342,5 @@ class LaptopController extends Controller
             'Cpu' => $this->cpu->toArraysReact()
         ];
         return $res;
-    }
-    public function filter(Request $request){
-
     }
 }
