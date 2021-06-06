@@ -16,13 +16,16 @@ class BrandIndexResource extends JsonResource
     public function toArray($request)
     {
         if ($this->type_id == 1) {
+            $type = 'laptop';
             $rs = ListLaptopResource::collection(productInfo::where('brand_id', $this->id)->orderBy('id', 'desc')->limit(4)->get());
         } elseif ($this->type_id == 2) {
+            $type = 'drive';
             $rs = DriveListResource::collection(productInfo::where('brand_id', $this->id)->orderBy('id', 'desc')->limit(4)->get());
         }
         return [
             'id' => $this->id,
             'brand' => $this->brand,
+            'type' => $type,
             'result' => $rs,
         ];
     }

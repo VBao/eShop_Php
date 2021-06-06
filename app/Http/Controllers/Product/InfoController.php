@@ -50,11 +50,6 @@ class InfoController extends Controller
      */
     public function index()
     {
-//        $res=[];
-//        $res[]=$this->laptopService->index();
-//        $res[]=$this->driveService->index();
-//        return response()->json($res);
-
         return response()->json($this->productService->brandIndex());
     }
 
