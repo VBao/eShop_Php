@@ -212,6 +212,7 @@ class LaptopController extends Controller
             : array_slice($data, ($request->page - 1) * 12 + 1, ($request->page - 1) * 12 + 11);
 
         return response()->json([
+            'type'=> 'laptop',
             'filter' => $filter,
             'data' => $data
         ]);
@@ -334,6 +335,7 @@ class LaptopController extends Controller
             foreach ($this->laptopService->getSpecsAdmin($val->id) as $key => $value) $tempInfo[$key] = $value;
             $tempAdd[] = $tempInfo;
         }
+
         $res['data'] = $tempAdd;
         $res['filter'] = [
             'Brand' => $this->brand->toArraysReact(1),

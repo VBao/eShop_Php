@@ -163,6 +163,7 @@ class DriveController extends Controller
         $data = ($request->page == 1) ? array_slice($data, 1, 12)
             : array_slice($data, ($request->page - 1) * 12 + 1, ($request->page - 1) * 12 + 11);
         return response()->json([
+            'type'=> 'drive',
             'filter' => $filter,
             'data' => $data
         ]);
@@ -194,7 +195,7 @@ class DriveController extends Controller
         $response = [];
         $response['info'] = $this->productService->create($info);
         $this->driveService->create($request->spec, $response['info']->id);
-        $this->productService->createImages($request->images, $response['info']->id);
+        $this->productService->createImages($request->image, $response['info']->id);
         return response()->json(['notify' => 'created'], 201);
     }
 
