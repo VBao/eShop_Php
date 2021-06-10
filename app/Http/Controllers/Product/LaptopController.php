@@ -173,7 +173,7 @@ class LaptopController extends Controller
                         ->whereBetween('price', [$request->price[0], $request->price[1]])->get('id')->toArray());
             } else {
                 foreach ($request->laptop_brands as $brand) {
-                    $rawInfo = productInfo::where('brand_id', '=', $brand)->get('id')->toArray();
+                    $rawInfo = array_merge($rawInfo,productInfo::where('brand_id', '=', $brand)->get('id')->toArray());
                 }
             }
         } else {
