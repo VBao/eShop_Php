@@ -18,7 +18,7 @@ class DriveListResource extends JsonResource
      */
     public function toArray($request)
     {
-        $spec=DriveSpecs::find(66);
+        $spec=DriveSpecs::find($this->id);
         return [
             'id'=>$this->id,
             'name'=>$this->name,

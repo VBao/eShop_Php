@@ -269,13 +269,12 @@ class LaptopController extends Controller
             foreach ($rawInfo as $info) $data[] = new ListLaptopResource(productInfo::find($info['id']));
         }
 
-        $data = ($request->page == 1) ? array_slice($data, 1, 12)
-            : array_slice($data, ($request->page - 1) * 12 + 1, ($request->page - 1) * 12 + 11);
+        $res = array_slice($data, ($request->page - 1) * 12, 12);
 
         return response()->json([
             'type' => 'laptop',
             'filter' => $filter,
-            'data' => $data
+            'data' => $res
         ]);
     }
 

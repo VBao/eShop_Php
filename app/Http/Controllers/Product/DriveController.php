@@ -117,7 +117,7 @@ class DriveController extends Controller
             $drive_brands[] = (object)[
                 "id" => $brand->id,
                 "value" => $brand->brand,
-                "active" => in_array($brand->id, $request->brand_drive)
+                "active" => in_array($brand->brand, $request->brand_drive)
             ];
         $filter = (object)[
             'brands' => $drive_brands,
@@ -133,12 +133,12 @@ class DriveController extends Controller
                         ->whereBetween('price', [$request->price[0], $request->price[1]])->get('id')->toArray());
             } else {
                 foreach ($request->brand_drive as $brand) {
-                    $rawInfo = array_merge($rawInfo, productInfo::where('brand_id', '=', $brand)->get('id'));
+                    $rawInfo = array_merge($rawInfo, productInfo::where('brand_id', '=', $brand)->get('id')->toArray());
                 }
             }
         } else {
             $rawInfo = ($request->price != null) ? productInfo::where('type_id', '=', 2)->whereBetween('price', [$request->price[0], $request->price[1]])->get('id') :
-                productInfo::where('type_id', '=', 1)->get('id');
+                productInfo::where('type_id', '=', 2)->get('id');
         }
         $data = [];
         $activeType = [];
@@ -152,11 +152,6 @@ class DriveController extends Controller
                 $activeCapacity[] = $value['id'];
         }
         if ($activeType != null || $activeCapacity != null) {
-//            foreach ($rawInfo as $info) {
-//                $checkDrive = DriveSpecs::find($info['id']);
-//                if (in_array($checkDrive->type_id, $activeType) || in_array($checkDrive->capacity_id, $activeCapacity))
-//                    $data[] = new DriveListResource(productInfo::find($info['id']));
-//            }
             if ($activeType == null) {
                 foreach ($rawInfo as $info) {
                     $checkDrive = DriveSpecs::find($info['id']);
@@ -181,12 +176,11 @@ class DriveController extends Controller
         } else {
             foreach ($rawInfo as $item) $data[] = new DriveListResource(productInfo::find($item['id']));
         }
-        $data = ($request->page == 1) ? array_slice($data, 1, 12)
-            : array_slice($data, ($request->page - 1) * 12 + 1, ($request->page - 1) * 12 + 11);
+        $res = array_slice($data, ($request->page - 1) * 12, 12);
         return response()->json([
             'type' => 'drive',
             'filter' => $filter,
-            'data' => $data
+            'data' => $res
         ]);
     }
 
