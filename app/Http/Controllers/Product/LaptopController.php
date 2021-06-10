@@ -398,6 +398,8 @@ class LaptopController extends Controller
             $tempInfo['name'] = $tempProduct->name;
             $tempInfo['description'] = $tempProduct->description;
             $tempInfo['brand'] = Brand::find($tempProduct->brand_id)->brand;
+            $tempInfo['price']=$tempProduct->price;
+            $tempInfo['image']=Image::where('info_id','=',$tempProduct->id)->first()->link_image;
             foreach ($this->laptopService->getSpecsAdmin($val->id) as $key => $value) $tempInfo[$key] = $value;
             $tempAdd[] = $tempInfo;
         }

@@ -12,6 +12,7 @@ use App\Models\Product\Brand;
 use App\Models\Product\Drive\DriveCapacity;
 use App\Models\Product\Drive\DriveSpecs;
 use App\Models\Product\Drive\DriveType;
+use App\Models\Product\Image;
 use App\Models\Product\productInfo;
 use App\Service\IDriveService;
 use App\Service\IProductService;
@@ -279,6 +280,8 @@ class DriveController extends Controller
             $tempInfo['name'] = $tempProduct->name;
             $tempInfo['description'] = $tempProduct->description;
             $tempInfo['brand'] = Brand::find($tempProduct->brand_id)->brand;
+            $tempInfo['price']=$tempProduct->price;
+            $tempInfo['image']=Image::where('info_id','=',$tempProduct->id)->first()->link_image;
             foreach ($this->driveService->getSpecsAdmin($val->id) as $key => $value) $tempInfo[$key] = $value;
             $tempAdd[] = $tempInfo;
         }
