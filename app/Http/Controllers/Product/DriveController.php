@@ -117,7 +117,7 @@ class DriveController extends Controller
             $drive_brands[] = (object)[
                 "id" => $brand->id,
                 "value" => $brand->brand,
-                "active" => in_array($brand->brand, $request->brand_drive)
+                "active" => in_array($brand->id, $request->brand_drive)
             ];
         $filter = (object)[
             'brands' => $drive_brands,
