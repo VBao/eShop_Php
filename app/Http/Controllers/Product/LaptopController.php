@@ -177,7 +177,8 @@ class LaptopController extends Controller
                 }
             }
         } else {
-            $rawInfo = ($request->price != null) ? productInfo::where('type_id', '=', 1)->whereBetween('price', [$request->price[0], $request->price[1]])->get('id')->toArray() :
+            $rawInfo = ($request->price != null) ?
+                productInfo::where('type_id', '=', 1)->whereBetween('price', [$request->price[0], $request->price[1]])->get('id')->toArray() :
                 productInfo::where('type_id', '=', 1)->get('id')->toArray();
         }
         $data = [];
@@ -197,12 +198,72 @@ class LaptopController extends Controller
                 $activeRam[] = $value['id'];
         }
         if ($activeRam != null || $activeCpu != null || $activeScreen != null) {
-            foreach ($rawInfo as $info) {
-                $checkLaptop = laptopSpec::find($info['id']);
-                $a[] = $checkLaptop->ram_id;
-                if (in_array($checkLaptop->ram_id, $activeRam) || in_array($checkLaptop->screen_id, $activeScreen)
-                    || in_array($checkLaptop->cpu_id, $activeCpu))
-                    $data[] = new ListLaptopResource(productInfo::find($info['id']));
+//            foreach ($rawInfo as $info) {
+//                $checkLaptop = laptopSpec::find($info['id']);
+//                $a[] = $checkLaptop->ram_id;
+//                if (in_array($checkLaptop->ram_id, $activeRam) || in_array($checkLaptop->screen_id, $activeScreen)
+//                    || in_array($checkLaptop->cpu_id, $activeCpu))
+//                    $data[] = new ListLaptopResource(productInfo::find($info['id']));
+//            }
+            if ($activeCpu == null) {
+                if ($activeRam == null) {
+                    foreach ($rawInfo as $info) {
+                        $checkLaptop = laptopSpec::find($info['id']);
+                        $a[] = $checkLaptop->ram_id;
+                        if (in_array($checkLaptop->screen_id, $activeScreen))
+                            $data[] = new ListLaptopResource(productInfo::find($info['id']));
+                    }
+                } else {
+                    if ($activeScreen == null) {
+                        foreach ($rawInfo as $info) {
+                            $checkLaptop = laptopSpec::find($info['id']);
+                            $a[] = $checkLaptop->ram_id;
+                            if (in_array($checkLaptop->ram_id, $activeRam))
+                                $data[] = new ListLaptopResource(productInfo::find($info['id']));
+                        }
+                    } else {
+                        foreach ($rawInfo as $info) {
+                            $checkLaptop = laptopSpec::find($info['id']);
+                            $a[] = $checkLaptop->ram_id;
+                            if (in_array($checkLaptop->ram_id, $activeRam) && in_array($checkLaptop->screen_id, $activeScreen))
+                                $data[] = new ListLaptopResource(productInfo::find($info['id']));
+                        }
+                    }
+                }
+            } else {
+                if ($activeRam == null) {
+                    if ($activeScreen == null) {
+                        foreach ($rawInfo as $info) {
+                            $checkLaptop = laptopSpec::find($info['id']);
+                            $a[] = $checkLaptop->ram_id;
+                            if (in_array($checkLaptop->cpu_id, $activeCpu))
+                                $data[] = new ListLaptopResource(productInfo::find($info['id']));
+                        }
+                    } else {
+                        foreach ($rawInfo as $info) {
+                            $checkLaptop = laptopSpec::find($info['id']);
+                            $a[] = $checkLaptop->ram_id;
+                            if (in_array($checkLaptop->cpu_id, $activeCpu) && in_array($checkLaptop->screen_id, $activeScreen))
+                                $data[] = new ListLaptopResource(productInfo::find($info['id']));
+                        }
+                    }
+                } else {
+                    if ($activeScreen == null) {
+                        foreach ($rawInfo as $info) {
+                            $checkLaptop = laptopSpec::find($info['id']);
+                            $a[] = $checkLaptop->ram_id;
+                            if (in_array($checkLaptop->ram_id, $activeRam) && in_array($checkLaptop->cpu_id, $activeCpu))
+                                $data[] = new ListLaptopResource(productInfo::find($info['id']));
+                        }
+                    } else {
+                        foreach ($rawInfo as $info) {
+                            $checkLaptop = laptopSpec::find($info['id']);
+                            $a[] = $checkLaptop->ram_id;
+                            if (in_array($checkLaptop->ram_id, $activeRam) && in_array($checkLaptop->screen_id, $activeScreen) && in_array($checkLaptop->cpu_id, $activeCpu))
+                                $data[] = new ListLaptopResource(productInfo::find($info['id']));
+                        }
+                    }
+                }
             }
         } else {
             foreach ($rawInfo as $info) $data[] = new ListLaptopResource(productInfo::find($info['id']));
@@ -212,13 +273,14 @@ class LaptopController extends Controller
             : array_slice($data, ($request->page - 1) * 12 + 1, ($request->page - 1) * 12 + 11);
 
         return response()->json([
-            'type'=> 'laptop',
+            'type' => 'laptop',
             'filter' => $filter,
             'data' => $data
         ]);
     }
 
-    public function show($id)
+    public
+    function show($id)
     {
         $response = new detailLaptopDto();
         $response->info = $this->productService->getById($id);
@@ -249,7 +311,8 @@ class LaptopController extends Controller
         return response()->json($a);
     }
 
-    public function getUpdate($id)
+    public
+    function getUpdate($id)
     {
         $response = [];
         $response['info'] = $this->productService->getById($id);
@@ -284,7 +347,8 @@ class LaptopController extends Controller
         return response()->json($a);
     }
 
-    public function postUpdate(Request $request)
+    public
+    function postUpdate(Request $request)
     {
         $info = new postInfoDto;
         $specs = new postLaptopDto();
@@ -299,12 +363,14 @@ class LaptopController extends Controller
     }
 
 
-    public function getCreate(): JsonResponse
+    public
+    function getCreate(): JsonResponse
     {
         return response()->json($this->laptopService->getForm());
     }
 
-    public function postCreate(Request $request): JsonResponse
+    public
+    function postCreate(Request $request): JsonResponse
     {
         $res = [];
         $postInfo = new postInfoDto;
@@ -321,7 +387,8 @@ class LaptopController extends Controller
         return response()->json(['notify' => 'created'], 201);
     }
 
-    public function adminProducts()
+    public
+    function adminProducts()
     {
         $res = [];
         $tempAdd = [];

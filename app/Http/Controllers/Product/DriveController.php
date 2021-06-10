@@ -152,18 +152,39 @@ class DriveController extends Controller
                 $activeCapacity[] = $value['id'];
         }
         if ($activeType != null || $activeCapacity != null) {
-            foreach ($rawInfo as $info) {
-                $checkDrive = DriveSpecs::find($info['id']);
-                if (in_array($checkDrive->type_id, $activeType) || in_array($checkDrive->capacity_id, $activeCapacity))
-                    $data[] = new DriveListResource(productInfo::find($info['id']));
+//            foreach ($rawInfo as $info) {
+//                $checkDrive = DriveSpecs::find($info['id']);
+//                if (in_array($checkDrive->type_id, $activeType) || in_array($checkDrive->capacity_id, $activeCapacity))
+//                    $data[] = new DriveListResource(productInfo::find($info['id']));
+//            }
+            if ($activeType == null) {
+                foreach ($rawInfo as $info) {
+                    $checkDrive = DriveSpecs::find($info['id']);
+                    if (in_array($checkDrive->capacity_id, $activeCapacity))
+                        $data[] = new DriveListResource(productInfo::find($info['id']));
+                }
+            } else {
+                if ($activeCapacity == null) {
+                    foreach ($rawInfo as $info) {
+                        $checkDrive = DriveSpecs::find($info['id']);
+                        if (in_array($checkDrive->type_id, $activeType))
+                            $data[] = new DriveListResource(productInfo::find($info['id']));
+                    }
+                } else {
+                    foreach ($rawInfo as $info) {
+                        $checkDrive = DriveSpecs::find($info['id']);
+                        if (in_array($checkDrive->type_id, $activeType) && in_array($checkDrive->capacity_id, $activeCapacity))
+                            $data[] = new DriveListResource(productInfo::find($info['id']));
+                    }
+                }
             }
-        }else{
-            foreach ($rawInfo as $item) $data[]= new DriveListResource(productInfo::find($item['id']));
+        } else {
+            foreach ($rawInfo as $item) $data[] = new DriveListResource(productInfo::find($item['id']));
         }
         $data = ($request->page == 1) ? array_slice($data, 1, 12)
             : array_slice($data, ($request->page - 1) * 12 + 1, ($request->page - 1) * 12 + 11);
         return response()->json([
-            'type'=> 'drive',
+            'type' => 'drive',
             'filter' => $filter,
             'data' => $data
         ]);
