@@ -24,7 +24,7 @@ class Cpu extends Model
     public function toArraysReact()
     {
         $res = [];
-        foreach (Rom::all() as $val) {
+        foreach (Cpu::all() as $val) {
             $temp = [];
             $temp['value'] = $val->value;
             $temp['text'] = $val->value;

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Battery extends Model
 {
     use HasFactory;
+    public $timestamps=false;
     protected $table='laptop_batteries';
     public function allArr(): array
     {

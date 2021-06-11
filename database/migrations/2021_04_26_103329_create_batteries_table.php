@@ -16,7 +16,7 @@ class CreateBatteriesTable extends Migration
         Schema::create('laptop_batteries', function (Blueprint $table) {
             $table->id();
             $table->string('value')->unique();
-            $table->timestamps();
+//            $table->timestamps();
         });
     }
 

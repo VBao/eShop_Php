@@ -207,7 +207,8 @@ class LaptopSpecs extends Seeder
             "Windows 10 Home SL + Office Home&Student 2019 vĩnh viễn",
             "Windows 10 Home 64-bit",
             "Ubuntu 20.10",
-            "Free DOS"
+            "Free DOS",
+            "MacOS"
         ];
 
         $batteries = [
