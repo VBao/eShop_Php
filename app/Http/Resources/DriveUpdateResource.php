@@ -26,9 +26,9 @@ class DriveUpdateResource extends JsonResource
 //        ];
         return [
             'info'=>new InfoResource(productInfo::where('id',$request->id)->first()),
-            'spec_id'=>new SpecUpdateResource(DriveSpecs::where('id',$request->id)->first()),
-            'images'=>ImageResource::collection(Image::where('info_id',$request->id)->get()),
-            'spec_list'=>new SpecsListResource(Type::where('id',2)->first()),
+            'spec'=>new SpecUpdateResource(DriveSpecs::where('id',$request->id)->first()),
+            'image'=>ImageResource::collection(Image::where('info_id',$request->id)->get()),
+//            'spec_list'=>new SpecsListResource(Type::where('id',2)->first()),
         ];
     }
 }

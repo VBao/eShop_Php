@@ -316,7 +316,7 @@ class LaptopController extends Controller
         $response = [];
         $response['info'] = $this->productService->getById($id);
         $response['spec'] = $this->laptopService->getSpecs($id, true);
-        $response['specList'] = $this->laptopService->getForm();
+//        $response['specList'] = $this->laptopService->getForm();
         $response['image'] = $this->productService->getImages($id);
         $a = [
             'info' => [
@@ -341,7 +341,7 @@ class LaptopController extends Controller
                 'weight_id' => $response['spec']->weight_id,
             ],
             'image' => $response['image'],
-            'spec_list' => $response['specList']
+//            'spec_list' => $response['specList']
         ];
         return response()->json($a);
     }

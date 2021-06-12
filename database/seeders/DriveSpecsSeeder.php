@@ -26,12 +26,12 @@ class DriveSpecsSeeder extends Seeder
             "1100MB/s",
             "1550MB/s"
         ];
-        $rotation = [
+        $rotation = ["None",
             "5400RPM",
             "5900RPM",
             "7200RPM"
         ];
-        $cache = ["128MB", "256MB"];
+        $cache = ["None","128MB", "256MB"];
 
         foreach ($dimension as $value) \DB::table('drive_dimensions')->insert(['value' => $value]);
         foreach ($capacity as $value) \DB::table('drive_capacities')->insert(['value' => $value]);
