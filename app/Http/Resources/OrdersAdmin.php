@@ -1,0 +1,53 @@
+<?php
+
+namespace App\Http\Resources;
+
+use App\Models\Cart;
+use App\Models\OrderStatus;
+use App\Models\Product\Image;
+use App\Models\Product\productInfo;
+use App\Models\User;
+use Illuminate\Http\Resources\Json\JsonResource;
+
+class OrdersAdmin extends JsonResource
+{
+    /**
+     * Transform the resource into an array.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return array
+     */
+
+    public function toArray($request)
+    {
+        $products = [];
+        $total = 0;
+        foreach (Cart::query()->where('order_id', '=', $this->id)->get() as $item) {
+            $product = productInfo::find($item->product_id);
+            $total += $item->quantity * $product->price;
+            $products[] = (object)[
+                "id" => $item->id,
+                "name" => $product->name,
+                "image" => Image::where('info_id', "=", $product->id)->first()->link_image,
+                "price" => $product->price,
+                "qty" => $item->quantity
+            ];
+        }
+        $user = User::query()->where('id', '=', $this->user_id)->first();
+        return [
+            'billId' => $this->id,
+            'userId' => $this->user_id,
+            'name' => $user->name,
+            'phone' => $user->phone,
+            'email' => $user->email,
+            'status' => OrderStatus::query()->where('id','=',$this->status_id)->first()->status,
+            'bill' => [
+                'billId' => $this->id,
+                'totalPrice' => $total,
+                'timeBuy' => $this->created_at,
+                'products' => $products
+            ]
+
+        ];
+    }
+}

@@ -46,7 +46,7 @@ Route::prefix('products')->group(function () {
         Route::get('/list', [DriveController::class, 'index']);
     });
 });
-//,'role.isAdmin'
+
 Route::group(['middleware' => ['check_login']], function () {
     Route::post('/cart_info', [PurchaseController::class, 'cart_info']);
     Route::post('/cart_post', [PurchaseController::class, 'purchase']);
@@ -58,6 +58,8 @@ Route::group(['middleware' => ['check_login']], function () {
 });
 Route::group(['middleware' => ['role.isAdmin']], function () {
     Route::prefix('admin')->group(function () {
+        Route::get('orders', [PurchaseController::class, 'ordersAdmin']);
+        Route::get('orderStat/order_id/{orderId}/stat/{stat}', [PurchaseController::class, 'changeStats']);
         Route::prefix('/account')->group(function () {
             Route::post('role', [UserController::class, 'role']);
         });
@@ -80,7 +82,6 @@ Route::group(['middleware' => ['role.isAdmin']], function () {
         });
     });
 });
-
 
 Route::post('login', [UserController::class, 'authenticate']);
 Route::post('register', [UserController::class, 'register']);

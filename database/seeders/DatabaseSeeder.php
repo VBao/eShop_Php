@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(DriveTestSeeder::class);
         $this->call(Images::class);
         $this->call(OrderStatusSeeder::class);
+        $this->call(OrderSeeder::class);
     }
 }

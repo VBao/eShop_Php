@@ -15,8 +15,9 @@ class OrderStatusSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('order_statuses')->insert(['status' => 'pending']);
-        DB::table('order_statuses')->insert(['status' => 'processing']);
-        DB::table('order_statuses')->insert(['status' => 'completed']);
+        DB::table('order_statuses')->insert(['status' => 'AWAIT_FOR_CONFIRMATION']);
+        DB::table('order_statuses')->insert(['status' => 'ON_GOING']);
+        DB::table('order_statuses')->insert(['status' => 'DELIVERED']);
+        DB::table('order_statuses')->insert(['status' => 'CANCELLED']);
     }
 }

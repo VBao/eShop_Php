@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\OrdersAdmin;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderStatus;
@@ -15,6 +16,7 @@ use App\Models\Product\Laptop\Rom;
 use App\Models\Product\productInfo;
 use App\Models\User;
 use Database\Seeders\LaptopSpecs;
+use http\Env\Response;
 use Illuminate\Http\Request;
 
 class PurchaseController extends Controller
@@ -50,7 +52,7 @@ class PurchaseController extends Controller
 
     public function cart_info(Request $request)
     {
-        $res=[];
+        $res = [];
         foreach ($request->id as $item) {
             $res[] = $this->info($item);
         }
@@ -96,5 +98,20 @@ class PurchaseController extends Controller
             ];
         }
         return response()->json($res);
+    }
+
+    public function ordersAdmin()
+    {
+        return response()->json(OrdersAdmin::collection(Order::all()));
+    }
+
+    public function changeStats(int $orderId, string $stat)
+    {
+        $order=Order::query()->where('id','=',$orderId)->first();
+        $stats=OrderStatus::all();
+        if ($order->status_id == $stats->where('status','=',$stat)->first()->id) return response()->json(['result' => 'Already changed']);
+        $order->status_id=$stats->where('status','=',$stat)->first()->id;
+        $order->save();
+        return response()->json(['result'=>'Changed'],202);
     }
 }

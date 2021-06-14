@@ -14,7 +14,7 @@ class DriveTestSeeder extends Seeder
     public function run()
     {
         for ($i = 50; $i < 100; $i++) {
-            \DB::table('product_infos')->insert(['name' => \Str::random(20), 'description' => 'Example description', 'guarantee' => random_int(12,24), 'price' => 2500000, 'brand_id' => random_int(8, 16), 'type_id' => 2, 'created_at' => date('Y/m/d H:i:s')]);
+            \DB::table('product_infos')->insert(['name' => \Str::random(20), 'description' => 'Example description', 'guarantee' => random_int(12,24), 'price' => random_int(2000000,10000000), 'brand_id' => random_int(8, 16), 'type_id' => 2, 'created_at' => date('Y/m/d H:i:s')]);
             \DB::table('drive_specs')->insert([
                 'id'=>$i,
                 'dimension_id'=>random_int(1,5),
