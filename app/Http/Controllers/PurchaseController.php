@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\OrdersAdmin;
+use App\Mail\OrderReceive;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderStatus;
@@ -67,7 +68,6 @@ class PurchaseController extends Controller
         $order->status_id = 1;
         $order->created_at = now();
         $order->save();
-//        return response()->json($order->id);
         foreach ($request->order as $item) {
             $cart = new Cart();
             $cart->product_id = $item['id'];
@@ -75,6 +75,28 @@ class PurchaseController extends Controller
             $cart->order_id = $order->id;
             $cart->save();
         }
+        $mail=[];
+        $products = [];
+        $total = 0;
+        foreach (Cart::query()->where('order_id', '=', $order->id)->get() as $item) {
+            $product = productInfo::find($item->product_id);
+            $total += $item->quantity * $product->price;
+            $products[] = (object)[
+                "name" => $product->name,
+                "price" => $product->price,
+                "qty" => $item->quantity
+            ];
+        }
+        $mail['product']=$products;
+        $mail['total']=$total;
+        $mail['userInfo']=(object)[
+            'name'=>$user->name,
+            'email'=>$user->email,
+            'phone'=>$user->phone,
+            'address'=>$user->address
+        ];
+        \Mail::to($user->email)->send(new OrderReceive($mail));
+
         return response()->json(['notify' => 'order succeed'], 201);
     }
 

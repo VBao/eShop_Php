@@ -173,7 +173,7 @@ class LaptopController extends Controller
                         ->whereBetween('price', [$request->price[0], $request->price[1]])->get('id')->toArray());
             } else {
                 foreach ($request->laptop_brands as $brand) {
-                    $rawInfo = array_merge($rawInfo,productInfo::where('brand_id', '=', $brand)->get('id')->toArray());
+                    $rawInfo = array_merge($rawInfo, productInfo::where('brand_id', '=', $brand)->get('id')->toArray());
                 }
             }
         } else {
@@ -371,6 +371,8 @@ class LaptopController extends Controller
     public
     function postCreate(Request $request): JsonResponse
     {
+        if (productInfo::where('name', 'LIKE', $request->info->name)->first() != null) return response()->json(['error' => 'Already have product with name "' . $request->info->name . '"'], 400);
+        if (count($request->image) < 2) return response()->json(['error' => 'Accept at least 3 image'], 400);
         $res = [];
         $postInfo = new postInfoDto;
         $postLaptop = new postLaptopDto;
@@ -381,7 +383,7 @@ class LaptopController extends Controller
         foreach ($request->spec as $key => $val) $postLaptop->$key = $val;
         $postLaptop->id = $res['info']->id;
         $this->laptopService->create($postLaptop);
-        $this->productService->createImages($request->images, $postLaptop->id);
+        $this->productService->createImages($request->image, $postLaptop->id);
         error_log('=================Insert new laptop completed!=================');
         return response()->json(['notify' => 'created'], 201);
     }
@@ -398,8 +400,8 @@ class LaptopController extends Controller
             $tempInfo['name'] = $tempProduct->name;
             $tempInfo['description'] = $tempProduct->description;
             $tempInfo['brand'] = Brand::find($tempProduct->brand_id)->brand;
-            $tempInfo['price']=$tempProduct->price;
-            $tempInfo['image']=Image::where('info_id','=',$tempProduct->id)->first()->link_image;
+            $tempInfo['price'] = $tempProduct->price;
+            $tempInfo['image'] = Image::where('info_id', '=', $tempProduct->id)->first()->link_image;
             foreach ($this->laptopService->getSpecsAdmin($val->id) as $key => $value) $tempInfo[$key] = $value;
             $tempAdd[] = $tempInfo;
         }

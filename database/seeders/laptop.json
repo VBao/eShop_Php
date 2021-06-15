@@ -1,0 +1,31 @@
+[
+    {
+        "info": {
+            "name": "LAP_TEST_1",
+            "description": "abc",
+            "guarantee": 24,
+            "price": 15399000,
+            "brand_id": 1,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 28,
+            "gpu_id": 8,
+            "ram_id": 17,
+            "size_id": 5,
+            "rom_id": 1,
+            "screen_id": 2,
+            "port_id": 8,
+            "os_id": 1,
+            "battery_id": 1,
+            "weight_id":  7
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/240161/dell-inspiron-7501-i5-10300h-8gb-512gb-4gb-gtx1650-600x600.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/240161/dell-inspiron-7501-i5-10300h-8gb-512gb-4gb-gtx1650-600x600.jpg",
+            "img3":"https://cdn.tgdd.vn/Products/Images/44/240161/dell-inspiron-7501-i5-10300h-8gb-512gb-4gb-gtx1650-600x600.jpg"
+        }
+    },
+
+
+]

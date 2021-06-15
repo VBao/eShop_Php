@@ -204,6 +204,8 @@ class DriveController extends Controller
      */
     public function postCreate(Request $request)
     {
+        if (productInfo::where('name', 'LIKE', $request->info->name)->first() != null) return response()->json(['error' => 'Already have product with name "' . $request->info->name . '"'], 400);
+        if (count($request->image) < 2) return response()->json(['error' => 'Accept at least 3 image'], 400);
         $info = new postInfoDto;
         foreach ($request->info as $key => $val) {
             $info->$key = $val;
@@ -280,8 +282,8 @@ class DriveController extends Controller
             $tempInfo['name'] = $tempProduct->name;
             $tempInfo['description'] = $tempProduct->description;
             $tempInfo['brand'] = Brand::find($tempProduct->brand_id)->brand;
-            $tempInfo['price']=$tempProduct->price;
-            $tempInfo['image']=Image::where('info_id','=',$tempProduct->id)->first()->link_image;
+            $tempInfo['price'] = $tempProduct->price;
+            $tempInfo['image'] = Image::where('info_id', '=', $tempProduct->id)->first()->link_image;
             foreach ($this->driveService->getSpecsAdmin($val->id) as $key => $value) $tempInfo[$key] = $value;
             $tempAdd[] = $tempInfo;
         }

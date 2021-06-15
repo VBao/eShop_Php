@@ -40,14 +40,14 @@ class OrdersAdmin extends JsonResource
             'name' => $user->name,
             'phone' => $user->phone,
             'email' => $user->email,
-            'status' => OrderStatus::query()->where('id','=',$this->status_id)->first()->status,
+            'address' => $user->address,
+            'status' => OrderStatus::query()->where('id', '=', $this->status_id)->first()->status,
             'bill' => [
                 'billId' => $this->id,
                 'totalPrice' => $total,
                 'timeBuy' => $this->created_at,
                 'products' => $products
             ]
-
         ];
     }
 }
