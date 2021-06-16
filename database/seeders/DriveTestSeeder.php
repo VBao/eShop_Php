@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Dto\Info\postInfoDto;
 use App\Dto\Laptop\postLaptopDto;
+use App\Service\IDriveService;
+use App\Service\IProductService;
 use Illuminate\Database\Seeder;
 
 class DriveTestSeeder extends Seeder
@@ -13,9 +15,40 @@ class DriveTestSeeder extends Seeder
      *
      * @return void
      */
+    protected IDriveService $driveService;
+    protected IProductService $productService;
+
+    /**
+     * DriveTestSeeder constructor.
+     * @param IDriveService $driveService
+     * @param IProductService $productService
+     */
+    public function __construct(IDriveService $driveService, IProductService $productService)
+    {
+        $this->driveService = $driveService;
+        $this->productService = $productService;
+    }
+
     public function run()
     {
-        $this->genRandom();
+        $this->genJson();
+    }
+
+    private function genJson()
+    {
+        $json = file_get_contents('drive.json',FILE_USE_INCLUDE_PATH);
+        $json_data = json_decode($json, true);
+        foreach($json_data as $drive)
+        {
+            $info = new postInfoDto;
+            foreach ($drive['info'] as $key => $val) {
+                $info->$key = $val;
+            }
+            $response = [];
+            $response['info'] = $this->productService->create($info);
+            $this->driveService->create($drive['spec'], $response['info']->id);
+            $this->productService->createImages($drive['image'], $response['info']->id);
+        }
     }
 
     private function genRandom()

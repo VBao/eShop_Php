@@ -17,17 +17,18 @@ class TestValues extends Seeder
      *
      * @return void
      */
-protected ILaptopService $laptopService;
+    protected ILaptopService $laptopService;
     protected IProductService $productService;
-    public function __construct(IProductService $productService,ILaptopService $laptopService)
+
+    public function __construct(IProductService $productService, ILaptopService $laptopService)
     {
         $this->productService = $productService;
-        $this->laptopService=$laptopService;
+        $this->laptopService = $laptopService;
     }
 
     public function run()
     {
-        $json = file_get_contents('laptop.json',FILE_USE_INCLUDE_PATH);
+        $json = file_get_contents('laptop.json', FILE_USE_INCLUDE_PATH);
         $json_data = json_decode($json, true);
         foreach ($json_data as $laptop) {
             $postInfo = new postInfoDto;

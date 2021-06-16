@@ -1,0 +1,102 @@
+[
+    {
+        "info": {
+            "brand_id": 12,
+            "description": "ABC",
+            "guarantee": 24,
+            "name": "Drive 1",
+            "price": 15399000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 1,
+            "cache_id": 2,
+            "connect_id": 2,
+            "write_id": 2,
+            "read_id": 3,
+            "dimension_id": 3,
+            "rotation_id": 2,
+            "drive_type_id": 3
+        },
+        "image": {
+            "img1": "link1",
+            "img2": "link2",
+            "img3": "link3"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 12,
+            "description": "ABCD",
+            "guarantee": 24,
+            "name": "Drive 2",
+            "price": 15399000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 1,
+            "cache_id": 2,
+            "connect_id": 2,
+            "write_id": 2,
+            "read_id": 3,
+            "dimension_id": 3,
+            "rotation_id": 2,
+            "drive_type_id": 3
+        },
+        "image": {
+            "img1": "link1",
+            "img2": "link2",
+            "img3": "link3"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 12,
+            "description": "ABC",
+            "guarantee": 24,
+            "name": "Drive 3",
+            "price": 15399000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 1,
+            "cache_id": 2,
+            "connect_id": 2,
+            "write_id": 2,
+            "read_id": 3,
+            "dimension_id": 3,
+            "rotation_id": 2,
+            "drive_type_id": 3
+        },
+        "image": {
+            "img1": "link1",
+            "img2": "link2",
+            "img3": "link3"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 12,
+            "description": "ABCD",
+            "guarantee": 24,
+            "name": "Drive 4",
+            "price": 15399000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 1,
+            "cache_id": 2,
+            "connect_id": 2,
+            "write_id": 2,
+            "read_id": 3,
+            "dimension_id": 3,
+            "rotation_id": 2,
+            "drive_type_id": 3
+        },
+        "image": {
+            "img1": "link1",
+            "img2": "link2",
+            "img3": "link3"
+        }
+    }
+]
