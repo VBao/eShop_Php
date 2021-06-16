@@ -204,8 +204,8 @@ class DriveController extends Controller
      */
     public function postCreate(Request $request)
     {
-        if (productInfo::where('name', 'LIKE', $request->info->name)->first() != null) return response()->json(['error' => 'Already have product with name "' . $request->info->name . '"'], 400);
-        if (count($request->image) < 2) return response()->json(['error' => 'Accept at least 3 image'], 400);
+        if (count(productInfo::where('name', 'LIKE', '%'.$request->info['name'].'%')->get()->toArray()) != 0) return response()->json(['error' => 'Already have product with name - ' . $request->info['name']], 400);
+        if (count($request->image) < 3) return response()->json(['error' => 'Accept at least 3 image'], 400);
         $info = new postInfoDto;
         foreach ($request->info as $key => $val) {
             $info->$key = $val;

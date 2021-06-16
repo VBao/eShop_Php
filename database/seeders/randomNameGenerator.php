@@ -39,7 +39,7 @@ class randomNameGenerator {
 		$name_r = array();
 
 		foreach( $count as $name ) {
-				$count++;
+//				$count++;
 				$random_fname_index = array_rand( $first_names );
 				$random_lname_index = array_rand( $last_names );
 
