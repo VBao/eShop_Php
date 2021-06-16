@@ -1,31 +1,920 @@
 [
     {
         "info": {
-            "name": "LAP_TEST_1",
-            "description": "abc",
+            "name": "Laptop HP 340s G7",
+            "description": "Laptop HP 340s G7 được hoàn thiện từ vỏ nhựa nhưng được phủ một lớp màu bạc sáng bóng cho cái nhìn sang trọng không kém các mẫu laptop vỏ kim loại. Trọng lượng chỉ 1.346 kg dễ dàng để trong balo hay túi xách để mang theo khắp nơi, thoải mái nâng máy chỉ bằng một tay.",
             "guarantee": 24,
-            "price": 15399000,
+            "price": 13590000,
+            "brand_id": 2,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 4,
+            "gpu_id": 8,
+            "ram_id": 2,
+            "size_id": 5,
+            "rom_id": 9,
+            "screen_id": 3,
+            "port_id": 8,
+            "os_id": 1,
+            "battery_id": 2,
+            "weight_id": 2
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/232269/hp-340s-g7-i3-224l1pa-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/232269/hp-340s-g7-i3-224l1pa-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/232269/hp-340s-g7-i3-224l1pa-3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop HP Omen 15 ek0078TX",
+            "description": "Nền tảng cho sức mạnh cực khủng của chiếc laptop HP này là bộ vi xử lý Intel Core i7 Comet Lake 10750H gồm 6 nhân 12 luồng, xung nhịp trung bình đạt 2.60 GHz khi thực hiện các tác vụ đơn giản như và tối đa lên đến 5.0 GHz khi khi xử lý khối lượng công việc nặng (chẳng hạn như di chuyển qua thành phố hoặc tính toán hành vi AI của kẻ thù trong game chiến lược) nhờ Turbo Boost.",
+            "guarantee": 24,
+            "price": 48860000,
+            "brand_id": 2,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 3,
+            "gpu_id": 5,
+            "ram_id": 8,
+            "size_id": 4,
+            "rom_id": 1,
+            "screen_id": 9,
+            "port_id": 2,
+            "os_id": 4,
+            "battery_id": 2,
+            "weight_id": 2
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/236426/hp-omen-15-ek0078tx-i7-26y68pa-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/236426/hp-omen-15-ek0078tx-i7-26y68pa-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/236426/hp-omen-15-ek0078tx-i7-26y68pa-3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop HP EliteBook X360 1040 G7",
+            "description": "Được sử dụng bộ vi xử lý đến từ hãng Intel, Intel Core i7 Comet Lake được trang bị 6 nhân 12 luồng đem đến sự cải tiến về hiệu năng lẫn tốc độ xử lý, giúp nâng cao năng suất làm việc của người dùng với xung nhịp cơ sở là 1.1 GHz và được ép xung tối đa lên đến 4.7 GHz.",
+            "guarantee": 24,
+            "price": 48990000,
+            "brand_id": 2,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 4,
+            "gpu_id": 8,
+            "ram_id": 10,
+            "size_id": 5,
+            "rom_id": 3,
+            "screen_id": 1,
+            "port_id": 9,
+            "os_id": 4,
+            "battery_id": 1,
+            "weight_id": 1
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/232152/hp-elitebook-x360-1040-g7-i7-230p8pa-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/232152/hp-elitebook-x360-1040-g7-i7-230p8pa-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/232152/hp-elitebook-x360-1040-g7-i7-230p8pa-3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop HP ZBook FireFly 14 G7",
+            "description": "Trọng lượng nhẹ chỉ 1.41 kg, Hp ZBook FireFly 14 là chiếc máy trạm nhỏ nhất và nhẹ nhất của HP từ trước đến nay, cung cấp tính di động đột phá thực sự.",
+            "guarantee": 24,
+            "price": 30290000,
+            "brand_id": 2,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 2,
+            "gpu_id": 4,
+            "ram_id": 6,
+            "size_id": 8,
+            "rom_id": 10,
+            "screen_id": 3,
+            "port_id": 1,
+            "os_id": 5,
+            "battery_id": 1,
+            "weight_id": 2
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/227721/hp-zbook-firefly-14-g7-i5-8vk70av-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/227721/hp-zbook-firefly-14-g7-i5-8vk70av-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/227721/hp-zbook-firefly-14-g7-i5-8vk70av-3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop HP Envy 13 ba1027TU",
+            "description": "Bộ vi xử lí Intel Core i5 thế hệ 11 mới nhất kết hợp với RAM 8 GB cùng hệ điều hành Windows 10 cung cấp hiệu suất cao hơn đáng kể với các chip tiền nhiệm giúp máy xử lí mượt mà mọi tác vụ văn phòng như Word, Excel,... thuộc bộ phần mềm Microsoft Office, thực hiện các thao tác tách nền, cắt ghép, chỉnh màu đơn giản một cách trơn tru trên các ứng dụng Photoshop, Adobe Illustrator phiên bản mới 2020.",
+            "guarantee": 24,
+            "price": 22590000,
+            "brand_id": 2,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 10,
+            "gpu_id": 8,
+            "ram_id": 6,
+            "size_id": 4,
+            "rom_id": 2,
+            "screen_id": 5,
+            "port_id": 1,
+            "os_id": 4,
+            "battery_id": 3,
+            "weight_id": 3
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/230238/hp-envy-13-ba1027tu-i5-2k0b1pa-1-2-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/230238/hp-envy-13-ba1027tu-i5-2k0b1pa-2-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/230238/hp-envy-13-ba1027tu-i5-2k0b1pa-3-2-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop Dell Inspiron 3501",
+            "description": "Dell Inspiron 3501 trang bị chip Intel Core i5 1135G7 đến từ thế hệ 11 Tiger Lake tiên tiến, khả năng phản hồi ổn định, tiết kiệm điện năng, giúp bạn sử dụng mượt mà các tác vụ văn phòng với xung nhịp trung bình 2.40 GHz và chạy mượt các ứng dụng đồ họa 2D với xung nhịp lên đến 4.2 GHz khi được ép xung nhờ Turbo Boost.",
+            "guarantee": 24,
+            "price": 17290000,
             "brand_id": 1,
             "type_id": 1
         },
         "spec": {
-            "cpu_id": 28,
-            "gpu_id": 8,
-            "ram_id": 17,
-            "size_id": 5,
-            "rom_id": 1,
-            "screen_id": 2,
+            "cpu_id": 5,
+            "gpu_id": 2,
+            "ram_id": 3,
+            "size_id": 1,
+            "rom_id": 6,
+            "screen_id": 7,
             "port_id": 8,
             "os_id": 1,
             "battery_id": 1,
-            "weight_id":  7
+            "weight_id": 1
         },
         "image": {
-            "img1": "https://cdn.tgdd.vn/Products/Images/44/240161/dell-inspiron-7501-i5-10300h-8gb-512gb-4gb-gtx1650-600x600.jpg",
-            "img2": "https://cdn.tgdd.vn/Products/Images/44/240161/dell-inspiron-7501-i5-10300h-8gb-512gb-4gb-gtx1650-600x600.jpg",
-            "img3":"https://cdn.tgdd.vn/Products/Images/44/240161/dell-inspiron-7501-i5-10300h-8gb-512gb-4gb-gtx1650-600x600.jpg"
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/235542/dell-inspiron-3501-i5-n3501b-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/235542/dell-inspiron-3501-i5-n3501b-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/235542/dell-inspiron-3501-i5-n3501b-3-org.jpg"
         }
     },
-
-
+    {
+        "info": {
+            "name": "Laptop Dell Inspiron 5502",
+            "description": "Dell Inspiron được bao bọc bởi lớp vỏ nhựa cùng nắp lưng bằng kim loại tạo nên sự cứng cáp chắc chắn và vẻ đẹp thanh lịch cho tổng thể máy. Trọng lượng máy gọn nhẹ chỉ nặng 1.7 kg và dày 17.9 mm giúp bạn có thể dễ dàng mang theo bên mình và xử lý công việc ở mọi nơi mà không lo vướng víu.",
+            "guarantee": 24,
+            "price": 21590000,
+            "brand_id": 1,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 6,
+            "gpu_id": 3,
+            "ram_id": 9,
+            "size_id": 2,
+            "rom_id": 8,
+            "screen_id": 10,
+            "port_id": 1,
+            "os_id": 4,
+            "battery_id": 3,
+            "weight_id": 2
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/233378/dell-inspiron-5502-i5-1xgr11-1-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/233378/dell-inspiron-5502-i5-1xgr11-2-1-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/233378/dell-inspiron-5502-i5-1xgr11-3-1-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop Dell Vostro 3500",
+            "description": "Dell trang bị cho chiếc laptop này con chip Intel Core i7 Tiger Lake thế hệ 11 mang đến hiệu năng vượt trội đủ sức chạy mượt mà các thao tác “hạng nặng” trong đồ họa như: Rander video, chỉnh sửa ảnh 3D,... nhờ được sản xuất dựa trên 11 lõi xử lý Willow Cove với công nghệ 10 nm SuperFin. Chip có 4 nhân, 8 luồng với mức xung nhịp trung bình là 2.80 GHz và đạt xung nhịp tối đa 4.7 GHz nhờ Turbo Boost.",
+            "guarantee": 24,
+            "price": 23190000,
+            "brand_id": 1,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 7,
+            "gpu_id": 1,
+            "ram_id": 8,
+            "size_id": 3,
+            "rom_id": 2,
+            "screen_id": 5,
+            "port_id": 6,
+            "os_id": 4,
+            "battery_id": 3,
+            "weight_id": 1
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/235375/dell-vostro-3500-i7-7g3982-1-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/235375/dell-vostro-3500-i7-7g3982-2-1-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/235375/dell-vostro-3500-i7-7g3982-3-1-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop Dell Inspiron 7501",
+            "description": "Laptop được trang bị bộ vi xử lý Intel Core i5 Comet Lake thế hệ 10 với xung nhịp cơ bản 2.50 GHz và khả năng ép xung Turbo Boost lên đến 4.5 GHz, xử lý ổn định các tác vụ Office, cho khả năng đồ họa ở hiệu suất cao, đáp ứng nhu cầu chỉnh sửa ảnh bằng Photoshop, dựng video bằng Premiere hay After Effects,...",
+            "guarantee": 24,
+            "price": 30490000,
+            "brand_id": 1,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 5,
+            "gpu_id": 4,
+            "ram_id": 9,
+            "size_id": 6,
+            "rom_id": 1,
+            "screen_id": 7,
+            "port_id": 8,
+            "os_id": 2,
+            "battery_id": 2,
+            "weight_id": 3
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/240161/dell-inspiron-7501-i5-n5i5012w-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/240161/dell-inspiron-7501-i5-n5i5012w-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/240161/dell-inspiron-7501-i5-n5i5012w-3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop Dell G5 15 5500",
+            "description": "Không cần phải hầm hố, gai góc nhưng vẫn đủ mạnh mẽ với những đường cắt táo bạo và kết hợp với những đường viền màu xanh nổi bật. Lớp vỏ của máy được làm bằng chất liệu nhựa cứng chắc chắn và tản nhiệt tốt hơn. Máy có độ dày 31.13 mm và trọng lượng 2.65 kg không chiếm nhiều diện tích khi đặt trên bàn hoặc đem theo.",
+            "guarantee": 24,
+            "price": 29690000,
+            "brand_id": 1,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 6,
+            "gpu_id": 7,
+            "ram_id": 1,
+            "size_id": 8,
+            "rom_id": 9,
+            "screen_id": 5,
+            "port_id": 10,
+            "os_id": 3,
+            "battery_id": 3,
+            "weight_id": 2
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/232902/dell-g5-15-5500-i7-70225485-14-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/232902/dell-g5-15-5500-i7-70225485-15-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/232902/dell-g5-15-5500-i7-70225485-16-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop Lenovo Legion 5 15IMH05",
+            "description": "Lenovo Legion thiết kế theo phong cách gaming mạnh mẽ nhưng vẫn tạo cảm giác sang trọng. Vỏ máy được phủ sơn màu đen lịch lãm, logo Legion đặt gọn trên mặt lưng tạo điểm nhấn cho thiết kế.",
+            "guarantee": 24,
+            "price": 25990000,
+            "brand_id": 3,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 9,
+            "gpu_id": 1,
+            "ram_id": 10,
+            "size_id": 5,
+            "rom_id": 3,
+            "screen_id": 8,
+            "port_id": 7,
+            "os_id": 4,
+            "battery_id": 2,
+            "weight_id": 2
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/225390/lenovo-legion-5-15imh05-i7-82au0051vn-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/225390/lenovo-legion-5-15imh05-i7-82au0051vn-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/225390/lenovo-legion-5-15imh05-i7-82au0051vn-3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop Lenovo Ideapad Gaming 3 15IMH05",
+            "description": "Lenovo IdeaPad có thiết kế khá đơn giản, không đem lại cảm giác hầm hố mà vẫn mạnh mẽ đầy thu hút với điểm nhấn là những đường vát chéo ở các góc máy. Máy có độ dày khoảng 24.9 mm cùng trọng lượng 2.2 kg cho bạn thoải mái mang theo hằng ngày đến lớp, quán cà phê mà không sợ nặng hay cồng kềnh.",
+            "guarantee": 24,
+            "price": 26990000,
+            "brand_id": 3,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 8,
+            "gpu_id": 5,
+            "ram_id": 3,
+            "size_id": 1,
+            "rom_id": 4,
+            "screen_id": 1,
+            "port_id": 8,
+            "os_id": 1,
+            "battery_id": 2,
+            "weight_id": 2
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/237312/lenovo-ideapad-gaming-3-15imh05-i7-81y4013uvn-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/237312/lenovo-ideapad-gaming-3-15imh05-i7-81y4013uvn-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/237312/lenovo-ideapad-gaming-3-15imh05-i7-81y4013uvn-3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop Lenovo IdeaPad 3 15ITL6 ",
+            "description": "Laptop Lenovo với sắc xám thanh lịch, lớp vỏ nhựa ít trầy xước, bám vân tay cùng trọng lượng 1.65 kg và dày 19.9 mm giúp bạn dễ dàng mang theo bên mình, đảm bảo thời gian làm việc hay giải trí không bị gián đoạn.",
+            "guarantee": 24,
+            "price": 17990000,
+            "brand_id": 3,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 3,
+            "gpu_id": 2,
+            "ram_id": 5,
+            "size_id": 7,
+            "rom_id": 9,
+            "screen_id": 4,
+            "port_id": 6,
+            "os_id": 1,
+            "battery_id": 2,
+            "weight_id": 2
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/240249/lenovo-ideapad-3-15itl6-i5-82h80042vn-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/240249/lenovo-ideapad-3-15itl6-i5-82h80042vn-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/240249/lenovo-ideapad-3-15itl6-i5-82h80042vn-3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop Lenovo IdeaPad Slim 3 15IIL05",
+            "description": "Laptop Lenovo có lớp vỏ bằng nhựa được phủ gam màu xám bạc hiện đại, máy có trọng lượng 1.85 kg và có độ dày 19.9 m, bạn có thể dễ dàng bỏ vào balo mang theo xử lý công việc mọi lúc mọi nơi.",
+            "guarantee": 24,
+            "price": 12990000,
+            "brand_id": 3,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 7,
+            "gpu_id": 9,
+            "ram_id": 4,
+            "size_id": 6,
+            "rom_id": 10,
+            "screen_id": 1,
+            "port_id": 8,
+            "os_id": 3,
+            "battery_id": 2,
+            "weight_id": 2
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/236315/lenovo-ideapad-slim-3-15iil05-i3-81we0132vn-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/236315/lenovo-ideapad-slim-3-15iil05-i3-81we0132vn-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/236315/lenovo-ideapad-slim-3-15iil05-i3-81we0132vn-3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop Lenovo YOGA Slim 7 Carbon 13ITL5",
+            "description": "Với trọng lượng chỉ 0.966 kg, Lenovo YOGA đem lại cho người dùng một cảm giác cực kỳ mới lạ và thú vị bởi cân nặng siêu nhẹ đáng kinh ngạc của chiếc laptop này. Cộng thêm vào đó là độ mỏng chỉ 15 mm mang cho bạn cảm giác thoải mái và nhẹ nhàng, dễ dàng xách đi bất cứ đâu.",
+            "guarantee": 24,
+            "price": 25990000,
+            "brand_id": 3,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 9,
+            "gpu_id": 4,
+            "ram_id": 5,
+            "size_id": 10,
+            "rom_id": 1,
+            "screen_id": 8,
+            "port_id": 3,
+            "os_id": 2,
+            "battery_id": 2,
+            "weight_id": 7
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/234365/lenovo-yoga-slim-7-carbon-13itl5-i5-82ev0016vn-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/234365/lenovo-yoga-slim-7-carbon-13itl5-i5-82ev0016vn-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/234365/lenovo-yoga-slim-7-carbon-13itl5-i5-82ev0016vn-3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop Acer Nitro 5",
+            "description": "Chiếc laptop Acer này được trang bị con chip AMD Ryzen 5 5600H cho hiệu năng mượt mà chạy tốt các ứng dụng đồ họa đến các tựa game cấu hình cao với với 6 lõi 12 luồng, xung nhịp trung bình là 3.30 GHz và đạt tối đa lên đến 4.2 GHz nhờ Turbo Boost.",
+            "guarantee": 24,
+            "price": 23490000,
+            "brand_id": 4,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 9,
+            "gpu_id": 5,
+            "ram_id": 10,
+            "size_id": 1,
+            "rom_id": 8,
+            "screen_id": 6,
+            "port_id": 2,
+            "os_id": 3,
+            "battery_id": 2,
+            "weight_id": 4
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/237636/acer-nitro-5-an515-45-r3sm-r5-nhqbmsv005-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/237636/acer-nitro-5-an515-45-r3sm-r5-nhqbmsv005-2-1-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/237636/acer-nitro-5-an515-45-r3sm-r5-nhqbmsv005-3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop Acer Aspire 7 ",
+            "description": "Laptop Acer Aspire 7 sở hữu bộ xử lý AMD Ryzen 5 5500U giúp máy hoạt động mượt mà, ổn định khi thực hiện mọi tác vụ và chơi game với 6 lõi 12 luồng. Xử lý nhanh chóng các ứng dụng nặng như AutoCad, After Effect, Premiere,... nhờ xung nhịp trung bình của CPU AMD này là 2.1 GHz và được đẩy lên tối đa 4.0 GHz nhờ công nghệ Turbo Boost.",
+            "guarantee": 24,
+            "price": 19990000,
+            "brand_id": 4,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 6,
+            "gpu_id": 2,
+            "ram_id": 8,
+            "size_id": 7,
+            "rom_id": 3,
+            "screen_id": 10,
+            "port_id": 9,
+            "os_id": 4,
+            "battery_id": 1,
+            "weight_id": 1
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/235405/acer-aspire-7-a715-42g-r4st-r5-nhqaysv004-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/235405/acer-aspire-7-a715-42g-r4st-r5-nhqaysv004-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/235405/acer-aspire-7-a715-42g-r4st-r5-nhqaysv004-3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop Acer Swift 5",
+            "description": "Vỏ máy làm từ hợp kim nhẹ nhất là Magie và Liti giúp sản phẩm đạt trọng lượng siêu nhẹ: 940 g. Độ mỏng của máy vào khoảng 14.9 mm chỉ bằng 2 chiếc iPhone 8 Plus xếp chồng lên nhau. Đây là chiếc laptop cao cấp sang trọng đáng sở hữu.",
+            "guarantee": 24,
+            "price": 27990000,
+            "brand_id": 4,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 2,
+            "gpu_id": 8,
+            "ram_id": 7,
+            "size_id": 3,
+            "rom_id": 10,
+            "screen_id": 9,
+            "port_id": 4,
+            "os_id": 5,
+            "battery_id": 1,
+            "weight_id": 2
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/201237/acer-swift-sf5-i7-8565u-8gb-256gb-win10-xanh-duong-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/201237/acer-swift-sf5-i7-8565u-8gb-256gb-win10-xanh-duong-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/201237/acer-swift-sf5-i7-8565u-8gb-256gb-win10-xanh-duong-3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop Acer Aspire 5",
+            "description": "Thiết kế tối giản của laptop Acer Aspire 5 với độ mỏng chỉ 17.95 mm, trọng lượng 1.46 kg được hoàn thiện tỉ mỉ với vỏ nhựa và nắp lưng kim loại đem đến vẻ đẳng cấp, sang trọng cho Acer Aspire 5. Đây là một người bạn đồng hành khá lý tưởng cho các bạn học sinh, sinh viên năng động khi có thể cất gọn chiếc laptop vào balo và đi khắp nơi.",
+            "guarantee": 24,
+            "price": 13590000,
+            "brand_id": 4,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 8,
+            "gpu_id": 7,
+            "ram_id": 3,
+            "size_id": 10,
+            "rom_id": 9,
+            "screen_id": 4,
+            "port_id": 5,
+            "os_id": 1,
+            "battery_id": 1,
+            "weight_id": 2
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/231082/acer-aspire-5-a514-54-33wy-i3-nxa23sv00j-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/231082/acer-aspire-5-a514-54-33wy-i3-nxa23sv00j-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/231082/acer-aspire-5-a514-54-33wy-i3-nxa23sv00j-3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop Acer Aspire A315 56 308N ",
+            "description": "Acer Aspire A315 sử dụng vi xử lý Intel Core i3 thế hệ 10 mới, cho hiệu năng ổn định, khả năng kết nối tốt.",
+            "guarantee": 24,
+            "price": 11990000,
+            "brand_id": 4,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 7,
+            "gpu_id": 3,
+            "ram_id": 10,
+            "size_id": 9,
+            "rom_id": 4,
+            "screen_id": 5,
+            "port_id": 1,
+            "os_id": 2,
+            "battery_id": 1,
+            "weight_id": 2
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/223654/acer-aspire-a315-56-308n-i3-nxhs5sv00c-1-2-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/223654/acer-aspire-a315-56-308n-i3-nxhs5sv00c-2-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/223654/acer-aspire-a315-56-308n-i3-nxhs5sv00c-3-2-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop MSI GF63 10SC ",
+            "description": "Laptop sở hữu bộ vi xử lý Intel Core i5 10300H Gen 10 có sức mạnh hiệu năng vượt trội tăng khả năng xử lý nhanh chóng và tiết kiệm năng lượng với tốc độ xung nhịp trung bình 2.50 GHz đạt cao nhất Turbo Boost 4.5 GHz.",
+            "guarantee": 24,
+            "price": 20990000,
+            "brand_id": 5,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 3,
+            "gpu_id": 10,
+            "ram_id": 9,
+            "size_id": 7,
+            "rom_id": 5,
+            "screen_id": 1,
+            "port_id": 2,
+            "os_id": 4,
+            "battery_id": 2,
+            "weight_id": 2
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/238608/msi-gf63-10sc-i5-255vn--1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/238608/msi-gf63-10sc-i5-255vn--2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/238608/msi-gf63-10sc-i5-255vn--3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop MSI Gaming Leopard 10SDK GL65",
+            "description": "MSI Leopard GL65 sở hữu cấu hình ấn tượng với chip Intel Core i7 thế hệ 10 dòng H 6 nhân 12 luồng, cho xung nhịp tối đa lên đến 5.0 GHz. ",
+            "guarantee": 24,
+            "price": 32990000,
+            "brand_id": 5,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 10,
+            "gpu_id": 9,
+            "ram_id": 7,
+            "size_id": 5,
+            "rom_id": 3,
+            "screen_id": 2,
+            "port_id": 4,
+            "os_id": 1,
+            "battery_id": 1,
+            "weight_id": 2
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/225857/msi-gaming-leopard-10sdr-gl65-i7-242vn-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/225857/msi-gaming-leopard-10sdr-gl65-i7-242vn-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/225857/msi-gaming-leopard-10sdr-gl65-i7-242vn-3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop MSI GF65 Thin 10UE",
+            "description": "Laptop MSI này được trang bị một bộ vi xử lý Intel Core i5 10500H 6 nhân 12 luồng cho Turbo Boost lên đến 4.5 GHz giúp bạn dễ dàng trải nghiệm, thư giữa với các tựa game phổ biến: Liên Minh Huyền Thoại, PUBG, FIFA,... một cách nhanh chóng.",
+            "guarantee": 24,
+            "price": 28990000,
+            "brand_id": 5,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 7,
+            "gpu_id": 6,
+            "ram_id": 1,
+            "size_id": 2,
+            "rom_id": 8,
+            "screen_id": 10,
+            "port_id": 5,
+            "os_id": 3,
+            "battery_id": 2,
+            "weight_id": 4
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/238607/msi-gf65-thin-10ue-i5-297vn-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/238607/msi-gf65-thin-10ue-i5-297vn-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/238607/msi-gf65-thin-10ue-i5-297vn-3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop MSI GL65 Leopard 10SCXK",
+            "description": "Laptop sở hữu thiết kế mỏng nhẹ hiện đại nhưng không kém phần mạnh mẽ, cá tính với tone đen - đỏ đặc trưng của dòng. ",
+            "guarantee": 24,
+            "price": 24990000,
+            "brand_id": 5,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 6,
+            "gpu_id": 1,
+            "ram_id": 8,
+            "size_id": 10,
+            "rom_id": 5,
+            "screen_id": 3,
+            "port_id": 7,
+            "os_id": 2,
+            "battery_id": 1,
+            "weight_id": 2
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/240518/msi-gl65-leopard-10scxk-i7-217vn-600x600.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/240518/msi-gl65-leopard-10scxk-i7-217vn-600x600.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/240518/msi-gl65-leopard-10scxk-i7-217vn-600x600.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop MSI GF65 10UE",
+            "description": "Laptop được trang bị bộ vi xử lý Intel Core i7 Comet Lake với 6 nhân 12 luồng có tốc độ đạt tối đa đến 5.0 GHz nhờ Turbo Boost cho hiệu suất tăng 15% so với các thế hệ tiền nhiệm, đem đến cho bạn không gian giải trí vô độc đáo với mọi thể loại game đầy kịch tính như PUBG, LOL,... hay xử lý mượt mà mọi tác vụ đồ họa.",
+            "guarantee": 24,
+            "price": 33990000,
+            "brand_id": 5,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 1,
+            "gpu_id": 8,
+            "ram_id": 10,
+            "size_id": 3,
+            "rom_id": 7,
+            "screen_id": 4,
+            "port_id": 9,
+            "os_id": 5,
+            "battery_id": 2,
+            "weight_id": 1
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/242200/msi-gf65-10ue-i7-10750h-16gb-512gb-6gb-rtx3060-600x600.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/242200/msi-gf65-10ue-i7-10750h-16gb-512gb-6gb-rtx3060-600x600.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/242200/msi-gf65-10ue-i7-10750h-16gb-512gb-6gb-rtx3060-600x600.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop Apple MacBook Pro M1 2020",
+            "description": "Sức mạnh vượt trội của MacBook Pro đến từ con chip Apple M1 - bộ vi xử lý đầu tiên được chính Apple chế tạo cho dòng Mac của mình, được tích hợp trí tuệ nhân tạo thông minh, khả năng vận hành mạnh mẽ, thỏa sức sáng tạo mọi nội dung, đáp ứng tốt mọi nhu cầu của người dùng.",
+            "guarantee": 24,
+            "price": 52990000,
+            "brand_id": 6,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 8,
+            "gpu_id": 10,
+            "ram_id": 3,
+            "size_id": 7,
+            "rom_id": 4,
+            "screen_id": 9,
+            "port_id": 5,
+            "os_id": 6,
+            "battery_id": 1,
+            "weight_id": 2
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/236131/laptopapplemacbookprom1-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/236131/laptopapplemacbookprom1-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/236131/laptopapplemacbookprom1-3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop Apple MacBook Air M1 2020",
+            "description": "Toát lên vẻ cá tính, sang trọng, laptop được bọc bởi một lớp kim loại nguyên khối cùng với những đường nét trang nhã, tinh tế. Bên cạnh đó, với trọng lượng khá nhẹ, chỉ 1.29 kg, độ mỏng từ 4.1 mm đến 16.1 mm có thể dễ dàng mang theo, chiếc laptop này sẽ là người bạn đồng hành của bạn mọi lúc mọi nơi.",
+            "guarantee": 24,
+            "price": 34990000,
+            "brand_id": 6,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 10,
+            "gpu_id": 3,
+            "ram_id": 7,
+            "size_id": 2,
+            "rom_id": 9,
+            "screen_id": 1,
+            "port_id": 8,
+            "os_id": 6,
+            "battery_id": 2,
+            "weight_id": 2
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/231250/grey-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/231250/grey-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/231250/grey-3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop Apple MacBook Air M1 2020 ",
+            "description": "Màn hình LED Backlit có kích thước 13.3 inch cùng tấm nền IPS cho góc nhìn rộng đến 178 độ, đem đến hình ảnh với độ nét đáng kinh ngạc, màu sắc chính xác và rực rỡ, tất cả đã tạo nên một “tuyệt tác” màn hình laptop xứng đáng để bạn trải nghiệm.",
+            "guarantee": 24,
+            "price": 33990000,
+            "brand_id": 6,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 3,
+            "gpu_id": 7,
+            "ram_id": 2,
+            "size_id": 5,
+            "rom_id": 9,
+            "screen_id": 4,
+            "port_id": 10,
+            "os_id": 6,
+            "battery_id": 1,
+            "weight_id": 1
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/239558/apple-macbook-air-m1-2020-z12a0004z-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/239558/apple-macbook-air-m1-2020-z12a0004z-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/239558/apple-macbook-air-m1-2020-z12a0004z-3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop Apple MacBook Pro M1 2020",
+            "description": "Với sự ra mắt lần đầu tích hợp trên MAC, chip Apple M1 mang đến lợi ích nhiều hơn rõ ràng so với chip Intel. Sở hữu thiết kế phần cứng nhỏ gọn và đẹp mắt cộng với CPU 8 lõi đem lại tốc độ xử lý nhanh gấp 2.8 lần so với thế hệ trước và kéo dài thời lượng pin lên đến 10 giờ đồng hồ.",
+            "guarantee": 24,
+            "price": 39990000,
+            "brand_id": 6,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 8,
+            "gpu_id": 2,
+            "ram_id": 5,
+            "size_id": 4,
+            "rom_id": 10,
+            "screen_id": 1,
+            "port_id": 3,
+            "os_id": 6,
+            "battery_id": 2,
+            "weight_id": 1
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/231254/space-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/231254/space-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/231254/space-3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop Asus VivoBook X515MA",
+            "description": "Laptop Asus VivoBook được trang bị con chip Intel Celeron có hiệu năng ổn định xử lý các tác vụ căn bản, với 2 nhân 2 luồng có xung nhịp 1.10 GHz giúp lướt web, xem phim, nghe nhạc,... Và đạt xung nhịp tối đa là 2.8 GHz nhờ Turbo Boost để xử lý một số công việc văn phòng như: Word, Excel, Powerpoint,...",
+            "guarantee": 24,
+            "price": 8490000,
+            "brand_id": 7,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 8,
+            "gpu_id": 2,
+            "ram_id": 5,
+            "size_id": 4,
+            "rom_id": 5,
+            "screen_id": 1,
+            "port_id": 3,
+            "os_id": 5,
+            "battery_id": 2,
+            "weight_id": 2
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/233852/asus-vivobook-x515ma-n4020-br111t-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/233852/asus-vivobook-x515ma-n4020-br111t-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/233852/asus-vivobook-x515ma-n4020-br111t-3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop Asus ZenBook Duo UX482EG",
+            "description": "Asus ZenBook sở hữu thiết kế sang trọng, tinh tế từ chất liệu kim loại cao cấp, độ bền đạt chuẩn quân đội cho bạn yên tâm trong quá trình sử dụng.Thân máy có độ dày 17.3 mm, trọng lượng 1.62 kg nhỏ gọn, thích hợp để người dùng mang theo trong các chuyến công tác xa hay đồng hành mỗi ngày đến cơ quan.",
+            "guarantee": 24,
+            "price": 3499000,
+            "brand_id": 7,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 8,
+            "gpu_id": 2,
+            "ram_id": 5,
+            "size_id": 5,
+            "rom_id": 8,
+            "screen_id": 2,
+            "port_id": 3,
+            "os_id": 5,
+            "battery_id": 3,
+            "weight_id": 2
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/239157/asus-zenbook-ux482eg-i5-ka166t-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/239157/asus-zenbook-ux482eg-i5-ka166t-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/241722/Kit/asus-zenbook-ux425ea-i7-ki439t-n.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop Asus ZenBook UX425EA",
+            "description": "Asus ZenBook sở hữu thiết kế sang trọng, tinh tế từ chất liệu kim loại cao cấp, độ bền đạt chuẩn quân đội cho bạn yên tâm trong quá trình sử dụng.Thân máy có độ dày 17.3 mm, trọng lượng 1.62 kg nhỏ gọn, thích hợp để người dùng mang theo trong các chuyến công tác xa hay đồng hành mỗi ngày đến cơ quan.",
+            "guarantee": 24,
+            "price": 30690000,
+            "brand_id": 7,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 2,
+            "gpu_id": 2,
+            "ram_id": 5,
+            "size_id": 2,
+            "rom_id": 2,
+            "screen_id": 2,
+            "port_id": 3,
+            "os_id": 1,
+            "battery_id": 2,
+            "weight_id": 1
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/241722/asus-zenbook-ux425ea-i7-ki439t-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/241722/asus-zenbook-ux425ea-i7-ki439t-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/241722/asus-zenbook-ux425ea-i7-ki439t-3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop Asus TUF Gaming FX516PE",
+            "description": "Laptop sở hữu chip Intel Core i7 Tiger Lake 11370H đạt sức mạnh vượt trội với 4 nhân 8 luồng có xung nhịp trung bình 3.3 GHz và Turbo Boost ép xung tối đa lên đến 4.8 GHz đem đến hiệu năng mạnh mẽ cho bạn thỏa sức chiến game.",
+            "guarantee": 24,
+            "price": 29900000,
+            "brand_id": 7,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 2,
+            "gpu_id": 2,
+            "ram_id": 5,
+            "size_id": 2,
+            "rom_id": 2,
+            "screen_id": 2,
+            "port_id": 3,
+            "os_id": 1,
+            "battery_id": 2,
+            "weight_id": 1
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/239463/asus-tuf-gaming-fx516pe-i7-hn005t-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/239463/asus-tuf-gaming-fx516pe-i7-hn005t-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/239463/asus-tuf-gaming-fx516pe-i7-hn005t-3-org.jpg"
+        }
+    },
+    {
+        "info": {
+            "name": "Laptop Asus ZenBook UX425EA",
+            "description": "Laptop Asus Zenbook UX425EA (KI429T) sở hữu vẻ ngoài tinh tế với độ bền chuẩn quân đội cùng CPU Intel thế hệ 11 hiện đại đem đến hiệu năng tối ưu và vượt trội, xử lý nhanh gọn mọi tác vụ.",
+            "guarantee": 24,
+            "price": 24690000,
+            "brand_id": 7,
+            "type_id": 1
+        },
+        "spec": {
+            "cpu_id": 2,
+            "gpu_id": 2,
+            "ram_id": 4,
+            "size_id": 3,
+            "rom_id": 2,
+            "screen_id": 4,
+            "port_id": 3,
+            "os_id": 2,
+            "battery_id": 2,
+            "weight_id": 2
+        },
+        "image": {
+            "img1": "https://cdn.tgdd.vn/Products/Images/44/241721/asus-zenbook-ux425ea-i5-ki429t-1-org.jpg",
+            "img2": "https://cdn.tgdd.vn/Products/Images/44/241721/asus-zenbook-ux425ea-i5-ki429t-2-org.jpg",
+            "img3": "https://cdn.tgdd.vn/Products/Images/44/241721/asus-zenbook-ux425ea-i5-ki429t-3-org.jpg"
+        }
+    }
 ]

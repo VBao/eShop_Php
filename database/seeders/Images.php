@@ -39,8 +39,8 @@ class Images extends Seeder
             'https://cdn.tgdd.vn/Products/Images/44/234613/TUF2-600x400.jpg',
         ];
         $count = 1;
-        $id = 1;
-        for ($i = 1; $i < 298; $i++) {
+        $id = 36;
+        for ($i = 1; $i < 189; $i++) {
             if ($count == 4) {
                 $count = 1;
                 $id++;
