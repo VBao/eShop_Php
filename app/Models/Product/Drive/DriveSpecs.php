@@ -5,6 +5,9 @@ namespace App\Models\Product\Drive;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @method static find(mixed $id)
+ */
 class DriveSpecs extends Model
 {
     use HasFactory;
@@ -21,31 +24,31 @@ class DriveSpecs extends Model
 
     public function reads()
     {
-        return $this->belongsTo(DriveRead::class,'read_id');
+        return $this->belongsTo(DriveRead::class, 'read_id');
     }
 
     public function writes()
     {
-        return $this->belongsTo(DriveWrite::class,'write_id');
+        return $this->belongsTo(DriveWrite::class, 'write_id');
     }
 
     public function caches()
     {
-        return $this->belongsTo(DriveCache::class,'cache_id');
+        return $this->belongsTo(DriveCache::class, 'cache_id');
     }
 
     public function dimensions()
     {
-        return $this->belongsTo(DriveDimension::class,'dimension_id');
+        return $this->belongsTo(DriveDimension::class, 'dimension_id');
     }
 
     public function capacities()
     {
-        return $this->belongsTo(DriveCapacity::class,'capacity_id');
+        return $this->belongsTo(DriveCapacity::class, 'capacity_id');
     }
 
     public function rotations()
     {
-        return $this->belongsTo(DriveRotation::class,'rotation_id');
+        return $this->belongsTo(DriveRotation::class, 'rotation_id');
     }
 }

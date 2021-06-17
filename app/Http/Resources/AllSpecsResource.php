@@ -18,20 +18,20 @@ class AllSpecsResource extends JsonResource
     public function toArray($request)
     {
 //        return parent::toArray($request);
-            return [
-                'brand' => BrandResource::collection(Brand::where('type_id', 1)->get()),
-                'id' => $request,
-                'cpus' => Cpu::all(),
-                'gpus' => Gpu::all(),
-                'rams' => Ram::all(),
-                'roms' => Rom::all(),
-                'ports' => Port::all(),
-                'screens' => Screen::all(),
-                'sizes' => Size::all(),
-                'weights' => Weight::all(),
-                'batteries' => Battery::all(),
-                'os' => Os::all(),
-            ];
+        return [
+            'brand' => BrandResource::collection(Brand::where('type_id', 1)->get()),
+            'id' => $request,
+            'cpus' => Cpu::all(),
+            'gpus' => Gpu::all(),
+            'rams' => Ram::all(),
+            'roms' => Rom::all(),
+            'ports' => Port::all(),
+            'screens' => Screen::all(),
+            'sizes' => Size::all(),
+            'weights' => Weight::all(),
+            'batteries' => Battery::all(),
+            'os' => Os::all(),
+        ];
 
     }
 }

@@ -4,7 +4,6 @@
 namespace App\Dto\Laptop;
 
 
-
 use App\Dto\Info\showInfoDto;
 
 class detailLaptopDto

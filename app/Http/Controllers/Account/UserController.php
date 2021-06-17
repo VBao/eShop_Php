@@ -6,24 +6,24 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\Response;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\JWTAuth;
-use Illuminate\Support\Facades\Auth;
 
 
 class UserController extends Controller
 {
     public function register(Request $request)
     {
-        $data = $request->only('name', 'email', 'password','address','phone');
+        $data = $request->only('name', 'email', 'password', 'address', 'phone');
         $validator = Validator::make($data, [
             'name' => 'required|string',
             'email' => 'required|string|unique:users',
             'password' => 'required|string|min:6|max:50',
-            'address'=>'required|string',
-            'phone'=>'required|string|min:10|max:10'
+            'address' => 'required|string',
+            'phone' => 'required|string|min:10|max:10'
         ]);
 
         if ($validator->fails()) return response()->json(['error' => $validator->messages()], 200);
@@ -32,8 +32,8 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'address'=>$request->address,
-            'phone'=>$request->phone
+            'address' => $request->address,
+            'phone' => $request->phone
         ]);
 
         return response()->json([
@@ -79,8 +79,8 @@ class UserController extends Controller
                 'email' => \Auth::user()->email,
                 'phone' => \Auth::user()->phone,
                 'address' => \Auth::user()->address,
-                'admin'=>\Auth::user()->is_admin
-                ]
+                'admin' => \Auth::user()->is_admin
+            ]
         ]);
     }
 
@@ -106,7 +106,7 @@ class UserController extends Controller
     public function reset_password(Request $request)
     {
         $auth = Auth::user();
-        $user=User::find($auth->id);
+        $user = User::find($auth->id);
         $user->password = $request->password;
     }
 }

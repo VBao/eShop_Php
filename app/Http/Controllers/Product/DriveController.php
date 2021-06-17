@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Product;
 
 use App\Dto\Info\postInfoDto;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\DriveIndexResource;
 use App\Http\Resources\DriveListResource;
 use App\Http\Resources\DriveUpdateResource;
 use App\Http\Resources\FilterResource;
@@ -14,11 +13,11 @@ use App\Models\Product\Drive\DriveSpecs;
 use App\Models\Product\Drive\DriveType;
 use App\Models\Product\Image;
 use App\Models\Product\productInfo;
+use App\Models\Product\Type;
 use App\Service\IDriveService;
 use App\Service\IProductService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Http\Response;
 
 class DriveController extends Controller
 {
@@ -43,15 +42,15 @@ class DriveController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
-    public function index()
+    public function index(): JsonResponse
     {
         return response()->json($this->driveService->list());
 
     }
 
-    public function filter()
+    public function filter(): JsonResponse
     {
 
         $filter = [];
@@ -65,53 +64,7 @@ class DriveController extends Controller
         return response()->json($filter);
     }
 
-    private function typeOption($requestType)
-    {
-        $typeList = [];
-        $typeCheck = [];
-        foreach (DriveType::all() as $item) {
-            $type_value = explode(', ', $item->value, 2)[0];
-            if (!in_array($type_value, $typeList)) {
-                $typeList[] = $type_value;
-            }
-        }
-        if (!is_null($requestType)) foreach ($requestType as $searchtype) {
-            $activetype = DriveType::where('value', 'LIKE', "%" . $searchtype . "%")->get(['id']);
-            if (!is_null($activetype)) {
-                $typeCheck[] = $searchtype;
-                $types[] = ['value' => $searchtype, 'active' => true];
-            }
-        }
-        foreach (array_diff($typeList, $typeCheck) as $inactiveType) {
-            $types[] = ['value' => $inactiveType, 'active' => false];
-        }
-        return $types;
-    }
-
-    private function capacityOption($requestCapacities)
-    {
-        $capacityList = [];
-        $capacityCheck = [];
-        foreach (DriveCapacity::all() as $item) {
-            $capacity_value = explode(', ', $item->value, 2)[0];
-            if (!in_array($capacity_value, $capacityList)) {
-                $capacityList[] = $capacity_value;
-            }
-        }
-        if (!is_null($requestCapacities)) foreach ($requestCapacities as $searchCapacity) {
-            $activetype = DriveType::where('value', 'LIKE', "%" . $searchCapacity . "%")->get(['id']);
-            if (!is_null($activetype)) {
-                $capacityCheck[] = $searchCapacity;
-                $capacities[] = ['value' => $searchCapacity, 'active' => true];
-            }
-        }
-        foreach (array_diff($capacityList, $capacityCheck) as $inactiveType) {
-            $capacities[] = ['value' => $inactiveType, 'active' => false];
-        }
-        return $capacities;
-    }
-
-    public function postFilter(Request $request)
+    public function postFilter(Request $request): JsonResponse
     {
         $drive_brands = [];
         foreach (Brand::where('type_id', '=', 2)->get(['id', 'brand']) as $brand)
@@ -144,12 +97,12 @@ class DriveController extends Controller
         $data = [];
         $activeType = [];
         foreach ($request->drive_types as $item) {
-            foreach (DriveType::where('value', 'LIKE', "%" . $item . "%")->get('id')->toArray() as $value)
+            foreach (DriveType::query()->where('value', 'LIKE', "%" . $item . "%")->get('id')->toArray() as $value)
                 $activeType[] = $value['id'];
         }
         $activeCapacity = [];
         foreach ($request->drive_capacities as $item) {
-            foreach (DriveCapacity::where('value', 'LIKE', "%" . $item . "%")->get(['id'])->toArray() as $value)
+            foreach (DriveCapacity::query()->where('value', 'LIKE', "%" . $item . "%")->get(['id'])->toArray() as $value)
                 $activeCapacity[] = $value['id'];
         }
         if ($activeType != null || $activeCapacity != null) {
@@ -185,13 +138,60 @@ class DriveController extends Controller
         ]);
     }
 
+    private function capacityOption($requestCapacities): array
+    {
+        $capacityList = [];
+        $capacityCheck = [];
+        $capacities = [];
+        foreach (DriveCapacity::all() as $item) {
+            $capacity_value = explode(', ', $item->value, 2)[0];
+            if (!in_array($capacity_value, $capacityList)) {
+                $capacityList[] = $capacity_value;
+            }
+        }
+        if (!is_null($requestCapacities)) foreach ($requestCapacities as $searchCapacity) {
+            $activeType = DriveType::query()->where('value', 'LIKE', "%" . $searchCapacity . "%")->get(['id']);
+            if (!is_null($activeType)) {
+                $capacityCheck[] = $searchCapacity;
+                $capacities[] = ['value' => $searchCapacity, 'active' => true];
+            }
+        }
+        foreach (array_diff($capacityList, $capacityCheck) as $inactiveType) {
+            $capacities[] = ['value' => $inactiveType, 'active' => false];
+        }
+        return $capacities;
+    }
+
+    private function typeOption($requestType): array
+    {
+        $typeList = [];
+        $typeCheck = [];
+        $types = [];
+        foreach (DriveType::all() as $item) {
+            $type_value = explode(', ', $item->value, 2)[0];
+            if (!in_array($type_value, $typeList)) {
+                $typeList[] = $type_value;
+            }
+        }
+        if (!is_null($requestType)) foreach ($requestType as $searchType) {
+            $activeType = DriveType::query()->where('value', 'LIKE', "%" . $searchType . "%")->get(['id']);
+            if (!is_null($activeType)) {
+                $typeCheck[] = $searchType;
+                $types[] = ['value' => $searchType, 'active' => true];
+            }
+        }
+        foreach (array_diff($typeList, $typeCheck) as $inactiveType) {
+            $types[] = ['value' => $inactiveType, 'active' => false];
+        }
+        return $types;
+    }
+
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
-    public function getCreate()
+    public function getCreate(): JsonResponse
     {
         return response()->json($this->driveService->getForm());
     }
@@ -199,12 +199,12 @@ class DriveController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function postCreate(Request $request)
+    public function postCreate(Request $request): JsonResponse
     {
-        if (count(productInfo::where('name', 'LIKE', '%'.$request->info['name'].'%')->get()->toArray()) != 0) return response()->json(['error' => 'Already have product with name - ' . $request->info['name']], 400);
+        if (count(productInfo::where('name', 'LIKE', '%' . $request->info['name'] . '%')->get()->toArray()) != 0) return response()->json(['error' => 'Already have product with name - ' . $request->info['name']], 400);
         if (count($request->image) < 3) return response()->json(['error' => 'Accept at least 3 image'], 400);
         $info = new postInfoDto;
         foreach ($request->info as $key => $val) {
@@ -222,9 +222,9 @@ class DriveController extends Controller
      * Display the specified resource.
      *
      * @param int $id
-     * @return Response
+     * @return JsonResponse
      */
-    public function show($id)
+    public function show(int $id): JsonResponse
     {
         return response()->json($this->driveService->get($id));
     }
@@ -232,11 +232,10 @@ class DriveController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
      * @param int $id
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
-    public function getUpdate($id)
+    public function getUpdate(int $id): JsonResponse
     {
         return response()->json(new DriveUpdateResource($id));
     }
@@ -244,11 +243,10 @@ class DriveController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return Response
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function postUpdate(Request $request)
+    public function postUpdate(Request $request): JsonResponse
     {
         $info = new postInfoDto;
         foreach ($request->info as $key => $val) {
@@ -271,11 +269,11 @@ class DriveController extends Controller
 
     }
 
-    public function adminProducts()
+    public function adminProducts(): array
     {
         $res = [];
         $tempAdd = [];
-        foreach ($this->productService->getByType(2) as $key => $val) {
+        foreach ($this->productService->getByType(2) as $val) {
             $tempProduct = $this->productService->getById($val->id);
             $tempInfo = [];
             $tempInfo['id'] = $tempProduct->id;
@@ -284,7 +282,7 @@ class DriveController extends Controller
             $tempInfo['brand'] = Brand::find($tempProduct->brand_id)->brand;
             $tempInfo['price'] = $tempProduct->price;
             $tempInfo['image'] = Image::where('info_id', '=', $tempProduct->id)->first()->link_image;
-            foreach ($this->driveService->getSpecsAdmin($val->id) as $key => $value) $tempInfo[$key] = $value;
+            foreach ($this->driveService->getSpecsAdmin($val->id) as $key1 => $value) $tempInfo[$key1] = $value;
             $tempAdd[] = $tempInfo;
         }
         $res['data'] = $tempAdd;

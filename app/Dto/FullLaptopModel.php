@@ -19,8 +19,8 @@ class FullLaptopModel
      */
     public function __construct($id)
     {
-        $this->info = productInfo::query()->where('id',$id)->get()->first();
-        $this->spec = laptopSpec::query()->where('id',$id)->get()->first();
+        $this->info = productInfo::query()->where('id', $id)->get()->first();
+        $this->spec = laptopSpec::query()->where('id', $id)->get()->first();
         $this->image = Image::query()->where('info_id', $id)->get()->first();
     }
 

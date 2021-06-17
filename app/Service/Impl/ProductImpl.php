@@ -7,24 +7,18 @@ use App\Dto\FullLaptopModel;
 use App\Dto\Info\postInfoDto;
 use App\Dto\Info\showImage;
 use App\Dto\Info\showInfoDto;
-use App\Dto\Laptop\detailLaptopDto;
-use App\Dto\Laptop\indexProductDto;
-use App\Dto\Laptop\productInfoGetList;
 use App\Http\Resources\BrandIndexResource;
-use App\Http\Resources\BrandList;
-use App\Http\Resources\CC;
-use App\Http\Resources\Filters;
 use App\Http\Resources\ShowListResource;
 use App\Models\Product\Brand;
 use App\Models\Product\Image;
 use App\Models\Product\Laptop\Cpu;
-use App\Models\Product\Laptop\laptopSpec;
 use App\Models\Product\Laptop\Ram;
 use App\Models\Product\Laptop\Rom;
 use App\Models\Product\productInfo;
+use App\Models\Product\Type;
 use App\Service\ILaptopService;
 use App\Service\IProductService;
-use App\Models\Product\Type;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class ProductImpl implements IProductService
 {
@@ -108,9 +102,11 @@ class ProductImpl implements IProductService
 ////        }
 //        return $res;
 //    }
-public function getIndex(){}
+    public function getIndex()
+    {
+    }
 
-    public function create(postInfoDto $info)
+    public function create(postInfoDto $info): productInfo
     {
         $createInfo = new productInfo;
 //        foreach ($createInfo as $key => $value) {
@@ -128,10 +124,10 @@ public function getIndex(){}
         return $createInfo;
     }
 
-    public function createImages($images, $id)
+    public function createImages($images, $id): array
     {
         $res = [];
-        foreach ($images as $key => $image) {
+        foreach ($images as $image) {
             $img = new Image;
             $img->link_image = $image;
             $img->info_id = $id;
@@ -144,7 +140,7 @@ public function getIndex(){}
         return $res;
     }
 
-    public function getById($id)
+    public function getById($id): showInfoDto
     {
         $response = new showInfoDto();
         $info = $this->info->newQuery()->where('id', $id)->first();
@@ -159,7 +155,7 @@ public function getIndex(){}
     }
 
 
-    public function getImages($id)
+    public function getImages($id): array
     {
         $res = [];
         foreach ($this->image->getById($id) as $val) {
@@ -198,7 +194,7 @@ public function getIndex(){}
         return $this->info->where('type_id', $id)->orderByDesc('id')->get('id');
     }
 
-    public function search($keyword)
+    public function search($keyword): array
     {
         $res = [];
         $test = $this->info->newQuery()->where('name', 'LIKE', $keyword . '%')->get(['id', 'type_id']);
@@ -218,7 +214,7 @@ public function getIndex(){}
         // TODO: Implement searchByBrand() method.
     }
 
-    public function brandIndex()
+    public function brandIndex(): AnonymousResourceCollection
     {
         return BrandIndexResource::collection(Brand::all());
     }

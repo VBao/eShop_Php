@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Gpu extends Model
 {
     use HasFactory;
-    protected $table="laptop_gpus";
+
+    protected $table = "laptop_gpus";
 
     public function allArr(): array
     {

@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Dto\Info\postInfoDto;
 use App\Dto\Laptop\postLaptopDto;
-use App\Models\Product\productInfo;
 use App\Service\ILaptopService;
 use App\Service\IProductService;
 use Illuminate\Database\Seeder;

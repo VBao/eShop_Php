@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Os extends Model
 {
     use HasFactory;
-    protected $table='laptop_os';
+
+    protected $table = 'laptop_os';
 
     public function allArr(): array
     {

@@ -3,12 +3,9 @@
 namespace App\Http;
 
 use App\Http\Middleware\CheckLogin;
-use App\Http\Middleware\Cors;
 use App\Http\Middleware\JwtMiddleware;
 use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
-use Tymon\JWTAuth\Facades\JWTAuth;
-
 
 
 class Kernel extends HttpKernel
@@ -70,10 +67,10 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'jwt.verify'=>JwtMiddleware::class,
-        'jwt.auth'=>'Tymon\JWTAuth\Middleware\GetUserFromToken',
-        'jwt.refresh'=>'Tymon\JWTAuth\Middleware\RefreshToken',
-        'role.isAdmin'=>RoleMiddleware::class,
-        'check_login'=>CheckLogin::class
+        'jwt.verify' => JwtMiddleware::class,
+        'jwt.auth' => 'Tymon\JWTAuth\Middleware\GetUserFromToken',
+        'jwt.refresh' => 'Tymon\JWTAuth\Middleware\RefreshToken',
+        'role.isAdmin' => RoleMiddleware::class,
+        'check_login' => CheckLogin::class
     ];
 }

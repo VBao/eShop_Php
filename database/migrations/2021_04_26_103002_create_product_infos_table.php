@@ -14,8 +14,8 @@ class CreateProductInfosTable extends Migration
     public function up()
     {
         Schema::create('product_infos', function (Blueprint $table) {
-            $table->bigInteger('id',true);
-            $table->string('name',100);
+            $table->bigInteger('id', true);
+            $table->string('name', 100);
             $table->longText('description');
             $table->unsignedSmallInteger('guarantee');
             $table->unsignedBigInteger('price');

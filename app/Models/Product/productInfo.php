@@ -14,26 +14,30 @@ productInfo extends Model
 //    'brand'=>Brand::class,
 //    'type'=>Type::class
 //];
-    public function images(){
+    public function images()
+    {
         return $this->hasMany('App\Models\Product\Image');
     }
 
-    public function brands(){
-        return $this->belongsTo('App\Models\Product\Brand','id');
+    public function brands()
+    {
+        return $this->belongsTo('App\Models\Product\Brand', 'id');
     }
 
-    public function types(){
+    public function types()
+    {
 //        return $this->belongsToMany('App\Models\Product\Type','types');
-        return $this->belongsTo('App\Models\Product\Type','id');
+        return $this->belongsTo('App\Models\Product\Type', 'id');
     }
 
     public function getIndex(int $brand_id)
     {
-        return $this->newQuery()->where('brand_id',$brand_id)->orderBy('id','desc')->limit(5)->get();
+        return $this->newQuery()->where('brand_id', $brand_id)->orderBy('id', 'desc')->limit(5)->get();
     }
 
-    public function getById(int $id){
-        return $this->newQuery()->where('id',$id)->first();
+    public function getById(int $id)
+    {
+        return $this->newQuery()->where('id', $id)->first();
     }
 
 }

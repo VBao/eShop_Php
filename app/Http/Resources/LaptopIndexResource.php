@@ -20,7 +20,7 @@ class LaptopIndexResource extends JsonResource
         return [
             'id' => $this->id,
             'brand' => $this->brand,
-            'result' => ListLaptopResource::collection(productInfo::where('brand_id', $this->id)->orderBy('id','desc')->limit(4)->get())
+            'result' => ListLaptopResource::collection(productInfo::where('brand_id', $this->id)->orderBy('id', 'desc')->limit(4)->get())
         ];
     }
 }

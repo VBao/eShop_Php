@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Product\Type;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -15,7 +14,7 @@ class BrandSeeder extends Seeder
      */
     public function run()
     {
-        $brands_lap=[
+        $brands_lap = [
             'Dell',
             'Hp',
             'Lenovo',
@@ -25,19 +24,15 @@ class BrandSeeder extends Seeder
             'Asus',
         ];
 
-        $brands_drive=[
+        $brands_drive = [
             "WD",
             "SAMSUNG",
-            "KINGSTON",
-            "KINGMAX",
             "SANDISK",
-            "LACIE",
             "TRANSCEND",
-            "CRUCIAL",
             "SEAGATE"
         ];
 
-        foreach ($brands_lap as $brand)DB::table('brands')->insert(['brand'=>$brand,'type_id'=>1]);
-        foreach ($brands_drive as $brand)DB::table('brands')->insert(['brand'=>$brand,'type_id'=>2]);
+        foreach ($brands_lap as $brand) DB::table('brands')->insert(['brand' => $brand, 'type_id' => 1]);
+        foreach ($brands_drive as $brand) DB::table('brands')->insert(['brand' => $brand, 'type_id' => 2]);
     }
 }

@@ -14,7 +14,7 @@ class Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function test($page=1)
+    public function test($page = 1)
     {
         $tempArr = [];
         foreach (productInfo::all()->makeHidden(['brand_id', 'type_id']) as $product) {
@@ -24,7 +24,7 @@ class Controller
             $productDto->type = Type::where('id', $product->type_id)->first();
             $tempArr[] = $productDto;
         }
-        $res=array_slice($tempArr,15*($page-1),15);
+        $res = array_slice($tempArr, 15 * ($page - 1), 15);
         return response()->json($res);
     }
 }

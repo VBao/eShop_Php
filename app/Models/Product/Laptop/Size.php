@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Size extends Model
 {
     use HasFactory;
-    protected $table='laptop_sizes';
+
+    protected $table = 'laptop_sizes';
 
     public function allArr(): array
     {

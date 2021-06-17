@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Dto\Info\postInfoDto;
-use App\Dto\Laptop\postLaptopDto;
 use App\Service\IDriveService;
 use App\Service\IProductService;
 use Illuminate\Database\Seeder;
@@ -36,10 +35,9 @@ class DriveTestSeeder extends Seeder
 
     private function genJson()
     {
-        $json = file_get_contents('drive.json',FILE_USE_INCLUDE_PATH);
+        $json = file_get_contents('drive.json', FILE_USE_INCLUDE_PATH);
         $json_data = json_decode($json, true);
-        foreach($json_data as $drive)
-        {
+        foreach ($json_data as $drive) {
             $info = new postInfoDto;
             foreach ($drive['info'] as $key => $val) {
                 $info->$key = $val;

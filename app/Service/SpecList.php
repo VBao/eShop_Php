@@ -4,7 +4,6 @@
 namespace App\Service;
 
 
-use App\Http\Resources\Product\BrandResource;
 use App\Models\Product\Brand;
 use App\Models\Product\Drive\DriveCache;
 use App\Models\Product\Drive\DriveCapacity;
@@ -52,7 +51,8 @@ class SpecList
     }
 
     public function drive()
-    {$arBrand = [];
+    {
+        $arBrand = [];
         foreach (Brand::query()->where('type_id', 2)->get(['id', 'brand']) as $val) {
             $arBrand[] = (object)[
                 'id' => $val->id,

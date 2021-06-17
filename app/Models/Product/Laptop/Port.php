@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Port extends Model
 {
     use HasFactory;
-    protected $table='laptop_ports';
+
+    protected $table = 'laptop_ports';
+
     public function allArr(): array
     {
         $temp = [];

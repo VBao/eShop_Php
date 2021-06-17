@@ -14,22 +14,22 @@ class JwtMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
     {
 //        return $next($request);
         try {
-            $user=JWTAuth::parseToken()->authenticate();
-        }catch (JWTException $ex){
-            if ($ex instanceof TokenInvalidException){
-                return response()->json(['status'=>'Invalid token']);
-            }elseif ($ex instanceof TokenExpiredException){
-                return response()->json(['status'=>'Token is expired']);
-            }else{
-                return response()->json(['status'=>'Token is not found']);
+            $user = JWTAuth::parseToken()->authenticate();
+        } catch (JWTException $ex) {
+            if ($ex instanceof TokenInvalidException) {
+                return response()->json(['status' => 'Invalid token']);
+            } elseif ($ex instanceof TokenExpiredException) {
+                return response()->json(['status' => 'Token is expired']);
+            } else {
+                return response()->json(['status' => 'Token is not found']);
             }
         }
         return next($request);

@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Weight extends Model
 {
     use HasFactory;
-    protected $table='laptop_weights';
+
+    protected $table = 'laptop_weights';
 
     public function allArr(): array
     {

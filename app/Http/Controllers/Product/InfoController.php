@@ -3,19 +3,12 @@
 namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\AllSpecsResource;
-use App\Http\Resources\SpecsListResource;
-use App\Models\Product\Brand;
-use App\Models\Product\Drive\DriveCapacity;
-use App\Models\Product\Drive\DriveType;
-use App\Models\Product\Laptop\Cpu;
-use App\Models\Product\Laptop\Ram;
-use App\Models\Product\Laptop\Screen;
 use App\Models\Product\Type;
 use App\Service\IDriveService;
 use App\Service\ILaptopService;
 use App\Service\IProductService;
 use App\Service\SpecList;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class InfoController extends Controller
@@ -46,64 +39,19 @@ class InfoController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
-    public function index()
+    public function index(): JsonResponse
     {
         return response()->json($this->productService->brandIndex());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
-    public function search($keywords)
+    public function search($keywords): JsonResponse
     {
         return response()->json($this->productService->search($keywords));
     }
 
-    public function filter(Request $request)
+    public function filter(Request $request): JsonResponse
     {
         $filters = $request->toArray();
         unset($filters['type_product']);
@@ -115,7 +63,7 @@ class InfoController extends Controller
         return response()->json(['error' => 'Invalid type']);
     }
 
-    public function getAllSpecs()
+    public function getAllSpecs(): JsonResponse
     {
         $specs = new SpecList();
         $types = [];

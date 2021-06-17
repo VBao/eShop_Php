@@ -5,7 +5,6 @@ namespace App\Http\Resources;
 use App\Models\Product\Brand;
 use App\Models\Product\Type;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Http\Resources\Json\ResourceCollection;
 
 //class InfoResource extends ResourceCollection
 class InfoResource extends JsonResource
@@ -36,8 +35,8 @@ class InfoResource extends JsonResource
             'name' => $this->name,
             'price' => $this->price,
             "guarantee" => 19,
-            "brand_id" => Brand::where('id',$this->brand_id)->first(['id','brand'])->id,
-            "type_id" => Type::where('id',$this->type_id)->first()->id,
+            "brand_id" => Brand::where('id', $this->brand_id)->first(['id', 'brand'])->id,
+            "type_id" => Type::where('id', $this->type_id)->first()->id,
             "description" => $this->description,
         ];
     }

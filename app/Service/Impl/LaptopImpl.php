@@ -3,7 +3,6 @@
 namespace App\Service\Impl;
 
 use App\Dto\Laptop\listSpecsLaptopDto;
-use App\Dto\Laptop\detailLaptopDto;
 use App\Dto\Laptop\postLaptopDto;
 use App\Dto\Laptop\showSpecsDto;
 use App\Http\Resources\LaptopIndexResource;
@@ -22,8 +21,8 @@ use App\Models\Product\Laptop\Size;
 use App\Models\Product\Laptop\Weight;
 use App\Models\Product\productInfo;
 use App\Service\ILaptopService;
-use Database\Seeders\LaptopSpecs;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 
 class LaptopImpl implements ILaptopService
@@ -80,13 +79,12 @@ class LaptopImpl implements ILaptopService
         return $res;
     }
 
-    public function getList()
+    public function getList(): AnonymousResourceCollection
     {
         return ListLaptopResource::collection(productInfo::where('type_id', 1)->get());
-//        return ListLaptopResource::collection(productInfo::where('type_id', 1)->get());
     }
 
-    public function getSpecs(int $lapId, $update = false)
+    public function getSpecs(int $lapId, $update = false): showSpecsDto
     {
         $response = new showSpecsDto;
         $lapSpec = $this->laptop->newQuery()->where('id', $lapId)->first();
@@ -136,11 +134,11 @@ class LaptopImpl implements ILaptopService
         $form->weights = $this->weight->allArr();
         $form->batteries = $this->battery->allArr();
         $form->os = $this->os->allArr();
-        $info["spec"]=$form;
+        $info["spec"] = $form;
         return $info;
     }
 
-    public function create(postLaptopDto $lap)
+    public function create(postLaptopDto $lap): laptopSpec
     {
         $createLap = new laptopSpec;
         foreach ($lap as $key => $value) {
@@ -171,7 +169,7 @@ class LaptopImpl implements ILaptopService
         return $res;
     }
 
-    public function filter(array $filter)
+    public function filter(array $filter): AnonymousResourceCollection
     {
         $list_laptop = new Collection();
         foreach ($filter['brand'] as $brand) {
@@ -186,7 +184,7 @@ class LaptopImpl implements ILaptopService
         return ListLaptopResource::collection($list_laptop);
     }
 
-    public function index()
+    public function index(): AnonymousResourceCollection
     {
         return LaptopIndexResource::collection(Brand::where('type_id', 1)->get());
     }

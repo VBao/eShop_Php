@@ -15,13 +15,13 @@ class TypeSeeder extends Seeder
     public function run()
     {
 
-        $types=[
+        $types = [
             'Laptop',
             'Drive',
             'Monitor',
             'Mouse',
             'Keyboard',
         ];
-        foreach ($types as $type)DB::table('types')->insert(['type'=>$type]);
+        foreach ($types as $type) DB::table('types')->insert(['type' => $type]);
     }
 }

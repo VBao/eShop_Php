@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Screen extends Model
 {
     use HasFactory;
-    protected $table='laptop_screens';
+
+    protected $table = 'laptop_screens';
 
     public function allArr(): array
     {

@@ -5,13 +5,10 @@ namespace App\Http\Resources;
 use App\Models\Product\Brand;
 use App\Models\Product\Drive\DriveRead;
 use App\Models\Product\Drive\DriveRotation;
-use App\Models\Product\Drive\DriveSpecs;
 use App\Models\Product\Drive\DriveWrite;
 use App\Models\Product\Image;
 use App\Models\Product\productInfo;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
 
 class DriveDetailsResource extends JsonResource
 {

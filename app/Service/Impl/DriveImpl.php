@@ -5,12 +5,8 @@ namespace App\Service\Impl;
 
 
 use App\Http\Resources\DriveDetailsResource;
-use App\Http\Resources\DriveIndexResource;
 use App\Http\Resources\DriveListResource;
-use App\Http\Resources\ImageResource;
-use App\Http\Resources\InfoResource;
 use App\Http\Resources\LaptopIndexResource;
-use App\Http\Resources\ListLaptopResource;
 use App\Models\Product\Brand;
 use App\Models\Product\Drive\DriveCache;
 use App\Models\Product\Drive\DriveCapacity;
@@ -21,10 +17,8 @@ use App\Models\Product\Drive\DriveRotation;
 use App\Models\Product\Drive\DriveSpecs;
 use App\Models\Product\Drive\DriveType;
 use App\Models\Product\Drive\DriveWrite;
-use App\Models\Product\Image;
 use App\Models\Product\productInfo;
 use App\Service\IDriveService;
-use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Collection;
 
 class DriveImpl implements IDriveService
@@ -34,14 +28,14 @@ class DriveImpl implements IDriveService
     {
         return [
             'info' => ['brands' => Brand::query()->where('type_id', 2)->get(['id', 'brand'])],
-            'spec'=>['capacities' => DriveCapacity::all(),
-            'caches' => DriveCache::all(),
-            'connections' => DriveConnect::all(),
-            'writes' => DriveWrite::all(),
-            'reads' => DriveRead::all(),
-            'dimensions' => DriveDimension::all(),
-            'rotations' => DriveRotation::all(),
-            'types' => DriveType::all(),]
+            'spec' => ['capacities' => DriveCapacity::all(),
+                'caches' => DriveCache::all(),
+                'connections' => DriveConnect::all(),
+                'writes' => DriveWrite::all(),
+                'reads' => DriveRead::all(),
+                'dimensions' => DriveDimension::all(),
+                'rotations' => DriveRotation::all(),
+                'types' => DriveType::all(),]
 
         ];
     }

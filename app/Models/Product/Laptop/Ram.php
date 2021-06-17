@@ -2,14 +2,14 @@
 
 namespace App\Models\Product\Laptop;
 
-use App\Models\Product\Brand;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Ram extends Model
 {
     use HasFactory;
-    protected $table='laptop_rams';
+
+    protected $table = 'laptop_rams';
 
     public function allArr(): array
     {
@@ -19,14 +19,15 @@ class Ram extends Model
         }
         return $temp;
     }
+
     public function toArraysReact()
     {
-        $res=[];
-        foreach (Ram::all() as $val){
-            $temp=[];
-            $temp['value']=$val->value;
-            $temp['text']=$val->value;
-            $res[]=$temp;
+        $res = [];
+        foreach (Ram::all() as $val) {
+            $temp = [];
+            $temp['value'] = $val->value;
+            $temp['text'] = $val->value;
+            $res[] = $temp;
         }
         return $res;
     }

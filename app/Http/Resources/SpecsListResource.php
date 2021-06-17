@@ -22,7 +22,6 @@ use App\Models\Product\Laptop\Screen;
 use App\Models\Product\Laptop\Size;
 use App\Models\Product\Laptop\Weight;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class SpecsListResource extends JsonResource
 {
@@ -37,18 +36,18 @@ class SpecsListResource extends JsonResource
         switch ($this->type) {
             case 'Laptop':
                 return [
-                    'id'=>$request,
-                    'cpus'=>Cpu::all(),
-                    'gpus'=>Gpu::all(),
-                    'rams'=>Ram::all(),
-                    'roms'=>Rom::all(),
-                    'ports'=>Port::all(),
-                    'screens'=>Screen::all(),
-                    'sizes'=>Size::all(),
-                    'weights'=>Weight::all(),
-                    'batteries'=>Battery::all(),
-                    'os'=>Os::all(),
-                    'brand'=>Brand::where('type_id',1)->get(['id','brand']),
+                    'id' => $request,
+                    'cpus' => Cpu::all(),
+                    'gpus' => Gpu::all(),
+                    'rams' => Ram::all(),
+                    'roms' => Rom::all(),
+                    'ports' => Port::all(),
+                    'screens' => Screen::all(),
+                    'sizes' => Size::all(),
+                    'weights' => Weight::all(),
+                    'batteries' => Battery::all(),
+                    'os' => Os::all(),
+                    'brand' => Brand::where('type_id', 1)->get(['id', 'brand']),
                 ];
             case 'Drive':
                 return [
