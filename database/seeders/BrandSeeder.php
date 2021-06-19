@@ -27,9 +27,9 @@ class BrandSeeder extends Seeder
         $brands_drive = [
             "WD",
             "SAMSUNG",
-            "SANDISK",
-            "TRANSCEND",
-            "SEAGATE"
+            "KINGSTON",
+            "KINGMAX",
+            "SANDISK"
         ];
 
         foreach ($brands_lap as $brand) DB::table('brands')->insert(['brand' => $brand, 'type_id' => 1]);

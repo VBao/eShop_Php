@@ -7,6 +7,7 @@ use App\Mail\OrderReceive;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderStatus;
+use App\Models\Product\Image;
 use App\Models\Product\productInfo;
 use Auth;
 use Illuminate\Http\JsonResponse;
@@ -40,11 +41,14 @@ class PurchaseController extends Controller
             $products[] = (object)[
                 "name" => $product->name,
                 "price" => $product->price,
+                "img"=>Image::query()->where('info_id','=',$product->id)->first()->link_image,
                 "qty" => $item->quantity
             ];
         }
         $mail['product'] = $products;
         $mail['total'] = $total;
+        $mail['orderId']=$order->id;
+        $mail['createAt']=$order->created_at;
         $mail['userInfo'] = (object)[
             'name' => $user->name,
             'email' => $user->email,

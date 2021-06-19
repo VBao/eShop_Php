@@ -134,7 +134,9 @@ class DriveController extends Controller
         return response()->json([
             'type' => 'drive',
             'filter' => $filter,
-            'data' => $res
+            'data' => $res,
+            'cur_page'=>$request->page,
+            'max_page'=>ceil(count($data)/12),
         ]);
     }
 

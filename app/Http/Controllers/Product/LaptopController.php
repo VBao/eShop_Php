@@ -120,13 +120,6 @@ class LaptopController extends Controller
                 $activeRam[] = $value['id'];
         }
         if ($activeRam != null || $activeCpu != null || $activeScreen != null) {
-//            foreach ($rawInfo as $info) {
-//                $checkLaptop = laptopSpec::find($info['id']);
-//                $a[] = $checkLaptop->ram_id;
-//                if (in_array($checkLaptop->ram_id, $activeRam) || in_array($checkLaptop->screen_id, $activeScreen)
-//                    || in_array($checkLaptop->cpu_id, $activeCpu))
-//                    $data[] = new ListLaptopResource(productInfo::find($info['id']));
-//            }
             if ($activeCpu == null) {
                 if ($activeRam == null) {
                     foreach ($rawInfo as $info) {
@@ -196,7 +189,9 @@ class LaptopController extends Controller
         return response()->json([
             'type' => 'laptop',
             'filter' => $filter,
-            'data' => $res
+            'data' => $res,
+            'cur_page'=>$request->page,
+            'max_page'=>ceil(count($data)/12),
         ]);
     }
 

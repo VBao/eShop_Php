@@ -41,7 +41,8 @@ class LaptopSpecs extends Seeder
             "Intel Celeron, N4020, 1.10 GHz",
             "AMD Ryzen 5, 5500U, 2.10 GHz",
             "AMD Ryzen 3, 3250U, 2.60 GHz",
-            "AMD Ryzen 5, 4600H, 3.00 GHz"];
+            "AMD Ryzen 5, 4600H, 3.00 GHz",
+            "Apple M1"];
 
         $gpus = [
             "Card đồ họa tích hợp, Intel UHD Graphics",

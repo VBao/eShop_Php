@@ -1,102 +1,1057 @@
 [
     {
         "info": {
-            "brand_id": 12,
-            "description": "ABC",
+            "brand_id": 8,
+            "description": "<h2><strong>Đánh giá chi tiết về Ổ&nbsp;cứng SSD WD Black SN750 500GB M.2 2280 NVMe Gen3 x4 (WDS500G3X0C)</strong></h2> <p><strong>Ổ cứng SSD WD Black 500GB M.2 2280 NVMe PCIe (WDS500G3X0C)</strong> được thiết kế và sản xuất bởi hãng <strong>Western Digital</strong> (viết tắt là <strong>WD</strong>) - là một công ty thiết kế, sản xuất và phát triển thiết bị lưu trữ dữ liệu và là một trong những nhà sản xuất ổ đĩa cứng lớn nhất thế giới có lịch sử lâu đời trong ngành công nghiệp điện tử. Công ty được thành lập vào ngày 23/4/1970 và có trụ sở chính được đặt tại Hoa Kỳ.</p> <p>https://www.youtube.com/watch?time_continue=0&amp;v=19K1EE5B5co</p> <p><strong>Ổ cứng SSD WD Black 500GB M.2 2280 NVMe PCIe (WDS500G3X0C)</strong> được thiết kế chuyên dùng cho các game thủ mang đến tốc độ xử lý, tải nhanh chóng, hỗ trợ cho trải nghiệm gaming ấn tượng với hiệu năng vượt trội. Ổ cứng có yếu tố hình thức M.2 (80 mm) nhỏ gọn, tạo thêm nhiều không gian cho người dùng để có thể cài đặt thêm nhiều linh kiện khác cho PC cùng với thiết kế trơn tru và tông màu đen mạnh mẽ, SSD giúp làm nổi bật hơn cho bộ PC có sử dụng hệ thống LED RGB.</p> <p><strong>Ổ cứng SSD WD Black 500GB M.2 2280 NVMe PCIe (WDS500G3X0C)</strong> được thiết kế với chip nhớ flash sử dụng công nghệ <strong>3D NAND</strong>&nbsp;được thiết kế bởi <strong>WD</strong>, các khối bộ nhớ có khả năng chứa 64 lớp và tăng khoảng trống giữa các khối bộ nhớ tránh gặp phải các vấn đề vật lý, ảnh hưởng đến hiệu năng của bộ nhớ. Ngoài ra, <strong>Ổ cứng SSD WD Black 500GB M.2 2280 NVMe PCIe (WDS500G3X0C)</strong>&nbsp;còn được hỗ trợ với ứng dụng WD Black SSD Dashboard giúp cho người dùng có thể dễ dàng tuỳ chỉnh, tối ưu hoá khả năng hoạt động của SSD sao cho phù hợp với công việc đang làm, cùng với chế độ gaming mode giúp cho các game thủ có thể trải nghiệm đa dạng các tựa game bom tấn mà không phải lo ngại đến các vấn đề màn hình chờ lâu, game crash,....</p> <p><strong>Ổ cứng SSD WD Black 500GB M.2 2280 NVMe PCIe (WDS500G3X0C)</strong> có hiệu năng vượt trội để quản lý đa tác vụ, trang bị với kết nối M.2 NVMe mạnh mẽ (Non-Volatile Memory Express - bộ nhớ không biến đổi cao tốc) đáp ứng mọi nhu cầu cần thiết của người dùng trong công việc hay là chơi game. Kết nối M.2 NVMe cho ra băng thông vượt trội với Tốc độ đọc tuần tự 3470 MB/s, Tốc độ ghi tuần tự 2600MB/s, Tốc độ đọc ngẫu nhiên 420K IOPS, Tốc độ ghi ngẫu nhiên 380K IOPS cho phép người dùng có thể trải nghiệm SSD có hiệu quả vượt trội hơn so với các SSD SATA khác, cùng với khả năng hỗ trợ đa tác vụ giúp cho người dùng có thể sử nhiều ứng dụng cùng lúc mà vẫn đảm bảo tốc độ truyền tải nhanh chóng.</p> <p><strong>Ổ cứng SSD WD Black 500GB M.2 2280 NVMe PCIe (WDS500G3X0C)</strong> được thiết kế với lượng điện năng tiêu thụ thấp hơn nhiều chỉ 70mW (khi hoạt động), 2,5mW (khi đang ở chế độ chờ) mang đến sự yên tâm, thoải mái cho người dùng khi sử dụng và giảm thiếu chi phí hoạt động của PC.</p> <p>Với công nghệ thiết kế cao cấp, bền bỉ và chắc chắn của WD, <strong>Ổ cứng SSD WD Black 500GB M.2 2280 NVMe PCIe (WDS500G3X0C)</strong>&nbsp;có thời gian trung bình giữa các lỗi (MTBF - Mean Time Between Failures) lên đến 1,75 triệu giờ giúp cho người dùng có thể yên tâm sử dụng SSD lâu dài mà không phải lo ngại đến việc sản phẩm bị lỗi trong thời gian sử dụng. Cùng với nó, nhiệt độ hoạt động khuyên dùng của <strong>Ổ cứng SSD WD Black 500GB M.2 2280 NVMe PCIe (WDS500G3X0C)</strong>&nbsp;là từ 0°C đến 70°C. Ngoài ra, SSD cũng đạt đươc tiêu chuẩn FCC, UL, TUV, KCC, BSMI, VCCI, C-Tick không bị rò rỉ các chất độc hại, đảm bảo an toàn cho người dùng.</p>",
+            "guarantee": 60,
+            "name": "Ổ cứng SSD WD Black SN750 500GB M.2 2280 NVMe Gen3 x4 (WDS500G3X0C)",
+            "price": 2710000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 4,
+            "cache_id": 1,
+            "connect_id": 5,
+            "write_id": 6,
+            "read_id": 9,
+            "dimension_id": 4,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/VK4HKI2I2kXsjmI7kN8QwYrg56w1G89ZNoSZB7vvRDJbeksDGwF9uMw7uryttVdTUseYpw9vbd4CB9MH2fw=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/AXwbwSOrCIk0SeQwnwFkhSLU9cJvsUNt8QcoMlpm2ZFud7ns68Kf9vvp1efzhEiU8tdcsCJHEd70o9kq3YMC=w1000-rw",
+            "img3": "https://lh3.googleusercontent.com/YHK2402vicL3Yhqj6lHCuoYxAJHPItmjZ6tSNg3mXxEjlfWwhcs34uGdAc0QbPFdbDImebO725FSNye2as0=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 8,
+            "description": "<h3>Ổ cứng gắn ngoài SSD WD My Passport 2TB USB 3.2 Gen2 Gold (WDBAGF0020BGD-WESN) được thiết kế siêu nhỏ gọn, đồng thời mang đến tốc độ truyền tải cực nhanh cùng các tính năng bảo mật an toàn. Đây sẽ là chiếc ổ cứng chất lượng giúp bạn lưu trữ dữ liệu một cách hiệu quả.&nbsp;</h3> <h4><strong>Kiểu dáng nhỏ gọn hiện đại, vỏ ngoài bền bỉ cao cấp&nbsp;</strong></h4> <p>Ổ cứng gắn ngoài SSD WD My Passport 2TB USB 3.2 Gen2 Gold (WDBAGF0020BGD-WESN) sở hữu kích thước nhỏ gọn với màu sắc sang trọng tạo nên một tổng thể hoàn thiện.&nbsp;</p> <p>Lớp vỏ bên ngoài được cấu tạo bằng kim loại chất lượng cao, vừa mang lại vẻ đẹp thẩm mỹ vừa đủ mạnh mẽ để có thể chống các va đập, với khả năng chịu được lực tác động khi rơi từ độ cao 1,98m.&nbsp;</p> <h4><strong>Tốc độ truyền tải đáng kinh ngạc, mở rộng khả năng lưu trữ</strong></h4> <p>Ổ cứng gắn ngoài SSD WD My Passport 2TB USB 3.2 Gen2 Gold (WDBAGF0020BGD-WESN) cho tốc độ truyền tải cực nhanh, cho phép bạn truyền dữ liệu với các tệp lớn hơn, nhiều nội dung hơn chỉ trong thời gian ngắn. Ngoài ra, ổ cứng còn cung cấp tốc độ đọc/ghi cao, lần lượt là 1050MB/s, 1000MB/s, giúp bạn truy cập dữ liệu mọi lúc, mọi nơi.</p> <p>Ổ cứng gắn ngoài SSD WD My Passport 2TB USB 3.2 Gen2 Gold (WDBAGF0020BGD-WESN) có dung lượng ấn tượng lên đến 2TB, mang đến một không gian rộng lớn để bạn lưu trữ một cách thoải mái.&nbsp;</p> <p>Bên cạnh đó, chiếc ổ cứng cũng là nơi lưu trữ và bảo vệ các thông tin quan trọng của bạn. Công nghệ NVMe cùng khả năng truyền dữ liệu nhanh chóng đảm bảo mang đến năng suất tối đa, đồng thời cho phép mã hóa phần cứng bằng mật khẩu.</p> <h4><strong>Mua ổ cứng gắn ngoài SSD WD My Passport 2TB USB 3.2 Gen2 Gold (WDBAGF0020BGD-WESN) chính hãng tại E-tech | Hỗ trợ giao hàng miễn phí tận nơi&nbsp;</strong></h4> <p>Ổ cứng gắn ngoài SSD WD My Passport 2TB USB 3.2 Gen2 Gold (WDBAGF0020BGD-WESN) hiện đã được phân phối chính thức tại hệ thống showroom E-tech trên toàn quốc với giá ưu đãi. Khi mua hàng tại đây, bạn sẽ được hỗ trợ giao hàng đến tận nơi và hoàn toàn freeship. Vậy nên hãy đặt hàng tại Phong Vũ ngay từ bây giờ bạn nhé!&nbsp;</p>",
             "guarantee": 24,
-            "name": "Drive 1",
-            "price": 15399000,
+            "name": "Ổ cứng HDD WD Blue 4TB SATA3 5400rpm (WD40EZAZ)",
+            "price": 2990000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 7,
+            "cache_id": 3,
+            "connect_id": 7,
+            "write_id": 2,
+            "read_id": 5,
+            "dimension_id": 2,
+            "rotation_id": 2,
+            "drive_type_id": 1
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/ngSmp1XEVxzOm3oP_Chjx1O8BWYzL-QKEAzDnRhK0_tf30KSF2cS1azpZffKRRw4Oom7PqrGFCjzKrpSlE04G70zBCNqcw2BYw=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/d-hBu5KUSZQu2vyC5NcfYX89FZ-pgJNZ-YdOMaFdMjmSZubDYUyDRtsRLml54A_5HS08DPMBFvt0D5xq6pnyciUxW8VJY_Ky=w1000-rw",
+            "img3": "https://lh3.googleusercontent.com/Va0cJSZ6FtSbPjIBu9CHyuKzrswmw2phGxEze3tRZ65ZQtjzLwKo8Sgergn1Nr8iRpt1uBTCOC5kjcDBXiI=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 8,
+            "description": "<p>Trước đây, trên các dòng máy tính để bản lẫn laptop đều được trang bị ổ cứng HDD (Hard Disk Drive) để lưu trữ dữ liệu, tuy vậy nhược điểm của loại cứng này là tốc độ đọc ghi dữ liệu khá chậm chạp nên không thể đáp ứng tốt trong việc truyển tải các dữ liệu nặng hay xử lý tác vụ đồ họa phức tạp. Đây cũng là lý do mà&nbsp;ổ SSD ra đời.Với việc có nhiều ưu điểm vượt trội hơn ổ HDD thì SSD đang ngày càng được sử dụng rộng rãi.Để phục vụ nhu cầu sử dụng SSD đó hãng sản xuất WD (Western Digital)hãng sản xuất ổ đĩa cứng lớn nhất thế giới đã giới thiệu rất nhiều sản phẩm trong đó có&nbsp;Ổ cứng SSD WD 240GB WDS240G2G0B (M2-2280)</p> <h3><strong>Đặc điểm nổi bật</strong></h3> <p>Ổ cứng SSD WD 240GB WDS240G2G0B (M2-2280)&nbsp;là giải pháp để tối ưu hóa hiệu năng của máy tính, cung cấp hiệu suất và độ tin cậy cực cao khi được trang bị tất cả các công nghệ&nbsp; tiên tiến nhất hiện nay.</p> <p>Ổ cứng có tốc độ đọc lên đến 540MB/s giúp cho các ứng dụng chạy nhanh hơn, thời gian đáp ứng thấp hơn và tăng tốc độ truyền tải dữ liệu. Với&nbsp;SSD WD 240GB WDS240G2G0B (M2-2280) bạn sẽ có được một trải nghiệm tuyệt vời trên hệ thống máy tính của bạn và tiết kiệm được rất nhiều thời gian.</p> <p>Ổ cứng&nbsp;SSD WD 240GB WDS240G2G0B (M2-2280) còn nổi bật ở khả năng bền bỉ của mình với&nbsp; tuổi thọ hoạt động (MTTF) lên đến 1.750.000 giờ.Cùng với các công nghệ tự sửa lỗi (ECC),Ổ cứng&nbsp;SSD WD 240GB WDS240G2G0B (M2-2280)&nbsp;&nbsp;sẽ bảo vệ dữ liệu của bạn với độ tin cậy cực kì lâu dài. Bên cạnh đó còn là khả năng tối ưu hóa đa nhiệm có thể dùng nhiều tác vụ cùng lúc.</p> <p>Ổ cứng&nbsp;SSD WD 240GB WDS240G2G0B (M2-2280) tương thích hầu hết với tất cả máy tính , đáp ứng mọi nhu cầu của mọi hệ thống laptop hay PC.</p>",
+            "guarantee": 60,
+            "name": "Ổ cứng SSD Western Digital SSD WD Blue 1TB 2.5 SATA 3 - WDS100T2B0A",
+            "price": 3390000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 3,
+            "cache_id": 1,
+            "connect_id": 6,
+            "write_id": 2,
+            "read_id": 5,
+            "dimension_id": 3,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/Xs49wP3D1CpWwb8P3xLQjfbYO8HdF5jVEww_OvIqOiDKXh0Ap2g4PTPEl7LK3yNcAII0yomCbJkonjFZ-g=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/WWb4ZFdxtTbzRrYtSu1LTAo7xJUHDycjRFFQBgYl2Du8NRcNe0h_qbOLVos1_PftgkZKS6Qj8fGk6a8AizI=w1000-rw",
+            "img3": "https://lh3.googleusercontent.com/WWb4ZFdxtTbzRrYtSu1LTAo7xJUHDycjRFFQBgYl2Du8NRcNe0h_qbOLVos1_PftgkZKS6Qj8fGk6a8AizI=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 8,
+            "description": "<h2><strong>Đánh giá SSD Western Digital Green: SSD Entry-level điện năng thấp, hoàn hảo cho nâng cấp laptop</strong></h2> <p><strong>Western Digital</strong> từ lâu đã là một thương hiệu đáng tin cậy trong lĩnh vực lưu trữ điện tử với dòng sản phẩm HDD WD Blue, Red, Purple và Black. Tuy nhiên với xu thế SSD càng trở nên phổ biến và được ưa chuộng, hãng lưu trữ dữ liệu máy tính lớn nhất nhì thế giới này do quá tập trung và mảng SSD cho những tập đoàn lớn mà có vẻ chậm chân trong cuộc chạy đua dành lấy phân khúc người dùng phổ thông. Western Digital mới chỉ ra mắt 2 bản SSD Green và Blue vào năm 2016 sau khi thành công mua lại mảng SSD và NAND flash từ <strong>SanDisk</strong></p> <p>SSD <strong>WD Green</strong>&nbsp;là SSD phân khúc giá rẻ, được thiết kế dựa trên SanDisk SSD Plus với một số thay đổi về phần cứng và firmware cũng như nhiều. Giống như X400, WD Blue được phát hành dưới 2 định dạng, SSD 2.5 và NVMe SSD, cũng như sử dụng phần cứng&nbsp;&nbsp;SanDisk 15nm TLC NAND cùng với <strong>Silicon Motion&nbsp;controller </strong>cấu hình DRAM-less. WD Green được sản xuất với mục đích giống như Samsung 750 EVO và&nbsp; OCZ TL100: cung cấp giá thành thấp nhất trong khi vẫn đảm bảo sự tin cậy trong thương hiệu cùng với hiệu năng vượt trội. Chính nhờ cấu hình DRAM-less, SSD WD Green là sản phẩm ổ cứng dạng rắn phù hợp dành cho việc nâng cấp laptop, đem lại trải nghiệm sử dụng nhanh hơn trên máy tính xách tay.</p> <p>Với một sản phẩm SSD, có lẽ không nên mong chờ gì nhiều vào khâu đóng gói WD Green. Đặt trong một chiếc hộp đơn giản và chân phương, không bao gồm cả dây nối SATA, đối với những khách hàng kĩ tính một chút, đây là điều tương đối thất vọng. Đây cũng không phải là chiếc SSD hào nhoáng và hấp dẫn nhất với vỏ bọc chính là bằng nhựa. Tuy nhiên điều đó cũng chẳng mấy quan trọng vì một khi cài đặt cho laptop thì WD Green cũng nằm trong chassis rồi.</p> <p>Về phần mềm, nếu người dùng cần tới, có thể được tìm thấy tại website chính thức của Western Digital. Tại đây, chúng ta có thể dễ dàng tìm thấy WD SSD Dashboard, phần mềm quản lý dữ liệu dành riêng cho SSD được hãng phát triển.</p> <p>Rất nhiều thông tin hữu ích có thể được quan sát từ phần mềm này, từ trạng thái, hiệu năng cho tới tuổi thọ của sản phẩm. WD SSD Dashboard cũng là nơi mà người dùng có thể kích hoạt Trim support nếu lựa chọn ổ cứng này làm boot drive/ nơi cài đặt hệ điều hành chính.</p> <p>Bên cạnh Dashboard, người dùng có thể tìm tới Acronis True Image WD Edition , một ứng dụng tương đối hữu ích nếu bạn đang cần chuyển hệ điều hành từ một thiết bị lưu trữ khác sang SSD WD Blue mới nâng cấp.</p> <h3>Hiệu năng sử dụng</h3> <p>Ổ cứng&nbsp;SSD&nbsp;Western&nbsp;Digital Green&nbsp;Sata III&nbsp;có tốc độ đọc lên đến 540MB/s và tốc độ ghi lên đến 450MB/s giúp cho các&nbsp;ứng dụng&nbsp;chạy nhanh hơn, thời gian đáp ứng thấp hơn và tăng tốc độ truyền tải dữ liệu. Với&nbsp;ổ cứng&nbsp;SSD&nbsp;Western&nbsp;Digital Green&nbsp;Sata III, bạn sẽ có được một trải nghiệm tuyệt vời trên hệ thống&nbsp;máy tính&nbsp;của bạn và tiết kiệm được rất nhiều thời gian. Hệ thống lưu trữ tốc độ cao thích hợp cho việc nâng cấp rất thuận tiện cho&nbsp;Laptop&nbsp;, nâng cấp cho các máy chủ&nbsp;Phòng net Bootroom</p> <p>Bài kiểm tra so sánh WD Green với 2 sản phẩm Kingston UV400 240GB và SanDisk Plus 240GB của HardwareSecret cùng phân khúc, WD Green 240GB thể hiện khả năng ổn định trong bài test Sequential Read/Write - kiểm tra khả năng đọc/ghi từng block dữ liệu lớn luân phiên. Tuy nhiên khả năng Read/Write của&nbsp; WD Green 240GB chỉ nằm ở mức chấp nhận được khi phải dịch chuyển dữ liệu ngẫu nhiên và có dung lượng nhỏ. Dù sao với Sequential Read/Write chuẩn mực, người dùng hoàn toàn không phải lo lắng bởi laptop một khi được nâng cấp lên với SSD WD Green, việc khởi động hay xử lý các file lớn như game hay các ứng dụng đồ họa Photoshop, Premier đảm bảo sẽ được cải thiện.</p> <h3><strong>Hoạt động bền bỉ</strong></h3> <p>Khối lượng nhẹ và khả năng chống sốc, ổ SSD WD Green không sử dụng các bộ phận chuyển động và giúp giữ cho dữ liệu của bạn an toàn khỏi bị mất trong trường hợp va đập và va chạm ngẫu nhiên. Sản phẩm&nbsp;Ổ cứng&nbsp;SSD&nbsp;Western&nbsp;Digital Green&nbsp;Sata III có thời gian trung bình 1.75 triệu giờ làm việc (MTTF).</p>",
+            "guarantee": 36,
+            "name": "Ổ cứng SSD Western Digital SSD WD Green 120GB 2.5 SATA 3 - WDS120G2G0A",
+            "price": 790000,
             "type_id": 2
         },
         "spec": {
             "capacity_id": 1,
-            "cache_id": 2,
-            "connect_id": 2,
+            "cache_id": 1,
+            "connect_id": 7,
             "write_id": 2,
-            "read_id": 3,
+            "read_id": 5,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/4V5f6sKHlXd2lhh4Ch7qcU7ExgBSs3Lpat8-1fwkYK-3wRI_cnk8-ea5dcK0REVVdkXQg1J17nEuPkL97Q0B=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/Dr7idLCl6qDi7-A-S6FhjM377CkV15Io8gF6gdJas3K0-vuZjPKaBo65adcvY4k_54uT4CPtBOq4ln2Lww=w1000-rw",
+            "img3": "https://lh3.googleusercontent.com/Va0cJSZ6FtSbPjIBu9CHyuKzrswmw2phGxEze3tRZ65ZQtjzLwKo8Sgergn1Nr8iRpt1uBTCOC5kjcDBXiI=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 8,
+            "description": "<h3>Ổ cứng gắn ngoài SSD WD My Passport 2TB USB 3.2 Gen2 Blue (WDBAGF0020BBL-WESN) có kích thước nhỏ gọn, cấu tạo chắc chắn, dung lượng lưu trữ 2TB mang đến tốc độ đọc và ghi nhanh chóng. Đây được xem là 1 trong những ổ cứng di động được ưa chuộng, lựa chọn sử dụng nhiều nhất hiện nay.&nbsp;</h3> <h4><strong>Kích thước nhỏ gọn thuận tiện trong quá trình di chuyển, cấu tạo bền bỉ, chắc chắc</strong></h4> <p>Ổ cứng gắn ngoài SSD WD My Passport 2TB USB 3.2 Gen2 Blue (WDBAGF0020BBL-WESN) sỏ hữu kích thước nhỏ gọn 10 x 5.5 x 0.9 cm, nằm gọn trong lòng bàn tay. Thiết bị này được đánh giá cao về tính di động, dễ dàng cho vào túi mang theo bên mình, theo chân bạn trên mọi cuộc hành trình.</p> <p>Bên ngoài vỏ của ổ cứng gắn ngoài SSD WD My Passport 2TB USB 3.2 Gen2 Blue (WDBAGF0020BBL-WESN) được làm từ kim loại cao cấp, có thể chống lại mọi va đập bất ngờ, không bị hư hỏng khi bị sốc mỗi lần di chuyển, chịu được các môi trường có nhiệt độ khắc nghiệt, bảo vệ tốt dữ liệu của bạn.</p> <h4><strong>Thiết kế đơn giản mà vẫn đảm bảo tính thời trang, dung lượng lưu trữ lên đến 2TB&nbsp;</strong></h4> <p>Ổ cứng gắn ngoài SSD WD My Passport 2TB USB 3.2 Gen2 Blue (WDBAGF0020BBL-WESN) mang thiết kế đơn giản với gam màu xanh đen chủ đạo đầy tinh tế, đường bo cong hoàn hảo đầy sang trọng, lo go WD nổi bật trên nền xanh, tất cả đều tạo nên một sản phẩm thời trang, chất lượng, đáng tin cậy từ trong ra ngoài.</p> <p>Đến với ổ cứng gắn ngoài SSD WD My Passport 2TB USB 3.2 Gen2 Blue (WDBAGF0020BBL-WESN), bạn sẽ được tận hưởng không gian lưu trữ rộng lớn lên đến 2TB. Giờ đây, vấn đề về dung lượng bộ nhớ sẽ không còn là nỗi lo nữa, hãy thoải mái sao chép, truyền tải các file tài liệu, giải trí mà bạn cần mỗi ngày.</p> <h4><strong>Tốc độ truyền tải mạnh mẽ, nhanh chóng, khả năng tương thích cao, tiện lợi khi sử dụng</strong></h4> <p>Ổ cứng gắn ngoài SSD WD My Passport 2TB USB 3.2 Gen2 Blue (WDBAGF0020BBL-WESN) không chỉ chứa được nhiều dữ liệu mà còn có khả năng đọc, ghi dữ liệu cực nhanh, cụ thể tốc độ đọc lên đến 1050MB/s và tốc độ ghi là 1000MB/s, mang đến hiệu suất hoạt động không thể chối cãi, nâng cao giệu quả công việc của bạn.</p> <p>Ổ cứng gắn ngoài SSD WD My Passport 2TB USB 3.2 Gen2 Blue (WDBAGF0020BBL-WESN) luôn làm hài lòng những khách hàng khó tính nhất với các đặc điểm nổi bật của mình, trong đó, khả năng tương thích cao là một yếu tố rất quan trọng. Sản phẩm này đã trải qua nhiều cuộc kiểm nghiệm và được chứng minh là tương thích cổng usb 3.0 và 2.0 trên Windows (7, 8.1, 10) và Mac OS., đủ để chinh phục người dùng.</p> <h4><strong>Mua ổ cứng gắn ngoài SSD WD My Passport 2TB USB 3.2 Gen2 Blue (WDBAGF0020BBL-WESN) chính hãng tại Showroom E-tech, nhận chiết khấu khi thanh toán qua VNPAY&nbsp;</strong></h4> <p>Ổ cứng gắn ngoài SSD WD My Passport 2TB USB 3.2 Gen2 Blue (WDBAGF0020BBL-WESN) sẵn sàng đáp ứng các như cầu lưu trữ của bạn với các tính năng nổi trội, chất lượng vượt bậc từ trong ra ngoài. Khi mua sản phẩm ổ cứng này tại Showroom E-tech, bạn sẽ được nhận chiết khấu khi thanh toán qua VNPAY cùng nhiều chương trình ưu đãi hấp dẫn đi kèm.</p>",
+            "guarantee": 60,
+            "name": "Ổ cứng gắn ngoài SSD WD My Passport 2TB USB 3.2 Gen2 Blue (WDBAGF0020BBL-WESN)",
+            "price": 11200000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 6,
+            "cache_id": 1,
+            "connect_id": 4,
+            "write_id": 4,
+            "read_id": 7,
+            "dimension_id": 2,
+            "rotation_id": 1,
+            "drive_type_id": 4
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/fyHZtlwhbKwKzlyhU2gzntID8Vtsa5GN0oKI8nQUUhUIaQ-F31_5HSGxqj_qOJphu6qYMEqBof_pzFC18kksD339zwxpQ4zksA=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/vGjvC-FOxELo8R4hfuiDq9MW8yDiHOX3Z7tMoXGeG5K688WLVsUtyKnq58ROXA-3Q0Tiz7Nod264RzbWpLHMgU4Qd-GeS47R=w1000-rw",
+            "img3": "https://lh3.googleusercontent.com/zMWgsh_Z-2f1MHIFmvMPdg_D1Pyy91_OBTl7m8d3a-2ZzZLuJMIcfOpgl3CZjvdbMbGrM8qW4t5SykRkvY-t7Wlr1inaKstV=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 8,
+            "description": "<h3>Ổ cứng SSD WD Blue SN550 1TB M.2 2280 NVMe Gen3 x4 (WDS100T2B0C) là dòng sản phẩm cao cấp đến từ thương hiệu linh kiện nổi tiếng WD. Với hiệu suất hoạt động ấn tượng cùng nhiều công nghệ hiện đại khác, dòng ổ cứng trên sẽ là một giải pháp tuyệt vời giúp bạn xử lý nhanh chóng mọi công việc với tốc độ vượt trội.&nbsp;</h3> <h4><strong>Kích thước nhỏ gọn, dung lượng lưu trữ ấn tượng 1TB</strong></h4> <p>Ổ cứng SSD WD Blue SN550 1TB M.2 2280 NVMe Gen3 x4 (WDS100T2B0C) được thiết kế với kích thước chuẩn M.2 2280 nên sẽ có khả năng tương thích khá tốt với nhiều dòng máy tính PC hay laptop có hỗ trợ cổng M.2 PCIe NVMe. Ổ cứng SSD còn có ưu điểm chống sốc tốt, ít gặp vấn đề hư hỏng, và trọng lượng cũng nhẹ hơn rất nhiều.&nbsp;</p> <p>Ổ cứng sở hữu dung lượng cực lớn lên đến 1TB, tạo nên một không gian lưu trữ rộng rãi để người dùng có thể tải về nhiều phần mềm cần thiết hoặc tiến hành lưu trữ dữ liệu trên bộ nhớ một cách thoải mái mà không phải lo vấn đề hết dung lượng.&nbsp;</p> <h4><strong>Tốc độ truyền tải nhanh chóng, hỗ trợ tốc độ đọc/ghi cao</strong></h4> <p>Ổ cứng SSD WD Blue SN550 1TB M.2 2280 NVMe Gen3 x4 (WDS100T2B0C) thuộc dòng ổ cứng SSD nên có thể cung cấp băng thông tốc độ cao, cho phép truy cập dữ liệu hoặc khởi động phần mềm,.. chỉ trong vài giây.&nbsp;</p> <p>Ngoài ra, tốc độ cao của ổ cứng còn giúp quá trình tải dữ liệu diễn ra nhanh hơn, từ đó có thể giúp tiết kiệm thời gian của bạn để bạn có thể làm được nhiều việc hơn, nâng cao hiệu suất công việc.&nbsp;</p> <p>Ổ cứng SSD WD Blue SN550 1TB M.2 2280 NVMe Gen3 x4 (WDS100T2B0C) được hỗ trợ tốc độ đọc/ghi ấn tượng 2900MB/s, 1950MB/s, mang đến khả năng xử lý thông tin nhanh chóng cho máy tính.&nbsp;</p> <h4><strong>Hiệu năng vượt trội nhờ ứng dụng công nghệ hiện đại, đảm bảo mức độ tin cậy&nbsp;</strong></h4> <h3>Ổ cứng SSD WD Blue SN550 1TB M.2 2280 NVMe Gen3 x4 (WDS100T2B0C) được ứng dụng công nghệ 3D-NAND 96-Layer hiện đại cùng nhiều nền tảng tiên tiến khác, cung cấp tốc độ vượt trội gấp 4 lần so với SSD SATA III. Từ đó, chiếc máy tính của bạn có thể khởi động nhanh hơn cũng như làm việc hiệu quả và cho thời lượng sử dụng dài hơn.</h3> <p>Ổ cứng SSD WD Blue SN550 1TB M.2 2280 NVMe Gen3 x4 (WDS100T2B0C) còn được hỗ trợ công nghệ PCIe Gen3 x4 NVMe. Đây là một trong những công nghệ vượt bậc dành cho giải pháp lưu trữ hiện nay, mang lại hiệu quả về chi phí và làm tăng thêm độ tin cậy của SSD.</p> <p>Vì không sử dụng cơ chế cơ học, đồng thời có khả năng chống sốc tốt nên ổ cứng SSD sẽ là sự lựa chọn tuyệt vời trong lĩnh vực lưu trữ khi có thể đảm bảo an toàn cho dữ liệu hệ thống trong trường hợp máy tính hoặc thiết bị của bạn bị tác động ngoại lực.&nbsp;</p> <h4><strong>Mua ổ cứng SSD WD Blue SN550 1TB M.2 2280 NVMe Gen3 x4 (WDS100T2B0C) chính hãng tại showroom Phong Vũ | Hỗ trợ giao hàng miễn phí tận nơi</strong></h4> <p>Ổ cứng SSD WD Blue SN550 1TB M.2 2280 NVMe Gen3 x4 (WDS100T2B0C) hiện đã được phân phối tại hầu hết showroom Phong Vũ trên toàn quốc với mức giá khá ưu đãi. Etech có hỗ trợ chế độ giao hàng đến tận nơi và hoàn toàn freeship. Vậy nên hãy nhanh chóng đặt hàng trên website để có thêm cơ hội nhận các ưu đãi khác bạn nhé!</p>",
+            "guarantee": 36,
+            "name": "Ổ cứng SSD WD Blue SN550 1TB M.2 2280 NVMee",
+            "price": 3390000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 5,
+            "cache_id": 1,
+            "connect_id": 5,
+            "write_id": 6,
+            "read_id": 9,
             "dimension_id": 3,
-            "rotation_id": 2,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/glT6SM0_1BK8kYKVa6bvc55kvbIW7tbKJRIWu8-MdaUVpFBEl7csp1fyQnl1zhLl_zRXaLb2pqA0WzgCOail4LnKAmNcQe55=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/PiEqw6BndniOdgdrHIeT4mQFFphUZNoWdpN0UbCYdp9I2j6qU_359pu9HnAITT4ONu1Fuaz9WnAB9N1dxlDAkmRJS8F1hdEThQ=w1000-rw",
+            "img3": "https://lh3.googleusercontent.com/-AXD4p4cqo7bKGe2IoLfWBFWAw8A_1WsZ9lOtlb9A5PAoFPSDCpKogtbuH-wT4MKRaz3CT7jIMMoey1THSeIZSCUEzQlUHI=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 8,
+            "description": "<p>Đế đáp ứng cho các nhu cầu tính toán hiệu suất cao của người dùng, ổ cứng SSD SATA NAND WD Blue ™ 3D mang lại một dung lượng lớn, độ tin cậy và tốc độ đọc/ghi ổn định cao.</p> <h3>Tốc độ truyền dữ liệu cao</h3> <p>Cung cấp độ bền cao hơn,&nbsp;ổ cứng&nbsp;SSD&nbsp;NAND SATA của WD Blue 3D có công suất hoạt động thấp hơn 25% so với các&nbsp;ổ&nbsp;SSD&nbsp;màu xanh WD Blue trước. Và với ít năng lượng hơn được sử dụng, bạn có thể làm việc lâu hơn trước khi sạc&nbsp;máy tính&nbsp;xách tay của bạn.&nbsp;Công nghệ 3D NAND giúp cho ổ cứng có tốc độ đọc lên đến 560MB/s và tốc độ ghi liên tục lên đến 530MB/s mang đến khả năng xử lý công việc nhanh chóng, tiết kiệm thời gian. Ngoài ra, tốc độ truyền dữ liệu cao còn giúp bạn dễ dàng chơi game, phát lại phương tiện truyền thông HD hoặc&nbsp;phần mềm&nbsp;sáng tạo.</p> <h3><strong>Hoạt động bền bỉ&nbsp;</strong></h3> <p>Ổ cứng SSD WD 250GB WDS250G2B0B (M2-2280) được thiết kế không có bộ phận chuyển động để giúp bảo vệ chống mất dữ liệu nếu bị vô tình va chạm hoặc bị rơi. Sản phẩm với thời gian trung bình 1.75 triệu giờ làm việc (MTTF) và một số công nghệ sửa lỗi, ổ SSD SATA NAND SATA của WD Blue 3D có thể giúp bảo vệ dữ liệu trong nhiều năm.</p> <h3><strong>Tương thích nhiều dòng thiết bị</strong></h3> <p>Với giấy chứng nhận từ phòng thí nghiệm kiểm tra tính toàn vẹn chức năng WD (FIT Lab ™), mọi ổ SSD SATA NAND SATA WD Blue 3D được xác minh để tương thích với mọi loạt các máy tính để bàn và máy tính xách tay.&nbsp;Mỗi Ổ cứng SSD WD 250GB WDS250G2B0B (M2-2280) của WD Blue 3D trải qua khả năng tương thích rộng rãi và kiểm tra độ tin cậy để đảm bảo nó đáp ứng các tiêu chuẩn cao của thương hiệu WD.</p> <h3><strong>Phần mềm&nbsp;WDR Acronis® True Image ™ WD Edition</strong></h3> <p>WDR Acronis® True Image ™ WD Edition là phần mềm cho phép người dùng theo dõi dung lượng ở bên trong ổ đĩa,nhiệt độ hoạt động và kiểm soát được quá trình hoạt động của ổ cứng. Hiện nay&nbsp;Phần mềm&nbsp;WDR Acronis® True Image ™ WD Edition cho phép người dùng tải về miễn phí để có thể sao chép ổ đĩa và sao lưu hệ điều hành,&nbsp;ứng dụng, cài đặt và tất cả dữ liệu của mình.</p> <h3><strong>BẢO HÀNH GIỚI HẠN 5 NĂM</strong></h3> <p>Mỗi ổ SSD SATA NAND SATA của WD Blue 3D đi kèm với bảo hành có giới hạn 5 năm, vì vậy bạn có thể tự tin về dung lượng lưu trữ khi nâng cấp hoặc thay thế bất kỳ ổ đĩa nào của bạn.</p>",
+            "guarantee": 60,
+            "name": "Ổ cứng SSD Western Digital WD Blue 250GB M.2 2280 SATA 3 - WDS250G2B0B",
+            "price": 1290000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 3,
+            "cache_id": 1,
+            "connect_id": 6,
+            "write_id": 3,
+            "read_id": 5,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/yCZRjpZ_Fp048z8qlIa9ph9AY47KBDnY0NEMp2aFy8a9aW7c6iClYO3JFXa98wgKxAJfMean5FWTf_Eaels=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/LkX74DGAPEV5WVV2DbraG1NtnA2THRvjOc0MkNya0_YyeaEWyCIzUAjsNwXL4fMXeADmTzbJ7k-WKkqbXQ=w1000-rw",
+            "img3": "https://lh3.googleusercontent.com/EHwTCoJ5WwaE9g9ZZ3RuzqKHlGy5FibaYOgL4iAX_z4FwdT0R65MWP6Fpjr50WLj_kd2iiWPxzg9JsmO2gC5=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 8,
+            "description": "<h3><strong>Bộ nhớ di động cho bộ sưu tập trò chơi tuyệt vời của bạn</strong></h3> <p>Ổ đĩa trò chơi WD_BLACK ™ P10 cung cấp cho bảng điều khiển hoặc PC của bạn các công cụ nâng cao hiệu suất cần thiết để giữ lợi thế cạnh tranh của bạn. Đây là ổ cứng gắn ngoài hàng đầu với dung lượng lên tới 5TB, được chế tạo dành riêng cho các game thủ muốn mở rộng tiềm năng của bảng điều khiển hoặc PC bằng cách lưu thư viện trò chơi của họ theo hình thức di chuyển. Giờ đây, với Ổ đĩa trò chơi WD_BLACK ™ P10, bạn có thể lái trò chơi của mình theo cách bạn chọn.</p> <h3>Mở rộng vương quốc của bạn</h3> <p>Khi thư viện trò chơi của bạn phát triển, bạn sẽ cần không gian để lưu các tựa game quý giá mới của mình, cùng với phòng trống để lưu các mục yêu thích cũ của bạn. Ổ đĩa trò chơi WD_BLACK ™ P10 có dung lượng lên tới 5TB có thể lưu tới 125 trò chơi 3 , do đó bạn không phải thỏa hiệp những trò chơi nào cần xóa trên bảng điều khiển hoặc PC để có chỗ cho những trò chơi mới.</p> <h3>Bất cứ nơi nào bạn đi, trò chơi của bạn</h3> <p>Theo dõi nhanh chóng vào trò chơi, bất kể bạn đang ở đâu. Yếu tố hình thức dễ dàng di động và độ bền cao của WD_BLACK ™ P10 mang đến cho bạn khả năng mang thư viện bên mình mọi lúc mọi nơi. Chỉ cần cắm, đăng nhập và bạn đã sẵn sàng chơi bất kỳ trò chơi nào trong bộ sưu tập 4 bạn mong muốn .</p> <h3>Được xây dựng để tốt hơn</h3> <p>Mọi thứ đi vào các thiết bị WD_BLACK ™ được thiết kế đặc biệt để đưa trò chơi của bạn đi xa hơn, bất kể bạn chơi gì. Với tốc độ lên tới 140MB / s 2 và tối đa 5TB 1 dung lượng lưu trữ bổ sung, Ổ đĩa trò chơi WD_BLACK ™ P10 sẽ đẩy bảng điều khiển hoặc PC của bạn lên mức hiệu suất mới, cho phép bạn lái trò chơi và chơi mà không bị giới hạn.</p> <h3>Thắng mà không phải lo lắng</h3> <p>WD_BLACK ™ đang phá vỡ khuôn mẫu khi nói đến hiệu suất và mở rộng lưu trữ cao cấp. Được xây dựng có mục đích cho các game thủ, WD_BLACK ™ P10 Game Drive mang đến cho bảng điều khiển hoặc PC của bạn khả năng tăng cường hiệu suất đáng tin cậy, đáng tin cậy và cần có, vì vậy bạn sẽ mất ít thời gian hơn để lo lắng về phần cứng của mình và giành được nhiều thời gian hơn</p>",
+            "guarantee": 36,
+            "name": "Ổ cứng di động HDD WD Black P10 Game Drive 2TB USB3.2 (WDBA2W0020BBK-WESN)",
+            "price": 2700000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 6,
+            "cache_id": 1,
+            "connect_id": 4,
+            "write_id": 1,
+            "read_id": 1,
+            "dimension_id": 1,
+            "rotation_id": 1,
             "drive_type_id": 3
         },
         "image": {
-            "img1": "link1",
-            "img2": "link2",
-            "img3": "link3"
+            "img1": "https://lh3.googleusercontent.com/sjwz7iQsdJFmMSF8Fx-ldDzWGXt450qzdM8S9Y3t3c8ZwKHHbljcnmTd6a_TBrkvxrKbPaYF6GdAo5yv2A=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/ScMSJSEyxaGcToWiB4wpsvsd_clD4CXO_WEcwu3UwB0Ov0ums8u7w5Bf7OMZ40jy6YDfuKaZLMSP5RTXqQ=w1000-rw",
+            "img3": "https://lh3.googleusercontent.com/7B8LzluFESh4mFihPJnMVui1t-vqZN-Z3XEBT_dXCCtzUoKNvISzVMqHt-2-1JlAuXr66JzvNvEdWYAvFrk=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 8,
+            "description": "<p>Ổ cứng HDD WD My Passport là một ổ HDD lưu trữ di động đáng tin cậy dành cho bạn, mang đến sự tự do, thoải mái. Với thiết kế sành điệu, nhỏ gọn trong lòng bàn tay. Cùng với không gian lưu trữ rộng lớn bạn có thể dễ dàng sắp xếp hình ảnh, video, các tệp của mình một cách dễ dàng. Sự kết hợp hoàn hảo với phần mềm WD Backup và bảo vệ với mật khẩu, ổ đĩa sẽ giúp giữ liệu của bạn luôn được an toàn.</p> <h3>Thiết kế phong cách mỏng</h3> <p>Thể hiện cá tính hiện đại với ổ đĩa có thiết kế mỏng, thuận tiện và có sẵn nhiều màu sắc cho bạn lựa chọn.</p> <h3>Sao lưu tiện lợi</h3> <p>Đảm bảo mọi dữ liệu của bạn được an toàn và không bị mất. Nhờ có phần mềm WD Backup có thể được thiết lập tự động chạy theo lịch trình của bạn. Chỉ cần chọn thời gian và tần suất để sao lưu các tệp quan trọng từ máy của bạn vào ổ cứng.</p> <h3>Bảo mật ổ cứng</h3> <p>Dữ liệu của bạn được giữ an toàn với bảo vệ mật khẩu My Passort và mã hóa phần cứng AES 256-bit tích hợp. Chỉ cần cài đặt mật khẩu và đặt mật khẩu cá nhân của riêng bạn bằng WD Discovery.</p> <p>&nbsp;</p>",
+            "guarantee": 36,
+            "name": "Ổ cứng HDD WD My Passport 1TB 2.5, 3.2 (WDBYVG0010BRD-WESN) (Đỏ)",
+            "price": 1540000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 5,
+            "cache_id": 1,
+            "connect_id": 4,
+            "write_id": 1,
+            "read_id": 1,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 3
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/gfoOuw2WQHIH_7BlVXesGbn4TEvZp0ranMjoHZYitNB5t9q72pzroODvYELLZyoNHS0O_ZQfI345vbox_fXf=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/bLAvOVbE4PSEnRoAsN_F6XkFekwAhMa7RCvcIiEUYoUbGZDNcOARvIWoD0Gsi2c48Or9JyNxiYFKnXTFX_Cp=w1000-rw",
+            "img3": "https://lh3.googleusercontent.com/X8dMj4yUF7TZZIB_5DyXkg1paib1WXZyao04674Aa4rPw9WCUuaSyZ7WhYeGN2mlG_2lKZ4O-Qi5IdGvu6k=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 8,
+            "description": "<h2><strong>Tổng quan về ổ&nbsp;cứng HDD WD Enterprise Ultrastar DC HA210 1TB 3.5</strong></h2> <p>Các trung tâm dữ liệu phải đối mặt với áp lực ngày càng tăng để quản lý chi phí. Đối với các ổ đĩa khởi động máy chủ giá cả phải chăng hoặc các ứng dụng sử dụng bộ dữ liệu nhỏ hơn, Western Digital cung cấp dòng <strong>Ultrastar DC HA210</strong>, dòng ổ cứng cấp độ doanh nghiệp cấp thấp. Được thiết kế để xử lý khối lượng công việc cực lớn mỗi năm, dòng <strong>Ultrastar DC HA210</strong> cung cấp dung lượng lưu trữ hiệu quả lên tới 1TB cho môi trường trung tâm dữ liệu. Công nghệ Bảo vệ Rung xoay (RVS) sử dụng các thiết bị điện tử tinh vi để giám sát ổ đĩa và khắc phục cả nhiễu động tuyến tính và rung trong thời gian thực đặc biệt hữu ích trong môi trường sử dụng nhiều ổ đĩa và hệ thống gắn trên giá duy trì hiệu suất đọc/ghi cao.</p> <h2><strong>Điểm nổi bật</strong></h2> <p>- Dung lượng lên tới 1TB ở dạng 3,5 inch tiêu chuẩn.</p> <p>- Công nghệ chống rung RVS cho hiệu suất mạnh mẽ trong môi trường nhiều ổ đĩa.</p> <p>- Thiết kế bền bỉ đáng tin cậy, đã được chứng minh.</p> <p>- SATA 6 Gb/s với 512 byte (512n) hỗ trợ các ứng dụng doanh nghiệp cũ.</p> <p>- Xếp hạng MTBF 2 giờ và bảo hành giới hạn 5 năm.</p> <h2><strong>Ứng dụng và công việc áp dụng</strong></h2> <p>- Chạy mảng RAID</p> <p>- Làm ổ đĩa khởi động máy chủ</p> <p>- Lưu trữ đính kèm trực tiếp (DAS)</p> <p>- Lưu trữ đính kèm mạng (NAS)</p> <p>- Các ứng dụng năng lực doanh nghiệp chính thống yêu cầu kích thước khối 512n</p>",
+            "guarantee": 60,
+            "name": "Ổ cứng HDD WD Enterprise Ultrastar DC HA210 1TB 3.5 (HUS722T1TALA604)",
+            "price": 2350000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 5,
+            "cache_id": 2,
+            "connect_id": 7,
+            "write_id": 1,
+            "read_id": 1,
+            "dimension_id": 2,
+            "rotation_id": 4,
+            "drive_type_id": 1
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/KJBzd5xiX24X2-e8YFrfHC106I7z5up7euJ62H1kXhG_UrIMPjO5crRZiRiJxnkUJktsQd7UCZFSTuWNFsrj=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/rN5oapojPF0y7NcuqyxXYqLNFVMmvGv2hGCcwLJF62-LjUWx7LZ7U9Zq57ws1SwSO7Tqtq2wKIBA94g7LT0=w1000-rw",
+            "img3": "https://lh3.googleusercontent.com/hOETSSWsxchbG8eaqqP1dB0pmtUbY0nS7CqnxYR4yyd-_BIjr5g-rVyFvitwnYeL_sks2ZSrIEd7XXOpqH8=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 9,
+            "description": "<h3>Ổ cứng SSD Samsung 870 EVO 2TB (MZ-77E2T0BW) được thiết kế và sản xuất theo công nghệ tiên tiến của Samsung, tương thích với hầu hết tất cả các máy tính hoặc sử dụng làm ổ cứng di động.</h3> <h4><strong>Tổng quan về ổ cứng SSD Samsung 870 EVO 2TB (MZ-77E2T0BW)</strong></h4> <p>Ổ cứng SSD với công nghệ bán dẫn nên đọc và ghi dữ liệu trên SSD hoạt động yên tĩnh, không gây ra tiếng ồn, tốc độ khởi động cũng như tốc độ truy cập nhanh gấp nhiều lần so với ổ cứng HDD, ngoài ra ổ cứng SSD tiêu tốn điện năng thấp hơn.&nbsp;</p> <p>&nbsp;</p> <p>Tuy kích thước nhỏ gọn chỉ 2.5 inch với độ dày chỉ 2.7mm nhưng dung lượng lưu trữ lên đến 2TB, cổng kết nối SATA 3 chuẩn phù hợp để thay thế, nâng cấp các loại máy tính dành cho game thủ cũng như các loại máy tính văn phòng</p> <p>&nbsp;</p> <h4><strong>Công nghệ Samsung 64-Layer 3D V-NAND và chế độ RAPID mode</strong></h4> <p>Ổ cứng SSD Samsung 870 EVO 2TB (MZ-77E2T0BW) sử dụng công nghệ lưu trữ V-NAND làm tăng mật độ lưu trữ và nâng cao hiệu suất, giới hạn về sức chịu đựng của kiến trúc NAND phẳng thông thường như hiện nay. Với công nghệ lưu trữ V-NAND làm cho tuổi thọ của ổ cứng SSD cao hơn gấp nhiều lần so với HDD và đã được kiểm chứng với thời gian lên đến 1.500.000 giờ.</p> <p>&nbsp;</p> <p>Phần mềm Magician của Samsung có trang bị chế độ RAPID mode. Khi được kích hoạt ổ cứng SSD Samsung 870 EVO 2TB sẽ làm tăng hiệu năng của ổ cứng bằng cách sử dụng bộ nhớ Ram còn trống của máy tính như một bộ nhớ Cache của ổ cứng.</p> <p>&nbsp;</p> <h4><strong>Tốc độ truyền tải cực nhanh</strong></h4> <p>Ổ cứng SSD Samsung 870 EVO 2TB (MZ-77E2T0BW) đạt tốc độ đọc 560MB/s và tốc độ ghi lên đến 530MB/s. Với tốc độ đọc và ghi đáng kinh ngạc này thì việc bạn hoàn thành công việc nhanh hơn so với ổ cứng thông thường.</p> <h4><strong>Thích nghi cao với nhiều môi trường hoạt động</strong></h4> <p>Ổ cứng SSD Samsung 870 EVO 2TB (MZ-77E2T0BW) hoạt động trong môi trường từ 0 độ lên đến 70 độ. Nhiệt độ khi lưu trữ giao động từ -45 độ lên đến 85 độ. ổ cứng SSD có khả năng chịu va đập cao lên đến 1500G/0.5 mili giây.</p> <p>&nbsp;</p> <h4><strong>Mua trả góp ổ cứng SSD Samsung 870 EVO 2TB (MZ-77E2T0BW) chính hãng được hỗ trợ trả góp 0%</strong></h4> <p>Với công nghệ lưu trữ hiện đại, hiệu năng mạnh mẽ và hiệu suất làm việc cao, ổ cứng SSD Samsung 870 EVO 2TB phù hợp cho các bạn lựa chọn để nâng cấp máy tính. Đến ngay hệ thống Showroom của Phong Vũ trên toàn quốc để trải nghiệm và mua ngay với mức giá khá tốt và còn được trả góp với lãi suất 0% nữa nhé</p>",
+            "guarantee": 24,
+            "name": "Ổ cứng SSD Samsunggg",
+            "price": 8250000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 6,
+            "cache_id": 1,
+            "connect_id": 7,
+            "write_id": 3,
+            "read_id": 5,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 3
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/JBrnBG8IMXoMdqhhtqOQRxF9uOpXcaK4QV03pjMDDDrDqjpXQN4cippOntXyh9A0TQBtX8YdC-n0XD1Kfbe8gel6VO3MYFod=w500-rw",
+            "img2": "https://lh3.googleusercontent.com/ltx80XxCho3behs_RxlTmLP3w63q39HrVnEbAKa2KdZFz9aaxAcrZW47NRiu4SzvI3x4QKkdx0HU2dyhuAeAjVn5bGhsNabkqg=w1000-rw",
+            "img3": "https://lh3.googleusercontent.com/IgM4VDv2RHwJ_O7tvyZt_KRiPFcd9Wrxw5XhuxsYjZK11KfqgZ7DPtBClkdMPXACD77uBfdqIBCkE2ubg26ka7RK30-L9xYK=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 9,
+            "description": "<h3>SSD Samsung Portable T7 Touch 500GB (MU-PC500S/WW) (Bạc) &nbsp;có khả năng lưu trữ dữ liệu tiện dụng, cơ động cùng với tính năng bảo mật cao. Ổ cứng có kích thước nhỏ gọn rất thích hợp để mang theo mình, kịp thời lưu trữ dữ liệu khi cần thiết.</h3> <h4><strong>Thiết kế nhỏ gọn chắc chắn, ổ cứng di động chuẩn SSD</strong></h4> <p>Thân của ổ cứng SSD Samsung Portable T7 Touch được tạo bằng kim loại chắc chắn giúp bao bọc, bảo vệ dữ liệu của bạn luôn được an toàn. Cùng với thiết kế nhỏ gọn, vừa vặn lòng bàn tay. Đặc biệt hơn sản phẩm có khả năng&nbsp; chịu lực rơi từ độ cao 2m. Là bộ lưu trữ di động tuyệt vời.</p> <p>Ổ cứng Samsung Portable T7 Touch chuẩn SSD vừa có tính cơ động cao vừa bảo vệ được toàn bộ dữ liệu với khả năng chống shock, chống nước, không gây ra tiếng ồn, ít tỏa nhiệt và truyền tải dữ liệu nhanh hơn hẳn các dòng ổ cứng khác.</p> <p>Portable T7 Touch mang đến cho người dùng không gian lưu trữ dữ liệu thoải mái nhờ vào khả năng lưu trữ đạt đến 500 GB của mình. Đây thực sự là con số đáng tin cậy đối với một chiếc ổ cứng chất lượng dành cho bạn.</p> <p>Được Samsung trang bị cho công nghệ NVMe PCIe và giao tiếp USB 3.2 Gen 2,&nbsp;ổ cứng di động Portable SSD Samsung T7 Touch&nbsp;cho phép người dùng truy cập với tốc độ đọc / ghi tối đa tương ứng lên tới 1050 MB/s và 1000 MB/s chỉ trong 8s. Một con số gây ấn tượng cao, giúp bạn di chuyển, sao lưu dữ liệu nhanh, tiết kiệm thời gian và nhanh gần gấp đôi so với T5.</p> <h4><strong>Thoải mái tương thích với nhiều thiết bị, độ bảo mật an toàn đến mức tuyệt đối</strong></h4> <p>Ổ&nbsp;cứng di động&nbsp;Portable SSD Samsung T7 Touch có thể tương thích được với tất cả các thiết bị từ máy tính cá nhân PC, Laptop, máy Mac, điện thoại thông minh cùng các thiết bị khác hỗ trợ cổng USB Type-A và Type-C. Ngoài ra, sản phẩm còn đi kèm với&nbsp;cáp USB Type-C to Type-C&nbsp;và&nbsp;cáp USB Type-C to Type-A&nbsp;giúp bạn dễ dàng kết nối với tất cả các thiết bị của bạn.</p> <p>Ổ&nbsp;cứng SDD Samsung T7 Touch&nbsp;có độ bảo mật tuyệt đối an toàn vì được sử dụng bộ mã hóa AES 256-bit và cung cấp cho bạn khả năng tùy chọn mở khóa chỉ với một cái chạm tay hoặc bằng mã khóa. Bảo mật an toàn chỉ với một chạm, giữ các tập tin riêng tư của bạn an toàn mà không làm mất đi sự tiện lợi.</p> <h4><strong>Phần mềm quản lý kèm theo, đèn di chuyển báo sáng khi làm việc</strong></h4> <p>Ổ&nbsp;cứng&nbsp;Portable SSD Samsung T7 Touch được tích hợp phần mềm nâng cấp cho PC và Mac để giúp bạn thiết lập mật khẩu và dấu vân tay và nhận các bản cập nhật firmware mới nhất.&nbsp;</p> <p>Portable SSD Samsung T7 Touch&nbsp;được hãng trang bị thêm đèn báo sáng khi ổ đĩa được cắm và truyền dữ liệu, thông báo cho bạn biết SSD của bạn đang làm gì trong nháy mắt.</p> <p>&nbsp;</p>",
+            "guarantee": 36,
+            "name": "Ổ cứng SSD Samsung Portable T7 Touch 500GB (MU-PC500S/WW) (Bạc)",
+            "price": 3490000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 4,
+            "cache_id": 1,
+            "connect_id": 4,
+            "write_id": 4,
+            "read_id": 7,
+            "dimension_id": 2,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/_dsJ18zOkCOCje95koipk9y-eysORlYtje7i-RCfCGd_UG2nEl5Gs6lzw88DtE8wJORGwYgcCFlXFaC9cJU=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/XnUbpEPXdhJVoAebnslciDUcDu6k0qDrQe4C6KBBRhGNa5-oDsHy5CwFsrfxeUvxde8JwUK274G0WBeqIgY=w1000-rw",
+            "img3": "https://lh3.googleusercontent.com/BfsnmnOraKrPmfEjPhTlr7mbjpFI3pYs5Yd-_24dKQLj_Cjb_0h98stbkpyOCDj2mj_lEZb-D0xxBpAXNZdg=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 9,
+            "description": "<h3>Ổ cứng di động SSD Samsung Portable T7 Non Touch 1TB 2.5 (MU-PC1T0H/WW) (xanh) mang đến một không gian lưu trữ rộng lớn có thể đáp ứng được nhu cầu sử dụng nhiều dung lượng của bạn. Với tốc độ truyền tải dữ liệu ấn tượng, đây sẽ chiếc ổ cứng phù hợp với nhiều bộ PC.</h3> <h4><strong>Dung lượng lưu trữ cực lớn, thiết kế màu xanh trẻ trung</strong></h4> <p>Ổ cứng SSD Samsung Portable T7 Non Touch 1TB 2.5 (MU-PC1T0H/WW) (xanh) sở hữu dung lượng cực lớn lên đến 1TB. Do đó, người dùng có thể thoải mái download các phần mềm hay tựa game nặng để làm việc, giải trí mà không cần lo lắng về việc bộ nhớ nhanh đầy.</p> <p>Chiếc ổ cứng được thiết kế với gam màu xanh biển trẻ trung, cùng kiểu dáng nhỏ gọn với kích thước 2.5”. Các đường nét xung quanh được hoàn thiện tỉ mỉ nhằm đảm bảo mang đến một tổng thể hài hòa cho sản phẩm.</p> <p>Ổ cứng Samsung Portable T7 Non Touch 1TB 2.5 (MU-PC1T0H/WW) (xanh) được thiết kế nguyên khối với phần cứng được bọc trong thân kim loại giúp đảm bảo an toàn. Chiếc ổ cứng cho khả năng chống sốc tốt, hoạt động bền bỉ và ổn định dù trải qua thời gian dài</p> <p>Chiếc ổ cứng có tốc độ đọc/ghi dữ liệu lần lượt là 1050MB/s | 1000MB/s, đảm bảo sự nhanh chóng. Khả năng truyền tải các tập dữ liệu lớn với tốc độ siêu nhanh của ổ cứng cũng rất ấn tượng khi có sự hỗ trợ của USB 3.2.</p> <p>Ổ cứng SSD Samsung Portable T7 Non Touch 1TB 2.5 (MU-PC1T0H/WW) (xanh) hiện đã được phân phối tại hệ thống showroom Phong Vũ trên toàn quốc. Khi mua hàng tại đây, nếu có bất kỳ lỗi nào do bên sản xuất, chúng tôi sẽ hỗ trợ đổi trả hàng cho bạn miễn phí trong vòng 10 ngày. Vậy nên hãy đến Phong Vũ mua sắm ngay bạn nhé!</p>",
+            "guarantee": 36,
+            "name": "ổ cứng SSD Samsung Portable T7 Non Touch 1TB 2.5 (MU-PC1T0H/WW) (Xanh)",
+            "price": 4790000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 5,
+            "cache_id": 1,
+            "connect_id": 4,
+            "write_id": 4,
+            "read_id": 7,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/UXfFxnC3wElU3iGra4gLh-HT2SmJlavWDiuA1zfPvKG5E10nAfWWsfRrkYhUiXZZEy62kppmTz9wBQbHSz-x=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/MWByQ64D97iCC3kvOE7_fkZY0SYFEfLz2L9YELilbt76KQAC5M7qqTck3p7crAzJL_rfJObPar0vaBYin5Fy=w1000-rw",
+            "img3": "https://lh3.googleusercontent.com/oVDNYT4qNQ9RsHprPbsRWrsrF7vlFW8FpARcsOUCFjt-Lqrn6e4PlK3rgJqAiqQBEEKupNIK28YkRutm10c=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 9,
+            "description": "<h4><strong>Ổ cứng SSD với dung lượng lưu trữ tới 500GB&nbsp;</strong></h4> <p>Sản phẩm ổ cứng Samsung Portable T7 Non Touch 500GB 2.5 (MU-PC500T/WW) là sản phẩm ổ cứng có màu xám đậm (màu Titan Gray), dạng ổ cứng SSD thịnh hành trên thị trường hiện nay bởi những ưu điểm vượt trội của nó mang lại so với các dạng ổ cứng HDD truyền thống trước kia.</p> <p>SSD (viết tắt của Soid State Drive) là ổ đĩa thể rắn với chứ năng tương tự ổ đĩa HDD. Ổ đĩa SSD sử dụng các bộ nhớ bán dẫn để lưu trữ thay vì cơ học như ổ đĩa HDD truyền thống.</p> <h4><strong>Tốc độ đọc/ghi dữ liệu lên tới 1050MB/s và 1000MB/s</strong></h4> <p>Ổ cứng Samsung Portable T7 Non Touch cung cấp tốc độ đọc dữ liệu là 1050MB/s và tốc độ ghi dữ liệu là 1000MB/s cho phép người dùng thực hiện việc truyền dẫn, trao đổi dữ liệu giữa các thiết bị một cách rất nhanh chóng. Samsung đã thực hiện một cuộc kiểm tra truyền dẫn một video 4K dung lượng 10GB vào thiết bị này và thời gian hoàn thành công việc đó chỉ trong vòng hơn 8 giây.</p> <p>Tốc độ này được đánh giá là nhanh gần gấp đôi so với thiết bị ổ cứng di động SSD thế hệ T5 trước đây của Samsung.</p> <h4><strong>Kiểu dáng thời thượng, kích thước nhỏ gọn tiện lợi mang theo bên mình</strong></h4> <p>Samsung chưa bao giờ khiến người yêu công nghệ thất vọng về tính thời thượng trong các sản phẩm của mình. Ổ cứng SSD Samsung Portable T7 Non Touch có kích thước chỉ 2.5’’ - kích thước gần như bằng một chiếc thẻ ngân hàng. Cùng với dung lượng lên tới 500GB, bạn hoàn toàn có thể lưu trữ một lượng lớn tài liệu, hình ảnh, video,... và mang theo chiếc ổ cứng này đi mọi lúc mọi nơi để giải quyết nhu cầu giải trí và làm việc cùng nó ngay lập tức.</p> <p>Ổ cứng SSD Samsung Portable T7 Non Touch chỉ có duy nhất 1 cổng kết nối USB 3.2 và có thể sử dụng được với các cáp chuyển đổi khi người dùng có nhu cầu kết nối với các thiết bị khác.&nbsp;</p> <p>Đặc biệt, SSD Samsung Portable T7 Non Touch còn tương thích với khá nhiều hệ điều hành như Windows 8, Windows 8.1, Windows 10, macOS, Windows 7, Android. Vì thế, thiết bị này hoàn toàn có thể sử dụng cho máy tính, máy tính bảng, điện thoại,...</p> <h4><strong>Bảo mật dữ liệu phần cứng với công nghệ mã hóa AES 256 bit</strong></h4> <p>Để bảo mật dữ liệu được lưu trữ trên ổ cứng SSD Samsung Portable T7 Non Touch của mình, người dùng có thể đặt chế độ có mật khẩu khi sử dụng ổ cứng để người lạ không thể mở ổ cứng khi không được phép của bạn.&nbsp;</p> <p>&nbsp;</p>",
+            "guarantee": 36,
+            "name": "ổ cứng SSD Samsung Portable T7 Non Touch 500GB 2.5 (MU-PC500T/WW) (Xám)",
+            "price": 3090000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 4,
+            "cache_id": 1,
+            "connect_id": 4,
+            "write_id": 4,
+            "read_id": 7,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 4
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/5lSGe8Sm5pHVDDDyyum7rF87yLJrGrmt5mZWEGSEpXNA2LGNScNpCo0L1hlRPhZEiglM8ICJGDY8alVwK9yq=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/f0RMlwzuteWbEjvtDpIY7UHAZu2l4_C_2hPc-0dqkXW3d4p21tU5Qeg2Tx53s27Z4iosO9JQygDBHwfsOb4=w1000-rw",
+            "img3": "https://lh3.googleusercontent.com/wCxR0HpXuJ_AlZQGeIpNDxrIXHiCsZyBryd5l16lEy4XsM4OnMtX5Cufq5jDjdaBj4so-qaV83N86XGWAU0=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 9,
+            "description": "<h3>Tốc độ cao, an toàn chỉ với 1 cú chạm</h3> <p>Cho dù bạn lưu trữ các bộ phim, trò chơi hay những tài liệu kinh doanh quan trọng, SSD Samsung&nbsp;Portable T7 mang đến cho bạn một tốc độ đọc và ghi dữ liệu cực nhanh trong một kích thước chỉ vừa lòng bàn tay.</p> <h3>Bảo mật vân tay an toàn</h3> <p>Giữ các tệp dữ liệu của bạn luôn được riêng tư và an toàn, không mất đi sự thuận tiện. Các tùy chọn bảo mật thích hợp trên&nbsp;SSD Samsung Portable T7 được sử dụng mã hóa AES 256 bit và cung cấp cho bạn các tùy chọn mở khóa chỉ bằng một cú chạm vân tay hoặc bằng mật khẩu.</p> <h3>Lưu trữ nhanh</h3> <p>Truyền các tệp lớn trong vài giây với tốc độ đáng kinh ngạc của USB 3.2 Gen 2 trên SSD Samsung Portable T7. Với tốc độ đọc / ghi lên tới 1.050 / 1.000 MB / s, SSD Samsung Portable T7 nhanh hơn 9,5 lần so với ổ cứng ngoài HDD và nhanh gấp đôi so với T5.</p> <h3>Đèn LED báo trạng thái</h3> <p>SSD Samsung Portable T7 có hình vuông LED chiếu sáng để thông báo cho bạn biết SSD của bạn đang hoạt động. Đèn LED bật và tắt và xoay trong khi truyền dữ liệu.</p> <h3>Kiểu dáng hiện đại và nhỏ gọn</h3> <p>Kích thước vừa bằng thẻ tín dụng và chỉ nặng dưới 100gram, T7 vừa vặn thoải mái trong lòng bàn tay của bạn và đủ nhẹ để mang các dữ liệu của bạn đi. Có 2 lựa chọn màu sắc tinh tế.</p> <h3>Thiết lập đơn giản</h3> <p>SSD Samsung Portable T7 đi kèm với phần mềm để giúp bạn thiết lập mật khẩu và dấu vân tay. Nhận các bản cập nhật firmware mới nhất từ ​​thiết bị di động PC, Mac hoặc Android của bạn. Bạn cũng có thể tải xuống ứng dụng di động cho điện thoại thông minh và máy tính bảng Android.</p>",
+            "guarantee": 36,
+            "name": "Ổ cứng SSD Samsung Portable T7 Touch 500GB 2.5 (MU-PC500K/WW) (Đen)",
+            "price": 3490000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 4,
+            "cache_id": 1,
+            "connect_id": 4,
+            "write_id": 4,
+            "read_id": 7,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/_bKoZWHFs0bna7lqkZ4v0S0mOKPV17FixxuQjmoQRAW7NQwW0J1_YeLkdpB28ly1V5lY45FbQ0fpmV5CKw=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/Pb6P1lgGKelupSQhZ36u5I1ZKsqaVc-VJGz3DmH4Vqsf7jVQbHd9kdZ0ChfWGRw6KP0DnCZhmWSXxcJEdnzj=w1000-rw",
+            "img3": "https://lh3.googleusercontent.com/eIXoTApHkRqwZ7QNMzKipaWVajnYYGKy7OGgPvqvfGhbHkG3HoQx7VivGz40kbGOL9LeoA3sfhXDKFdylg=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 9,
+            "description": "<h3>Kích thước nhỏ gọn</h3> <p>ổ cứng SSD Samsung 1TB 2.5 T5 Portable là dòng ổ cứng di động và trang bị công nghệ độc quyền của Samsung V-NAND. Đem lại tốc độ xử lý giữ liệu nhanh chóng, mang lại trải nghiệm tuyệt vời nhất dành cho người dùng. Cùng với thiết kế nhỏ gọn, chắc chắn và bảo mật cùng mật khẩu phần cứng. Ổ cứng SSD của Samsung là một thiết bị mà bạn có thể tin tưởng và mang theo bên mình.</p> <h3>Tốc độ truyền siêu nhanh</h3> <p>ổ cứng SSD Samsung 1TB 2.5 T5 Portable cung cấp tốc độ truyền lên đến 540MB/s, nhanh hơn 4.9x lần so với ổ HHD thông thường. Với bộ nhớ flash của Samsung V-NAND giúp bạn di chuyển giữ liệu cực nhanh và tiết kiệm được nhiều thời gian hơn.</p> <h3>Độ tin cậy cao</h3> <p>Được trang bị bên ngoài với lớp vỏ kim loại cực kỳ chắc chắn, cứng cáp, nhỏ gọn và dễ sử dụng. Ổ cứng di động SSD Samsung là bộ lưu trữ dữ liệu đáng tin cậy hiện nay.</p> <h3>Siêu nhỏ và nhẹ</h3> <p>Ổ cứng SSD Samsung 1TB 2.5 T5 Portable với kích thước chỉ bằng chiếc thẻ ATM của bạn. Ngoài ra với trọng lượng chỉ 51gram và chỉ dày 10mm bạn có thể dễ dàng mang theo bên mình.</p> <h3>Khả năng tương thích</h3> <p>Ổ cứng SSD Samsung 1TB 2.5 T5 Portable có khả năng tương thích với hầu hết tất cả các thiết bị từ máy tính cá nhân, PC, điện thoại... hỗ trợ các cổng USB Type-A và Type-C giúp bạn có thể kết nối dễ dàng với thiết bị của mình.</p>",
+            "guarantee": 36,
+            "name": "ổ cứng SSD Samsung 1TB 2.5 T5 Portable (MU-PA1T0R/WW)",
+            "price": 5190000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 5,
+            "cache_id": 1,
+            "connect_id": 3,
+            "write_id": 4,
+            "read_id": 4,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 4
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/Fr7hvUrc1BEdjxCFijUktCWTQn6LFqpo-aasY1Cp0Os_74MEcsSN_No-xDhG-VJtTupf4Jzmik2xHyxt5Q=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/chVPWc3Z6DHMa_-WaPqAYm6UhOnB6DtZ2Uk3u7nUcylz0ut1VZZdVIzSeHutOtfkeNT3E21IP67GwFQBh-g=w1000-rw",
+            "img3": "https://lh3.googleusercontent.com/XsoSXRnialx-Jk9JBOFRmlWf4C7wkUOj1lmMAP4xpV2DrJKC-QRBT0SPU9RqdPnahTFqdMYIxRb5sgnm5p4=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 9,
+            "description": "<p><strong>Ổ cứng SSD Samsung 970 EVO PLUS 1TB NVMe M.2 (MZ-V7S1T0BW)</strong> được thiết kế và sản xuất bởi hãng <strong>Samsung</strong>&nbsp;- là một công ty thiết kế, sản xuất và phát triển thiết bị điện thoại thông minh, máy tính bảng, thiết bị lưu trữ,... và là một trong những nhà sản xuất TV lớn nhất thế giới có lịch sử lâu đời trong ngành công nghiệp điện tử. Công ty được thành lập vào ngày 1/3/1938 và có trụ sở chính được đặt tại Seoul, Hàn Quốc.</p> <p><strong>Ổ cứng SSD Samsung 970 EVO PLUS 1TB NVMe M.2 (MZ-V7S1T0BW)</strong> là phiên bản được năng cấp so với ổ cứng SSD Samsung 970 EVO. Ổ cứng có yếu tố hình thức M.2 (80 mm) nhỏ gọn, tạo thêm nhiều không gian cho người dùng để có thể cài đặt thêm nhiều linh kiện khác cho PC cùng với thiết kế trơn tru và tông màu đen mạnh mẽ, SSD giúp làm nổi bật hơn cho bộ PC có sử dụng hệ thống LED RGB.</p> <p><strong>Ổ cứng SSD Samsung 970 EVO PLUS 1TB NVMe M.2 (MZ-V7S1T0BW)</strong> được thiết kế với chip nhớ flash sử dụng công nghệ <strong>V-NAND 3bit MLC</strong>&nbsp;được thiết kế bởi <strong>Samsung&nbsp;</strong>hiện đại, tận dụng thiết kế Change Trap Flash đảm bảo không có sự thất thoát điện áp giúp cho người dùng có thể an tâm sử dụng ổ cứng với khả năng xử lý dữ liệu nhanh chóng. Ngoài ra, Ổ cứng còn được hỗ trợ bởi ứng dụng Samsung Magician giúp cho người dùng có thể dễ dàng quản lý, theo dõi tình trạng hoạt động của ổ cứng.</p> <p><strong>Ổ cứng SSD Samsung 970 EVO PLUS 1TB NVMe M.2 (MZ-V7S1T0BW)</strong> có hiệu năng vượt trội để quản lý đa tác vụ, trang bị với kết nối M.2 NVMe mạnh mẽ (Non-Volatile Memory Express - bộ nhớ không biến đổi cao tốc) đáp ứng mọi nhu cầu cần thiết của người dùng trong công việc hay là chơi game. Kết nối M.2 NVMe cho ra băng thông vượt trội với Tốc độ đọc tuần tự 3500 MB/s, Tốc độ ghi tuần tự 3300MB/s, Tốc độ đọc ngẫu nhiên 600K IOPS, Tốc độ ghi ngẫu nhiên 550K IOPS cho phép người dùng có thể trải nghiệm SSD có hiệu quả vượt trội hơn so với các SSD SATA khác, cùng với khả năng hỗ trợ đa tác vụ giúp cho người dùng có thể sử nhiều ứng dụng cùng lúc mà vẫn đảm bảo tốc độ truyền tải nhanh chóng.</p> <p><strong>Ổ cứng SSD Samsung 970 EVO PLUS 1TB NVMe M.2 (MZ-V7S1T0BW)</strong> được thiết kế với lượng điện năng tiêu thụ thấp hơn nhiều chỉ 6W (khi hoạt động), 30mW (khi đang ở chế độ chờ) mang đến sự yên tâm, thoải mái cho người dùng khi sử dụng và giảm thiếu chi phí hoạt động của PC.</p> <p>Với công nghệ thiết kế cao cấp, bền bỉ và chắc chắn của Samsung, <strong>Ổ cứng SSD Samsung 970 EVO PLUS 1TB NVMe M.2 (MZ-V7S1T0BW)</strong>&nbsp;có thời gian trung bình giữa các lỗi (MTBF - Mean Time Between Failures) lên đến 1,5 triệu giờ giúp cho người dùng có thể yên tâm sử dụng SSD lâu dài mà không phải lo ngại đến việc sản phẩm bị lỗi trong thời gian sử dụng. Cùng với nó, nhiệt độ hoạt động khuyên dùng của <strong>Ổ cứng SSD Samsung 970 EVO PLUS 1TB NVMe M.2 (MZ-V7S1T0BW)</strong>&nbsp;là từ 0°C đến 70°C. Ngoài ra, SSD cũng đạt đươc tiêu chuẩn FCC, UL, TUV, KCC, BSMI, VCCI, CE không bị rò rỉ các chất độc hại, đảm bảo an toàn cho người dùng.</p>",
+            "guarantee": 60,
+            "name": "Ổ cứng SSD Samsung 970 Evo Plus 1TB M.2 NVMe - MZ-V7S1T0BW",
+            "price": 5490000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 5,
+            "cache_id": 1,
+            "connect_id": 5,
+            "write_id": 6,
+            "read_id": 9,
+            "dimension_id": 4,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/QvkjL4K3rTX5KnVTGXaeELB3QdcIigHBpPkWl4gKn072fU4zJf82mPVrJS5Wm9Wgz9CwrlPLb8Bo7cR8aLo=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/6b6ty_hpsl9W2_WK6s8L3oQ-cLKMb_sf014lT4B8D4XktQxT-Szfwo7UHnUmDLy5TfByZLXt-purbdV84HM=w1000-rw",
+            "img3": "https://lh3.googleusercontent.com/rD1MKVvE7QC6LKQZ_z14S1K307gAN6fkaCvFxH2HckTce9m2UQ1dRbWI3ESR44hZbCaz_tuksKuugj7CWqBv=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 9,
+            "description": "<p>Là một trong những phiên bản SSD bán chạy nhất thế giới,&nbsp;ổ cứng <strong>SSD Samsung 860 EVO 1TB M.2 Sata</strong>&nbsp;được thiết kế đặc biệt cho PC và máy tính xách tay&nbsp;với V-NAND mới nhất và bộ điều khiển dựa trên thuật toán mạnh mẽ, đem lại hiệu suất nhanh và thiết kế đáng tin cậy bao gồm nhiều yếu tố hình thức và khả năng tương thích.</p> <h2><strong>Hiệu suất phản hồi nâng cao</strong></h2> <p>Tốc độ phản hồi được nâng cao ngay cả với khối lượng công việc nặng và thực hiện đa tác vụ. <strong>SSD Samsung 860 EVO M.2</strong> hoạt động ở tốc độ ghi tuần tự lên tới 520 MB/s với công nghệ TurboWrite thông minh và đọc tuần tự lên tới 550 MB/s. Kích thước bộ đệm TurboWrite được nâng cấp từ 12GB lên 78GB để truyền tệp nhanh hơn.</p> <h2><strong>Bền bỉ đáng tin cậy</strong></h2> <p>Lưu trữ và hiển thị an toàn các video 4K và dữ liệu 3D có kích thước lớn được sử dụng bởi các ứng dụng mới nhất, cao hơn tới 8 lần TBW (Terabyte Write) so với 850 EVO trước đây. Công nghệ V-NAND mới nhất cung cấp cho bạn tới 2.400 TBW hoặc được bảo hành 5 năm.</p> <h2><strong>Khả năng tương thích cao</strong></h2> <p><strong>SSD Samsung 860 EVO M.2</strong> tương thích với hầu hết các hệ thống máy tính hiện nay cho khả năng giao tiếp nhanh hơn và trôi chảy hơn.&nbsp;Thuật toán ECC được tinh chỉnh và bộ điều khiển MJX mới tạo ra tốc độ cao hơn, và Trim được cải tiến giúp tăng khả năng tương thích Linux.</p> <h2><strong>Phần mềm Samsung Magician</strong></h2> <p>Quản lý và kiểm soát ổ đĩa tiên tiến được thực hiện đơn giản với phần mềm Samsung Magician. Một bộ công cụ thân thiện với người dùng giúp cập nhật ổ đĩa của bạn, theo dõi sức khỏe và tốc độ của ổ đĩa và thậm chí tăng hiệu suất.</p> <p>&nbsp;</p>",
+            "guarantee": 60,
+            "name": "Ổ cứng SSD Samsung 860 EVO 1TB M.2 Sata (Mz-N6E1T0BW)",
+            "price": 3990000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 5,
+            "cache_id": 3,
+            "connect_id": 6,
+            "write_id": 2,
+            "read_id": 5,
+            "dimension_id": 3,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/SpWftLqVQTxYm5F-Xn7WQt9rwb8ct_m_Hgb3DwXTlu6knFWhJ5e3PY2dM1_vEoDkpgR0O8NXe5HLclI5lg=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/zxOPKO0HIVDFlkbglMid8oN2EYHFjMW2UGf4Cd60MXPidD-QvETX7e2RC15ArvtnCZUCRUEb6xcZRmYCEMsh=w1000-rw",
+            "img3": "https://lh3.googleusercontent.com/42xjpaILNuGXi0TVV7NwZVIMOHtF3PoMzb2Ic2ycI9IPmYIoTukSwHvFcnYzO7OHsg8-SWrRo_39--z7AnY=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 10,
+            "description": "<p>Nổi bật nhất ở Kingston 240GB 2.5 Sata3 có lẽ nằm ở tốc độ, với tốc độ đọc lên đến 520mb/s và tốc độ ghi lên tới 500mb/s ở mức tối đa, tức là gấp 10 lần tốc độ đọc - ghi của ổ cơ truyền thống. Cho chúng ta khả năng chuyển giao dữ liệu ở mức tuyệt vời, tiết kiệm được khá nhiều thời gian cũng như mang lại nhiều hiệu năng và tính đa nhiệm cho cả hệ thống và người dùng.</p> <p>Một điều không thường thấy ở những ổ cứng HDD cơ học khác đó là SSD Kingston UV500 series được nhà sản xuất trang bị chip điều khiển bốn kênh Marvell&nbsp;&nbsp;88SS1074 đem lại một tốc độ đáng ấn tượng đối với mọi loại dữ liệu , một bộ xử lý tối ưu hóa mang lại hiệu suất và độ bền siêu cao. SSD Kingston UV500 sử dụng bộ nhớ flash 3d- nand, có khả năng chống sock, chống rung cực tốt nhằm đảm bảo an toàn về dữ liệu cho người dùng khi xảy ra va đập cũng như đem lại độ bền và sự tin cậy tuyệt đối.</p> <p>ổ đĩa 2.5 inch có độ dày 7.0 mm phù hợp với mọi hệ thống, đi cùng với đó là dung lượng lưu trữ lên đến 240gb đem lại cho bạn nhiều lựa chọn phù hợp với nhu cầu của người dùng về không gian lưu trữ cho tất cả các tập tin, ứng dụng, video, hình ảnh và các tài liệu quan trọng khác. Chuẩn kết nối Sata 3 - chuẩn giao tiếp Sata mới nhất với tốc độ truyền 600MB/giây và khả năng tương thích ngược SATA 1.0 và 2.0.&nbsp;</p>",
+            "guarantee": 60,
+            "name": "Ổ cứng SSD Kingston SUV500 240GB 2.5 SATA 3",
+            "price": 1190000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 3,
+            "cache_id": 1,
+            "connect_id": 7,
+            "write_id": 3,
+            "read_id": 4,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/Ttk14ykfnma0tI6knNCWuhTVVE8mJDc49klxhXGR80p6iny1b-DwCmxrZmNzJsj_sGFnKVzO6zkYlo4ptXI=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/tAtXOphqQJnwEiFAGavQnkuD0_LD9MN-QX6khT08zSEQQCQLu2FmvOfLc8azq3NcygMFhluVBNZW_Qj_eA=w1000-rw",
+            "img3": "https://lh3.googleusercontent.com/Sv1SCaE8LMI9sHujLImiSiXvEszMomw_VYxgCTBbHH2-E3JU_YmDWVI1i0hBQmihav5uEYwL9J8ZBjN97A=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 10,
+            "description": "<p>Ổ cứng SSD Kingston A400 hoạt động bằng bộ nhớ Flash, không có các bộ phận chuyển động cơ quay giúp tăng độ bền, hoạt động mát mẻ và không hề tạo ra bất kì tiếng động nào. Và đặc biệt là khả năng chống Sock cực tốt, rất lý tưởng cho máy tính xách tay và các thiết bị máy tính di động khác.<br>- Ổ cứng SSD Kingston A400 có nhiều dung lượng từ 120GB-480GB để cung cấp cho bạn tất cả không gian cần thiết cho các ứng dụng, video, hình ảnh và các tài liệu quan trọng khác.<br>- Ổ cứng SSD Kingston A400 được thiết kế để sử dụng trong máy tính để bàn và máy tính xách tay phổ thông, không dành cho các hệ thống Server.</p> <p>*Với tốc độ lên đến 500MB/s, ổ&nbsp;cứng SSD Kingston A400 Series không chỉ tăng tốc độ dữ liệu mà còn tăng hiệu suất tối đa của máy tính. Giúp bạn làm được nhiều việc hơn và tiết kiệm được rất nhiều thời gian.</p> <p>*Ổ cứng SSD Kingston A400 Series chống Sock chống rung cực tốt, cho độ tin cậy cao trong các thiết bị mang tính di động như Laptop, Macbook,…</p> <p>*Ổ cứng SSD Kingston A400 Series có nhiều dung lượng 120GB, 240GB và 480GB cho bạn nhiều sự lựa chọn phù hợp nhất với nhu cầu lưu trữ của bạn.</p> <p>*Ổ cứng SSD Kingston A400 Series với độ dày chỉ 7mm giúp tương thích với mọi khe gắn ổ cứng 2.5″ của các loại máy tính.</p>",
+            "guarantee": 36,
+            "name": "Ổ cứng SSD Kingston A400 480GB Sata 3 (SA400S37/480G)",
+            "price": 1490000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 4,
+            "cache_id": 1,
+            "connect_id": 7,
+            "write_id": 2,
+            "read_id": 4,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/Ljua2th4puMJ6JEfaVnBr97pN8iIitnQElvpgHTMMHK0pn0cy-CNhH1oRZgPuSsqV2e739w6HnvckjCX0V5W=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/_PEGSYKzC2aDsZa4U56YYWE2014HkDXav211vwJRKe3V8-t08x_n77M0VGGW428JZuMt1G4eak1etqVoqiSD=w1000-rw",
+            "img3": "https://lh3.googleusercontent.com/cb9bDxF6LaSMXIxyHUoabbHgHd5yI5WIHjpCYtEdI_7sKqn3_ep_bD1avIIQZp77QZnkY4cbetU9Vp9c9nqh=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 10,
+            "description": "<p>SSD&nbsp;Kingston&nbsp;A400 120GB M.2 2280&nbsp;với hai chuẩn 2.5 inch SATA III 7mm và M.2 SATA III 2280mm&nbsp;giúp tương thích với nhiều dòng máy tính</p> <p>Sở hữu cổng giao tiếp M.2 SATA đáp ứng&nbsp;khi khởi động máy và tải truyền dữ liệu. Với dung lượng&nbsp;ổ cứng 120GB không quá cao&nbsp;cho bạn nhiều sự lựa chọn phù hợp nhất với nhu cầu lưu trữ của bạn.</p> <p>Tốc độ đọc/ghi lần lượt là 500MB/s và 320MB/s&nbsp;với sự ổn định giúp&nbsp;ổ cứng&nbsp;vận hành được trơn tru, phản hồi các tác vụ nhanh chóng. Đem lại độ tin cậy và bền bỉ hơn so với&nbsp;ổ cứng&nbsp;thông thường.</p> <p>Bên cạnh đó,&nbsp;SSD&nbsp;Kingston&nbsp;A400 120GB M.2 2280&nbsp;hỗ trợ công nghệ Smart Response Technology của Intel kết hợp lưu trữ mở rộng của ổ cứng với hiệu suất được cải thiện đáng kể của SSD.&nbsp;Công nghệ Devsleep được hỗ trợ cho phép quản lý điện năng hiệu quả hơn, giảm thiểu điện năng tiêu thụ giúp kéo dài thời gian sử dụng.</p> <p>&nbsp;</p>",
+            "guarantee": 36,
+            "name": "Ổ cứng SSD Kingston 120GB A400 M.2 2280 SATA3 SA400/120G",
+            "price": 699000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 1,
+            "cache_id": 1,
+            "connect_id": 7,
+            "write_id": 2,
+            "read_id": 6,
+            "dimension_id": 3,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://anphat.com.vn/media/product/28708_sa400m8_01.jpg",
+            "img2": "https://anphat.com.vn/media/product/28708_sa400m8_120.jpg",
+            "img3": "https://anphat.com.vn/media/product/28708_sa400m8_02.jpg"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 10,
+            "description": "<p>SSD PCIe KC2500 NVMe của Kingston mang đến hiệu năng mạnh mẽ khi sử dụng bộ điều khiển Gen 3.0 x 4 mới nhất và 3D TLC NAND 96 lớp.&nbsp;Với tốc độ đọc / ghi lên tới 3.500 / 2.900 MB / giây, KC2500 mang đến độ bền vượt trội và cải thiện quy trình làm việc trong máy tính để bàn, máy trạm và hệ thống điện toán hiệu năng cao (HPC).&nbsp;Thiết kế M.2 nhỏ gọn giúp linh hoạt hơn, tăng lưu trữ mà còn tiết kiệm không gian.</p> <p>Có sẵn dung lượng từ 250GB, 2TB để đáp ứng nhu cầu của hệ thống. KC2500 là ổ đĩa tự mã hóa hỗ trợ bảo vệ dữ liệu đầu cuối bằng cách sử dụng mã hóa dựa trên phần cứng XTS-AES 256 bit và cho phép sử dụng các nhà cung cấp phần mềm độc lập với các giải pháp quản lý bảo mật TCG Opal 2.0 như Symantec , McAfee , WinMagic và những người khác. KC2500 cũng có hỗ trợ Microsoft eDrive tích hợp, một đặc tả lưu trữ bảo mật để sử dụng với BitLocker.</p> <p>Hiệu suất NVMe PCIe đáng kinh ngạc</p> <p>Hỗ trợ bộ bảo mật đầy đủ (TCG Opal 2.0, XTS-AES 256 bit, eDrive)</p> <p>Lý tưởng cho máy tính để bàn, máy trạm và hệ thống điện toán hiệu năng cao (HPC)</p> <p>Nâng cấp PC của bạn với dung lượng lên tới 2TB</p> <h3><strong>Các tính năng chính</strong></h3> <p>&nbsp;Hiệu suất NVMe PCIe đáng kinh ngạc : Sử dụng bộ điều khiển Gen 3.0 x 4 mới nhất để đạt tốc độ lên tới 3.500 / 2.900 MB / s&nbsp;1</p> <p>&nbsp;Hỗ trợ bộ bảo mật đầy đủ : Bảo vệ và bảo mật dữ liệu của bạn với ổ đĩa tự mã hóa của Kingston</p>",
+            "guarantee": 36,
+            "name": "Ổ cứng SSD 1TB Kingston KC2500 M.2 NVMe PCIe Gen3x4 (SKC2500M8/1000G)",
+            "price": 3390000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 5,
+            "cache_id": 1,
+            "connect_id": 7,
+            "write_id": 5,
+            "read_id": 9,
+            "dimension_id": 3,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://tinhocngoisao.cdn.vccloud.vn/wp-content/uploads/2021/05/SSD_KT_KC2500_1TB.jpg",
+            "img2": "https://tinhocngoisao.cdn.vccloud.vn/wp-content/uploads/2021/05/SSD_KT_KC2500_1TB-1.jpg",
+            "img3": "https://tinhocngoisao.cdn.vccloud.vn/wp-content/uploads/2021/05/SSD_KT_KC2500_1TB-2.jpg"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 10,
+            "description": "<h2><strong>Đặc điểm nổi bật</strong></h2> <p><strong>Giao tiếp SATA III tương thích nhiều thiết bị</strong></p> <p><strong>Ổ cứng SSD 240G Kingston A400 Sata III 6Gb/s</strong> được trang bị chuẩn giao tiếp SATA III cho tốc độ &nbsp;truyền dữ liệu 6Gb/s. Với tốc độ này máy tính của bạn sẽ được vận hành một cách nhanh chóng nhất. Sản phẩm sẽ cho bạn thêm 240GB dữ liệu để lưu trữ các tập tin nhằm phục vụ cho nhu cầu làm việc và giải trí của mình.</p> <h3><strong>Dung lượng lưu trữ 240GB</strong></h3> <p>Dung lượng 240GB đủ chỗ trống cho các ứng dụng hoặc để thay thế ổ cứng truyền thống</p> <h3><strong>Tốc độ truyền dữ liệu cao</strong></h3> <p>Được hỗ trợ bởi thế hệ bộ điều khiển mới nhất cho tốc độ đọc và ghi lên đến 500MB / giây và 350MB / giây, ổ SSD này nhanh hơn 10 lần so với một ổ cứng truyền thống mang lại hiệu năng cao hơn, khả năng đa nhiệm siêu mượt và tốc độ lớn hơn cho toàn bộ hệ thống.</p> <h3><strong>Cấu tạo bền bỉ, chống va đập</strong></h3> <p>Có khả năng chống sốc và rung động nhằm đem lại độ tin cậy bền bỉ khi sử dụng cho máy tính xách tay và các thiết bị điện toán di động khác. Độ tin cậy cao với chính sách Bảo Hành 3 năm Chính Hãng.</p> <h3><strong>Kích thước</strong></h3> <p>Sản phẩm có kích cỡ 2.5 inch nên có thể lắp vừa vào nhiều hệ thống. Lý tưởng cho các máy tính xách tay mỏng và trong các hệ thống có không gian hạn chế.</p> <h3><strong>Khả năng tương thích</strong></h3> <p>Tương thích với hầu hết các Hệ Điều Hành thông dụng và Laptop.</p>",
+            "guarantee": 36,
+            "name": "Ổ cứng SSD 240G Kingston A400 Sata III 6Gb/s TLC (SA400S37/240G)",
+            "price": 780000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 3,
+            "cache_id": 1,
+            "connect_id": 7,
+            "write_id": 2,
+            "read_id": 6,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://tinhocngoisao.cdn.vccloud.vn/wp-content/uploads/2019/01/Kingston-A400-240GB.jpg",
+            "img2": "https://tinhocngoisao.cdn.vccloud.vn/wp-content/uploads/2019/01/Kingston-A400-240GB-3.jpg",
+            "img3": "https://tinhocngoisao.cdn.vccloud.vn/wp-content/uploads/2019/01/Kingston-A400-240GB-1.jpg"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 10,
+            "description": "<h2><strong>Đặc điểm nổi bật Ổ cứng SSD 480G Kingston A400 Sata III 6Gb/s TLC</strong></h2> <p><strong>Giao tiếp SATA III tương thích nhiều thiết bị</strong></p> <p><strong>Ổ cứng SSD 480G Kingston A400 Sata III 6Gb/s</strong> được trang bị chuẩn giao tiếp SATA III cho tốc độ &nbsp;truyền dữ liệu 6Gb/s. Với tốc độ này máy tính của bạn sẽ được vận hành một cách nhanh chóng nhất. Sản phẩm sẽ cho bạn thêm 240GB dữ liệu để lưu trữ các tập tin nhằm phục vụ cho nhu cầu làm việc và giải trí của mình.</p> <h3><strong>Dung lượng lưu trữ 480GB</strong></h3> <p>Dung lượng 480GB đủ chỗ trống cho các ứng dụng hoặc để thay thế ổ cứng truyền thống</p> <h3><strong>Tốc độ truyền dữ liệu cao</strong></h3> <p>Được hỗ trợ bởi thế hệ bộ điều khiển mới nhất cho tốc độ đọc và ghi lên đến 500MB / giây và 450MB / giây, ổ SSD này nhanh hơn 10 lần so với một ổ cứng truyền thống mang lại hiệu năng cao hơn, khả năng đa nhiệm siêu mượt và tốc độ lớn hơn cho toàn bộ hệ thống.</p> <h3><strong>Cấu tạo bền bỉ, chống va đập</strong></h3> <p>Có khả năng chống sốc và rung động nhằm đem lại độ tin cậy bền bỉ khi sử dụng cho máy tính xách tay và các thiết bị điện toán di động khác. Độ tin cậy cao với chính sách Bảo Hành 3 năm Chính Hãng.</p> <h3><strong>Kích thước</strong></h3> <p>Sản phẩm có kích cỡ 2.5 inch nên có thể lắp vừa vào nhiều hệ thống. Lý tưởng cho các máy tính xách tay mỏng và trong các hệ thống có không gian hạn chế.</p> <h3><strong>Khả năng tương thích</strong></h3> <p>Tương thích với hầu hết các Hệ Điều Hành thông dụng và Laptop.</p>",
+            "guarantee": 36,
+            "name": "Ổ cứng SSD 480G Kingston A400 Sata III 6Gb/s TLC (SA400S37/480G)",
+            "price": 1390000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 4,
+            "cache_id": 1,
+            "connect_id": 7,
+            "write_id": 3,
+            "read_id": 6,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://tinhocngoisao.cdn.vccloud.vn/wp-content/uploads/2019/09/KT-A400-480GB.jpg",
+            "img2": "https://tinhocngoisao.cdn.vccloud.vn/wp-content/uploads/2019/09/KT-A400-480GB-3.jpg",
+            "img3": "https://tinhocngoisao.cdn.vccloud.vn/wp-content/uploads/2019/09/KT-A400-480GB-2.jpg"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 10,
+            "description": "<h3><strong>Tốc độ cực nhanh –&nbsp;hiệu suất đáng tin cậy.</strong></h3> <p><a href=https://tinhocngoisao.com/o-cung-ssd-256g-kingston-kc600-sata-iii-6gb-s-tlc-skc600-256g>Ổ cứng SSD Kingston KC600</a> nhanh hơn so với ổ đĩa cứng HDD thông thường, cung cấp hiệu suất rất cao cho cả dữ liệu nén và không nén và cải thiện tốc độ lên đến 15 lần so với HDD. Ổ cứng SSD Kingston KC600được trang bị chíp điều khiểu của hãng SM2259 Silicon Motion để tăng tối đa tốc độ công việc hàng ngày và nâng cao năng suất làm việc của bạn.</p> <h3><strong>Nhanh hơn HDD&nbsp;15 lần</strong></h3> <p>Ổ cứng <strong>SSD Kingston KC600</strong> có tốc độ lên đến 550MB/s giúp tăng tối đa hiệu năng của máy tính, đặc biệt là các dòng máy tính chuyên dụng để làm đồ họa hoặc chơi Games. Tăng năng suất làm việc cũng như tiết kiệm rất nhiều thời gian cho bạn.</p> <h3><strong>Công nghệ 3D-Nand TLC</strong></h3> <p>Ổ cứng<strong> SSD Kingston KC600</strong> được trang bị công nghệ 3D-Nand mới nhất giúp tăng hiệu suất ghi đọc, tăng dung lượng lưu trữ&nbsp;cũng như giá thành sẽ cực kỳ tốt.</p> <h3><strong>Bảo mật cao</strong></h3> <p>Ổ cứng <strong>SSD Kingston KC600</strong> hỗ trợ bảo vệ và bảo mật dữ liệu của bạn với cơ chế tự mã hóa của Kingston, hỗ trợ&nbsp;mã hóa TCG Opal, AES 256-bit, eDrive.</p> <h3><strong>Dễ dàng lắp đặt</strong></h3> <p>Ổ cứng<strong> SSD Kingston KC600</strong> với chuẩn 2.5 inch SATA III&nbsp;phù hợp với đa số hầu hết các loại máy tính Laptop và Desktop phổ thông trên thị trường. Chỉ cần bạn thay thế với ổ HDD đang chạy, cài đặt hệ điều hành hoặc chuyển hệ điều hành cũ sang là có thể sử dụng ngay.</p> <h3><strong>Nhiều dung lượng</strong></h3> <p>Ổ cứng <strong>SSD Kingston KC600</strong> có dung lượng 256GB, 512GB, 1TB, và 2TB&nbsp;để đáp ứng bất kì nhu cầu lưu trữ&nbsp;nào của bạn.</p>",
+            "guarantee": 36,
+            "name": "Ổ cứng SSD 256G Kingston KC600 Sata III 6Gb/s TLC (SKC600/256G)",
+            "price": 890000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 3,
+            "cache_id": 1,
+            "connect_id": 7,
+            "write_id": 4,
+            "read_id": 7,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://tinhocngoisao.cdn.vccloud.vn/wp-content/uploads/2020/08/SSD_KT_KC600_256G.jpg",
+            "img2": "https://tinhocngoisao.cdn.vccloud.vn/wp-content/uploads/2020/08/SSD_KT_KC600_256G-1.jpg",
+            "img3": "https://tinhocngoisao.cdn.vccloud.vn/wp-content/uploads/2020/08/SSD_KT_KC600_256G-3.jpg"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 10,
+            "description": "<h3><strong>Ổ</strong> <strong>cứng SSD Kingston A400 Series</strong></h3> <p>Ổ cứng SSD Kingston A400 Series của Kingston giúp cải thiện tối đa hiệu năng của hệ thống hiện tại với thời gian khởi động, load các chương trình và dữ liệu được giảm tối đa.</p> <p>Bộ điều khiển Controller mới nhất cho tốc độ đọc và ghi lên đến 500MB/s và 320MB/s, nhanh hơn gấp 10 lần so với ổ cứng HDD truyền thống, đáp ứng tất cả các nhu cầu của bạn.</p> <p>Ổ cứng SSD Kingston A400 hoạt động bằng bộ nhớ Flash, không có các bộ phận chuyển động cơ quay giúp tăng độ bền, hoạt động mát mẻ và không hề tạo ra bất kì tiếng động nào. Và đặc biệt là khả năng chống Sock cực tốt, rất lý tưởng cho máy tính xách tay và các thiết bị máy tính di động khác.</p> <p>Ổ cứng SSD Kingston A400 có nhiều dung lượng từ 120GB-480GB để cung cấp cho bạn tất cả không gian cần thiết cho các ứng dụng, video, hình ảnh và các tài liệu quan trọng khác. Ổ cứng SSD Kingston A400 được thiết kế để sử dụng trong máy tính để bàn và máy tính xách tay phổ thông, không dành cho các hệ thống Server.</p> <h3><strong>Nhanh gấp 10 lần HDD</strong></h3> <p>Với tốc độ lên đến 500MB/s, ổ&nbsp;cứng SSD Kingston A400 Series không chỉ tăng tốc độ dữ liệu mà còn tăng hiệu suất tối đa của máy tính. Giúp bạn làm được nhiều việc hơn và tiết kiệm được rất nhiều thời gian.</p> <h3><strong>Độ bền cực cao</strong></h3> <p>Ổ cứng SSD Kingston A400 Series chống Sock chống rung cực tốt, cho độ tin cậy cao trong các thiết bị mang tính di động như Laptop, Macbook.</p> <h3><strong>Nhiều dung lượng cho bạn lựa chọn</strong></h3> <p>Ổ cứng SSD Kingston A400 Series có nhiều dung lượng 120GB, 240GB và 480GB cho bạn nhiều sự lựa chọn phù hợp nhất với nhu cầu lưu trữ của bạn.</p> <h3><strong>Tương thích cực tốt với&nbsp;máy tính để bàn và máy tính xách tay</strong></h3> <p>Ổ cứng SSD Kingston A400 Series với độ dày chỉ 7mm (dòng 2.5 inch) giúp tương thích với mọi khe gắn ổ cứng 2.5″ của các loại máy tính. Ngoài ra ổ cứng SSD Kingston A400 Series cũng có mẫu SSD M.2 SATA III hỗ trợ cho các dòng máy có khe M.2 để bạn dễ dàng nâng cấp máy tính mà không cần thay thế ổ HDD cũ.</p>",
+            "guarantee": 36,
+            "name": "Ổ cứng SSD 120G Kingston A400 M.2 Sata 6Gb/s TLC (SA400M8/120G)",
+            "price": 620000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 1,
+            "cache_id": 1,
+            "connect_id": 6,
+            "write_id": 2,
+            "read_id": 6,
+            "dimension_id": 3,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://tinhocngoisao.cdn.vccloud.vn/wp-content/uploads/2019/10/Kingston-120GB-A400M.2.jpg",
+            "img2": "https://tinhocngoisao.cdn.vccloud.vn/wp-content/uploads/2019/10/Kingston-120GB-A400M.2-1.jpg",
+            "img3": "https://tinhocngoisao.cdn.vccloud.vn/wp-content/uploads/2019/10/Kingston-120GB-A400M.2-3.jpg"
         }
     },
     {
         "info": {
             "brand_id": 12,
-            "description": "ABCD",
-            "guarantee": 24,
-            "name": "Drive 2",
-            "price": 15399000,
+            "description": "<figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2020/08/SSD-SanDisk-Plus.jpg\" alt=\"\"></figure> <p><i>Ổ cứng SSD SanDisk Plus</i> của Sandisk - là một trong những thương hiệu tiên phong trong công nghệ lưu trữ SSD trạng thái rắn - mang đến tốc độ và hiệu suất cao cho máy tính và máy tính cá nhân. Với tốc độ đọc lên đến 545 MB/s, <strong>ổ cứng SSD SanDisk Plus</strong> có tốc độ nhanh hơn lên đến 23 lần so với một ổ đĩa cứng HDD truyền thống. Bạn sẽ cảm nhận được sự khởi động, tắt máy, chuyển dữ liệu, và thời gian phản ứng ứng dụng nhanh hơn rất nhiều so với một ổ đĩa cứng HDD.&nbsp;Ổ cứng SSD SanDisk Plus&nbsp;hoạt động yên tĩnh, hiệu suất đáng tin cậy, bảng điều khiển theo dõi trạng thái và dung lượng lên đến 2 TB để lưu giữ các dữ liệu yêu thích của bạn.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2018/10/O-cung-SSD-SanDisk-Plus-2_5-Inch-SATA-III-2-.jpg\" alt=\"\"></figure> <h3><strong>Giải pháp nâng cấp SSD với chi phí thấp nhất&nbsp;</strong></h3> <p>Các dòng máy tính sau 1 thời gian sử dụng sẽ trở nên chậm hơn vì hiệu suất ổ cứng cơ HDD sẽ giảm. Với&nbsp;<strong>ổ cứng&nbsp;SSD SanDisk Plus</strong>&nbsp;sẽ cải thiện hiệu năng của máy tính lên tối đa, cho thời gian đáp ứng của máy tính hoặc máy tính xách tay của bạn nhanh hơn đến 23 lần so với ổ cứng HDD.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2018/10/O-cung-SSD-SanDisk-Plus-2_5-Inch-SATA-III-3-.jpg\" alt=\"\"></figure> <h3><strong>Khởi động, tắt máy và load dữ liệu cực nhanh&nbsp;</strong></h3> <p><strong>ổ cứng&nbsp;SSD SanDisk Plus </strong>có tốc độ đọc tuần tự lên đến 545 MB/s. ghi tuần tự 450 MB/s&nbsp;làm giảm đáng kể thời gian khởi động, tắt máy, hoặc load ứng dụng. Tốc độ cao có nghĩa là hiệu suất video tốt hơn và tốc độ truyền file nhanh hơn.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2018/10/O-cung-SSD-SanDisk-Plus-2_5-Inch-SATA-III-4-.jpg\" alt=\"\"></figure> <h3><strong>Yên tĩnh, chống sock&nbsp;</strong></h3> <p><i>Ổ cứng SSD SanDisk Plus</i> có một vỏ bọc rất bền có thể hấp thụ những cú sốc và rung động mà nếu không có thể gây ra thiệt hại và mất mát dữ liệu, cộng với khả năng hoạt động ngay cả trong nhiệt độ khắc nghiệt. Không có bộ phận cơ quay chuyển động bên trong cũng góp phần vào sự ổn định của SSD và đảm bảo nhiệt độ mát, hoạt động yên tĩnh, ngay cả với việc sử dụng ứng dụng nặng. Tiêu thụ điện năng thấp dẫn đến tuổi thọ pin dài hơn cho máy tính xách tay của bạn.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2018/10/O-cung-SSD-SanDisk-Plus-2_5-Inch-SATA-III-6-.jpg\" alt=\"\"></figure> <h3><strong>Tối ưu hóa hiệu suất với Real-Time Monitoring&nbsp;</strong></h3> <p><i>Ổ cứng SSD SanDisk Plus</i> đi kèm với phần mềm giám sát của SanDisk cho phép bạn xem hiệu suất và sức khỏe ổ đĩa hiện hành. Bảng điều khiển SanDisk SSD giúp người dùng duy trì hiệu suất cao nhất của SSD SanDisk trong hệ điều hành Windows® với một giao diện người dùng đồ họa thân thiện dễ sử dụng. Bảng điều khiển SanDisk SSD bao gồm các công cụ để phân tích ổ đĩa (bao gồm cả các mô hình đĩa, công suất, phiên bản firmware, và các thuộc tính SMART) và cập nhật firmware.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2018/10/O-cung-SSD-SanDisk-Plus-2_5-Inch-SATA-III-5-.jpg\" alt=\"\"></figure>",
+            "guarantee": 36,
+            "name": "SSD SanDisk PLUS-240GB",
+            "price": 950000,
             "type_id": 2
         },
         "spec": {
-            "capacity_id": 1,
-            "cache_id": 2,
-            "connect_id": 2,
-            "write_id": 2,
-            "read_id": 3,
-            "dimension_id": 3,
-            "rotation_id": 2,
-            "drive_type_id": 3
+            "capacity_id": 3,
+            "cache_id": 1,
+            "connect_id": 7,
+            "write_id": 3,
+            "read_id": 4,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 2
         },
         "image": {
-            "img1": "link1",
-            "img2": "link2",
-            "img3": "link3"
+            "img1": "https://lh3.googleusercontent.com/MYk7koOTJfzOubDowxDCmCaOceqIsoxPe3CLqfW10zweOIw57uM25gjlp5lFL9vmDGqHHBimWIEONVxA1TRV933fLw2V0wIm=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/UpMi43ofGFkJH7O0XrsQHql4OlTdJ9AKbLJVmYNCtwZ9QsGL7_O02X40Mf4TTFuKYTj6WMBTkCJRgTsjpBE45dnK3Uz9leFu=w1000-rw"
         }
     },
     {
         "info": {
             "brand_id": 12,
-            "description": "ABC",
-            "guarantee": 24,
-            "name": "Drive 3",
-            "price": 15399000,
+            "description": "<h3><strong>Nếu bạn đang muốn nâng cấp hiệu năng cho chiếc máy tính của mình, mở rộng thêm không gian lưu trữ của máy tính, bạn có thể cân nhắc lựa chọn ổ cứng gắn trong SanDisk Extreme PRO 1TB M.2 NVMe 3D (SDSSDXPM2-1T00-G25).</strong></h3> <h4><strong>Thiết kế phù hợp với mọi không gian cài đặt</strong></h4> <figure class=\"image\"><img src=\"https://lh3.googleusercontent.com/vE6DI93Sl0z8KCimmjJKXEZ5pHJMQHmmknWWqoGvDkBukSHbhvAGsoG7TdVgQPnviP1aylm1ppiYY3YOb3I42ZG8MTarn4ihA3PgiJdHufha1poMXUrgaNCa-dQGxd53XQ\"></figure> <p>SanDisk Extreme PRO 1TB M.2 NVMe 3D được thiết kế với kích thước 80,52mm x 21,84mm x 1,98mm. Người dùng có thể dễ dàng lắp đặt linh kiện nào vào các dàn máy tính của mình mà không cần sự hỗ trợ từ thợ lắp đặt chuyên nghiệp.&nbsp;</p> <p>Người dùng có thể sử dụng ứng dụng SanDisk SSD Dashboard để theo dõi tình trạng hoạt động và hiệu suất của ổ đĩa này.</p> <h4><strong>Dung lượng lớn mang lại không gian lưu trữ thoải mái cho người dùng</strong></h4> <figure class=\"image\"><img src=\"https://lh4.googleusercontent.com/74S8c8ibTsJsyJKC2jKrGA3I4NhR_f9YhTutPgBQstvT4zWFQj2UvSg3slEljAHWL8YPAvZTOZMlu3jac3WJP8oFE8nfIb8XUtxZMQz77gRYsS4wyuHm9lmJtkCaMplc8w\"></figure> <p>SSD SanDisk Extreme PRO 1TB M.2 NVMe 3D có dung lượng lên tới 1TB. Dung lượng này không chỉ đảm bảo vị trí ổ đĩa chính cho các ứng dụng máy tính, mang tới sự trơn tru, mạnh mẽ trong việc giải quyết các tác vụ trong quy trình chơi game, làm việc hay học tập hiệu suất cao của người dùng. Mà còn đảm bảo một không gian lưu trữ lượng lớn dữ liệu cho người dùng.</p> <figure class=\"image\"><img src=\"https://lh4.googleusercontent.com/xo0CY_w_zIwBeDc0n1rM5FJEJbujegbGUEhSiel3tRvmeb9yglXhu-U1jRKhfvuGFN__2LJ0jMgEMSQQXap4PRIDqr_3buYwGyiBx6WzW1MuWEg_ta8yhpp21iyvU7crFA\"></figure> <p>Ngoài ra, tính năng SanDisk nCache 3.0 còn mang tới hiệu quả tăng độ bền, tăng hiệu suất ghi/đọc ngẫu nhiên cho sản phẩm linh kiện điện tử này.</p> <h4><strong>Hiệu suất hoạt động vượt trội</strong></h4> <p>Ổ cứng gắn trong SanDisk Extreme PRO 1TB M.2 NVMe 3D có tốc độ đọc là 3400MB/s và tốc độ ghi là 2800MB/s. Tốc độ đọc của thiết bị này được ghi nhận là nhanh hơn gấp 6 lần so với ổ cứng SSD SATA và nhanh hơn gấp hơn 20 lần so với ổ cứng gắn trong trên các máy tính xách tay truyền thống.</p> <figure class=\"image\"><img src=\"https://lh4.googleusercontent.com/bv6TjRb0QCRLYedIY_XwtU-ee4Si7n7QlP7BOZsuKwV8HLWTxAV7615yAbZvQCSIn5krwWXoHcJL5FzBtoZXErK0_YEtQSe3Ej6eb2EvQVmWQq-CGPKNB2fFPTp1LtbXxw\"></figure> <p>Do đó, người sử dụng SanDisk Extreme PRO 1TB M.2 NVMe 3D sẽ dễ dàng nhận ra tốc độ xử lý thông tin siêu nhanh, phản hồi các thao tác trên máy tính cũng rất nhanh chóng, dứt khoát trên các thiết bị máy tính sử dụng ổ cứng này.</p> <h4><strong>Mua SSD SanDisk Extreme PRO 1TB M.2 NVMe 3D chính hãng tại Phong Vũ | Hỗ trợ trả góp lãi suất 0%</strong></h4> <p>Sản phẩm ổ cứng gắn trong SanDisk Extreme PRO 1TB M.2 NVMe 3D hiện đang có mặt tại hệ thống showroom của <a href=\"https://phongvu.vn/\"><strong>Phong Vũ </strong></a>trên toàn quốc. Sản phẩm này được áp dụng chính sách hỗ trợ trả góp lãi suất 0% khi khách hàng thực hiện thanh toán bằng thẻ ngân hàng.</p>",
+            "guarantee": 60,
+            "name": "SSD SanDisk Extreme PRO 1TB ",
+            "price": 5900000,
             "type_id": 2
         },
         "spec": {
-            "capacity_id": 1,
-            "cache_id": 2,
-            "connect_id": 2,
-            "write_id": 2,
-            "read_id": 3,
-            "dimension_id": 3,
-            "rotation_id": 2,
-            "drive_type_id": 3
+            "capacity_id": 5,
+            "cache_id": 1,
+            "connect_id": 5,
+            "write_id": 3,
+            "read_id": 4,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 4
         },
         "image": {
-            "img1": "link1",
-            "img2": "link2",
-            "img3": "link3"
+            "img1": "https://lh3.googleusercontent.com/1WB04AqgIJOdJNMcg_tzo0f66Se-kV73B1pxBVvpCy4ZeB8OVpLKYUuilxUJPWbpT_qZTg5GqhJNYiIFGh9kYv06PZHZzorj=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/gHUwHUH06XO6XhwMS7iNaTiffdAZiM1xbJftwrc_97u_a3rsq58hLA3YRw_YDrrKwXIRS3SsrOBFSeQKTH1_kHV43lkbC5Y=w1000-rw",
+            "img3": "https://lh3.googleusercontent.com/y7qZrRdVJIqs39GRKWMvqukZLOk6CdCLDCXJa4sgL_XdBVmhTcsUbJ2UppcXuD4x-ho-Ac9OpXTXOCefET1j02zv8iszXekK=w1000-rw"
         }
     },
     {
         "info": {
             "brand_id": 12,
-            "description": "ABCD",
+            "description": "<figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2020/08/SSD-SanDisk-Plus.jpg\" alt=\"\"></figure> <p><i>Ổ cứng SSD SanDisk Plus</i> của Sandisk - là một trong những thương hiệu tiên phong trong công nghệ lưu trữ SSD trạng thái rắn - mang đến tốc độ và hiệu suất cao cho máy tính và máy tính cá nhân. Với tốc độ đọc lên đến 545 MB/s, <strong>ổ cứng SSD SanDisk Plus</strong> có tốc độ nhanh hơn lên đến 23 lần so với một ổ đĩa cứng HDD truyền thống. Bạn sẽ cảm nhận được sự khởi động, tắt máy, chuyển dữ liệu, và thời gian phản ứng ứng dụng nhanh hơn rất nhiều so với một ổ đĩa cứng HDD.&nbsp;Ổ cứng SSD SanDisk Plus&nbsp;hoạt động yên tĩnh, hiệu suất đáng tin cậy, bảng điều khiển theo dõi trạng thái và dung lượng lên đến 2 TB để lưu giữ các dữ liệu yêu thích của bạn.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2018/10/O-cung-SSD-SanDisk-Plus-2_5-Inch-SATA-III-2-.jpg\" alt=\"\"></figure> <h3><strong>Giải pháp nâng cấp SSD với chi phí thấp nhất&nbsp;</strong></h3> <p>Các dòng máy tính sau 1 thời gian sử dụng sẽ trở nên chậm hơn vì hiệu suất ổ cứng cơ HDD sẽ giảm. Với&nbsp;<strong>ổ cứng&nbsp;SSD SanDisk Plus</strong>&nbsp;sẽ cải thiện hiệu năng của máy tính lên tối đa, cho thời gian đáp ứng của máy tính hoặc máy tính xách tay của bạn nhanh hơn đến 23 lần so với ổ cứng HDD.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2018/10/O-cung-SSD-SanDisk-Plus-2_5-Inch-SATA-III-3-.jpg\" alt=\"\"></figure> <h3><strong>Khởi động, tắt máy và load dữ liệu cực nhanh&nbsp;</strong></h3> <p><strong>ổ cứng&nbsp;SSD SanDisk Plus </strong>có tốc độ đọc tuần tự lên đến 545 MB/s. ghi tuần tự 450 MB/s&nbsp;làm giảm đáng kể thời gian khởi động, tắt máy, hoặc load ứng dụng. Tốc độ cao có nghĩa là hiệu suất video tốt hơn và tốc độ truyền file nhanh hơn.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2018/10/O-cung-SSD-SanDisk-Plus-2_5-Inch-SATA-III-4-.jpg\" alt=\"\"></figure> <h3><strong>Yên tĩnh, chống sock&nbsp;</strong></h3> <p><i>Ổ cứng SSD SanDisk Plus</i> có một vỏ bọc rất bền có thể hấp thụ những cú sốc và rung động mà nếu không có thể gây ra thiệt hại và mất mát dữ liệu, cộng với khả năng hoạt động ngay cả trong nhiệt độ khắc nghiệt. Không có bộ phận cơ quay chuyển động bên trong cũng góp phần vào sự ổn định của SSD và đảm bảo nhiệt độ mát, hoạt động yên tĩnh, ngay cả với việc sử dụng ứng dụng nặng. Tiêu thụ điện năng thấp dẫn đến tuổi thọ pin dài hơn cho máy tính xách tay của bạn.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2018/10/O-cung-SSD-SanDisk-Plus-2_5-Inch-SATA-III-6-.jpg\" alt=\"\"></figure> <h3><strong>Tối ưu hóa hiệu suất với Real-Time Monitoring&nbsp;</strong></h3> <p><i>Ổ cứng SSD SanDisk Plus</i> đi kèm với phần mềm giám sát của SanDisk cho phép bạn xem hiệu suất và sức khỏe ổ đĩa hiện hành. Bảng điều khiển SanDisk SSD giúp người dùng duy trì hiệu suất cao nhất của SSD SanDisk trong hệ điều hành Windows® với một giao diện người dùng đồ họa thân thiện dễ sử dụng. Bảng điều khiển SanDisk SSD bao gồm các công cụ để phân tích ổ đĩa (bao gồm cả các mô hình đĩa, công suất, phiên bản firmware, và các thuộc tính SMART) và cập nhật firmware.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2018/10/O-cung-SSD-SanDisk-Plus-2_5-Inch-SATA-III-5-.jpg\" alt=\"\"></figure>",
+            "guarantee": 36,
+            "name": "SSD SanDisk PLUS-480GB ",
+            "price": 1620000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 4,
+            "cache_id": 1,
+            "connect_id": 7,
+            "write_id": 2,
+            "read_id": 4,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/MYk7koOTJfzOubDowxDCmCaOceqIsoxPe3CLqfW10zweOIw57uM25gjlp5lFL9vmDGqHHBimWIEONVxA1TRV933fLw2V0wIm=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/UpMi43ofGFkJH7O0XrsQHql4OlTdJ9AKbLJVmYNCtwZ9QsGL7_O02X40Mf4TTFuKYTj6WMBTkCJRgTsjpBE45dnK3Uz9leFu=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 12,
+            "description": "<h3><a href=\"https://phongvu.vn/o-cung-ssd-637.cat\">Ổ cứng SSD</a> SanDisk Extreme PRO 500GB M.2 NVMe 3D (SDSSDXPM2-500G-G25) có vẻ ngoài hiện đại, kết hợp cùng dung lượng lưu trữ 500GB khá cao. Đồng thời tốc độ đọc ghi tối đa là 3400MB/s và 2500MB/s. Đây chính là sản phẩm cung cấp dung lượng lưu trữ dành cho những người thường xuyên phải di chuyển.</h3> <h4><strong>Thiết kế hiện đại và nhỏ gọn, dung lượng lưu trữ cao tận 500GB</strong></h4> <p>Ổ cứng SSD SanDisk Extreme PRO 500GB M.2 NVMe 3D (SDSSDXPM2-500G-G25) có được vẻ ngoài vô cùng hiện đại, kết hợp với kích thước chuẩn M.2 2280, đem lại sự tiện lợi cho người sử dụng.</p> <figure class=\"image\"><img src=\"https://storage.googleapis.com/teko-gae.appspot.com/media/image/2021/5/12/20210512_5303d406-698a-449b-9317-0028b09d2615.jpg\" alt=\"SSD SanDisk Extreme PRO 500GB M.2 NVMe 3D (SDSSDXPM2-500G-G25) | Thiết kế hiện đại và nhỏ gọn\"></figure> <p>Không những thế, ổ cứng còn sở hữu được dung lượng cao tận 500GB, đem đến cho bạn không gian lưu trữ rộng lớn, hỗ trợ cho công việc của bạn được tối ưu hiệu suất hơn. Đồng thời người dùng có thể lưu trữ thoải mái được các tệp dữ liệu quan trọng, thậm chí là các dạng phim ảnh, video dùng để giải trí.</p> <figure class=\"image\"><img src=\"https://storage.googleapis.com/teko-gae.appspot.com/media/image/2021/5/12/20210512_69fa2b00-edfa-427d-a87e-1cb25716d61a.jpg\" alt=\"SSD SanDisk Extreme PRO 500GB M.2 NVMe 3D (SDSSDXPM2-500G-G25) | Dung lượng lưu trữ 500GB\"></figure> <h4><strong>Tốc độ đọc ghi tối đa lần lượt là 3400MB/s và 2500MB/s, sở hữu cổng kết nối M.2 NVMe tiện lợi</strong></h4> <p>Ngoài ra, ổ cứng SSD SanDisk Extreme PRO 500GB M.2 NVMe 3D (SDSSDXPM2-500G-G25) còn được trang bị tốc độ đọc ghi tối đa lần lượt là 3400MB/s và 2500MB/s, cho phép máy tối ưu được tốc độ truyền phát, sao chép và sử dụng dữ liệu mượt mà và trơn tru hơn. Hạn chế được tình trạng lag và giật máy.</p> <figure class=\"image\"><img src=\"https://storage.googleapis.com/teko-gae.appspot.com/media/image/2021/5/12/20210512_e3211c93-da3b-4a46-8865-576cef049f0e.jpg\" alt=\"SSD SanDisk Extreme PRO 500GB M.2 NVMe 3D (SDSSDXPM2-500G-G25) | Tốc độ đọc ghi cao\"></figure> <p>Không dừng lại ở đó, ổ cứng còn sở hữu được cổng kết nối M.2 NVMe tiện lợi, tương thích với hầu hết các loại thiết bị điện tử thông minh, máy tính bàn và laptop thông dụng.&nbsp;</p> <figure class=\"image\"><img src=\"https://storage.googleapis.com/teko-gae.appspot.com/media/image/2021/5/12/20210512_7a6dc27e-ca94-4856-96c6-20921af4b9aa.jpg\" alt=\"SSD SanDisk Extreme PRO 500GB M.2 NVMe 3D (SDSSDXPM2-500G-G25) | Cổng kết nối M.2 tiện lợi\"></figure> <h4><strong>Mua ổ cứng SSD SanDisk Extreme PRO 500GB M.2 NVMe 3D (SDSSDXPM2-500G-G25) chính hãng, đến Phong Vũ để được nhận chế độ bảo hành ưu đãi</strong></h4> <p>Ổ cứng SSD SanDisk Extreme PRO 500GB M.2 NVMe 3D (SDSSDXPM2-500G-G25) có được vẻ ngoài hiện đại, kết hợp tốc độ đọc ghi tối đa lần lượt là 3400MB/s và 2500MB/s. Đây chính là sản phẩm hướng đến đối tượng có lượng công việc khá nhiều. Đến Phong Vũ mua hàng để được hưởng chế độ bảo hành ưu đãi nhé!</p>",
+            "guarantee": 60,
+            "name": "SSD SanDisk Extreme PRO 500GB",
+            "price": 2890000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 4,
+            "cache_id": 1,
+            "connect_id": 5,
+            "write_id": 6,
+            "read_id": 9,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/qXR6KjTPCYLoX0DLonWajQo9r1zjSRbQ4rlagBC7wiePOYG0E3u8gU6qKzDyI20JKCD3WhNSkzuLBX7ON_YRSCe50eJtG0w=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/SZtF9ivMbXRX0qYH59zjr7LFQ9wmK16rmi5vTZEJyZjszIulip3YTFQuqxfVWbr0W5nrxi8tYST20mOQLIfjxF23JePm1wjXGg=w1000-rw",
+            "img3": "https://lh3.googleusercontent.com/E7-Le5dqj554fCdtmurVZItf8tEvaP7_Yr0JRrA6NFcPZeZHRQzo3pTsXlmpeR3tMLwOECjaDDr6ZsM3ZNWP8ECM0JlgSCOX=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 12,
+            "description": "<figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2020/05/SSD-SanDisk-X600.jpg\" alt=\"\"></figure> <h3><strong>Tốc độ siêu cao lên đến 560MB/s</strong></h3> <p>Để tăng hiệu suất vượt trội,&nbsp;ổ cứng SSD SanDisk X600 hỗ trợ Over-Provisioning và Over-Clocking cho tốc độ đọc siêu nhanh lên đến 560MB/s đọc ghi tuần tự và 95K IOPS ngẫu nhiên. Đáp ứng tất cả các nhu cầu đồ họa chuyên sâu như Gaming, Video 3D, CAD,…</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2020/01/SSD-SanDisk-X400-2-.jpg\" alt=\"\"></figure> <h3><strong>Hiệu suất siêu cao với công nghệ nCache Pro</strong></h3> <p>SanDisk nCache là công nghệ độc quyền của Sandisk cho tốc độ nhanh hơn và ổn định hiệu suất cao liên tục 24/7. Để tối ưu hóa hiệu suất, đặc biệt là với khối lượng công việc nặng, SanDisk nCache sẽ thực hiện trên Cache trước khi ghi vào bộ nhớ Flash.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2020/01/SSD-SanDisk-X400-3-.jpg\" alt=\"\"></figure> <h3><strong>Chống sock – Không tiếng ồn</strong></h3> <p><strong>Ổ cứng SSD SanDisk X600</strong>&nbsp;được thiết kế để chống lại những cú sốc và rung động giúp bảo vệ tính toàn vẹn dữ liệu của bạn.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2020/01/SSD-SanDisk-X400-5-.jpg\" alt=\"\"></figure> <h3><strong>Dễ dàng cài đặt và quản lý</strong></h3> <p>SanDisk SSD Dashboard giúp bạn dễ dàng quản lý ổ đĩa với giao diện trực quan. Bao gồm việc có thể chuyển Win sang ổ cứng mới, phân tích ổ đĩa, và đưa ra cảnh báo khi có các các bản cập nhật Firmware.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2020/01/SSD-SanDisk-X400-6-.jpg\" alt=\"\"></figure> <h3><strong>Bảo hành 3 năm</strong></h3> <p>Các sản phẩm SanDisk được sản xuất với chất lượng vào độ tin cậy rất cao. <strong>Ổ cứng SSD SanDisk X600</strong> đi kèm với một chế độ bảo hành 3 năm. Do đó bạn có thể tự tin với chất lượng tuyệt vời của Sandisk.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2020/01/SSD-SanDisk-X400-4-(1).jpg\" alt=\"\"></figure>",
+            "guarantee": 36,
+            "name": "SSD SanDisk M2-SATA 256GB ",
+            "price": 760000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 3,
+            "cache_id": 1,
+            "connect_id": 7,
+            "write_id": 6,
+            "read_id": 4,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/jD_RflmqYqY2CtbucQ8tF2Xzz4RtOIOQjHxLZhhKvyuq15YXePgSDItlgNndTtc_8Zc8OJGuyDOJU67gpQFUIQjZ6Qpv9VQ=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/dG10ur6wybyfaAtGuFfxxi1pQn_OvsPPNs2JivYtZDyHfcX_e-JTkXC52dEmWhyVGjySmuem59fiikq57M3Ml7a5vAt2LClt=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 12,
+            "description": "<h3><a href=\"https://phongvu.vn/o-cung-di-dong-864.cat\">Ổ cứng di động</a> SSD SanDisk Extreme Portable 1TB với thiết kế nhỏ gọn nhưng sở hữu dung lượng lên đến 1TB, hỗ trợ kết nối thông qua cổng USB Type C, tốc độ đọc ghi tối đa 1050MB/s và 1000MB/s, cho phép người sử dụng thoải mái lưu trữ số lượng lớn dữ liệu một cách nhanh chóng.</h3> <h4><strong>Ổ cứng loại SSD, dung lượng lên đến 1TB</strong></h4> <p>Ổ cứng di động SSD SanDisk Extreme Portable 1TB thuộc loại ổ cứng SSD sở hữu tốc độ xử lý thông tin cao, đảm bảo độ an toàn cho dữ liệu và khả năng lưu trữ tốt, giúp đơn giản hóa các thao tác và tăng hiệu quả làm việc.</p> <figure class=\"image\"><img src=\"https://storage.googleapis.com/teko-gae.appspot.com/media/image/2021/4/17/20210417_0cda20ba-d4f9-404e-94a7-8522f466e8c1.png\"></figure> <p>Đồng thời, ổ cứng di động SSD SanDisk Extreme Portable 1TB còn có hiệu suất làm việc cao và ổn định phù hợp với những khách hàng có nhu cầu lưu trữ và truy xuất dữ liệu thường xuyên mà vẫn đảm bảo độ mượt mà khi thao tác.</p> <p>Ổ cứng di động SSD SanDisk Extreme Portable 1TB sở hữu dung lượng lên đến 1TB, phù hợp cho nhiều đối tượng sử dụng, cho phép lưu trữ lượng lớn dữ liệu bao gồm cả hình ảnh, video và âm thanh chất lượng cao.</p> <h4><strong>Thiết kế nhỏ gọn, bền bỉ với khả năng chống sốc, chịu được nhiệt độ cao</strong></h4> <p>Ổ cứng di động SSD SanDisk Extreme Portable 1TB còn nổi bật bởi thiết kế nhỏ gọn, có tính di động cao, tương thích với nhiều loại thiết bị giúp dễ dàng mang theo khi cần thiết, không giới hạn không gian làm việc của bạn.</p> <figure class=\"image\"><img src=\"https://storage.googleapis.com/teko-gae.appspot.com/media/image/2021/4/17/20210417_e17eaef2-4cfe-4601-b1ec-5b8344685737.png\"></figure> <p>Ngoài ra, ổ cứng di động SSD SanDisk Extreme Portable 1TB còn trang bị khả năng chống sốc, chống rung và chịu được nhiệt độ cao, giúp bạn yên tâm làm việc và mang theo khi di chuyển.&nbsp;</p> <p>Hơn nữa, ổ cứng di động SSD SanDisk Extreme Portable 1TB cũng được thiết kế dễ dàng cho việc vệ sinh, tiện lợi hơn cho việc lau chùi sản phẩm khi cần thiết.</p> <h4><strong>Kết nối dễ dàng thông qua cổng USB Type C, tốc độ đọc 1050MB/s, tốc độ ghi 1000MB/s</strong></h4> <p>Ổ cứng di động SSD SanDisk Extreme Portable 1TB sở hữu cổng kết nối USB Type C phổ biến với tốc độ truyền tải dữ liệu nhanh, thiết kế 2 mặt giống nhau nên bạn không phải lo lắng về vấn đề cắm ngược, thoải mái kết nối với nhiều thiết bị và làm việc một cách nhanh chóng.</p> <figure class=\"image\"><img src=\"https://storage.googleapis.com/teko-gae.appspot.com/media/image/2021/4/17/20210417_249be172-2c9d-487a-ad83-b41faa431e05.png\"></figure> <p>Hơn nữa, ổ cứng di động SSD SanDisk Extreme Portable 1TB còn có tốc độ đọc và ghi tối đa lần lượt là 1050MB/s và 1000MB/s cho phép người sử dụng tải và chỉnh sửa các tập tin một cách nhanh chóng<strong>.</strong></p> <figure class=\"image\"><img src=\"https://storage.googleapis.com/teko-gae.appspot.com/media/image/2021/4/17/20210417_9572c1cf-0c71-4049-ad47-83e398e12bd5.png\"></figure> <h4><strong>Hiệu suất làm việc vượt trội, phần mềm đi kèm Sandisk Secure Access</strong></h4> <p>Ổ cứng di động SSD SanDisk Extreme Portable 1TB còn có hiệu suất làm việc vượt trội, vốn là thế mạnh của các sản phẩm thuộc thương hiệu SanDisk, đảm bảo độ tin cậy cao, đơn giản hóa mọi công việc của khách hàng.</p> <figure class=\"image\"><img src=\"https://storage.googleapis.com/teko-gae.appspot.com/media/image/2021/4/17/20210417_f9ffdc4b-035d-4699-8225-473ed90fdfde.png\"></figure> <p>Ngoài ra, ổ cứng di động SSD SanDisk Extreme Portable 1TB còn hỗ trợ phần mềm đi kèm Sandisk Secure Access cho phép người sử dụng dễ dàng thiết lập mật khẩu chỉ bằng các thao tác đơn giản, đảm bảo tính bảo mật của các tập tin quan trọng.</p> <figure class=\"image\"><img src=\"https://storage.googleapis.com/teko-gae.appspot.com/media/image/2021/4/17/20210417_70039412-05b7-4f92-8d14-d6f3ba0f0047.png\"></figure> <h4><strong>Mua ổ cứng di động SSD SanDisk Extreme Portable 1TB chính hãng | Ưu đãi hấp dẫn khi thanh toán qua VN-PAY QR</strong></h4> <p>Ổ cứng di động SSD SanDisk Extreme Portable 1TB với thiết kế sang trọng, kích thước nhỏ gọn dễ dàng mang theo khi di chuyển, dung lượng lưu trữ lớn cùng nhiều tính năng chuyên dụng, phù hợp cho nhiều đối tượng khách hàng. Mua ngay sản phẩm tại <a href=\"https://phongvu.vn/\"><strong>Phong Vũ </strong></a>để được nhận nhiều ưu đãi hấp dẫn khi thanh toán qua VN-PAY QR.</p>",
+            "guarantee": 60,
+            "name": "SSD SanDisk Extreme Portable 1TB",
+            "price": 4700000,
+            "type_id": 4
+        },
+        "spec": {
+            "capacity_id": 5,
+            "cache_id": 1,
+            "connect_id": 1,
+            "write_id": 4,
+            "read_id": 7,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/jD_RflmqYqY2CtbucQ8tF2Xzz4RtOIOQjHxLZhhKvyuq15YXePgSDItlgNndTtc_8Zc8OJGuyDOJU67gpQFUIQjZ6Qpv9VQ=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/dG10ur6wybyfaAtGuFfxxi1pQn_OvsPPNs2JivYtZDyHfcX_e-JTkXC52dEmWhyVGjySmuem59fiikq57M3Ml7a5vAt2LClt=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 12,
+            "description": "<p>Tăng tốc máy tính của bạn để hoạt động&nbsp;nhanh hơn, khi bạn nâng cấp lên <strong>ổ&nbsp;cứng SSD Sandisk Ultra 3D</strong> bạn sẽ nhận thấy các ứng dụng chạy&nbsp;nhanh hơn và các tập tin di chuyển nhanh hơn, máy tính sẽ có tuổi thọ pin lâu hơn mát hơn và êm hơn. Bất kể bạn sử dụng máy tính của mình như thế nào,&nbsp;<i>ổ cứng SSD Sandisk Ultra 3D </i>với&nbsp;công nghệ 3D NAND và nCache 2.0 của SanDisk sẽ mang lại trải nghiệm tốt hơn cho bạn</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2020/01/O-cung-SSD-SanDisk-Ultra-3D-2_5-Inch-SATA-III-1-.jpg\" alt=\"\"></figure> <h3><strong>Tăng tốc PC của bạn lên đến&nbsp;560 MB/s</strong></h3> <p><i>Ổ cứng SSD Sandisk Ultra 3D</i> có&nbsp;tốc độ đọc liên tục lên tới 560 MB/s giúp&nbsp;&nbsp;khởi động nhanh hơn và hiệu suất hệ thống tổng thể tốt hơn. Tải và chạy các ứng dụng, trò chơi, video và ảnh ngay lập tức để bạn có nhiều thời gian hơn và ít thời gian chờ hơn.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2020/01/O-cung-SSD-SanDisk-Ultra-3D-2_5-Inch-SATA-III-2-.jpg\" alt=\"\"></figure> <h3><strong>Công nghệ nCache™ 2.0</strong></h3> <p><i>Ổ cứng SSD Sandisk Ultra 3D&nbsp;</i>tối ưu hóahiệu năng bằng cách ghi tất cả mọi thứ vào bộ đệm tốc độ cao của ổ đĩa trước khi chuyển nó sang mảng flash. Công nghệ nCache 2.0 chuyên nghiệp được thiết kế cải thiện hiệu suất ghi ngẫu nhiên 4K, với các nCache 2.0 nhận nhiệm vụ tách dữ liệu ra nhiều phần nhỏ và ghi lên các MLC NAND Flash nâng hiệu suất ghi 4k lên vượt trội, kiến trúc sáng tạo này cho phép tốc độ nhanh hơn nhiều lần so với ổ cứng thông thường.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2020/01/O-cung-SSD-SanDisk-Ultra-3D-2_5-Inch-SATA-III-3-.jpg\" alt=\"\"></figure> <h3><strong>Công nghệ 3D NAND</strong></h3> <p><i>Ổ cứng SSD Sandisk Ultra 3D </i>với&nbsp;công nghệ 3D VNAND&nbsp;mới mạnh mẽ tăng cường độ bền của ổ đĩa cho độ tin cậy tốt&nbsp;hơn và mức tiêu thụ điện năng thấp hơn, giúp tuổi thọ pin máy tính xách tay dài hơn.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2020/01/O-cung-SSD-SanDisk-Ultra-3D-2_5-Inch-SATA-III-4-.jpg\" alt=\"\"></figure> <h3><strong>Người bạn&nbsp;đáng tin cậy</strong></h3> <p><i>Ổ cứng SSD Sandisk Ultra 3D&nbsp;&nbsp;</i>có một vỏ bọc rất bền có thể hấp thụ những cú sốc và rung động mà nếu không có thể gây ra thiệt hại và mất mát dữ liệu, cộng với khả năng hoạt động ngay cả trong nhiệt độ khắc nghiệt. Không có bộ phận cơ quay chuyển động bên trong cũng góp phần vào sự ổn định của SSD và đảm bảo nhiệt độ mát, hoạt động yên tĩnh, ngay cả với việc sử dụng ứng dụng nặng. Tiêu thụ điện năng thấp dẫn đến tuổi thọ pin dài hơn cho máy tính xách tay của bạn.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2020/01/O-cung-SSD-SanDisk-Ultra-3D-2_5-Inch-SATA-III-5-.jpg\" alt=\"\"></figure> <h3><strong>Dễ dàng cài đặt và quản lý</strong></h3> <p>Ngoài ra Sandisk còn đi kèm sản phẩm phần mềm Sandisk SSD Dashboard 1.1.1 .Nó cho phép bảng giám sát hoạt động của ổ SSD, tự động cập nhật phần mềm, đưa ra lời khuyên giúp SSD của bạn luôn giữ được hiệu suất cao trong nhiều năm hoạt động. Ngoài ra nó còn tích hợp thêm tính năng phần mềm bên thứ ba rất đáng giá cho người dùng mới là.</p> <p>– Nhân bản&nbsp;phần mềm tạo ra một bản sao chính xác của ổ cứng cũ lên SSD sandisk Ultra 3D trong bốn bước dễ dàng.</p> <p>– Antivirus&nbsp;bảo vệ người dùng trực tuyến thường xuyên sử dụng Email, mạng xã hội, duyệt Web với Trend Micro Titanium Antivirus.</p> <p>– An ninh&nbsp;bảo vệ dữ liệu với Lojack.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2020/01/O-cung-SSD-SanDisk-Ultra-3D-2_5-Inch-SATA-III-6-.jpg\" alt=\"\"></figure> <h3><strong>Tùy chọn dung lượng</strong></h3> <p><i>Ổ cứng SSD Sandisk Ultra 3D</i> có nhiều mức dung lượng 250GB, 500GB, 1TB và 2TB để bạn có nhiều lựa chọn hơn về dung lượng lưu trữ</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2020/01/O-cung-SSD-SanDisk-Ultra-3D-2_5-Inch-SATA-III-7-.jpg\" alt=\"\"></figure> <h3><strong>Thương hiệu hàng đầu thế giới</strong></h3> <p><strong>Sandisk</strong> là thương hiệu nổi tiếng toàn cầu vê thiết bị lưu trữ, ổ<i>&nbsp;cứng SSD Sandisk Ultra 3D&nbsp;</i>được nghiên cứu và phát triển từ những chuyên gia hàng đầu của hãng. SSD trải qua hàng ngàn cuộc thử nghiệm khó khăn&nbsp;để có thể đưa đến tay khách hàng với chất lượng tốt nhất, giúp bạn có những trải nghiệm mới.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2020/01/O-cung-SSD-SanDisk-Ultra-3D-2_5-Inch-SATA-III-8-.jpg\" alt=\"\"></figure>",
+            "guarantee": 60,
+            "name": "SSD SanDisk Ultra 3D-1TB",
+            "price": 3620000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 5,
+            "cache_id": 1,
+            "connect_id": 7,
+            "write_id": 3,
+            "read_id": 5,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 4
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/jD_RflmqYqY2CtbucQ8tF2Xzz4RtOIOQjHxLZhhKvyuq15YXePgSDItlgNndTtc_8Zc8OJGuyDOJU67gpQFUIQjZ6Qpv9VQ=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/dG10ur6wybyfaAtGuFfxxi1pQn_OvsPPNs2JivYtZDyHfcX_e-JTkXC52dEmWhyVGjySmuem59fiikq57M3Ml7a5vAt2LClt=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 12,
+            "description": "<figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2018/10/O-cung-di-dong-SSD-Portable-Sandisk-Extreme-0-.jpg\" alt=\"\"></figure> <h3><strong>Ổ cứng di động&nbsp;tốc độ cao</strong></h3> <p><i>Ổ cứng di động SanDisk Extreme&nbsp;Portable SSD&nbsp;</i>mang đến tốc độ truyền dữ liệu cao với tốc độ đọc lên đến 550MB/s. Điều này làm cho nó hoàn hảo để lưu và chỉnh sửa ảnh và video có độ phân giải cao.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2018/10/O-cung-di-dong-SSD-Portable-Sandisk-Extreme-5-.jpg\" alt=\"\"></figure> <h3><strong>Bộ nhớ tốc độ cao cho ảnh và video có độ phân giải cao</strong></h3> <p>Với tốc độ truyền dữ liệu cao với tốc độ đọc lên tới 550MB/s, ổ<i>&nbsp;cứng di động SanDisk Extreme&nbsp;Portable SSD</i> cho phép bạn tải và chỉnh sửa các tập tin chỉ trong tích tắc. Với dung lượng lưu trữ lên tới 2TB cho các hình ảnh, video và tệp âm thanh có độ phân giải cao, <strong>ổ&nbsp;cứng di động SanDisk Extreme&nbsp;Portable SSD</strong>&nbsp;đáp ứng hoàn hảo cho tất cả các yêu cầu của bạn.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2018/10/O-cung-di-dong-SSD-Portable-Sandisk-Extreme-2-.jpg\" alt=\"\"></figure> <h3><strong>Thiết kế chắc chắn và nhỏ gọn</strong></h3> <p><i>Ổ cứng di động SanDisk Extreme&nbsp;Portable SSD</i>&nbsp;đạt chuẩn&nbsp;IP55, có nghĩa là nó được xây dựng để chịu được nước và bụi. <i>Ổ cứng di động SanDisk Extreme</i> mang lại hiệu năng, dung lượng cao và&nbsp;chỉ nhỏ&nbsp;hơn một chiếc điện thoại thông minh.&nbsp;Sản phẩm có khả năng chống sốc, chống rung và chịu được nhiệt độ cao giúp bạn yên tâm hơn khi di chuyển.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2018/10/O-cung-di-dong-SSD-Portable-Sandisk-Extreme-3-.jpg\" alt=\"\"></figure> <h3><strong>Tương thích USB Type-C + USB-A</strong></h3> <p>Được thiết kế để hoạt động với cả Windows và Mac, <i>Ổ cứng di động SanDisk Extreme&nbsp;Portable SSD</i> được trang bị đầu nối USB 3.1 Type-C và cũng bao gồm cáp USB Type-C to Type-C và bộ chuyển đổi Type-C to Type-A, có nghĩa là nó sẽ thương thích&nbsp;với cả&nbsp;PC và Mac</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2018/10/O-cung-di-dong-SSD-Portable-Sandisk-Extreme-8-.jpg\" alt=\"\"></figure> <h3><strong>Thiết kế nhỏ gọn</strong></h3> <p><i>Ổ cứng di động SanDisk Extreme&nbsp;Portable SSD với t</i>hiết kế sản phẩm nhỏ gọn giúp bạn dễ dàng mang theo bên mình. Bạn có thể dễ dàng cho vào túi và mang theo bên mình để sử dụng khi cần.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2018/10/O-cung-di-dong-SSD-Portable-Sandisk-Extreme-4-.jpg\" alt=\"\"></figure> <h3><strong>Phần mềm đi kèm SanDisk SecureAccess</strong></h3> <p>Phần mềm SanDisk SecureAccess đi kèm ổ<i>&nbsp;cứng di động SanDisk Extreme&nbsp;</i>cho phép bạn dễ dàng tạo mật khẩu bảo vệ những tập tin quan trọng. Đơn giản chỉ cần kéo và thả các tập tin vào trong thư mục được chỉ định sẵn, và dữ liệu của sẽ được bảo vệ bởi một mật khẩu cá nhân với mã hóa AES 128-bit.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2018/10/O-cung-di-dong-SSD-Portable-Sandisk-Extreme-6-.jpg\" alt=\"\"></figure> <h3><strong>Hiệu suất vượt trội</strong></h3> <p>Hơn 25 năm trước, thương hiệu SanDisk đã tạo ra một trong những ổ đĩa trạng thái rắn dựa trên flash đầu tiên trên thế giới và đó mới chỉ là khởi đầu. Là một nhà lãnh đạo công nghệ, chúng tôi đảm bảo rằng các sản phẩm của chúng tôi tiếp tục cung cấp hiệu suất vượt trội mà bạn có thể tin tưởng.</p> <figure class=\"image\"><img src=\"https://tuanphong.vn/upload_images/images/2018/10/O-cung-di-dong-SSD-Portable-Sandisk-Extreme-7-.jpg\" alt=\"\"></figure>",
+            "guarantee": 60,
+            "name": "SSD SanDisk Extreme Portable 2TB",
+            "price": 6499000,
+            "type_id": 4
+        },
+        "spec": {
+            "capacity_id": 6,
+            "cache_id": 1,
+            "connect_id": 1,
+            "write_id": 4,
+            "read_id": 7,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/jD_RflmqYqY2CtbucQ8tF2Xzz4RtOIOQjHxLZhhKvyuq15YXePgSDItlgNndTtc_8Zc8OJGuyDOJU67gpQFUIQjZ6Qpv9VQ=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/dG10ur6wybyfaAtGuFfxxi1pQn_OvsPPNs2JivYtZDyHfcX_e-JTkXC52dEmWhyVGjySmuem59fiikq57M3Ml7a5vAt2LClt=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 11,
+            "description": "<h3><a href=\"https://phongvu.vn/o-cung-ssd-637.cat\">Ổ cứng SSD</a> Kingmax PX4480 500GB sở hữu dung lượng lớn, thiết kế theo tiêu chuẩn M2, hỗ trợ kết nối M.2 NVMe cùng tốc độ đọc/ghi tối đa lần lượt là 5000MB/s và 2500MB/s giúp cung cấp hiệu năng vượt trội và đảm bảo độ tin cậy cao, đáp ứng tối đa nhu cầu của người sử dụng.</h3> <h4><strong>Ổ cứng dạng SSD, dung lượng 500GB</strong></h4> <p>Ổ cứng SSD Kingmax PX4480 500GB thuộc dạng ổ cứng SSD vượt trội hơn so với dòng HDD truyền thống, cho phép lưu trữ dữ liệu lâu dài và đảm bảo dữ liệu không bị mất khi sập nguồn đột ngột cùng khả năng chống sốc cao và ổn định, giảm thiểu tối đa các vấn đề hư hỏng do va chạm.</p> <figure class=\"image\"><img src=\"https://storage.googleapis.com/teko-gae.appspot.com/media/image/2021/4/19/20210419_6c468618-d8eb-46b1-9c6e-008751510e21.jpg\" alt=\"Ổ cứng SSD Kingmax PX4480 500GB (Zeus M.2 PCIe NVMe - Gen4x4) | Ổ cứng dạng SSD\"></figure> <p>Ngoài ra, ổ cứng SSD Kingmax PX4480 500GB còn mang đến hiệu năng hoạt động cao hơn, giảm thời gian khởi động thiết bị, tăng năng suất công việc, không gây ồn và ít tỏa nhiệt, nhờ đó tiết kiệm đáng kể lượng điện năng tiêu thụ.</p> <p>Sở hữu dung lượng 500GB, ổ cứng SSD Kingmax PX4480 500GB cung cấp không gian lưu trữ số lượng lớn các dữ liệu cơ bản, hình ảnh, video và âm thanh chất lượng cao, kể cả các game online phổ biến trên thị trường.</p> <figure class=\"image\"><img src=\"https://storage.googleapis.com/teko-gae.appspot.com/media/image/2021/4/19/20210419_b3ddff11-7b6c-459f-8914-b6d1f120ec5b.jpg\" alt=\"Ổ cứng SSD Kingmax PX4480 500GB (Zeus M.2 PCIe NVMe - Gen4x4) | Dung lượng 500GB\"></figure> <h4><strong>Kích thước M2 tiêu chuẩn, hỗ trợ kết nối M.2 NVMe</strong></h4> <p><a href=\"https://phongvu.vn/o-cung-550.cat\">Ổ cứng máy tính </a>SSD Kingmax PX4480 500GB được thiết kế với kích thước M2 tiêu chuẩn, nhỏ gọn nhưng sở hữu nhiều tính năng độc đáo, cho tốc độ truyền tải nhanh hơn gấp nhiều lần so với các ổ cứng SSD trước đây.</p> <figure class=\"image\"><img src=\"https://storage.googleapis.com/teko-gae.appspot.com/media/image/2021/4/19/20210419_343c80cf-4a64-42de-b3b7-19ca48195170.jpg\" alt=\"Ổ cứng SSD Kingmax PX4480 500GB (Zeus M.2 PCIe NVMe - Gen4x4) | Kích thước M2 tiêu chuẩn\"></figure> <p>Ngoài ra, ổ cứng SSD Kingmax PX4480 500GB còn hỗ trợ kết nối M.2 NVMe cung cấp băng thông tốc độ cao, phù hợp với khách hàng có công việc đòi hỏi tốc độ đọc/ghi tối ưu để xử lý các cơ sở dữ liệu lớn và truyền tải thông tin nhanh hơn.</p> <figure class=\"image\"><img src=\"https://storage.googleapis.com/teko-gae.appspot.com/media/image/2021/4/19/20210419_9afd4e1c-35a0-46aa-a386-bb046e90b48b.jpg\" alt=\"Ổ cứng SSD Kingmax PX4480 500GB (Zeus M.2 PCIe NVMe - Gen4x4) | Hỗ trợ kết nối M2 NVMe\"></figure> <h4><strong>Hiệu năng vượt trội với tốc độ đọc/ ghi tối đa lần lượt là 5000MB/s và 2500MB/s</strong></h4> <p>Ổ cứng SSD Kingmax PX4480 500GB cung cấp hiệu năng vượt trội nhờ tốc độ đọc/ ghi tối đa lần lượt là 5000MB/s và 2500MB/s. Đây chính là yếu tố quyết định chất lượng của 1 ổ cứng SSD, giúp người dùng thực hiện các tác vụ phức tạp một cách nhanh chóng và hiệu quả.</p> <figure class=\"image\"><img src=\"https://storage.googleapis.com/teko-gae.appspot.com/media/image/2021/4/19/20210419_a68f3116-c7c8-4ef1-8064-25958a1adeb1.jpg\" alt=\"Ổ cứng SSD Kingmax PX4480 500GB (Zeus M.2 PCIe NVMe - Gen4x4) | Tốc độ đọc ghi cao\"></figure> <p>Ngoài ra, với tốc độ đọc/ghi cao, ổ cứng SSD Kingmax PX4480 500GB còn cho phép truyền tải, di chuyển, đọc và ghi các tập tin có dung lượng lớn mà không làm tốn quá nhiều thời gian cũng như năng lượng tiêu thụ của sản phẩm.</p> <h4><strong>Bộ nhớ công nghệ 3D NAND đột phá</strong></h4> <p>Ổ cứng SSD Kingmax PX4480 500GB sở hữu công nghệ đột phá 3D NAND có khả năng làm tăng thêm nhiều lớp lưu trữ dữ liệu giúp gia tăng mật độ và dung lượng bộ nhớ một cách đáng kể, thậm chí có thể tận dụng tối đa và tăng dung lượng thiết bị lên mức cực đại khi cần thiết.</p> <p>Hơn nữa, với công nghệ 3D NAND, ổ cứng SSD Kingmax PX4480 500GB còn giúp gia tăng khoảng trống giữa các khối bộ nhớ trên mỗi lớp lưu trữ, đảm bảo độ bền và an toàn cho dữ liệu, hạn chế các rủi ro liên quan đến va chạm vật lý làm ảnh hưởng đến hiệu năng bộ nhớ.</p> <figure class=\"image\"><img src=\"https://storage.googleapis.com/teko-gae.appspot.com/media/image/2021/4/19/20210419_f21b1f9b-ebb4-4849-8d94-11f146a44e3e.jpg\" alt=\"Ổ cứng SSD Kingmax PX4480 500GB (Zeus M.2 PCIe NVMe - Gen4x4) | Bộ nhớ công nghệ 3D NAND Flash\"></figure> <h4><strong>Mua ổ cứng SSD Kingmax PX4480 500GB chính hãng | Ưu đãi hấp dẫn khi thanh toán qua VN-PAY QR</strong></h4> <p>Ổ cứng SSD Kingmax PX4480 500GB với thiết kế chuẩn M2, dung lượng lớn, tốc độ đọc/ghi vượt trội cho khả năng lưu trữ dữ liệu tuyệt vời mà vẫn đảm bảo độ an toàn, phục vụ tối đa nhu cầu của người sử dụng. Mua ngay sản phẩm tại Phong Vũ để được nhận ưu đãi hấp dẫn khi thanh toán qua VN-PAY QR.</p>",
             "guarantee": 24,
-            "name": "Drive 4",
-            "price": 15399000,
+            "name": "SSD Kingmax PX4480 500GB M.2 ",
+            "price": 3190000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 4,
+            "cache_id": 1,
+            "connect_id": 7,
+            "write_id": 3,
+            "read_id": 6,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/2sgZqwtyNDHC2fo1Obyxgyft_8a0Ym_O-LWu2JOxquNAPcmpPU_xkeSrzylLJtM4rfkdZpWk2k2uliehuNNYF5ofqb2rhuU=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/lF_kU_IlbKXFhCmlx0xK75WJnE7PeHw5TmwivehGy5GSBelEE_69OlgfgNvEMt8_wO5lwdG0oN5lqr3uiCxp0NViPE7OHeRb=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 11,
+            "description": "<h2><a href=\"https://phongvu.vn/linh-kien-may-tinh/o-cung-ssd-hdd/o-cung-laptop/ssd-m-2-sata/o-cung-ssd-kingmax-128gb-px3280-zeus-m-2-2280.html\">Ổ cứng SSD Kingmax</a>&nbsp;128GB PX3280 Zeus (M.2-2280)</h2> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2018/10/-c%E1%BB%A9ng-SSD-Kingmax-128GB-PX3280-Zeus-M.2-2280-2-e1538904727426.jpg\" alt=\"Ổ cứng SSD Kingmax 128GB PX3280 Zeus (M.2-2280)\"></figure> <p>Đối với người dùng máy tính, tốc độ nhanh và chất lượng tốt của ổ cứng chuẩn&nbsp;<a href=\"http://genk.vn/ssd.htm\">SSD</a>&nbsp;đang ngày được ưa chuộng.&nbsp;Kingmax, là thương hiệu tương đối mới đối với ngành công nghiệp lưu trữ.</p> <p>Mặc dù thành lập vào năm 1989, nhưng cuối thập kỷ 90, họ mới bắt đầu sản xuất các linh kiện lưu trữ và bộ nhớ của riêng mình.</p> <h3>SSD 128GB Kingmax PX 3280 Zeus (M.2 (2280))</h3> <p>Được thiết kế với kích thước mỏng giúp bạn dễ dàng bảo quản và mang theo khi di chuyển.</p> <p>Với dung lượng 128GB, đáp ứng nhu cầu sử dụng cơ bản cho nhiều người dùng. Sản phẩm có thể truyền tải dữ liệu nhanh chóng mà không tiêu thụ quá nhiều điện năng.</p> <h3>Tốc độ đọc/ghi</h3> <p>Tốc độ đọc&nbsp;1500MB/s</p> <p>Tốc độ ghi 450MB/s</p> <p>Ổ cứng giúp truyền tải và sao chép dữ liệu nhanh chóng và chính xác nhất.&nbsp;được thiết kế với chất liệu có khả năng chịu sốc và chịu được nhiệt độ cao, và giảm thiểu tiếng ồn tối đa khi vận hành.</p> <h3>Chip flash NAND 3D</h3> <p>công nghệ flash NAND 3D là bước đột phá mới, cho phép cải thiện dung lượng cũng như hiệu năng, độ bền của ổ SSD.</p> <h3>Khả năng chống rung, chống ồn, và các chứng chỉ tiêu dùng</h3> <p>Các ổ cứng SME đều có khả năng chống chịu sốc, rung tốt, hoạt động hoàn toàn êm ái, không ồn.</p> <p>Đáp ứng được mọi tiêu chí kỹ thuật: CE, FCC, BSMI, RoHS.</p> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2018/10/-c%E1%BB%A9ng-SSD-Kingmax-128GB-PX3280-Zeus-M.2-2280-1-e1538906758517.jpg\" alt=\"Ổ cứng SSD Kingmax 128GB PX3280 Zeus (M.2-2280)\"></figure> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2018/10/%E1%BB%94-c%E1%BB%A9ng-SSD-Kingmax-128GB-PX3280-Zeus-M.2-2280-3.jpg\" alt=\"Ổ cứng SSD Kingmax 128GB PX3280 Zeus (M.2-2280)\"></figure> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2018/10/%E1%BB%94-c%E1%BB%A9ng-SSD-Kingmax-128GB-PX3280-Zeus-M.2-2280-4.jpg\" alt=\"Ổ cứng SSD Kingmax 128GB PX3280 Zeus (M.2-2280)\"></figure>",
+            "guarantee": 36,
+            "name": "SSD KINGMAX PX3280 Zeus 128GB M.2",
+            "price": 790000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 2,
+            "cache_id": 1,
+            "connect_id": 7,
+            "write_id": 3,
+            "read_id": 5,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 3
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/ZGLqNEQ1i_7KEjqGRKn41EnE76_XvDZZcbNYdoCSeUvE9suAiDWq6BSZfc5uuX9jbGxB-hO4M5JpaYRw4wmN-VDOspNge9U=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 11,
+            "description": "<h2><strong>Giới thiệu&nbsp;</strong><a href=\"https://phongvu.vn/o-cung-ssd-637.cat\"><strong>Ổ cứng SSD</strong></a><strong> Kingmax M.2 2280 PCIe 512GB PQ3480 (Zeus- Gen3x4)</strong><br>&nbsp;</h2> <p>Ổ cứng SSD Kingmax M.2 2280 PCIe 512GB PQ3480 sở hữu thiết kế theo tiêu chuẩn M2 2280 giúp tương thích với các loại PC, laptop hiện tại. Với tốc độ đọc và ghi cao chắc chắn sẽ là một lựa chọn nâng cấp đáng giá cho bộ máy của bạn.</p> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2020/06/O-cung-SSD-kingmax-PQ3480-300x108.jpg\" alt=\"Ổ cứng SSD Kingmax M.2 2280 PCIe 128GB PQ3480 (Zeus- Gen3x4)\"></figure> <h3>Tăng hiệu suất cho máy</h3> <p>Hiệu năng vượt trội đối với các ứng dụng hay game nặng, công nghệ M.2 NVMe giúp cho ổ cứng đạt được tốc độ đọc tuần tự lên tới 2500MB/s và tốc độ ghi tuần tự lên tới 2100MB/s. Khởi động hệ thống cực nhanh, phản hồi ứng dụng và game trơn tru.</p> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2020/06/O-cung-SSD-kingmax-PQ3480-1-300x149.jpg\" alt=\"Tăng hiệu suất cho máy\"></figure> <h3>Độ tin cậy cao</h3> <p>Với độ tin cậy huyền thoại của các ổ cứng Kingmax, SSD Kingmax PQ3480 được thiết kế và thử nghiệm, đưa ra sản phẩm cuối cùng tốt nhất. Ngoài ra SSD Kingmax PQ3480 được bảo hành lên đến nhiều năm cho bạn yên tâm sử dụng.</p> <h3>Sao lưu dễ dàng</h3> <p>Sao chép dễ dàng các file, tệp quan trọng của bạn với thời gian nhanh chóng, tiết kiệm thời gian hơn. Được trang bị công nghệ mới nhất của Kingmax để có hiệu suất ổn định, tối ưu.</p> <h3><strong>Khả năng tương thích</strong></h3> <p>Chứng nhận từ phòng thí nghiệm, mọi ổ SSD Kingmax PQ3480 được xác minh về khả năng tương thích với nhiều loại máy tính để bàn và laptop. Mỗi ổ&nbsp;SSD WD Kingmax PQ3480 đều được trải qua quá trình kiểm tra độ tương thích và độ tin cậy để đảm bảo nó đáp ứng đầy đủ tiêu chuẩn của thương hiệu Kingmax.</p>",
+            "guarantee": 36,
+            "name": "SSD Kingmax SA3080 512GB M.2",
+            "price": 1850000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 4,
+            "cache_id": 1,
+            "connect_id": 5,
+            "write_id": 3,
+            "read_id": 5,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/vm829q04qQOWzzMxMLC_lhYGiHSH1Cv569kBwMLtKOGZvge_CG_idjgwGE3XtwdkCnHT1mVk19_glriMmKw=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/FA49Zi0T0Cz3OiCGnndqWHdEbkgm4631HT5ik7Xqbs6M_SPL9oxtIVlvUm0WFGVyTY1AIR8av9kX8AtFfQ=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 11,
+            "description": "<h2><strong>Giới thiệu sản phẩm ổ cứng SSD Kingmax 120GB Sata III SMV32 với tốc độ truyền tải lên đến 6.0Gb/s</strong></h2> <p>&nbsp;</p> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2018/11/SSD-Kingmax-120GB-Sata-III-SMV32-1.jpg\" alt=\"ổ cứng SSD Kingmax 120GB Sata III SMV32\"></figure> <h3>&nbsp;</h3> <h3><strong>TỔNG QUAN</strong></h3> <p><strong>Nhãn hiệu: </strong>Tập đoàn Kingmax đến từ Tân Trúc, Đài Loan với công ty sản xuất tên Kingmax Semiconductor Inc, chuyên sản xuất các dòng ổ cứng và thiết bị điện tử máy tính.</p> <p><strong>Model(Mẫu sản xuất): </strong>SMV32</p> <p><strong>Loại sản phẩm:</strong> Ổ cứng Solid State Drive (SSD)</p> <p><strong>Giao diện kết nối: </strong>SATA III 6Gb/s</p> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2018/11/SSD-Kingmax-120GB-Sata-III-SMV32-4-e1541435694710.jpg\" alt=\"SSD Kingmax 120GB Sata III SMV32\"></figure> <p>Loại ổ cứng SSD nhờ việc sử dụng bộ nhớ flash để lưu dữ liệu, nên các hoạt động đọc và ghi dữ liệu của SSD không ảnh hưởng tới bất kì hoạt động của bộ phận nào trên ổ đĩa do đó làm ổ đĩa hoạt động yên tĩnh hơn so với&nbsp;<strong>HDD</strong>, gần như không gây ra tiếng ồn, không có độ trễ cơ học nên mang lại tốc độ truy cập cao hơn. Cùng với những yêu điểm về âm thanh vận hành <strong>ổ cứng SSD</strong> còn có khả năng không mất thời gian khởi động như ổ HDD.</p> <p>Ổ cứng SSD còn tiêu tốn ít điện năng hơn ổ HDD và có thể hoạt động trong môi trường điện áp thấp hơn vì nhờ khả năng không sử dụng đầu đọc cơ học giống như ổ HDD để truy cập vào dữ liệu. Kích thước nhỏ hơn, gọn hơn ( ổ SSD thường là 2,5” ; ổ HDD thường là 3,5” ).</p> <p><strong>Mẫu thiết kế: </strong>SMV 32</p> <p><strong>Dung lượng lưu trữ: </strong>120 GB</p> <p>Với dung lượng lên tới 120 GB, người dùng có thể thoải mái lưu trữ nhiều thông tin. Ngoài ra, đối với nhiều người dùng còn có thể dùng để làm ổ cài các ứng dụng, game để khởi động tốt hơn, nhanh hơn tránh khoảng thời gian chờ mà ổ cứng HDD hiện có.</p> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2018/11/SSD-Kingmax-120GB-Sata-III-SMV32-3.jpg\" alt=\"SSD Kingmax 120GB Sata III SMV32\"></figure> <h3><strong>HIỆU SUẤT / TÍNH NĂNG / ĐẶC ĐIỂM</strong></h3> <p><strong>Tốc độ đọc: </strong>Tối đa 500 MB / giây</p> <p><strong>Tốc độ ghi:</strong> Tối đa 350 MB / giây</p> <p><strong>MTBF (tạm gọi Tuổi thọ sản phẩm):</strong> 1.500.000 giờ</p> <p><strong>Tính năng: </strong>Đọc / ghi tốc độ cao</p> <p>Công nghệ mới S.M.A.R.T Self-monitoring (Tự giám sát), Analysis (Phân tích), Reporting Technology (Công nghệ giám sát) có thể giám sát rồi báo cáo lại cho bạn những lỗi của ổ đĩa để&nbsp; thay thế có thể được thực hiện.</p> <p>Khi lệnh TRIM được kích hoạt, Windows sẽ gửi chỉ dẫn đến cho ổ SSD mỗi khi bạn xóa một tập tin. Ổ SSD sau đó có thể tự động xóa nội dung tập tin, đây cũng là 1 ưu điểm lớn của dòng ổ cứng SSD giúp cho việc duy trì hiệu suất ổ SSD ở trạng thái tốt nhất, duy trì tốc độ xử lí dữ liệu cao.</p> <p>Hỗ trợ giao thức Native Command Queuing ( NCQ ) là phần mở rộng của giao thức SATA giúp các ổ đĩa cứng tối ưu hóa thời gian lệnh đọc và lệnh ghi được thực thi. Bên cạnh đó ổ cứng còn được lắp ráp theo phương pháp RAID có khả năng ghép nhiều ổ đĩa cứng ( vật lý ) thành 1 hệ thống ổ đĩa cứng giúp gia tăng tốc độ đọc/ghi dữ liệu đồng thời tăng thêm an toàn lưu trữ dữ liệu chứa bên trong ổ đĩa.</p> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2018/11/SSD-Kingmax-120GB-Sata-III-SMV32-2.jpg\" alt=\"SSD Kingmax 120GB Sata III SMV32\"></figure> <p>Tuổi thọ của 1 sản phẩm công nghệ cũng là yếu tố khá quan trọng đối với tiêu chí của người mua hàng. Với 1 sản phẩm lưu trữ như ổ cứng thì đó được coi như thiết yếu và rất quan trọng, sản phẩm SSD Kingmax 120GB Sata III SMV32 đã được kiểm chứng và có thời gian lên tới 1,500,000 giờ cho thấy sự bền bỉ của sản phẩm cực cao.</p> <p>Công nghệ 3D V-NAND chính là bước cải tiến vượt trội về kiến trúc bộ nhớ Flash bằng việc làm tăng mật độ, hiệu suất, và giới hạn về sức chịu đựng của kiến trúc NAND phẳng thông thường hiện nay. Công nghệ 3D V-NAND có chức năng sắp xếp 64 lớp Cell theo chiều dọc làm tăng mật độ Cell cao hơn và hiệu suất tốt hơn gấp đôi so với công nghệ 32-Layer được sử dụng trên các dòng ổ cứng cũ.&nbsp;Sử dụng cho mình công nghệ ECC để ngăn chặn lỗi dữ liệu.</p> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2018/11/SSD-Kingmax-120GB-Sata-III-SMV32.jpg\" alt=\"ổ cứng SSD Kingmax 120GB Sata III SMV32\"></figure> <h3><strong>MÔI TRƯỜNG HOẠT ĐỘNG / KÍCH THƯỚC / KHỐI LƯỢNG</strong></h3> <p><strong>Nhiệt độ hoạt động: </strong>0 ° C ~ + 70 ° C</p> <p><strong>Nhiệt độ lưu trữ:</strong> -40 ° C ~ + 80 ° C</p> <p><strong>Kích thước: </strong>100,5 mm x&nbsp;69,9 mm x&nbsp;7 mm (Dài x Rộng x Dày)</p> <p><strong>Khối lượng:</strong> 71 g</p> <p>Sản phẩm có kích thước nhỏ gọn vừa tay cầm, chỉ bằng 1 chiếc điện thoại di động, dễ dàng thuận tiện trong việc di chuyển và lưu trữ.</p>",
+            "guarantee": 36,
+            "name": "SSD KINGMAX SMV32 120GB SATA 3",
+            "price": 710000,
             "type_id": 2
         },
         "spec": {
             "capacity_id": 1,
-            "cache_id": 2,
-            "connect_id": 2,
+            "cache_id": 1,
+            "connect_id": 7,
             "write_id": 2,
-            "read_id": 3,
-            "dimension_id": 3,
-            "rotation_id": 2,
+            "read_id": 6,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 2
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/dpNaIn7aMAQFc97cEFP7TUzEKRfM_sbNYHuiXT2D7pQM8aTnyfsGW2Fxid_zdDKtUtVo70yFNHDM2BMu0A=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 11,
+            "description": "<h3>Ổ cứng SSD Kingmax PX3480 (Zeus- Gen3x4) với dung lượng 256GB cực cao, cùng với kích thước nhỏ gọn tiện lợi, kết hợp cùng tốc độ đọc 3000MB/s và tốc độ ghi 1000MB/s giúp sao chép dữ liệu một cách nhanh chóng. Sản phẩm này phù hợp với những ai đang mong muốn sở hữu được ổ cứng có tốc độ nhanh và chất lượng.</h3> <h4><strong>Tốc độ đọc và ghi nhanh chóng, kết hợp cùng dung lượng lưu trữ 256GB khá lớn</strong></h4> <p>Ổ&nbsp; cứng SSD Kingmax PX3480 (Zeus- Gen3x4) được trang bị tốc độ đọc 3000MB/s và tốc độ ghi là 1000MB/s, cho phép người dùng truyền tải và sao chép dữ liệu một cách nhanh chóng, hạn chế tình trạng không đủ dung lượng để sử dụng.</p> <figure class=\"image\"><img src=\"https://storage.googleapis.com/teko-gae.appspot.com/media/image/2021/4/24/20210424_9c7939de-c2fd-4a1f-949a-f434b6dcf2d8.png\" alt=\"ổ cứng SSD Kingmax M.2 2280 PCIe 256GB PX3480 (Zeus- Gen3x4) | Tốc độ đọc và ghi nhanh chóng\"></figure> <p>Ngoài ra, ổ cứng SSD Kingmax PX3480 (Zeus- Gen3x4) còn sở hữu dung lượng lưu trữ tận 256GB khá lớn, đáp ứng được nhu cầu cơ bản của nhiều người, giúp bạn có thể truyền tải dữ liệu nhanh chóng, mượt mà và không cần phải tiêu thụ nhiều điện năng, hạn chế sự lãng phí tài nguyên.</p> <figure class=\"image\"><img src=\"https://storage.googleapis.com/teko-gae.appspot.com/media/image/2021/4/24/20210424_7aebc2ef-767f-40cd-b8ea-77cd5f34f969.png\" alt=\"ổ cứng SSD Kingmax M.2 2280 PCIe 256GB PX3480 (Zeus- Gen3x4) | Dung lượng 256GB\"></figure> <h4><strong>Được thiết kế chịu nhiệt tốt, sở hữu bộ nhớ 3D-NAND hiện đại</strong></h4> <p>Không những thế, ổ cứng SSD Kingmax PX3480 (Zeus- Gen3x4) còn có khả năng chịu được mức nhiệt độ cao, đồng thời còn được vận hành êm ái, ổn định, hạn chế phát ra những tiếng ồn gây ảnh hưởng đến người dùng trong quá trình hoạt động.</p> <figure class=\"image\"><img src=\"https://storage.googleapis.com/teko-gae.appspot.com/media/image/2021/4/24/20210424_2d9fb25f-0ce1-4747-a29b-f6d76b9fa067.png\" alt=\"ổ cứng SSD Kingmax M.2 2280 PCIe 256GB PX3480 (Zeus- Gen3x4) | Thiết kế chịu nhiệt tối\"></figure> <p>Đặc biệt là, ổ cứng SSD Kingmax PX3480 (Zeus- Gen3x4) sở hữu được bộ nhớ 3D-NAND hiện đại, cho phép người dùng cải thiện được dung lượng, đồng thời còn có thể nâng cao hiệu năng và tuổi thọ, độ bền bỉ của ổ cứng.</p> <h4><strong>Kích thước chuẩn M.2 2280, đồng thời có thể tối ưu hóa được điện năng tiêu thụ</strong></h4> <p>Với kích thước chuẩn M.2 2280, ổ cứng SSD Kingmax PX3480 (Zeus- Gen3x4) có thể tương thích với hầu hết mọi thiết bị để bàn và máy tính xách tay, cho phép người dùng có thể nâng cấp đơn giản, hạn chế tình trạng hỏng hóc trong quá trình cài đặt.</p> <figure class=\"image\"><img src=\"https://storage.googleapis.com/teko-gae.appspot.com/media/image/2021/4/24/20210424_d35b03ef-9827-4bac-9abf-94116c978d41.png\" alt=\"ổ cứng SSD Kingmax M.2 2280 PCIe 256GB PX3480 (Zeus- Gen3x4) | Tối ưu hóa điện năng tiêu thụ \"></figure> <p>Đồng thời, ổ cứng SSD Kingmax PX3480 (Zeus- Gen3x4) cũng có thể tối ưu hóa được lượng điện năng tiêu thụ của máy, giúp laptop và máy tính bộ của bạn có thể được sử dụng lâu hơn, giảm được thời gian phải chờ đợi khởi động máy, hạn chế được sự lãng phí tài nguyên.</p> <h4><strong>Có khả năng chống sốc tốt, hỗ trợ cổng kết nối M.2 NVMe giúp cải thiện hiệu năng</strong></h4> <p>Ổ cứng SSD Kingmax PX3480 (Zeus- Gen3x4) sở hữu được trọng lượng nhẹ kết hợp cùng với khả năng chống sốc tốt, hạn chế sử dụng các bộ phận chuyển động, giúp giữ dữ liệu cá nhân của bạn luôn an toàn không bị mất trong trường hợp bị va đập hoặc đụng chạm ngẫu nhiên.</p> <figure class=\"image\"><img src=\"https://storage.googleapis.com/teko-gae.appspot.com/media/image/2021/4/24/20210424_1a914e5e-4498-4572-840b-2a8b79605782.png\" alt=\"ổ cứng SSD Kingmax M.2 2280 PCIe 256GB PX3480 (Zeus- Gen3x4)| Khả năng chống sốc tốt\"></figure> <p>Ngoài ra, ổ cứng SSD Kingmax PX3480 (Zeus- Gen3x4) còn được hỗ trợ cổng kết nối chuẩn M.2 NVMe, giúp cải thiện hiệu năng cho mọi công việc được thực hiện trên máy tính, bạn có thể duyệt web, giải trí, chơi game hoặc khởi động hệ thống chỉ trong chốc lát.</p> <h4><strong>Mua ổ cứng SSD Kingmax PX3480 (Zeus- Gen3x4) chính hãng, đến Phong Vũ để được nghe tư vấn chi tiết về sản phẩm đồng thời còn được nhận dịch vụ bảo hành miễn phí tận nhà</strong></h4> <p>Ổ cứng SSD Kingmax PX3480 (Zeus- Gen3x4) với dung lượng lưu trữ 256GB cao, kết hợp bộ nhớ 3D-NAND hiện đại, còn có được kết nối chuẩn M.2 NVMe, sản phẩm này hướng đến những người mong muốn tăng hiệu suất làm việc. Đến <a href=\"https://phongvu.vn/\"><strong>Phong Vũ </strong></a>mua sắm để được tư vấn chi tiết và nhận được ưu đãi bảo hành tận nhà nhé!</p>",
+            "guarantee": 36,
+            "name": "SSD Kingmax PX3480 256GB M.2",
+            "price": 1250000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 3,
+            "cache_id": 1,
+            "connect_id": 5,
+            "write_id": 4,
+            "read_id": 9,
+            "dimension_id": 1,
+            "rotation_id": 1,
             "drive_type_id": 3
         },
         "image": {
-            "img1": "link1",
-            "img2": "link2",
-            "img3": "link3"
+            "img1": "https://lh3.googleusercontent.com/WoD3DBHvKX8u7MtODNaPPZFaa--eK-JmFtW7hIVJL5OHKw6cB57yE6FnSatmH56-vGbL_cB8BdmlPr7Rl2w=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 11,
+            "description": "<p>Ổ cứng SSD Kingmax M.2 2280 PCIe 256GB PQ3480 sở hữu thiết kế theo tiêu chuẩn M2 2280 giúp tương thích với các loại PC, laptop hiện tại. Với tốc độ đọc và ghi cao chắc chắn sẽ là một lựa chọn nâng cấp đáng giá cho bộ máy của bạn.</p> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2020/06/O-cung-SSD-kingmax-PQ3480-300x108.jpg\" alt=\"Ổ cứng SSD Kingmax M.2 2280 PCIe 128GB PQ3480 (Zeus- Gen3x4)\"></figure> <h3>Tăng hiệu suất cho máy</h3> <p>Hiệu năng vượt trội đối với các ứng dụng hay game nặng, công nghệ M.2 NVMe giúp cho ổ cứng đạt được tốc độ đọc tuần tự lên tới 2200MB/s và tốc độ ghi tuần tự lên tới 1100MB/s. Khởi động hệ thống cực nhanh, phản hồi ứng dụng và game trơn tru.</p> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2020/06/O-cung-SSD-kingmax-PQ3480-1-300x149.jpg\" alt=\"Tăng hiệu suất cho máy\"></figure> <h3>Độ tin cậy cao</h3> <p>Với độ tin cậy huyền thoại của các ổ cứng Kingmax, SSD Kingmax PQ3480 được thiết kế và thử nghiệm, đưa ra sản phẩm cuối cùng tốt nhất. Ngoài ra SSD Kingmax PQ3480 được bảo hành lên đến nhiều năm cho bạn yên tâm sử dụng.</p> <h3>Sao lưu dễ dàng</h3> <p>Sao chép dễ dàng các file, tệp quan trọng của bạn với thời gian nhanh chóng, tiết kiệm thời gian hơn. Được trang bị công nghệ mới nhất của Kingmax để có hiệu suất ổn định, tối ưu.</p> <h3><strong>Khả năng tương thích</strong></h3> <p>Chứng nhận từ phòng thí nghiệm, mọi ổ SSD Kingmax PQ3480 được xác minh về khả năng tương thích với nhiều loại máy tính để bàn và laptop. Mỗi ổ&nbsp;SSD WD Kingmax PQ3480 đều được trải qua quá trình kiểm tra độ tương thích và độ tin cậy để đảm bảo nó đáp ứng đầy đủ tiêu chuẩn của thương hiệu Kingmax.</p>",
+            "guarantee": 36,
+            "name": "SSD Kingmax PQ3480 256GB M.2",
+            "price": 1050000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 3,
+            "cache_id": 1,
+            "connect_id": 5,
+            "write_id": 5,
+            "read_id": 8,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 3
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/rIGoo7Q6Fj_xG272__OoS3iu2Uml3XHaBBk309YtrutyVZBF3R_0RjgQfCu-8wAYCzzWCpCRgDb1x6-4RJk=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/dr_Bemq0GbOVHMoiB56QjiwuUqLoR9PbFIsS9Bko3BoKCeYNFfB_V2G19A7NETjBKW3ruy-TIpUZn9QWZdrF=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 11,
+            "description": "<h2><strong>Đánh giá Ổ cứng SSD KINGMAX 128GB M.2 2280 SATA 3 (SA3080)</strong></h2> <p>Được đánh giá là một trong những ổ cứng SSD tốt nhất hiện nay, sản phẩm <strong>Ổ cứng SSD KINGMAX 128GB M.2 2280 SATA 3 (SA3080)</strong> là một sự lựa chọn xứng đáng cho dòng SSD. Dưới đây là một vài đặc điểm chính của sản phẩm này</p> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2019/05/%C3%94%CC%89-c%C6%B0%CC%81ng-SSD-KINGMAX-128GB-M.2-2280-SATA-3-SA3080.jpg\" alt=\"Ổ cứng SSD KINGMAX 128GB M.2 2280 SATA 3 (SA3080)\"></figure> <h2><strong>Độc đáo cùng công nghệ 3D-NAND</strong></h2> <p>Nếu như bạn đang tìm một sản phẩm giúp nâng cao hiệu năng tổng thể và khả năng lưu trữ của máy tính thì <strong>Ổ cứng SSD KINGMAX 128GB M.2 2280 SATA 3 (SA3080)</strong> là sự lựa chọn tốt nhất. Với sức chứa lên tới 480GB (tùy chọn phiên bản), kích thước nhỏ gọn, chuẩn giao tiếp SATA III 6GB/s thế hệ mới, và đặc biệt được trang bị công nghệ 3D-NAND giúp cải thiện tối đa hiệu suất máy tính và gia tăng tuổi thọ cho ổ cứng.</p> <p>Thêm vào đó, độ tương thích cực tốt phù hợp với tất cả các dòng máy tính Laptop, máy tính để bàn hỗ trợ cổng M.2 SATA III 2280, giúp giảm thiểu tối đa thời gian đáp ứng của hệ thống, giúp người dùng làm việc nhanh hơn lại tiết kiệm thời gian.</p> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2019/05/%C3%94%CC%89-c%C6%B0%CC%81ng-SSD-KINGMAX-128GB-M.2-2280-SATA-3-SA3080-2.jpg\" alt=\"Ổ cứng SSD KINGMAX 128GB M.2 2280 SATA 3 (SA3080)-2\"></figure> <h2><strong>Tốc độ làm việc</strong></h2> <p><strong>Ổ cứng SSD KINGMAX 128GB M.2 2280 SATA 3 (SA3080)</strong> với tốc độ đọc lên tới 500MB/s sẽ đáp ứng mọi nhu cầu về tốc độ của các Game thủ khó tính. Đồng thời, giảm thiểu tối đa độ trễ, tăng hiệu suất máy tính cũng như giúp bạn trải nghiệm tốt nhất khi chơi Games.</p> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2019/05/%C3%94%CC%89-c%C6%B0%CC%81ng-SSD-KINGMAX-128GB-M.2-2280-SATA-3-SA3080-3.jpg\" alt=\"Ổ cứng SSD KINGMAX 128GB M.2 2280 SATA 3 (SA3080)-3\"></figure> <h2><strong>Thúc đẩy khả năng DevSleep và ISRT</strong></h2> <p><strong>Ổ cứng SSD KINGMAX 128GB M.2 2280 SATA 3 (SA3080)</strong> có khả năng hỗ trợ chế độ rất tốt cho Sleep Mode của SATA (DevSleep) và Intel Smart Response Technology (ISRT). Với chế độ DevSleep sẽ cho phép máy tính tắt hoàn toàn các thiết bị cổng SATA khi không sử dụng và có thời gian đáp ứng khi kích hoạt là 20ms để tiết kiệm năng lượng. Với chế độ ISRT, người dùng có thể thay đổi cấu hình hệ thống máy tính của họ bằng việc SSD đi vào hoạt động khiến cho bộ nhớ giữa ổ đĩa cứng và bộ nhớ hệ thống. Từ đó, giúp đặt dung lượng lưu trữ tối đa trong khi vẫn cung cấp hiệu suất tổng thể cho toàn bộ hệ thống SSD.</p> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2019/05/%C3%94%CC%89-c%C6%B0%CC%81ng-SSD-KINGMAX-128GB-M.2-2280-SATA-3-SA3080-1.jpg\" alt=\"Ổ cứng SSD KINGMAX 128GB M.2 2280 SATA 3 (SA3080)-1\"></figure>",
+            "guarantee": 36,
+            "name": "SSD KINGMAX 128GB M.2 SATA 3",
+            "price": 650000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 2,
+            "cache_id": 1,
+            "connect_id": 6,
+            "write_id": 2,
+            "read_id": 6,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 3
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/SPd6rbDEABf2eMBRXWn7yzRNYzwTTdvjE9Xo7OkRLoGi19xTF6VRRKV6kBOZvnZVH2sAIPBNXWIHuSHbU72euspa5_HWdY5f=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 11,
+            "description": "<h2><a href=\"https://phongvu.vn/linh-kien-may-tinh/o-cung-ssd-hdd/o-cung-laptop/ssd-m-2-sata/o-cung-ssd-kingmax-256gb-px3280-zeus-m-2-2280.html\">Ổ cứng SSD Kingmax</a>&nbsp;256GB PX3280 Zeus (M.2-2280)</h2> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2018/10/-c%E1%BB%A9ng-SSD-Kingmax-256GB-PX3280-Zeus-M.2-2280-1-e1538908407419.jpg\" alt=\"Ổ cứng SSD Kingmax 256GB PX3280 Zeus (M.2-2280)\"></figure> <p>Đối với người dùng máy tính, tốc độ nhanh và chất lượng tốt của ổ cứng chuẩn&nbsp;<a href=\"http://genk.vn/ssd.htm\">SSD</a>&nbsp;đang ngày được ưa chuộng.&nbsp;Kingmax, là thương hiệu tương đối mới đối với ngành công nghiệp lưu trữ.</p> <p>Mặc dù thành lập vào năm 1989, nhưng cuối thập kỷ 90, họ mới bắt đầu sản xuất các linh kiện lưu trữ và bộ nhớ của riêng mình.</p> <h3>Ổ cứng SSD Kingmax 256GB PX3280 Zeus (M.2-2280)</h3> <p>Được thiết kế với kích thước mỏng giúp bạn dễ dàng bảo quản và mang theo khi di chuyển.</p> <p>Với dung lượng 256GB, đáp ứng nhu cầu sử dụng cơ bản cho nhiều người dùng. Sản phẩm có thể truyền tải dữ liệu nhanh chóng mà không tiêu thụ quá nhiều điện năng.</p> <h3>Tốc độ đọc/ghi</h3> <p>Tốc độ đọc&nbsp;1600MB/s</p> <p>Tốc độ ghi 850MB/s</p> <p>Ổ cứng giúp truyền tải và sao chép dữ liệu nhanh chóng và chính xác nhất.&nbsp;được thiết kế với chất liệu có khả năng chịu sốc và chịu được nhiệt độ cao, và giảm thiểu tiếng ồn tối đa khi vận hành.</p> <h3>Chip flash NAND 3D</h3> <p>công nghệ flash NAND 3D là bước đột phá mới, cho phép cải thiện dung lượng cũng như hiệu năng, độ bền của ổ SSD.</p> <h3>Khả năng chống rung, chống ồn, và các chứng chỉ tiêu dùng</h3> <p>Các ổ cứng SME đều có khả năng chống chịu sốc, rung tốt, hoạt động hoàn toàn êm ái, không ồn.</p> <p>Đáp ứng được mọi tiêu chí kỹ thuật: CE, FCC, BSMI, RoHS.</p> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2018/10/-c%E1%BB%A9ng-SSD-Kingmax-256GB-PX3280-Zeus-M.2-2280-1-1-e1538908456164.jpg\" alt=\"Ổ cứng SSD Kingmax 256GB PX3280 Zeus (M.2-2280)\"></figure> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2018/10/%E1%BB%94-c%E1%BB%A9ng-SSD-Kingmax-256GB-PX3280-Zeus-M.2-2280-3.jpg\" alt=\"Ổ cứng SSD Kingmax 256GB PX3280 Zeus (M.2-2280)\"></figure> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2018/10/%E1%BB%94-c%E1%BB%A9ng-SSD-Kingmax-256GB-PX3280-Zeus-M.2-2280-4.jpg\" alt=\"Ổ cứng SSD Kingmax 256GB PX3280 Zeus (M.2-2280)\"></figure>",
+            "guarantee": 36,
+            "name": "SSD KINGMAX PX3280 256GB M.2 ",
+            "price": 1390000,
+            "type_id": 2
+        },
+        "spec": {
+            "capacity_id": 3,
+            "cache_id": 1,
+            "connect_id": 5,
+            "write_id": 4,
+            "read_id": 7,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 3
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/VRYwNM1niZxSNBD2jXrbVhAtT_jc1iQ4FHmlNwSp8aNnifuJucUyfYHsx7-bXAqRmwhNA4nlaanp8TaHkk7I=w1000-rw",
+            "img2": "https://lh3.googleusercontent.com/WGC6LAr-ptmAZmuIflKlgtP6iLqP5oOMHI5tPA9cSa4LN2TPc3RAq_h8_ffivV7F022qqutvYwbgx3YHQQ=w1000-rw"
+        }
+    },
+    {
+        "info": {
+            "brand_id": 11,
+            "description": "<p><strong>Western Digital Corporation</strong>, thành lập năm 1970, là một trong những công ty Mỹ sản xuất ổ đĩa cứng lớn nhất thế giới, ngang hàng với Seagate Technology. Tốc độ, sự tin cậy, dung lượng lưu trữ lớn là những ưu thế của hãng. <strong>Ổ cứng HDD WD 1TB 2.5\" Sata 3 5400 (WD10SPZX) (Xanh)</strong> là một trong những sản phẩm như vậy.</p> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2018/10/HDD-WD-1TB-2.5-Sata-3-5400-WD10SPZX-Xanh-_-1-e1544158739252.jpg\" alt=\"HDD WD 1TB 2.5&quot; Sata 3 5400 (WD10SPZX) (Xanh) \"></figure> <p><strong>Phiên bản WD Blue</strong></p> <p><strong>HDD WD 1TB 2.5\" Sata 3 5400 (WD10SPZX) (Xanh) </strong>thuộc phiên bản WD Blue, là phiên bản nguyên được thiết kế cho hệ máy desktop với công nghệ cho phép lưu trữ lớn và cải thiện hiệu suất làm việc, nay được áp dụng tạo nên ổ cứng di động lý tưởng cho các sản phẩm laptop, notebook, ultrabook.</p> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2018/10/WD-Blue-e1544158757608.jpg\" alt=\"WD Blue\"></figure> <p><strong>Cấu trúc bền bỉ</strong></p> <p>Được thiết kế với vật liệu nhôm cao cấp và mô tơ Tied-Shaft cứng cáp, giúp tăng sức mạnh của ổ đĩa lên tới 30%. Cách thiết kế này cho phép cấu trúc cứng hơn mà không làm giảm hiệu suất hoặc tăng tiêu thụ điện năng.</p> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2018/10/HDD-WD-1TB-2.5-Sata-3-5400-WD10SPZX-Xanh-_-3.jpg\" alt=\"HDD WD 1TB 2.5&quot; Sata 3 5400 (WD10SPZX) (Xanh) \"></figure> <p><strong>Dung lượng “khủng”</strong></p> <p>Dù ổ SSD đã trở nên phổ biến hơn nhờ những ưu thế của nó, song HDD vẫn luôn là giải pháp tối ưu cho nhu cầu về lưu trữ lớn, đặc biệt với các ổ lưu trữ di động. Với dung lượng lên đến 1TB, người dùng có thể thoải mái lưu trữ tài liệu học tập/làm việc, các bộ phim FullHD, game hạng nặng... mà không lo ổ cứng bị “đầy”.</p> <p>Bên cạnh phiên bản 1TB này, nhà sản xuất cũng cung cấp 1 phiên bản có dung lượng lớn hơn là 2GB cho những khách hàng có nhu cầu. Ngoài ra, ổ cứng có bộ nhớ đệm với dung lượng 128MB.</p> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2018/10/HDD-WD-1TB-2.5-Sata-3-5400-WD10SPZX-Xanh-_-2-e1544158786510.jpg\" alt=\"HDD WD 1TB 2.5&quot; Sata 3 5400 (WD10SPZX) (Xanh) \"></figure> <p><strong>Tốc độ xử lý dữ liệu tương đối cao</strong></p> <p>Số vòng quay càng cao thì ổ cứng hoạt động càng nhanh. Ở <strong>HDD WD 1TB 2.5\" Sata 3 5400 (WD10SPZX) (Xanh), </strong>con số này là 5400 rpm, thuộc hạng phổ thông trong HDD.</p> <p>Tuy số vòng quay chỉ ở tầm trung, song sản phẩm sở hữu chuẩn giao tiếp SATA 3 (tốc độ đọc/ghi 6 Gbp/s), là hạng \"xịn xò\" nhất trong các SATA, có thể tương đương với chuẩn SAS được coi là có tốc độ truyền tải dữ liệu nhanh nhất hiện nay. Bên cạnh đó, chuẩn cắm USB 3.0 cho tốc độ truyền tải tối đa 600MB/s, chỉ kém phiên bản mới nhất là 3.1.</p> <figure class=\"image\"><img src=\"https://tmp.phongvu.vn/wp-content/uploads/2018/10/HDD-WD-1TB-2.5-Sata-3-5400-WD10SPZX-Xanh-_-4.jpg\" alt=\"HDD WD 1TB 2.5&quot; Sata 3 5400 (WD10SPZX) (Xanh) \"></figure> <p>Thu gọn nội dung</p> <p><br>&nbsp;</p>",
+            "guarantee": 36,
+            "name": "HDD Western Digital Blue 1TB ",
+            "price": 1290000,
+            "type_id": 1
+        },
+        "spec": {
+            "capacity_id": 5,
+            "cache_id": 1,
+            "connect_id": 5,
+            "write_id": 4,
+            "read_id": 7,
+            "dimension_id": 1,
+            "rotation_id": 1,
+            "drive_type_id": 3
+        },
+        "image": {
+            "img1": "https://lh3.googleusercontent.com/3y7drRRiEte3Vo0Y3Wqq-DCnGRTjW_pttUD2PZqo3U_tt18YWiUE3zTKFaMBgwo0kQScWtWZHD1t4sKTLA=w500-rw"
         }
     }
 ]
