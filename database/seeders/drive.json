@@ -1038,7 +1038,7 @@
             "guarantee": 36,
             "name": "HDD Western Digital Blue 1TB ",
             "price": 1290000,
-            "type_id": 1
+            "type_id": 2
         },
         "spec": {
             "capacity_id": 5,

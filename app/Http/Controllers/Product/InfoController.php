@@ -18,11 +18,6 @@ class InfoController extends Controller
     private ILaptopService $laptopService;
     private IDriveService $driveService;
 
-//
-//    public function list( $getType,$page = 1)
-//    {
-//        return response()->json(array_slice($this->infos->getInfosFull(), 15 * ($page - 1), 15),200);
-//    }
     /**
      * InfoController constructor.
      * @param IProductService $productService
@@ -37,9 +32,16 @@ class InfoController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return JsonResponse
+     * @OA\Get (
+     *     path="/api",
+     *     tags={"product"},
+     *     summary="Get products for home page",
+     *     operationId="index",
+     *     @OA\Response(
+     *         response="default",
+     *         description="successful operation"
+     *     ),
+     * )
      */
     public function index(): JsonResponse
     {
