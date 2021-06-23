@@ -16,6 +16,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('App\Service\IProductService', 'App\Service\Impl\ProductImpl');
         $this->app->bind('App\Service\ILaptopService', 'App\Service\Impl\LaptopImpl');
         $this->app->bind('App\Service\IDriveService', 'App\Service\Impl\DriveImpl');
+        $this->app->bind('App\Service\IValidate','App\Service\Impl\ValidateImpl');
     }
 
     /**

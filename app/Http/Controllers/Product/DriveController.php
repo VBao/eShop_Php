@@ -16,12 +16,14 @@ use App\Models\Product\productInfo;
 use App\Models\Product\Type;
 use App\Service\IDriveService;
 use App\Service\IProductService;
+use App\Service\IValidate;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class DriveController extends Controller
 {
     protected IDriveService $driveService;
+    protected IValidate $validate;
     protected IProductService $productService;
     protected Brand $brand;
 
@@ -31,10 +33,11 @@ class DriveController extends Controller
      * @param IProductService $productService
      * @param Brand $brand
      */
-    public function __construct(IDriveService $driveService, IProductService $productService, Brand $brand)
+    public function __construct(IDriveService $driveService, IProductService $productService, Brand $brand, IValidate $validate)
     {
         $this->driveService = $driveService;
         $this->productService = $productService;
+        $this->validate = $validate;
         $this->brand = $brand;
     }
 
@@ -135,8 +138,8 @@ class DriveController extends Controller
             'type' => 'drive',
             'filter' => $filter,
             'data' => $res,
-            'cur_page'=>$request->page,
-            'max_page'=>ceil(count($data)/12),
+            'cur_page' => $request->page,
+            'max_page' => ceil(count($data) / 12),
         ]);
     }
 
@@ -206,6 +209,8 @@ class DriveController extends Controller
      */
     public function postCreate(Request $request): JsonResponse
     {
+        $err = $this->validate->checkPost($request);
+        if (!is_null($err)) return response()->json($err, 400);
         if (count(productInfo::where('name', 'LIKE', '%' . $request->info['name'] . '%')->get()->toArray()) != 0) return response()->json(['error' => 'Already have product with name - ' . $request->info['name']], 400);
         if (count($request->image) < 3) return response()->json(['error' => 'Accept at least 3 image'], 400);
         $info = new postInfoDto;

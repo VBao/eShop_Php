@@ -19,6 +19,7 @@ use App\Models\Product\productInfo;
 use App\Models\Product\Type;
 use App\Service\ILaptopService;
 use App\Service\IProductService;
+use App\Service\IValidate;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -26,6 +27,7 @@ class LaptopController extends Controller
 {
     protected ILaptopService $laptopService;
     protected IProductService $productService;
+    protected IValidate $validate;
     protected Brand $brand;
     protected Ram $ram;
     protected Rom $rom;
@@ -40,10 +42,11 @@ class LaptopController extends Controller
      * @param Rom $rom
      * @param Cpu $cpu
      */
-    public function __construct(ILaptopService $laptopService, IProductService $productService, Brand $brand, Ram $ram, Rom $rom, Cpu $cpu)
+    public function __construct(ILaptopService $laptopService, IProductService $productService, Brand $brand, Ram $ram, Rom $rom, Cpu $cpu, IValidate $validate)
     {
         $this->laptopService = $laptopService;
         $this->productService = $productService;
+        $this->validate = $validate;
         $this->brand = $brand;
         $this->ram = $ram;
         $this->rom = $rom;
@@ -190,8 +193,8 @@ class LaptopController extends Controller
             'type' => 'laptop',
             'filter' => $filter,
             'data' => $res,
-            'cur_page'=>$request->page,
-            'max_page'=>ceil(count($data)/12),
+            'cur_page' => $request->page,
+            'max_page' => ceil(count($data) / 12),
         ]);
     }
 
@@ -362,6 +365,8 @@ class LaptopController extends Controller
     public
     function postCreate(Request $request): JsonResponse
     {
+        $err = $this->validate->checkPost($request);
+        if (!is_null($err)) return response()->json($err, 400);
         if (count(productInfo::where('name', 'LIKE', '%' . $request->info['name'] . '%')->get()->toArray()) != 0) return response()->json(['error' => 'Already have product with name - ' . $request->info['name']], 400);
         if (count($request->image) < 3) return response()->json(['error' => 'Accept at least 3 image'], 400);
         $res = [];
