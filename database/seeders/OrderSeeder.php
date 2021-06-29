@@ -17,6 +17,7 @@ class OrderSeeder extends Seeder
             \DB::table('orders')->insert([
                 'user_id' => random_int(3, 10),
                 'status_id' => random_int(1, 4),
+                'total'=>rand(100000,50000000),
                 'created_at' => \Date::now(),
             ]);
         }

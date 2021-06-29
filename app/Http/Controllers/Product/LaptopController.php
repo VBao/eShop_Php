@@ -41,6 +41,7 @@ class LaptopController extends Controller
      * @param Ram $ram
      * @param Rom $rom
      * @param Cpu $cpu
+     * @param IValidate $validate
      */
     public function __construct(ILaptopService $laptopService, IProductService $productService, Brand $brand, Ram $ram, Rom $rom, Cpu $cpu, IValidate $validate)
     {
@@ -341,6 +342,8 @@ class LaptopController extends Controller
     public
     function postUpdate(Request $request): JsonResponse
     {
+        $err = $this->validate->checkPost($request);
+        if (!is_null($err)) return response()->json($err, 422);
         $info = new postInfoDto;
         $specs = new postLaptopDto();
         foreach ($request->info as $key => $val) $info->$key = $val;
@@ -366,8 +369,8 @@ class LaptopController extends Controller
     function postCreate(Request $request): JsonResponse
     {
         $err = $this->validate->checkPost($request);
-        if (!is_null($err)) return response()->json($err, 400);
-        if (count(productInfo::where('name', 'LIKE', '%' . $request->info['name'] . '%')->get()->toArray()) != 0) return response()->json(['error' => 'Already have product with name - ' . $request->info['name']], 400);
+        if (!is_null($err)) return response()->json($err, 422);
+        if (count(productInfo::where('name', 'LIKE', '%' . $request->info['name'] . '%')->get()->toArray()) != 0) return response()->json(['error' => 'Already have product with name - ' . $request->info['name']], 422);
         if (count($request->image) < 3) return response()->json(['error' => 'Accept at least 3 image'], 400);
         $res = [];
         $postInfo = new postInfoDto;

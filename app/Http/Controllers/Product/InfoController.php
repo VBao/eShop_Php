@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
 use App\Models\Product\Type;
 use App\Service\IDriveService;
 use App\Service\ILaptopService;

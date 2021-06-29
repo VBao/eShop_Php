@@ -8,7 +8,10 @@ use App\Dto\Info\postInfoDto;
 use App\Dto\Info\showImage;
 use App\Dto\Info\showInfoDto;
 use App\Http\Resources\BrandIndexResource;
+use App\Http\Resources\DriveListResource;
+use App\Http\Resources\ListLaptopResource;
 use App\Http\Resources\ShowListResource;
+use App\Models\Cart;
 use App\Models\Product\Brand;
 use App\Models\Product\Image;
 use App\Models\Product\Laptop\Cpu;
@@ -19,6 +22,8 @@ use App\Models\Product\Type;
 use App\Service\ILaptopService;
 use App\Service\IProductService;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
+use OpenApi\Annotations\Info;
 
 class ProductImpl implements IProductService
 {
@@ -214,8 +219,28 @@ class ProductImpl implements IProductService
         // TODO: Implement searchByBrand() method.
     }
 
-    public function brandIndex(): AnonymousResourceCollection
+    public function brandIndex()
     {
-        return BrandIndexResource::collection(Brand::all());
+        $rs['brand'] = BrandIndexResource::collection(Brand::all());
+        $temp=[];
+        foreach (productInfo::query()->where('created_at', '>', now()->subMonth())->orderBy('created_at', 'desc')->limit(8)->get() as $product) {
+            if ($product->type_id == 1) {
+                $temp[] = new ListLaptopResource($product);
+            } elseif ($product->type_id == 2) {
+                $temp[] = new DriveListResource($product);
+            }
+            $rs['new'] = ['id'=>1,'title'=>'New product','result'=>$temp];
+        }
+        $temp=[];
+        foreach (Cart::query()->select('product_id', \DB::raw('sum(quantity) as TotalQty'))->groupBy('product_id')->limit(8)->get() as $product) {
+            $product = productInfo::query()->where('id', '=', $product->product_id)->first();
+            if ($product->type_id == 1) {
+                $temp[] = new ListLaptopResource($product);
+            } elseif ($product->type_id == 2) {
+                $temp[] = new DriveListResource($product);
+            }
+            $rs['top'] = ['id'=>1,'title'=>'Best sell','result'=>$temp];
+        }
+        return $rs;
     }
 }

@@ -210,7 +210,7 @@ class DriveController extends Controller
     public function postCreate(Request $request): JsonResponse
     {
         $err = $this->validate->checkPost($request);
-        if (!is_null($err)) return response()->json($err, 400);
+        if (!is_null($err)) return response()->json($err, 422);
         if (count(productInfo::where('name', 'LIKE', '%' . $request->info['name'] . '%')->get()->toArray()) != 0) return response()->json(['error' => 'Already have product with name - ' . $request->info['name']], 400);
         if (count($request->image) < 3) return response()->json(['error' => 'Accept at least 3 image'], 400);
         $info = new postInfoDto;
@@ -255,6 +255,8 @@ class DriveController extends Controller
      */
     public function postUpdate(Request $request): JsonResponse
     {
+        $err = $this->validate->checkPost($request);
+        if (!is_null($err)) return response()->json($err, 422);
         $info = new postInfoDto;
         foreach ($request->info as $key => $val) {
             $info->$key = $val;
