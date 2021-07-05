@@ -8,6 +8,7 @@ use App\Dto\Laptop\postLaptopDto;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\LaptopIndexResource;
 use App\Http\Resources\ListLaptopResource;
+use App\Http\Resources\Product\adminIndex;
 use App\Models\Product\Brand;
 use App\Models\Product\Image;
 use App\Models\Product\Laptop\Cpu;
@@ -18,6 +19,7 @@ use App\Models\Product\Laptop\Screen;
 use App\Models\Product\productInfo;
 use App\Models\Product\Type;
 use App\Service\ILaptopService;
+use App\Service\Impl\ProductImpl;
 use App\Service\IProductService;
 use App\Service\IValidate;
 use Illuminate\Http\JsonResponse;
@@ -386,32 +388,38 @@ class LaptopController extends Controller
         error_log('=================Insert new laptop completed!=================');
         return response()->json(['notify' => 'created'], 201);
     }
+//
+//    public
+//    function adminProducts(): array
+//    {
+//        $res = [];
+//        $tempAdd = [];
+//        foreach ($this->productService->getByType(1) as $val) {
+//            $tempProduct = $this->productService->getById($val->id);
+//            $tempInfo = [];
+//            $tempInfo['id'] = $tempProduct->id;
+//            $tempInfo['name'] = $tempProduct->name;
+//            $tempInfo['description'] = $tempProduct->description;
+//            $tempInfo['brand'] = Brand::find($tempProduct->brand_id)->brand;
+//            $tempInfo['price'] = $tempProduct->price;
+//            $tempInfo['image'] = Image::where('info_id', '=', $tempProduct->id)->first()->link_image;
+//            foreach ($this->laptopService->getSpecsAdmin($val->id) as $key => $value) $tempInfo[$key] = $value;
+//            $tempAdd[] = $tempInfo;
+//        }
+//
+//        $res['data'] = $tempAdd;
+//        $res['filter'] = [
+//            'Brand' => $this->brand->toArraysReact(1),
+//            'Ram' => $this->ram->toArraysReact(),
+//            'Rom' => $this->rom->toArraysReact(),
+//            'Cpu' => $this->cpu->toArraysReact()
+//        ];
+//        return $res;
+//    }
 
-    public
-    function adminProducts(): array
+    public function adminProducts()
     {
-        $res = [];
-        $tempAdd = [];
-        foreach ($this->productService->getByType(1) as $val) {
-            $tempProduct = $this->productService->getById($val->id);
-            $tempInfo = [];
-            $tempInfo['id'] = $tempProduct->id;
-            $tempInfo['name'] = $tempProduct->name;
-            $tempInfo['description'] = $tempProduct->description;
-            $tempInfo['brand'] = Brand::find($tempProduct->brand_id)->brand;
-            $tempInfo['price'] = $tempProduct->price;
-            $tempInfo['image'] = Image::where('info_id', '=', $tempProduct->id)->first()->link_image;
-            foreach ($this->laptopService->getSpecsAdmin($val->id) as $key => $value) $tempInfo[$key] = $value;
-            $tempAdd[] = $tempInfo;
-        }
-
-        $res['data'] = $tempAdd;
-        $res['filter'] = [
-            'Brand' => $this->brand->toArraysReact(1),
-            'Ram' => $this->ram->toArraysReact(),
-            'Rom' => $this->rom->toArraysReact(),
-            'Cpu' => $this->cpu->toArraysReact()
-        ];
-        return $res;
+        $data=adminIndex::collection(productInfo::where('type_id','=','1')->get());
+        return response()->json(['result'=>$data]);
     }
 }

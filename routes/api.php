@@ -46,7 +46,6 @@ Route::group(['middleware' => ['check_login']], function () {
     Route::prefix('/account')->group(function () {
         Route::post('update_info',[UserController::class,'updateInfo']);
         Route::post('change_password', [UserController::class, 'changePassword']);
-        Route::post('forget_password',[UserController::class,'forgetPassword']);
         Route::post('reset-password',[UserController::class,'resetPassword'])->name('password.reset');
     });
 });
@@ -80,6 +79,7 @@ Route::group(['middleware' => ['role.isAdmin']], function () {
     });
 });
 
+Route::post('forget_password',[UserController::class,'forgetPassword']);
 Route::post('login', [UserController::class, 'authenticate']);
 Route::post('register', [UserController::class, 'register']);
 

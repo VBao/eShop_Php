@@ -111,7 +111,13 @@ class DriveImpl implements IDriveService
     public function getSpecsAdmin($id)
     {
         $res = [];
-        $drive = DriveSpecs::where('id', $id)->get(['type_id', 'capacity_id'])->first();;
+        $drive = DriveSpecs::where('id', $id)->first();
+        $res['dimension']=DriveDimension::find($drive->dimension_id)->value;
+        $res['connect']=DriveConnect::find($drive->connect_id)->value;
+        $res['read']=DriveRead::find($drive->read_id)->value;
+        $res['write']=DriveRead::find($drive->write_id)->value;
+        $res['rotation']=DriveRead::find($drive->rotation_id)->value;
+        $res['cache']=DriveRead::find($drive->cache_id)->value;
         $res['type'] = DriveType::find($drive->type_id)->value;
         $res['capacity'] = DriveCapacity::find($drive->capacity_id)->value;
         return $res;
