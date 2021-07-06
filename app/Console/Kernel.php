@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+use App\Models\Product\productInfo;
+use App\Models\ProductDiscount;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -25,6 +27,17 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+        $schedule->call(function (){
+            $products = productInfo::where('discount', true)->get();
+            if ($products == null) return;
+            foreach ($products as $product) {
+                $discount = ProductDiscount::query()->where('product_id', '=', $product->id)->first();
+                if (strtotime($discount) - strtotime(now()) < 0) {
+                    $product->discount = false;
+                    $product->save();
+                }
+            }
+        })->everyFifteenMinutes();
     }
 
     /**

@@ -19,6 +19,7 @@ class CreateProductInfosTable extends Migration
             $table->longText('description');
             $table->unsignedSmallInteger('guarantee');
             $table->unsignedBigInteger('price');
+            $table->boolean('discount')->default(false);
             $table->foreignId('brand_id')->references('id')->on('brands');
             $table->foreignId('type_id')->references('id')->on('types');
             $table->timestamps();

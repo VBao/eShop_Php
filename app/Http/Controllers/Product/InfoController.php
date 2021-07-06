@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
+use App\Models\Product\productInfo;
 use App\Models\Product\Type;
+use App\Models\ProductDiscount;
 use App\Service\IDriveService;
 use App\Service\ILaptopService;
 use App\Service\IProductService;
@@ -46,6 +48,7 @@ class InfoController extends Controller
      */
     public function index(): JsonResponse
     {
+//        $this->offDiscount();
         return response()->json($this->productService->brandIndex());
     }
 
@@ -84,4 +87,41 @@ class InfoController extends Controller
         ];
         return response()->json($res);
     }
+
+    public function setDiscount(Request $request)
+    {
+        $validator = \Validator::make($request->only('product_id', 'percent', 'start_date', 'end_date'
+        ), [
+            'product_id' => 'required|integer|exists:product_infos,id',
+            'percent' => 'required|integer|min:1|max:100',
+            'start_date' => 'required|date|after:today|date_format:Y-m-d h:i',
+            'end_date' => 'required|date|after:start_date|date_format:Y-m-d h:i'
+        ]);
+        if ($validator->fails()) return response()->json(['error' => $validator->errors()]);
+        $discount = new ProductDiscount();
+        foreach ($validator->getData() as $key => $value) $discount->$key = $value;
+        $product = productInfo::find($validator->getData()['product_id']);
+        $current_price = $product->price;
+        $discount->discount_price = $current_price - ($current_price * $validator->getData()['percent']) / 100;
+        $discount->created_at = now();
+        $discount->updated_at = now();
+        $product->discount = true;
+        $discount->save();
+        $product->save();
+        return response()->json(['result' => 'Successful']);
+
+    }
+
+//    private function offDiscount()
+//    {
+//        $products = productInfo::where('discount', true)->get();
+//        if ($products == null) return;
+//        foreach ($products as $product) {
+//            $discount = ProductDiscount::query()->where('product_id', '=', $product->id)->first();
+//            if (strtotime($discount) - strtotime(now()) < 0) {
+//                $product->discount = false;
+//                $product->save();
+//            }
+//        }
+//    }
 }
