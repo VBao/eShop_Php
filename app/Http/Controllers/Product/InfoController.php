@@ -94,8 +94,8 @@ class InfoController extends Controller
         ), [
             'product_id' => 'required|integer|exists:product_infos,id',
             'percent' => 'required|integer|min:1|max:100',
-            'start_date' => 'required|date|after:today|date_format:Y-m-d h:i',
-            'end_date' => 'required|date|after:start_date|date_format:Y-m-d h:i'
+            'start_date' => 'required|date|after:today|date_format:Y-m-d H:i',
+            'end_date' => 'required|date|after:start_date|date_format:Y-m-d H:i'
         ]);
         if ($validator->fails()) return response()->json(['error' => $validator->errors()]);
         $discount = new ProductDiscount();
