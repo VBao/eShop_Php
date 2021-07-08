@@ -287,6 +287,8 @@ class DriveController extends Controller
             $tempInfo = [];
             $tempInfo['id'] = $tempProduct->id;
             $tempInfo['name'] = $tempProduct->name;
+            $tempInfo['created_at'] = $tempProduct->created_at;
+            $tempInfo['updated_at'] = $tempProduct->updated_at;
             $tempInfo['description'] = $tempProduct->description;
             $tempInfo['brand'] = Brand::find($tempProduct->brand_id)->brand;
             $tempInfo['price'] = $tempProduct->price;

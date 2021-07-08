@@ -156,6 +156,8 @@ class ProductImpl implements IProductService
         $response->brand_id = $info->brand_id;
         $response->type_id = $info->type_id;
         $response->description = $info->description;
+        $response->created_at = $info->created_at;
+        $response->updated_at = $info->updated_at;;
         return $response;
     }
 
@@ -222,16 +224,16 @@ class ProductImpl implements IProductService
     public function brandIndex()
     {
         $rs['brand'] = BrandIndexResource::collection(Brand::all());
-        $temp=[];
+        $temp = [];
         foreach (productInfo::query()->where('created_at', '>', now()->subMonth())->orderBy('created_at', 'desc')->limit(8)->get() as $product) {
             if ($product->type_id == 1) {
                 $temp[] = new ListLaptopResource($product);
             } elseif ($product->type_id == 2) {
                 $temp[] = new DriveListResource($product);
             }
-            $rs['new'] = ['id'=>1,'title'=>'New product','result'=>$temp];
+            $rs['new'] = ['id' => 1, 'title' => 'New product', 'result' => $temp];
         }
-        $temp=[];
+        $temp = [];
         foreach (Cart::query()->select('product_id', \DB::raw('sum(quantity) as TotalQty'))->groupBy('product_id')->limit(8)->get() as $product) {
             $product = productInfo::query()->where('id', '=', $product->product_id)->first();
             if ($product->type_id == 1) {
@@ -239,7 +241,7 @@ class ProductImpl implements IProductService
             } elseif ($product->type_id == 2) {
                 $temp[] = new DriveListResource($product);
             }
-            $rs['top'] = ['id'=>1,'title'=>'Best sell','result'=>$temp];
+            $rs['top'] = ['id' => 1, 'title' => 'Best sell', 'result' => $temp];
         }
         return $rs;
     }
