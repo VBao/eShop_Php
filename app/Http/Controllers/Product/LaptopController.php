@@ -360,9 +360,7 @@ class LaptopController extends Controller
 
     }
 
-
-    public
-    function getCreate(): JsonResponse
+    public function getCreate(): JsonResponse
     {
         return response()->json($this->laptopService->getForm());
     }

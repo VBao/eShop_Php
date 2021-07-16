@@ -15,11 +15,12 @@ class Discount extends Migration
     {
         Schema::create('product_discounts',function (Blueprint $table){
             $table->bigInteger('id',true);
-            $table->foreignId('product_id')->references('id')->on('laptop_specs');
+            $table->bigInteger('product_id');
             $table->unsignedInteger('percent');
             $table->unsignedBigInteger('discount_price');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
+            $table->foreign('product_id')->on('product_infos')->references('id');
             $table->timestamps();
         });
     }

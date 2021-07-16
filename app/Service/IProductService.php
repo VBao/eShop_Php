@@ -14,8 +14,6 @@ interface IProductService
 
     public function getById($id);
 
-    public function search($keyword);
-
     public function searchByType($keyword);
 
     public function searchByBrand($keyword);

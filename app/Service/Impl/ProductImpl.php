@@ -201,16 +201,6 @@ class ProductImpl implements IProductService
         return $this->info->where('type_id', $id)->orderByDesc('id')->get('id');
     }
 
-    public function search($keyword): array
-    {
-        $res = [];
-        $test = $this->info->newQuery()->where('name', 'LIKE', $keyword . '%')->get(['id', 'type_id']);
-        foreach ($test as $val) {
-            if ($val->type_id == 1) $res[] = new ShowListResource(new FullLaptopModel($val->id));
-        }
-        return $res;
-    }
-
     public function searchByType($keyword)
     {
         // TODO: Implement searchByType() method.

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ShowListResource;
 use App\Models\Cart;
 use App\Models\Product\productInfo;
 use App\Models\Product\Type;
@@ -48,13 +49,23 @@ class InfoController extends Controller
      */
     public function index(): JsonResponse
     {
-//        $this->offDiscount();
         return response()->json($this->productService->brandIndex());
     }
 
-    public function search($keywords): JsonResponse
+    public function search(Request $request): JsonResponse
     {
-        return response()->json($this->productService->search($keywords));
+        foreach (productInfo::query()->where('name', 'LIKE', $request->keywords . '%')->get() as $item)
+            $data_full[] = new ShowListResource($item);
+        if ($request->has('page')) {
+            $data = array_slice($data_full, ($request->page - 1) * 12, 12);
+        } else {
+            $data = array_slice($data_full, 1, 12);
+        }
+        return response()->json([
+            'data' => $data,
+            'cur_page' => $request->has('page') ? $request->page : 1,
+            'max_page' => ceil(count($data_full) / 12)
+        ]);
     }
 
     public function filter(Request $request): JsonResponse
