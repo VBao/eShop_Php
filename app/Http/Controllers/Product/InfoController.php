@@ -12,6 +12,7 @@ use App\Service\IDriveService;
 use App\Service\ILaptopService;
 use App\Service\IProductService;
 use App\Service\SpecList;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -109,30 +110,38 @@ class InfoController extends Controller
             'end_date' => 'required|date|after:start_date|date_format:Y-m-d H:i'
         ]);
         if ($validator->fails()) return response()->json(['error' => $validator->errors()]);
-        $discount = new ProductDiscount();
+        $product_check = ProductDiscount::query()->where('product_id', '=', $validator->getData()['product_id'])->first();
+        if ($product_check != null) {
+            if (($product_check->start_date > $request->start_date && $product_check->start_date < $request->end_date) || ($product_check->end_date > $request->end_date && $product_check->end_date < $request->end_date)) {
+                return response()->json(['error' => 'Conflict start time ' . $product_check->start_date . ' or end time ' . $product_check->end_date]);
+            } else if ($product_check->start_date == $request->start_date) {
+                $discount = $product_check;
+                $discount->updated_at = now();
+            } else {
+                $discount = new ProductDiscount();
+                $discount->created_at = now();
+                $discount->updated_at = now();
+            }
+        } else {
+            $discount = new ProductDiscount();
+            $discount->created_at = now();
+            $discount->updated_at = now();
+        }
         foreach ($validator->getData() as $key => $value) $discount->$key = $value;
-        $product = productInfo::find($validator->getData()['product_id']);
-        $current_price = $product->price;
-        $discount->discount_price = $current_price - ($current_price * $validator->getData()['percent']) / 100;
-        $discount->created_at = now();
-        $discount->updated_at = now();
-        $product->discount = true;
+        $current_price = productInfo::find($validator->getData()['product_id'])->price;
+        $discount->discount_price = (int)round($current_price - ($current_price * $validator->getData()['percent']) / 100, -3);
         $discount->save();
-        $product->save();
         return response()->json(['result' => 'Successful']);
-
     }
 
-//    private function offDiscount()
-//    {
-//        $products = productInfo::where('discount', true)->get();
-//        if ($products == null) return;
-//        foreach ($products as $product) {
-//            $discount = ProductDiscount::query()->where('product_id', '=', $product->id)->first();
-//            if (strtotime($discount) - strtotime(now()) < 0) {
-//                $product->discount = false;
-//                $product->save();
-//            }
-//        }
-//    }
+    public function delDiscount($id)
+    {
+        if (ProductDiscount::query()->find($id) == null) {
+            return response()->json(['error' => 'Not found discount with id: ' . $id]);
+        } else {
+            ProductDiscount::query()->find($id)->delete();
+            return response()->json(['result' => 'Success']);
+        }
+
+    }
 }

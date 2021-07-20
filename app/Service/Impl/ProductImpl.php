@@ -64,49 +64,6 @@ class ProductImpl implements IProductService
     {
         // TODO: Implement getInfos() method.
     }
-
-//    public function getIndex(int $type = 0, int $brand = 0)
-//    {
-//        $res = array();
-////        if ($type == 1) {
-//            foreach ($this->brand->where('type_id','=',1)->get() as $item) {
-//                $index = new productInfoGetList;
-//                $index->id = $item->id;
-//                $index->brand = $item->brand;
-//                foreach (productInfo::where([
-//                    ['brand_id','=',$item->id],
-//                    ['type_id','=',1],
-//                    ])->get() as $info) {
-//                    $product = new indexProductDto();
-//                    $product->id = $info->id;
-//                    $product->name = $info->name;
-//                    $product->price = $info->price;
-//                    $productSpecs = $this->laptopService->getSpecsIndex($info->id);
-//                    $product->ram = explode(",", $productSpecs['ram'])[0];
-//                    $product->rom = explode(' ', $productSpecs['rom'])[0] . " " . explode(' ', $productSpecs['rom'])[1];
-//                    $temp = $this->image->newQuery()->where('info_id', $info->id)->first();
-//                    if ($temp != null) $product->image = $temp['link_image'];
-////                $img=   $this->image->newQuery()->where('info_id', $info->id)->first();
-////                $product->image =  $img->link_image;
-//                    $index->results[] = $product;
-//                }
-//                $res[] = $index;
-//            }
-//            foreach ($this->brand->where('type_id',2)->get() as $item){
-//                $index=new productInfoGetList;
-//                $index->id = $item->id;
-//                $index->brand = $item->brand;
-//                foreach (productInfo::where([
-//                    ['brand_id','=',$item->id],
-//                    ['type_id','=',1],
-//                ])->get() as $info) {
-//
-//                }
-//            }
-//
-////        }
-//        return $res;
-//    }
     public function getIndex()
     {
     }

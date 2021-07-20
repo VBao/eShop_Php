@@ -18,6 +18,7 @@ use App\Models\Product\Laptop\Rom;
 use App\Models\Product\Laptop\Screen;
 use App\Models\Product\productInfo;
 use App\Models\Product\Type;
+use App\Models\ProductDiscount;
 use App\Service\ILaptopService;
 use App\Service\Impl\ProductImpl;
 use App\Service\IProductService;
@@ -281,6 +282,8 @@ class LaptopController extends Controller
         $response->specs = $this->laptopService->getSpecs($id);
 
         $response->image = $this->productService->getImages($id);
+        $discount = ProductDiscount::query()->where('product_id', '=', $id)->first();
+        if ($discount == null || strtotime($discount->start_time) > now()) $discount = null;
         $a = [
             'id' => $response->info->id,
             'info' => [
@@ -300,7 +303,11 @@ class LaptopController extends Controller
                 'weight' => $response->specs->weight,
             ],
             'description' => $response->info->description,
-            'images' => $response->image
+            'images' => $response->image,
+            'discount' => [
+                "discount_percent" => $discount == null ? 0 : $discount->percent,
+                "discount_price" => $discount == null ? 0 : $discount->discount_price
+            ]
         ];
         return response()->json($a);
     }
@@ -417,7 +424,7 @@ class LaptopController extends Controller
 
     public function adminProducts()
     {
-        $data=adminIndex::collection(productInfo::where('type_id','=','1')->get());
-        return response()->json(['result'=>$data]);
+        $data = adminIndex::collection(productInfo::where('type_id', '=', '1')->get());
+        return response()->json(['result' => $data]);
     }
 }

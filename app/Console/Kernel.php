@@ -27,17 +27,21 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->call(function (){
+        $schedule->call(function () {
             $products = productInfo::where('discount', true)->get();
             if ($products == null) return;
             foreach ($products as $product) {
-                $discount = ProductDiscount::query()->where('product_id', '=', $product->id)->first();
-                if (strtotime($discount) - strtotime(now()) < 0) {
-                    $product->discount = false;
-                    $product->save();
-                }
+                $discounts = ProductDiscount::query()->where('product_id', '=', $product->id)->get();
+                foreach ($discounts as $discount)
+                    if ($discounts->end_date - strtotime(now()) < 0) {
+                        ProductDiscount::query()->find($discount->id)->delete();
+                        $product->discount = false;
+                    } else if ($discounts->start_date - strtotime(now()) > 0) {
+                        $product->discount = true;
+                    }
+                $product->save();
             }
-        })->everyFifteenMinutes();
+        })->everyMinute();
     }
 
     /**
