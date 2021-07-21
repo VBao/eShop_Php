@@ -59,6 +59,7 @@ Route::group(['middleware' => ['role.isAdmin']], function () {
         Route::prefix('/products')->group(function () {
             Route::get('/spec_list', [InfoController::class, 'getAllSpecs']);
             Route::post('/discount', [InfoController::class, 'setDiscount']);
+            Route::put('/discount', [InfoController::class, 'putDiscount']);
             Route::get('/delete_discount/{id}', [InfoController::class, 'delDiscount']);
             Route::prefix('laptop')->group(function () {
                 Route::get('/index', [LaptopController::class, 'adminProducts']);

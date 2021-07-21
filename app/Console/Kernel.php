@@ -2,10 +2,12 @@
 
 namespace App\Console;
 
+use App\Console\Commands\CheckDiscountCommand;
 use App\Models\Product\productInfo;
 use App\Models\ProductDiscount;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use phpDocumentor\Reflection\DocBlock\Tags\Reference\Url;
 
 class Kernel extends ConsoleKernel
 {
@@ -15,7 +17,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        "App\Console\Commands\CheckDiscountCommand"
     ];
 
     /**
@@ -26,22 +28,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
-        $schedule->call(function () {
-            $products = productInfo::where('discount', true)->get();
-            if ($products == null) return;
-            foreach ($products as $product) {
-                $discounts = ProductDiscount::query()->where('product_id', '=', $product->id)->get();
-                foreach ($discounts as $discount)
-                    if ($discounts->end_date - strtotime(now()) < 0) {
-                        ProductDiscount::query()->find($discount->id)->delete();
-                        $product->discount = false;
-                    } else if ($discounts->start_date - strtotime(now()) > 0) {
-                        $product->discount = true;
-                    }
-                $product->save();
-            }
-        })->everyMinute();
+        $schedule->command('discount:check')->everyMinute();
     }
 
     /**
