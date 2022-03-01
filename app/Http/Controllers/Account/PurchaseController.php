@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Account;
 
+use App\Http\Controllers\Controller;
 use App\Http\Resources\OrdersAdmin;
 use App\Mail\OrderReceive;
 use App\Models\Cart;
@@ -56,18 +57,10 @@ class PurchaseController extends Controller
             'address' => $user->address
         ];
         Mail::to($user->email)->send(new OrderReceive($mail));
-
+        $order->total=$total;
+        $order->save();
         return response()->json(['notify' => 'order succeed'], 201);
     }
-
-//    public function detail($id)
-//    {
-//        $res = [];
-//        foreach (Cart::where('order_id', $id)->get() as $item) {
-//            $res[] = $this->info($item->product_id, $item->quantity);
-//        }
-//        return $res;
-//    }
 
     public function orders(): JsonResponse
     {

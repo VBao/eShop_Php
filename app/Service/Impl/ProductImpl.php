@@ -8,7 +8,10 @@ use App\Dto\Info\postInfoDto;
 use App\Dto\Info\showImage;
 use App\Dto\Info\showInfoDto;
 use App\Http\Resources\BrandIndexResource;
+use App\Http\Resources\DriveListResource;
+use App\Http\Resources\ListLaptopResource;
 use App\Http\Resources\ShowListResource;
+use App\Models\Cart;
 use App\Models\Product\Brand;
 use App\Models\Product\Image;
 use App\Models\Product\Laptop\Cpu;
@@ -19,6 +22,8 @@ use App\Models\Product\Type;
 use App\Service\ILaptopService;
 use App\Service\IProductService;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
+use OpenApi\Annotations\Info;
 
 class ProductImpl implements IProductService
 {
@@ -59,49 +64,6 @@ class ProductImpl implements IProductService
     {
         // TODO: Implement getInfos() method.
     }
-
-//    public function getIndex(int $type = 0, int $brand = 0)
-//    {
-//        $res = array();
-////        if ($type == 1) {
-//            foreach ($this->brand->where('type_id','=',1)->get() as $item) {
-//                $index = new productInfoGetList;
-//                $index->id = $item->id;
-//                $index->brand = $item->brand;
-//                foreach (productInfo::where([
-//                    ['brand_id','=',$item->id],
-//                    ['type_id','=',1],
-//                    ])->get() as $info) {
-//                    $product = new indexProductDto();
-//                    $product->id = $info->id;
-//                    $product->name = $info->name;
-//                    $product->price = $info->price;
-//                    $productSpecs = $this->laptopService->getSpecsIndex($info->id);
-//                    $product->ram = explode(",", $productSpecs['ram'])[0];
-//                    $product->rom = explode(' ', $productSpecs['rom'])[0] . " " . explode(' ', $productSpecs['rom'])[1];
-//                    $temp = $this->image->newQuery()->where('info_id', $info->id)->first();
-//                    if ($temp != null) $product->image = $temp['link_image'];
-////                $img=   $this->image->newQuery()->where('info_id', $info->id)->first();
-////                $product->image =  $img->link_image;
-//                    $index->results[] = $product;
-//                }
-//                $res[] = $index;
-//            }
-//            foreach ($this->brand->where('type_id',2)->get() as $item){
-//                $index=new productInfoGetList;
-//                $index->id = $item->id;
-//                $index->brand = $item->brand;
-//                foreach (productInfo::where([
-//                    ['brand_id','=',$item->id],
-//                    ['type_id','=',1],
-//                ])->get() as $info) {
-//
-//                }
-//            }
-//
-////        }
-//        return $res;
-//    }
     public function getIndex()
     {
     }
@@ -151,6 +113,8 @@ class ProductImpl implements IProductService
         $response->brand_id = $info->brand_id;
         $response->type_id = $info->type_id;
         $response->description = $info->description;
+        $response->created_at = $info->created_at;
+        $response->updated_at = $info->updated_at;;
         return $response;
     }
 
@@ -194,16 +158,6 @@ class ProductImpl implements IProductService
         return $this->info->where('type_id', $id)->orderByDesc('id')->get('id');
     }
 
-    public function search($keyword): array
-    {
-        $res = [];
-        $test = $this->info->newQuery()->where('name', 'LIKE', $keyword . '%')->get(['id', 'type_id']);
-        foreach ($test as $val) {
-            if ($val->type_id == 1) $res[] = new ShowListResource(new FullLaptopModel($val->id));
-        }
-        return $res;
-    }
-
     public function searchByType($keyword)
     {
         // TODO: Implement searchByType() method.
@@ -214,8 +168,28 @@ class ProductImpl implements IProductService
         // TODO: Implement searchByBrand() method.
     }
 
-    public function brandIndex(): AnonymousResourceCollection
+    public function brandIndex()
     {
-        return BrandIndexResource::collection(Brand::all());
+        $rs['brand'] = BrandIndexResource::collection(Brand::all());
+        $temp = [];
+        foreach (productInfo::query()->where('created_at', '>', now()->subMonth())->orderBy('created_at', 'desc')->limit(8)->get() as $product) {
+            if ($product->type_id == 1) {
+                $temp[] = new ListLaptopResource($product);
+            } elseif ($product->type_id == 2) {
+                $temp[] = new DriveListResource($product);
+            }
+            $rs['new'] = ['id' => 1, 'title' => 'New product', 'result' => $temp];
+        }
+        $temp = [];
+        foreach (Cart::query()->select('product_id', \DB::raw('sum(quantity) as TotalQty'))->groupBy('product_id')->limit(8)->get() as $product) {
+            $product = productInfo::query()->where('id', '=', $product->product_id)->first();
+            if ($product->type_id == 1) {
+                $temp[] = new ListLaptopResource($product);
+            } elseif ($product->type_id == 2) {
+                $temp[] = new DriveListResource($product);
+            }
+            $rs['top'] = ['id' => 1, 'title' => 'Best sell', 'result' => $temp];
+        }
+        return $rs;
     }
 }

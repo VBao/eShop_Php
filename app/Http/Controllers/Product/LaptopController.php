@@ -8,6 +8,7 @@ use App\Dto\Laptop\postLaptopDto;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\LaptopIndexResource;
 use App\Http\Resources\ListLaptopResource;
+use App\Http\Resources\Product\adminIndex;
 use App\Models\Product\Brand;
 use App\Models\Product\Image;
 use App\Models\Product\Laptop\Cpu;
@@ -17,7 +18,9 @@ use App\Models\Product\Laptop\Rom;
 use App\Models\Product\Laptop\Screen;
 use App\Models\Product\productInfo;
 use App\Models\Product\Type;
+use App\Models\ProductDiscount;
 use App\Service\ILaptopService;
+use App\Service\Impl\ProductImpl;
 use App\Service\IProductService;
 use App\Service\IValidate;
 use Illuminate\Http\JsonResponse;
@@ -41,6 +44,7 @@ class LaptopController extends Controller
      * @param Ram $ram
      * @param Rom $rom
      * @param Cpu $cpu
+     * @param IValidate $validate
      */
     public function __construct(ILaptopService $laptopService, IProductService $productService, Brand $brand, Ram $ram, Rom $rom, Cpu $cpu, IValidate $validate)
     {
@@ -278,6 +282,8 @@ class LaptopController extends Controller
         $response->specs = $this->laptopService->getSpecs($id);
 
         $response->image = $this->productService->getImages($id);
+        $discount = ProductDiscount::query()->where('product_id', '=', $id)->first();
+        if ($discount == null || strtotime($discount->start_time) > now()) $discount = null;
         $a = [
             'id' => $response->info->id,
             'info' => [
@@ -297,7 +303,11 @@ class LaptopController extends Controller
                 'weight' => $response->specs->weight,
             ],
             'description' => $response->info->description,
-            'images' => $response->image
+            'images' => $response->image,
+            'discount' => [
+                "discount_percent" => $discount == null ? 0 : $discount->percent,
+                "discount_price" => $discount == null ? 0 : $discount->discount_price
+            ]
         ];
         return response()->json($a);
     }
@@ -341,6 +351,8 @@ class LaptopController extends Controller
     public
     function postUpdate(Request $request): JsonResponse
     {
+        $err = $this->validate->checkPost($request);
+        if (!is_null($err)) return response()->json($err, 422);
         $info = new postInfoDto;
         $specs = new postLaptopDto();
         foreach ($request->info as $key => $val) $info->$key = $val;
@@ -355,9 +367,7 @@ class LaptopController extends Controller
 
     }
 
-
-    public
-    function getCreate(): JsonResponse
+    public function getCreate(): JsonResponse
     {
         return response()->json($this->laptopService->getForm());
     }
@@ -366,8 +376,8 @@ class LaptopController extends Controller
     function postCreate(Request $request): JsonResponse
     {
         $err = $this->validate->checkPost($request);
-        if (!is_null($err)) return response()->json($err, 400);
-        if (count(productInfo::where('name', 'LIKE', '%' . $request->info['name'] . '%')->get()->toArray()) != 0) return response()->json(['error' => 'Already have product with name - ' . $request->info['name']], 400);
+        if (!is_null($err)) return response()->json($err, 422);
+        if (count(productInfo::where('name', 'LIKE', '%' . $request->info['name'] . '%')->get()->toArray()) != 0) return response()->json(['error' => 'Already have product with name - ' . $request->info['name']], 422);
         if (count($request->image) < 3) return response()->json(['error' => 'Accept at least 3 image'], 400);
         $res = [];
         $postInfo = new postInfoDto;
@@ -383,32 +393,38 @@ class LaptopController extends Controller
         error_log('=================Insert new laptop completed!=================');
         return response()->json(['notify' => 'created'], 201);
     }
+//
+//    public
+//    function adminProducts(): array
+//    {
+//        $res = [];
+//        $tempAdd = [];
+//        foreach ($this->productService->getByType(1) as $val) {
+//            $tempProduct = $this->productService->getById($val->id);
+//            $tempInfo = [];
+//            $tempInfo['id'] = $tempProduct->id;
+//            $tempInfo['name'] = $tempProduct->name;
+//            $tempInfo['description'] = $tempProduct->description;
+//            $tempInfo['brand'] = Brand::find($tempProduct->brand_id)->brand;
+//            $tempInfo['price'] = $tempProduct->price;
+//            $tempInfo['image'] = Image::where('info_id', '=', $tempProduct->id)->first()->link_image;
+//            foreach ($this->laptopService->getSpecsAdmin($val->id) as $key => $value) $tempInfo[$key] = $value;
+//            $tempAdd[] = $tempInfo;
+//        }
+//
+//        $res['data'] = $tempAdd;
+//        $res['filter'] = [
+//            'Brand' => $this->brand->toArraysReact(1),
+//            'Ram' => $this->ram->toArraysReact(),
+//            'Rom' => $this->rom->toArraysReact(),
+//            'Cpu' => $this->cpu->toArraysReact()
+//        ];
+//        return $res;
+//    }
 
-    public
-    function adminProducts(): array
+    public function adminProducts()
     {
-        $res = [];
-        $tempAdd = [];
-        foreach ($this->productService->getByType(1) as $val) {
-            $tempProduct = $this->productService->getById($val->id);
-            $tempInfo = [];
-            $tempInfo['id'] = $tempProduct->id;
-            $tempInfo['name'] = $tempProduct->name;
-            $tempInfo['description'] = $tempProduct->description;
-            $tempInfo['brand'] = Brand::find($tempProduct->brand_id)->brand;
-            $tempInfo['price'] = $tempProduct->price;
-            $tempInfo['image'] = Image::where('info_id', '=', $tempProduct->id)->first()->link_image;
-            foreach ($this->laptopService->getSpecsAdmin($val->id) as $key => $value) $tempInfo[$key] = $value;
-            $tempAdd[] = $tempInfo;
-        }
-
-        $res['data'] = $tempAdd;
-        $res['filter'] = [
-            'Brand' => $this->brand->toArraysReact(1),
-            'Ram' => $this->ram->toArraysReact(),
-            'Rom' => $this->rom->toArraysReact(),
-            'Cpu' => $this->cpu->toArraysReact()
-        ];
-        return $res;
+        $data = adminIndex::collection(productInfo::where('type_id', '=', '1')->get());
+        return response()->json(['result' => $data]);
     }
 }

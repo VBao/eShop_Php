@@ -24,7 +24,7 @@ class BrandIndexResource extends JsonResource
         }
         return [
             'id' => $this->id,
-            'brand' => $this->brand,
+            'title' => $this->brand,
             'type' => $type,
             'result' => $rs,
         ];

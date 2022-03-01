@@ -4,7 +4,7 @@ use App\Http\Controllers\Account\UserController;
 use App\Http\Controllers\Product\DriveController;
 use App\Http\Controllers\Product\InfoController;
 use App\Http\Controllers\Product\LaptopController;
-use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\Account\PurchaseController;
 
 
 /*
@@ -19,6 +19,8 @@ use App\Http\Controllers\PurchaseController;
 */
 
 Route::get('/', [InfoController::class, 'index']);
+
+// Anonymous routes group
 Route::prefix('products')->group(function () {
     Route::post('/filter', [InfoController::class, 'filter']);
     Route::prefix('laptop')->group(function () {
@@ -26,32 +28,39 @@ Route::prefix('products')->group(function () {
         Route::post('/filter', [LaptopController::class, 'postFilter']);
         Route::post('/list/{page}', [InfoController::class, 'index']);
         Route::get('/get/{id}', [LaptopController::class, 'show']);
-        Route::get('/search/{keywords}', [InfoController::class, 'search']);
     });
     Route::prefix('drive')->group(function () {
         Route::get('/get/{id}', [DriveController::class, 'show']);
         Route::post('/filter', [DriveController::class, 'postFilter']);
-        Route::get('/search/{keywords}', [InfoController::class, 'search']);
-        Route::get('/list', [DriveController::class, 'index']);
     });
 });
 
+// User routes group
 Route::group(['middleware' => ['check_login']], function () {
     Route::post('/cart_post', [PurchaseController::class, 'purchase']);
     Route::get('/orders', [PurchaseController::class, 'orders']);
+    Route::get('logout', [UserController::class, 'logout']);
     Route::prefix('/account')->group(function () {
-        Route::post('reset-password', [UserController::class, 'reset_password']);
+        Route::post('update_info', [UserController::class, 'updateInfo']);
+        Route::post('change_password', [UserController::class, 'changePassword']);
+        Route::post('reset-password', [UserController::class, 'resetPassword'])->name('password.reset');
     });
 });
+
+// Admin route group
 Route::group(['middleware' => ['role.isAdmin']], function () {
     Route::prefix('admin')->group(function () {
         Route::get('orders', [PurchaseController::class, 'ordersAdmin']);
         Route::get('orderStat/order_id/{orderId}/stat/{stat}', [PurchaseController::class, 'changeStats']);
         Route::prefix('/account')->group(function () {
-            Route::post('role', [UserController::class, 'role']);
+            Route::get('user', [UserController::class, 'users']);
+            Route::post('new_admin', [UserController::class, 'createAdmin']);
         });
         Route::prefix('/products')->group(function () {
             Route::get('/spec_list', [InfoController::class, 'getAllSpecs']);
+            Route::post('/discount', [InfoController::class, 'setDiscount']);
+            Route::put('/discount', [InfoController::class, 'putDiscount']);
+            Route::get('/delete_discount/{id}', [InfoController::class, 'delDiscount']);
             Route::prefix('laptop')->group(function () {
                 Route::get('/index', [LaptopController::class, 'adminProducts']);
                 Route::get('/create', [LaptopController::class, 'getCreate']);
@@ -70,8 +79,9 @@ Route::group(['middleware' => ['role.isAdmin']], function () {
     });
 });
 
+Route::post('forget_password', [UserController::class, 'forgetPassword']);
 Route::post('login', [UserController::class, 'authenticate']);
 Route::post('register', [UserController::class, 'register']);
-Route::post('logout', [UserController::class, 'logout']);
+Route::get('search', [InfoController::class, 'search']);
 
 

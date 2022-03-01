@@ -3,11 +3,16 @@
 namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ShowListResource;
+use App\Models\Cart;
+use App\Models\Product\productInfo;
 use App\Models\Product\Type;
+use App\Models\ProductDiscount;
 use App\Service\IDriveService;
 use App\Service\ILaptopService;
 use App\Service\IProductService;
 use App\Service\SpecList;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -48,9 +53,20 @@ class InfoController extends Controller
         return response()->json($this->productService->brandIndex());
     }
 
-    public function search($keywords): JsonResponse
+    public function search(Request $request): JsonResponse
     {
-        return response()->json($this->productService->search($keywords));
+        foreach (productInfo::query()->where('name', 'LIKE', $request->keywords . '%')->get() as $item)
+            $data_full[] = new ShowListResource($item);
+        if ($request->has('page')) {
+            $data = array_slice($data_full, ($request->page - 1) * 12, 12);
+        } else {
+            $data = array_slice($data_full, 1, 12);
+        }
+        return response()->json([
+            'data' => $data,
+            'cur_page' => $request->has('page') ? $request->page : 1,
+            'max_page' => ceil(count($data_full) / 12)
+        ]);
     }
 
     public function filter(Request $request): JsonResponse
@@ -82,5 +98,96 @@ class InfoController extends Controller
             'drive' => (object)$specs->drive(),
         ];
         return response()->json($res);
+    }
+
+    public function setDiscount(Request $request)
+    {
+        $validator = \Validator::make($request->only('product_id', 'percent', 'start_date', 'end_date'
+        ), [
+            'product_id' => 'required|integer|exists:product_infos,id',
+            'percent' => 'required|integer|min:1|max:100',
+            'start_date' => 'required|date|after:now|date_format:Y-m-d H:i',
+            'end_date' => 'required|date|after:start_date|date_format:Y-m-d H:i'
+        ]);
+        if ($validator->fails()) return response()->json(['error' => $validator->errors()]);
+        $product_check = ProductDiscount::query()->where('product_id', '=', $validator->getData()['product_id'])->get();
+        if ($product_check != null) {
+            foreach ($product_check as $item)
+                if (($request->start_date <= $item->start_date && ($item->start_date <= $request->end_date && $request->end_date <= $item->end_date))
+                    || (($item->start_date <= $request->start_date && $request->start_date <= $item->end_date) && $item->end_date <= $request->end_date)
+                    || ($request->start_date <= $item->start_date && $item->end_date <= $request->end_date)
+                    || ($request->start_date >= $item->start_date && $request->end_date <= $item->end_date))
+                    return response()->json(['error' => 'Conflict start time ' . $item->start_date . ' or end time ' . $item->end_date]);
+        }
+        $discount = new ProductDiscount();
+        $discount->created_at = now();
+        $discount->updated_at = now();
+        foreach ($validator->getData() as $key => $value) $discount->$key = $value;
+        $current_price = productInfo::find($validator->getData()['product_id'])->price;
+        $discount->discount_price = (int)round($current_price - ($current_price * $validator->getData()['percent']) / 100, -3);
+        $discount->save();
+        return response()->json(['result' => 'Successful']);
+    }
+
+    public
+    function putDiscount(Request $request)
+    {
+        $validator = \Validator::make($request->all(), [
+            'id' => 'required|integer|exists:product_discounts',
+            'percent' => 'integer|min:1|max:100',
+            'start_date' => 'date|after:now|date_format:Y-m-d H:i',
+            'end_date' => 'date|after:start_date|date_format:Y-m-d H:i',
+        ]);
+        if ($validator->fails()) return response()->json(['error' => $validator->errors()]);
+        $discount = ProductDiscount::query()->find($request->id);
+        $product_check = ProductDiscount::query()->where('product_id', '=', $discount->product_id)->get();
+        if ($request->has('percent')) $discount->percent = $request->percent;
+        if ($request->has('start_date') && $request->has('end_date')) {
+            foreach ($product_check as $item) {
+                if ((($request->start_date <= $item->start_date && ($item->start_date <= $request->end_date && $request->end_date <= $item->end_date))
+                        || (($item->start_date <= $request->start_date && $request->start_date <= $item->end_date) && $item->end_date <= $request->end_date)
+                        || ($request->start_date <= $item->start_date && $item->end_date <= $request->end_date)
+                        || ($request->start_date >= $item->start_date && $request->end_date <= $item->end_date)) && $item->id != $discount->id)
+                    return response()->json(['error' => 'Conflict start time ' . $item->start_date . ' or end time ' . $item->end_date]);
+            }
+            $discount->start_date = $request->start_date;
+            $discount->end_date = $request->end_date;
+        } else {
+            if ($request->has('start_date')) {
+                if ($request->start_date >= $discount->end_date) return response()->json(['error' => 'Start time must before end date - ' . $discount->end_date]);
+                foreach ($product_check as $item) {
+                    if ((($request->start_date <= $item->start_date && ($item->start_date <= $discount->end_date && $discount->end_date <= $item->end_date))
+                            || (($item->start_date <= $request->start_date && $request->start_date <= $item->end_date) && $item->end_date <= $discount->end_date)
+                            || ($request->start_date <= $item->start_date && $item->end_date <= $discount->end_date)
+                            || ($request->start_date >= $item->start_date && $discount->end_date <= $item->end_date)) && $item->id != $discount->id)
+                        return response()->json(['error' => 'Conflict start time ' . $item->start_date . ' or end time ' . $item->end_date]);
+                }
+                $discount->start_date = $request->start_date;
+            }
+            if ($request->has('end_date')) {
+                if ($request->end_date <= $discount->start_date) return response()->json(['error' => 'End time must after start date - ' . $discount->start_date]);
+                foreach ($product_check as $item) {
+                    if ((($discount->start_date <= $item->start_date && ($item->start_date <= $discount->end_date && $discount->end_date <= $item->end_date))
+                            || (($item->start_date <= $discount->start_date && $discount->start_date <= $item->end_date) && $item->end_date <= $discount->end_date)
+                            || ($discount->start_date <= $item->start_date && $item->end_date <= $discount->end_date)
+                            || ($discount->start_date >= $item->start_date && $discount->end_date <= $item->end_date)) && $item->id != $discount->id)
+                        return response()->json(['error' => 'Conflict start time ' . $item->start_date . ' or end time ' . $item->end_date]);
+                }
+                $discount->end_date = $request->end_date;
+            }
+        }
+        $discount->save();
+        return response()->json(['result' => 'Success']);
+    }
+
+    public
+    function delDiscount($id)
+    {
+        if (ProductDiscount::query()->find($id) == null) {
+            return response()->json(['error' => 'Not found discount with id: ' . $id]);
+        } else {
+            ProductDiscount::query()->find($id)->delete();
+            return response()->json(['result' => 'Success']);
+        }
     }
 }

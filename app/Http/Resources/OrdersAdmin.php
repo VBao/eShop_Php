@@ -22,10 +22,8 @@ class OrdersAdmin extends JsonResource
     public function toArray($request): array
     {
         $products = [];
-        $total = 0;
         foreach (Cart::query()->where('order_id', '=', $this->id)->get() as $item) {
             $product = productInfo::find($item->product_id);
-            $total += $item->quantity * $product->price;
             $products[] = (object)[
                 "id" => $item->id,
                 "name" => $product->name,
@@ -45,7 +43,7 @@ class OrdersAdmin extends JsonResource
             'status' => OrderStatus::query()->where('id', '=', $this->status_id)->first()->status,
             'bill' => [
                 'billId' => $this->id,
-                'totalPrice' => $total,
+                'totalPrice' => $this->total,
                 'timeBuy' => $this->created_at,
                 'products' => $products
             ]

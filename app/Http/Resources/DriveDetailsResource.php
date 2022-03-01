@@ -8,6 +8,7 @@ use App\Models\Product\Drive\DriveRotation;
 use App\Models\Product\Drive\DriveWrite;
 use App\Models\Product\Image;
 use App\Models\Product\productInfo;
+use App\Models\ProductDiscount;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class DriveDetailsResource extends JsonResource
@@ -20,22 +21,9 @@ class DriveDetailsResource extends JsonResource
      */
     public function toArray($request)
     {
-//        $res = [];
-//        $schema = Schema::getColumnListing('drive_specs');
-//        unset($schema['id']);
-//        foreach ($schema as $col) {
-//            if ($col == 'id') continue;
-//            $tableName = str_replace('_id', "", $col);
-//            $tempValue = DB::table('drive_'
-//                . (str_ends_with($tableName, 'y')
-//                    ? str_replace('y', "", $tableName) . 'ies'
-//                    : $tableName . 's'))
-//                ->where('id', '=', $this->$col)
-//                ->get()->first();
-//            $res[$tableName] = $tempValue->value;
-//        }
-//        return $res;
         $info = productInfo::find($this->id);
+        $discount = ProductDiscount::query()->where('product_id', '=', $this->id)->first();
+        if ($discount == null || strtotime($discount->start_time) > now()) $discount = null;
         return [
             'id' => $this->id,
             'info' => ['name' => $info->name,
@@ -51,7 +39,11 @@ class DriveDetailsResource extends JsonResource
                 'capacity' => DriveRead::find($this->capacity_id)->value,
                 'dimension' => DriveRead::find($this->dimension_id)->value,],
             'description' => $info->description,
-            'images' => ImageResource::collection(Image::where('info_id', $this->id)->get())
+            'images' => ImageResource::collection(Image::where('info_id', $this->id)->get()),
+            'discount' => [
+                "discount_percent" => $discount == null ? 0 : $discount->percent,
+                "discount_price" => $discount == null ? 0 : $discount->discount_price
+            ]
         ];
     }
 }

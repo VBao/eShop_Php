@@ -17,6 +17,7 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('status_id')->references('id')->on('order_statuses');
+            $table->integer('total')->default(0);
             $table->dateTime('created_at');
         });
     }
