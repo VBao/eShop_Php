@@ -3,14 +3,12 @@
 
 namespace App\Service\Impl;
 
-use App\Dto\FullLaptopModel;
 use App\Dto\Info\postInfoDto;
 use App\Dto\Info\showImage;
 use App\Dto\Info\showInfoDto;
 use App\Http\Resources\BrandIndexResource;
 use App\Http\Resources\DriveListResource;
 use App\Http\Resources\ListLaptopResource;
-use App\Http\Resources\ShowListResource;
 use App\Models\Cart;
 use App\Models\Product\Brand;
 use App\Models\Product\Image;
@@ -21,9 +19,6 @@ use App\Models\Product\productInfo;
 use App\Models\Product\Type;
 use App\Service\ILaptopService;
 use App\Service\IProductService;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use Illuminate\Http\Resources\Json\JsonResource;
-use OpenApi\Annotations\Info;
 
 class ProductImpl implements IProductService
 {
@@ -114,7 +109,7 @@ class ProductImpl implements IProductService
         $response->type_id = $info->type_id;
         $response->description = $info->description;
         $response->created_at = $info->created_at;
-        $response->updated_at = $info->updated_at;;
+        $response->updated_at = $info->updated_at;
         return $response;
     }
 
@@ -168,7 +163,7 @@ class ProductImpl implements IProductService
         // TODO: Implement searchByBrand() method.
     }
 
-    public function brandIndex()
+    public function brandIndex(): array
     {
         $rs['brand'] = BrandIndexResource::collection(Brand::all());
         $temp = [];

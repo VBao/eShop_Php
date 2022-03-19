@@ -15,6 +15,7 @@
         "guzzlehttp/guzzle": "^7.3",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
+        "symfony/mailer": "^5.4",
         "tymon/jwt-auth": "^1.0"
     },
     "require-dev": {
@@ -56,7 +57,9 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [
+                "barryvdh/laravel-ide-helper"
+            ]
         }
     },
     "config": {

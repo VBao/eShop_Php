@@ -31,6 +31,7 @@ Route::prefix('products')->group(function () {
     });
     Route::prefix('drive')->group(function () {
         Route::get('/get/{id}', [DriveController::class, 'show']);
+        Route::get('/filter', [DriveController::class, 'getFilter']);
         Route::post('/filter', [DriveController::class, 'postFilter']);
     });
 });
@@ -82,6 +83,7 @@ Route::group(['middleware' => ['role.isAdmin']], function () {
 Route::post('forget_password', [UserController::class, 'forgetPassword']);
 Route::post('login', [UserController::class, 'authenticate']);
 Route::post('register', [UserController::class, 'register']);
-Route::get('search', [InfoController::class, 'search']);
+Route::post('search', [InfoController::class, 'search']);
+Route::post('test', [InfoController::class, 'test']);
 
 

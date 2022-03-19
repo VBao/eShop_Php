@@ -22,5 +22,8 @@ interface IDriveService
 
     public function filter(array $filter);
 
+    public function filterCheck(array $brand_list, array $capacity_list, array $type_list): array;
+
+    public function postFilter(array $brand_list, array $capacity_list, array $type_list, array $price);
 
 }

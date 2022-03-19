@@ -5,12 +5,29 @@ namespace App\Http\Controllers;
 use App\Models\Product\Brand;
 use App\Models\Product\productInfo;
 use App\Models\Product\Type;
+use App\Service\IDriveService;
+use App\Service\ILaptopService;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class Controller
 {
+//    protected ILaptopService $laptopService;
+//    protected IDriveService $driveService;
+//
+//    /**
+//     * @param ILaptopService $laptopService
+//     * @param IDriveService $driveService
+//     */
+//    public function __construct(ILaptopService $laptopService, IDriveService $driveService)
+//    {
+//        $this->laptopService = $laptopService;
+//        $this->driveService = $driveService;
+//    }
+
     /**
      * @OA\Info(
      *      version="1.0.0",
@@ -27,17 +44,10 @@ class Controller
      */
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function test($page = 1)
-    {
-        $tempArr = [];
-        foreach (productInfo::all()->makeHidden(['brand_id', 'type_id']) as $product) {
-            $productDto = new productInfoGetList();
-            $productDto->info = $product;
-            $productDto->brand = Brand::where('id', $product->brand_id)->first();
-            $productDto->type = Type::where('id', $product->type_id)->first();
-            $tempArr[] = $productDto;
-        }
-        $res = array_slice($tempArr, 15 * ($page - 1), 15);
-        return response()->json($res);
-    }
+//    public function test(Request $request): JsonResponse
+//    {
+//        $data = $this->driveService->postFilter($request->drive['brand'], $request->drive['capacity'], $request->drive['type'], $request->price, $request->keywords);
+//
+//        return response()->json($data);
+//    }
 }

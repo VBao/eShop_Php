@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ShowListResource;
-use App\Models\Cart;
 use App\Models\Product\productInfo;
 use App\Models\Product\Type;
 use App\Models\ProductDiscount;
@@ -12,7 +10,6 @@ use App\Service\IDriveService;
 use App\Service\ILaptopService;
 use App\Service\IProductService;
 use App\Service\SpecList;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -55,17 +52,22 @@ class InfoController extends Controller
 
     public function search(Request $request): JsonResponse
     {
-        foreach (productInfo::query()->where('name', 'LIKE', $request->keywords . '%')->get() as $item)
-            $data_full[] = new ShowListResource($item);
-        if ($request->has('page')) {
-            $data = array_slice($data_full, ($request->page - 1) * 12, 12);
-        } else {
-            $data = array_slice($data_full, 1, 12);
-        }
+
+        $filter = [];
+        $filter['laptop'] = $this->laptopService->filterCheck($request->get('laptop')['brand'], $request->get('laptop')['ram'], $request->get('laptop')['screen'], $request->get('laptop')['cpu']);
+        $filter['drive'] = $this->driveService->filterCheck($request->get('drive')['brand'], $request->get('drive')['capacity'], $request->get('drive')['type']);
+
+//        $data = [];
+//        $data[] = ;
+        $data = array_merge($this->laptopService->postFilter($request->get('laptop')['brand'], $request->get('laptop')['ram'], $request->get('laptop')['screen'], $request->get('laptop')['cpu'], $request->get('price'), $request->get('keyword')),$this->driveService->postFilter($request->get('drive')['brand'], $request->get('drive')['capacity'], $request->get('drive')['type'], $request->get('price'), $request->get('keyword')));
+
+        $result = array_slice($data, ($request->get('page') - 1) * 12, 12);
+
         return response()->json([
-            'data' => $data,
-            'cur_page' => $request->has('page') ? $request->page : 1,
-            'max_page' => ceil(count($data_full) / 12)
+            'filter' => $filter,
+            'data' => $result,
+            'cur_page' => $request->get('page'),
+            'max_page' => ceil(count($data) / 12)
         ]);
     }
 
@@ -73,9 +75,9 @@ class InfoController extends Controller
     {
         $filters = $request->toArray();
         unset($filters['type_product']);
-        if ($request->type_product == 'laptop') {
+        if ($request->get('type_product') == 'laptop') {
             return response()->json($this->laptopService->filter($filters));
-        } elseif ($request->type_product == 'drive') {
+        } elseif ($request->get('type_product') == 'drive') {
             return response()->json($this->driveService->filter($filters));
         }
         return response()->json(['error' => 'Invalid type']);
@@ -147,14 +149,14 @@ class InfoController extends Controller
                 if ((($request->start_date <= $item->start_date && ($item->start_date <= $request->end_date && $request->end_date <= $item->end_date))
                         || (($item->start_date <= $request->start_date && $request->start_date <= $item->end_date) && $item->end_date <= $request->end_date)
                         || ($request->start_date <= $item->start_date && $item->end_date <= $request->end_date)
-                        || ($request->start_date >= $item->start_date && $request->end_date <= $item->end_date)) && $item->id != $discount->id)
+                        || ($request->start_date >= $item->start_date && $request->get('end_date') <= $item->end_date)) && $item->id != $discount->id)
                     return response()->json(['error' => 'Conflict start time ' . $item->start_date . ' or end time ' . $item->end_date]);
             }
-            $discount->start_date = $request->start_date;
-            $discount->end_date = $request->end_date;
+            $discount->start_date = $request->get('start_date');
+            $discount->end_date = $request->get('end_date');
         } else {
             if ($request->has('start_date')) {
-                if ($request->start_date >= $discount->end_date) return response()->json(['error' => 'Start time must before end date - ' . $discount->end_date]);
+                if ($request->get('start_date') >= $discount->end_date) return response()->json(['error' => 'Start time must before end date - ' . $discount->end_date]);
                 foreach ($product_check as $item) {
                     if ((($request->start_date <= $item->start_date && ($item->start_date <= $discount->end_date && $discount->end_date <= $item->end_date))
                             || (($item->start_date <= $request->start_date && $request->start_date <= $item->end_date) && $item->end_date <= $discount->end_date)
@@ -173,7 +175,7 @@ class InfoController extends Controller
                             || ($discount->start_date >= $item->start_date && $discount->end_date <= $item->end_date)) && $item->id != $discount->id)
                         return response()->json(['error' => 'Conflict start time ' . $item->start_date . ' or end time ' . $item->end_date]);
                 }
-                $discount->end_date = $request->end_date;
+                $discount->end_date = $request->get('end_date');
             }
         }
         $discount->save();
@@ -181,7 +183,7 @@ class InfoController extends Controller
     }
 
     public
-    function delDiscount($id)
+    function delDiscount($id): JsonResponse
     {
         if (ProductDiscount::query()->find($id) == null) {
             return response()->json(['error' => 'Not found discount with id: ' . $id]);
