@@ -35,6 +35,7 @@ class TestValues extends Seeder
             foreach ($laptop['info'] as $key => $val) {
                 $postInfo->$key = $val;
             }
+            $postInfo->status_id = 1;
             $res['info'] = $this->productService->create($postInfo);
             foreach ($laptop['spec'] as $key => $val) $postLaptop->$key = $val;
             $postLaptop->id = $res['info']->id;

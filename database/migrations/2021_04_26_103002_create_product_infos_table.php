@@ -22,6 +22,8 @@ class CreateProductInfosTable extends Migration
             $table->boolean('discount')->default(false);
             $table->foreignId('brand_id')->references('id')->on('brands');
             $table->foreignId('type_id')->references('id')->on('types');
+            $table->tinyInteger('status_id')->nullable(false)->unsigned();
+            $table->foreign('status_id')->references('id')->on('product_status');
             $table->timestamps();
 
 

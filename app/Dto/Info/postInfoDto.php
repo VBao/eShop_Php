@@ -13,4 +13,5 @@ class postInfoDto
     public int $price;
     public int $brand_id;
     public int $type_id;
+    public int $status_id;
 }

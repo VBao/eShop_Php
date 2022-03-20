@@ -75,6 +75,7 @@ class ProductImpl implements IProductService
         $createInfo->price = $info->price;
         $createInfo->brand_id = $info->brand_id;
         $createInfo->type_id = $info->type_id;
+        $createInfo->status_id = $info->status_id;
         $createInfo->created_at = date('Y-m-d H:i:s');
         $createInfo->save();
         $createInfo->refresh();

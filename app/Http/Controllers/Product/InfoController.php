@@ -192,4 +192,6 @@ class InfoController extends Controller
             return response()->json(['result' => 'Success']);
         }
     }
+
+
 }
