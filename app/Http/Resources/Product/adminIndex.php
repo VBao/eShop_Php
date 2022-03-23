@@ -36,7 +36,7 @@ class adminIndex extends JsonResource
             'description' => $this->description,
             'price' => $this->price,
             'image' => Image::query()->where('info_id', '=', $this->id)->first()->link_image,
-            'Brand' => Brand::find($this->brand_id)->brand,
+            'brand' => Brand::find($this->brand_id)->brand,
             'cpu' => Cpu::find($spec->cpu_id)->value,
             'ram' => Ram::find($spec->ram_id)->value,
             'rom' => Rom::find($spec->rom_id)->value,

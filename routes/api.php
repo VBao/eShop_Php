@@ -44,24 +44,30 @@ Route::group(['middleware' => ['check_login']], function () {
     Route::prefix('/account')->group(function () {
         Route::post('update_info', [UserController::class, 'updateInfo']);
         Route::post('change_password', [UserController::class, 'changePassword']);
-        Route::post('reset-password', [UserController::class, 'resetPassword'])->name('password.reset');
     });
 });
 
 // Admin route group
 Route::group(['middleware' => ['role.isAdmin']], function () {
     Route::prefix('admin')->group(function () {
-        Route::get('orders', [PurchaseController::class, 'ordersAdmin']);
+        Route::get('order', [PurchaseController::class, 'ordersAdmin']);
         Route::get('orderStat/order_id/{orderId}/stat/{stat}', [PurchaseController::class, 'changeStats']);
         Route::prefix('/account')->group(function () {
             Route::get('user', [UserController::class, 'users']);
             Route::post('new_admin', [UserController::class, 'createAdmin']);
         });
+        Route::prefix('/order')->group(function () {
+
+        });
         Route::prefix('/products')->group(function () {
+//            Route::prefix('/discount')->group(function () {});
+            Route::get('/discount', [InfoController::class, 'getDiscount']);
+            Route::post('/discount', [InfoController::class, 'createDiscount']);
+            Route::put('/discount', [InfoController::class, 'editDiscount']);
+            Route::get('/delete_discount', [InfoController::class, 'delDiscount']);
             Route::get('/spec_list', [InfoController::class, 'getAllSpecs']);
-            Route::post('/discount', [InfoController::class, 'setDiscount']);
-            Route::put('/discount', [InfoController::class, 'putDiscount']);
-            Route::get('/delete_discount/{id}', [InfoController::class, 'delDiscount']);
+
+            Route::get('/change-status', [InfoController::class, 'changeStatus']);
             Route::prefix('laptop')->group(function () {
                 Route::get('/index', [LaptopController::class, 'adminProducts']);
                 Route::get('/create', [LaptopController::class, 'getCreate']);
@@ -80,7 +86,8 @@ Route::group(['middleware' => ['role.isAdmin']], function () {
     });
 });
 
-Route::post('forget_password', [UserController::class, 'forgetPassword']);
+Route::post('forget-password', [UserController::class, 'forgetPassword']);
+Route::post('reset-password', [UserController::class, 'resetPassword'])->name('password.reset');
 Route::post('login', [UserController::class, 'authenticate']);
 Route::post('register', [UserController::class, 'register']);
 Route::post('search', [InfoController::class, 'search']);

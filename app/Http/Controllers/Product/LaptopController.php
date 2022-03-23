@@ -193,7 +193,7 @@ class LaptopController extends Controller
         $postLaptop->id = $res['info']->id;
         $this->laptopService->create($postLaptop);
         $this->productService->createImages($request->get('image'), $postLaptop->id);
-        error_log('=================Insert new laptop completed!=================');
+        error_log('================= Insert new laptop completed! =================');
         return response()->json(['notify' => 'created'], 201);
     }
 //
@@ -227,7 +227,13 @@ class LaptopController extends Controller
 
     public function adminProducts(): JsonResponse
     {
-        $data = adminIndex::collection(productInfo::where('type_id', '=', '1')->get());
+        $data['data'] = adminIndex::collection(productInfo::where('type_id', '=', '1')->get());
+        $data['status'] = $this->productService->getStatus();
         return response()->json(['result' => $data]);
+    }
+
+    private function dtoFromRequest()
+    {
+
     }
 }

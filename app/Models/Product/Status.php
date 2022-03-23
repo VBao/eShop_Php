@@ -9,5 +9,6 @@ class Status extends Model
 {
     use HasFactory;
 
+    protected $table = 'product_status';
     public $timestamps = false;
 }

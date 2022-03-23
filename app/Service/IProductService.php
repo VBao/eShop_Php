@@ -16,7 +16,7 @@ interface IProductService
 
     public function searchByType($keyword);
 
-    public function searchByBrand($keyword);
+    public function searchByBrand(int $brand_id,string $keyword);
 
     public function create(postInfoDto $info);
 
@@ -29,4 +29,11 @@ interface IProductService
     public function putInfo(postInfoDto $newInfo);
 
     public function brandIndex();
+
+    public function getStatus();
+
+    public function changeStatus(int $product_id,int $status);
+
+    public function discountGetList();
+
 }

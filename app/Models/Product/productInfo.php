@@ -37,6 +37,11 @@ productInfo extends Model
         return $this->belongsTo('App\Models\Product\Type', 'id');
     }
 
+    public function discounts(): HasMany
+    {
+        return $this->hasMany('App\Models\ProductDiscount', 'id');
+    }
+
     public function getIndex(int $brand_id)
     {
         return $this->newQuery()->where('brand_id', $brand_id)->orderBy('id', 'desc')->limit(5)->get();
