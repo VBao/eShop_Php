@@ -2,7 +2,7 @@
 </p>
 
 ## Installment
-1. Install [php v7.4](https://www.php.net/downloads) and [composer](https://getcomposer.org/)
+1. Install [php v8.1](https://www.php.net/downloads) and [composer](https://getcomposer.org/)
 2. Install and enable following plugin in **php**
     * mysql
     * xml
