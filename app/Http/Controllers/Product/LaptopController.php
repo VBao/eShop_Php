@@ -182,6 +182,14 @@ class LaptopController extends Controller
         if (!is_null($err)) return response()->json($err, 422);
         if (count(productInfo::where('name', 'LIKE', '%' . $request->get('info')['name'] . '%')->get()->toArray()) != 0) return response()->json(['error' => 'Already have product with name - ' . $request->get('info')['name']], 422);
         if (count($request->get('image')) < 3) return response()->json(['error' => 'Accept at least 3 image'], 400);
+        if ($request->get('discount') !== null) {
+            $validator = \Validator::make($request->get('discount'), [
+                'percent' => 'required|integer|min:1|max:100',
+                'start_date' => 'required|date|after:now|date_format:Y-m-d H:i',
+                'end_date' => 'required|date|after:start_date|date_format:Y-m-d H:i'
+            ]);
+            if ($validator->fails()) return response()->json(['error' => $validator->errors()]);
+        }
         $res = [];
         $postInfo = new postInfoDto;
         $postLaptop = new postLaptopDto;
@@ -193,8 +201,19 @@ class LaptopController extends Controller
         $postLaptop->id = $res['info']->id;
         $this->laptopService->create($postLaptop);
         $this->productService->createImages($request->get('image'), $postLaptop->id);
+        if ($request->get('discount') !== null) {
+            $discount = new ProductDiscount();
+            $discount->created_at = now();
+            $discount->updated_at = now();
+            foreach ($validator->getData() as $key => $value) $discount->$key = $value;
+            $discount->product_id = $postLaptop->id;
+            $current_price = productInfo::find($postLaptop->id)->price;
+            $discount->discount_price = (int)round($current_price - ($current_price * $validator->getData()['percent']) / 100, -3);
+            $discount->save();
+            return response()->json(['result' => 'Successful']);
+        }
         error_log('================= Insert new laptop completed! =================');
-        return response()->json(['notify' => 'created'], 201);
+        return response()->json(['message' => 'success', 'data' => $this->show($postLaptop->id)], 201);
     }
 //
 //    public

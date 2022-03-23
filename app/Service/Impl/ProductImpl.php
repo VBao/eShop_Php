@@ -85,7 +85,8 @@ class ProductImpl implements IProductService
         $createInfo->price = $info->price;
         $createInfo->brand_id = $info->brand_id;
         $createInfo->type_id = $info->type_id;
-        $createInfo->status_id = $info->status_id;
+//        $createInfo->status_id = $info->status_id;
+        $createInfo->status_id = 1;
         $createInfo->created_at = date('Y-m-d H:i:s');
         $createInfo->save();
         $createInfo->refresh();
@@ -208,6 +209,33 @@ class ProductImpl implements IProductService
             $rs['top'] = ['id' => 1, 'title' => 'Best sell', 'result' => $temp];
         }
         return $rs;
+    }
+
+
+    public function laptopList(int $page): array
+    {
+        $temp = [];
+        $drives = productInfo::where('type_id', '=', 1)->orderByDesc('created_at')->offset(($page - 1) * 12)->limit(12)->get();
+        foreach ($drives as $drive) {
+            $temp[] = new ListLaptopResource($drive);
+        }
+        return $temp;
+    }
+
+    public function driveList(int $page): array
+    {
+        $temp = [];
+        $drives = productInfo::where('type_id', '=', 2)->orderByDesc('created_at')->offset(($page - 1) * 12)->limit(12)->get();
+        foreach ($drives as $drive) {
+            $temp[] = new DriveListResource($drive);;
+        }
+        return $temp;
+    }
+
+    public function maxPage(int $type): int
+    {
+        return productInfo::where('type_id', '=', $type)->count() / 12;
+
     }
 
     public function getStatus(): array

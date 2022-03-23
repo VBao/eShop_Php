@@ -12,6 +12,7 @@ use App\Models\Product\Drive\DriveSpecs;
 use App\Models\Product\Drive\DriveType;
 use App\Models\Product\Image;
 use App\Models\Product\productInfo;
+use App\Models\ProductDiscount;
 use App\Service\IDriveService;
 use App\Service\IProductService;
 use App\Service\IValidate;
@@ -95,6 +96,14 @@ class DriveController extends Controller
         if (!is_null($err)) return response()->json($err, 422);
         if (count(productInfo::where('name', 'LIKE', '%' . $request->get('info')['name'] . '%')->get()->toArray()) != 0) return response()->json(['error' => 'Already have product with name - ' . $request->get('info')['name']], 400);
         if (count($request->get('image')) < 3) return response()->json(['error' => 'Accept at least 3 image'], 400);
+        if ($request->get('discount') !== null) {
+            $validator = \Validator::make($request->get('discount'), [
+                'percent' => 'required|integer|min:1|max:100',
+                'start_date' => 'required|date|after:now|date_format:Y-m-d H:i',
+                'end_date' => 'required|date|after:start_date|date_format:Y-m-d H:i'
+            ]);
+            if ($validator->fails()) return response()->json(['error' => $validator->errors()]);
+        }
         $info = new postInfoDto;
         foreach ($request->get('info') as $key => $val) {
             $info->$key = $val;
@@ -103,7 +112,17 @@ class DriveController extends Controller
         $response['info'] = $this->productService->create($info);
         $this->driveService->create($request->get('spec'), $response['info']->id);
         $this->productService->createImages($request->get('image'), $response['info']->id);
-        return response()->json(['notify' => 'created'], 201);
+        if ($request->get('discount') !== null) {
+            $discount = new ProductDiscount();
+            $discount->created_at = now();
+            $discount->updated_at = now();
+            foreach ($validator->getData() as $key => $value) $discount->$key = $value;
+            $discount->product_id = $response['info']->id;
+            $current_price = productInfo::find($response['info']->id)->price;
+            $discount->discount_price = (int)round($current_price - ($current_price * $validator->getData()['percent']) / 100, -3);
+            $discount->save();
+        }
+        return response()->json(['message' => 'success', 'data' => $this->show($response['info']->id)], 201);
     }
 
 

@@ -50,6 +50,30 @@ class InfoController extends Controller
         return response()->json($this->productService->brandIndex());
     }
 
+    public function listLaptop(Request $request): JsonResponse
+    {
+        $page = $request->query('page') !== null ? (int)$request->query('page') : 1;
+        if ($page == null) $page = 1;
+        $data = $this->productService->laptopList($page);
+        return response()->json([
+            'data' => $data,
+            'curr_page' => $page,
+            'max_page' => $this->productService->maxPage(1)
+        ]);
+    }
+
+    public function listDrive(Request $request): JsonResponse
+    {
+        $page = $request->query('page') !== null ? (int)$request->query('page') : 1;
+        $data = $this->productService->driveList($page);
+        return response()->json([
+            'data' => $data,
+            'curr_page' => $page,
+            'max_page' => $this->productService->maxPage(2)
+        ]);
+    }
+
+
     public function search(Request $request): JsonResponse
     {
 
