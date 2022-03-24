@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ShowListResource;
-use App\Models\Cart;
 use App\Models\Product\productInfo;
 use App\Models\Product\Type;
 use App\Models\ProductDiscount;
@@ -12,7 +10,6 @@ use App\Service\IDriveService;
 use App\Service\ILaptopService;
 use App\Service\IProductService;
 use App\Service\SpecList;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -53,19 +50,46 @@ class InfoController extends Controller
         return response()->json($this->productService->brandIndex());
     }
 
-    public function search(Request $request): JsonResponse
+    public function listLaptop(Request $request): JsonResponse
     {
-        foreach (productInfo::query()->where('name', 'LIKE', $request->keywords . '%')->get() as $item)
-            $data_full[] = new ShowListResource($item);
-        if ($request->has('page')) {
-            $data = array_slice($data_full, ($request->page - 1) * 12, 12);
-        } else {
-            $data = array_slice($data_full, 1, 12);
-        }
+        $page = $request->query('page') !== null ? (int)$request->query('page') : 1;
+        if ($page == null) $page = 1;
+        $data = $this->productService->laptopList($page);
         return response()->json([
             'data' => $data,
-            'cur_page' => $request->has('page') ? $request->page : 1,
-            'max_page' => ceil(count($data_full) / 12)
+            'curr_page' => $page,
+            'max_page' => $this->productService->maxPage(1)
+        ]);
+    }
+
+    public function listDrive(Request $request): JsonResponse
+    {
+        $page = $request->query('page') !== null ? (int)$request->query('page') : 1;
+        $data = $this->productService->driveList($page);
+        return response()->json([
+            'data' => $data,
+            'curr_page' => $page,
+            'max_page' => $this->productService->maxPage(2)
+        ]);
+    }
+
+
+    public function search(Request $request): JsonResponse
+    {
+
+        $filter = [];
+        $filter['laptop'] = $this->laptopService->filterCheck($request->get('laptop')['brand'], $request->get('laptop')['ram'], $request->get('laptop')['screen'], $request->get('laptop')['cpu']);
+        $filter['drive'] = $this->driveService->filterCheck($request->get('drive')['brand'], $request->get('drive')['capacity'], $request->get('drive')['type']);
+
+        $data = array_merge($this->laptopService->postFilter($request->get('laptop')['brand'], $request->get('laptop')['ram'], $request->get('laptop')['screen'], $request->get('laptop')['cpu'], $request->get('price'), $request->get('keyword')), $this->driveService->postFilter($request->get('drive')['brand'], $request->get('drive')['capacity'], $request->get('drive')['type'], $request->get('price'), $request->get('keyword')));
+
+        $result = array_slice($data, ($request->get('page') - 1) * 12, 12);
+
+        return response()->json([
+            'filter' => $filter,
+            'data' => $result,
+            'cur_page' => $request->get('page'),
+            'max_page' => ceil(count($data) / 12)
         ]);
     }
 
@@ -73,9 +97,9 @@ class InfoController extends Controller
     {
         $filters = $request->toArray();
         unset($filters['type_product']);
-        if ($request->type_product == 'laptop') {
+        if ($request->get('type_product') == 'laptop') {
             return response()->json($this->laptopService->filter($filters));
-        } elseif ($request->type_product == 'drive') {
+        } elseif ($request->get('type_product') == 'drive') {
             return response()->json($this->driveService->filter($filters));
         }
         return response()->json(['error' => 'Invalid type']);
@@ -100,7 +124,12 @@ class InfoController extends Controller
         return response()->json($res);
     }
 
-    public function setDiscount(Request $request)
+    public function getDiscount()
+    {
+        return $this->productService->discountGetList();
+    }
+
+    public function createDiscount(Request $request)
     {
         $validator = \Validator::make($request->only('product_id', 'percent', 'start_date', 'end_date'
         ), [
@@ -130,7 +159,7 @@ class InfoController extends Controller
     }
 
     public
-    function putDiscount(Request $request)
+    function editDiscount(Request $request)
     {
         $validator = \Validator::make($request->all(), [
             'id' => 'required|integer|exists:product_discounts',
@@ -147,14 +176,14 @@ class InfoController extends Controller
                 if ((($request->start_date <= $item->start_date && ($item->start_date <= $request->end_date && $request->end_date <= $item->end_date))
                         || (($item->start_date <= $request->start_date && $request->start_date <= $item->end_date) && $item->end_date <= $request->end_date)
                         || ($request->start_date <= $item->start_date && $item->end_date <= $request->end_date)
-                        || ($request->start_date >= $item->start_date && $request->end_date <= $item->end_date)) && $item->id != $discount->id)
+                        || ($request->start_date >= $item->start_date && $request->get('end_date') <= $item->end_date)) && $item->id != $discount->id)
                     return response()->json(['error' => 'Conflict start time ' . $item->start_date . ' or end time ' . $item->end_date]);
             }
-            $discount->start_date = $request->start_date;
-            $discount->end_date = $request->end_date;
+            $discount->start_date = $request->get('start_date');
+            $discount->end_date = $request->get('end_date');
         } else {
             if ($request->has('start_date')) {
-                if ($request->start_date >= $discount->end_date) return response()->json(['error' => 'Start time must before end date - ' . $discount->end_date]);
+                if ($request->get('start_date') >= $discount->end_date) return response()->json(['error' => 'Start time must before end date - ' . $discount->end_date]);
                 foreach ($product_check as $item) {
                     if ((($request->start_date <= $item->start_date && ($item->start_date <= $discount->end_date && $discount->end_date <= $item->end_date))
                             || (($item->start_date <= $request->start_date && $request->start_date <= $item->end_date) && $item->end_date <= $discount->end_date)
@@ -173,7 +202,7 @@ class InfoController extends Controller
                             || ($discount->start_date >= $item->start_date && $discount->end_date <= $item->end_date)) && $item->id != $discount->id)
                         return response()->json(['error' => 'Conflict start time ' . $item->start_date . ' or end time ' . $item->end_date]);
                 }
-                $discount->end_date = $request->end_date;
+                $discount->end_date = $request->get('end_date');
             }
         }
         $discount->save();
@@ -181,13 +210,38 @@ class InfoController extends Controller
     }
 
     public
-    function delDiscount($id)
+    function delDiscount(Request $request): JsonResponse
     {
+        $id = $request->query('id');
         if (ProductDiscount::query()->find($id) == null) {
             return response()->json(['error' => 'Not found discount with id: ' . $id]);
         } else {
-            ProductDiscount::query()->find($id)->delete();
+            $discount = ProductDiscount::query()->find($id)->first();
+            $validate_result = \Validator::make([$discount->start_date, $discount->end_date], [
+                'start_date' => 'date|before:now|date_format:Y-m-d H:i',
+                'end_date' => 'date|after:now|date_format:Y-m-d H:i',
+            ]);
+            if ($validate_result->valid()) {
+                $product = productInfo::where('id', '=', $discount->product_id)->first();
+                $product->discount = false;
+                $product->save();
+            }
+            $discount->delete();
             return response()->json(['result' => 'Success']);
         }
+    }
+
+    public function changeStatus(Request $request)
+    {
+        $product_id = $request->query('id');
+        $status = $request->query('status');
+        $this->productService->changeStatus($product_id, $status);
+
+    }
+
+    private function checkStarEndDate($start_date, $end_date): bool
+    {
+
+        return false;
     }
 }

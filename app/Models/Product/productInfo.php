@@ -4,6 +4,8 @@ namespace App\Models\Product;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class
 productInfo extends Model
@@ -14,20 +16,30 @@ productInfo extends Model
 //    'brand'=>Brand::class,
 //    'type'=>Type::class
 //];
-    public function images()
+    public function images(): HasMany
     {
         return $this->hasMany('App\Models\Product\Image');
     }
 
-    public function brands()
+    public function brands(): BelongsTo
     {
         return $this->belongsTo('App\Models\Product\Brand', 'id');
     }
 
-    public function types()
+    public function status(): BelongsTo
+    {
+        return $this->belongsTo('App\Models\Product\Status', 'id');
+    }
+
+    public function types(): BelongsTo
     {
 //        return $this->belongsToMany('App\Models\Product\Type','types');
         return $this->belongsTo('App\Models\Product\Type', 'id');
+    }
+
+    public function discounts(): HasMany
+    {
+        return $this->hasMany('App\Models\ProductDiscount', 'id');
     }
 
     public function getIndex(int $brand_id)

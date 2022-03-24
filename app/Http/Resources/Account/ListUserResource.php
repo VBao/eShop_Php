@@ -16,6 +16,7 @@ class ListUserResource extends JsonResource
     {
 //        return parent::toArray($request);
         return [
+            'id'=>$this->id,
             'name'=>$this->name,
             'email'=>$this->email,
             'phone'=>$this->phone,

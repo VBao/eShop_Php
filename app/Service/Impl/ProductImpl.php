@@ -3,14 +3,14 @@
 
 namespace App\Service\Impl;
 
-use App\Dto\FullLaptopModel;
 use App\Dto\Info\postInfoDto;
 use App\Dto\Info\showImage;
 use App\Dto\Info\showInfoDto;
+use App\Dto\KeyValueDto;
+use App\Http\Resources\Admin\DiscountIndexCollection;
 use App\Http\Resources\BrandIndexResource;
 use App\Http\Resources\DriveListResource;
 use App\Http\Resources\ListLaptopResource;
-use App\Http\Resources\ShowListResource;
 use App\Models\Cart;
 use App\Models\Product\Brand;
 use App\Models\Product\Image;
@@ -18,12 +18,11 @@ use App\Models\Product\Laptop\Cpu;
 use App\Models\Product\Laptop\Ram;
 use App\Models\Product\Laptop\Rom;
 use App\Models\Product\productInfo;
+use App\Models\Product\Status;
 use App\Models\Product\Type;
+use App\Models\ProductDiscount;
 use App\Service\ILaptopService;
 use App\Service\IProductService;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use Illuminate\Http\Resources\Json\JsonResource;
-use OpenApi\Annotations\Info;
 
 class ProductImpl implements IProductService
 {
@@ -34,10 +33,11 @@ class ProductImpl implements IProductService
     protected Rom $rom;
     protected Cpu $cpu;
     protected Image $image;
+    protected Status $status;
+    protected ProductDiscount $discount;
     protected ILaptopService $laptopService;
 
     /**
-     * ProductImpl constructor.
      * @param productInfo $info
      * @param Brand $brand
      * @param Type $type
@@ -45,9 +45,11 @@ class ProductImpl implements IProductService
      * @param Rom $rom
      * @param Cpu $cpu
      * @param Image $image
+     * @param Status $status
+     * @param ProductDiscount $discount
      * @param ILaptopService $laptopService
      */
-    public function __construct(productInfo $info, Brand $brand, Type $type, Ram $ram, Rom $rom, Cpu $cpu, Image $image, ILaptopService $laptopService)
+    public function __construct(productInfo $info, Brand $brand, Type $type, Ram $ram, Rom $rom, Cpu $cpu, Image $image, Status $status, ProductDiscount $discount, ILaptopService $laptopService)
     {
         $this->info = $info;
         $this->brand = $brand;
@@ -56,6 +58,8 @@ class ProductImpl implements IProductService
         $this->rom = $rom;
         $this->cpu = $cpu;
         $this->image = $image;
+        $this->status = $status;
+        $this->discount = $discount;
         $this->laptopService = $laptopService;
     }
 
@@ -64,6 +68,7 @@ class ProductImpl implements IProductService
     {
         // TODO: Implement getInfos() method.
     }
+
     public function getIndex()
     {
     }
@@ -80,6 +85,8 @@ class ProductImpl implements IProductService
         $createInfo->price = $info->price;
         $createInfo->brand_id = $info->brand_id;
         $createInfo->type_id = $info->type_id;
+//        $createInfo->status_id = $info->status_id;
+        $createInfo->status_id = 1;
         $createInfo->created_at = date('Y-m-d H:i:s');
         $createInfo->save();
         $createInfo->refresh();
@@ -114,7 +121,7 @@ class ProductImpl implements IProductService
         $response->type_id = $info->type_id;
         $response->description = $info->description;
         $response->created_at = $info->created_at;
-        $response->updated_at = $info->updated_at;;
+        $response->updated_at = $info->updated_at;
         return $response;
     }
 
@@ -163,12 +170,23 @@ class ProductImpl implements IProductService
         // TODO: Implement searchByType() method.
     }
 
-    public function searchByBrand($keyword)
+    public function searchByBrand(int $brand_id, string $keyword): array
     {
-        // TODO: Implement searchByBrand() method.
+        $result = [];
+        $brand = Brand::find($brand_id)->first();
+        $infos = $brand->infos->where('name', 'LIKE', '%' . $keyword . '%')->all();
+
+        foreach ($infos as $info) {
+            if ($info->type == 1) {
+                $result[] = new ListLaptopResource($info);
+            } elseif ($info->type == 2) {
+                $result[] = new DriveListResource($info);
+            }
+        }
+        return $result;
     }
 
-    public function brandIndex()
+    public function brandIndex(): array
     {
         $rs['brand'] = BrandIndexResource::collection(Brand::all());
         $temp = [];
@@ -191,5 +209,54 @@ class ProductImpl implements IProductService
             $rs['top'] = ['id' => 1, 'title' => 'Best sell', 'result' => $temp];
         }
         return $rs;
+    }
+
+
+    public function laptopList(int $page): array
+    {
+        $temp = [];
+        $drives = productInfo::where('type_id', '=', 1)->orderByDesc('created_at')->offset(($page - 1) * 12)->limit(12)->get();
+        foreach ($drives as $drive) {
+            $temp[] = new ListLaptopResource($drive);
+        }
+        return $temp;
+    }
+
+    public function driveList(int $page): array
+    {
+        $temp = [];
+        $drives = productInfo::where('type_id', '=', 2)->orderByDesc('created_at')->offset(($page - 1) * 12)->limit(12)->get();
+        foreach ($drives as $drive) {
+            $temp[] = new DriveListResource($drive);;
+        }
+        return $temp;
+    }
+
+    public function maxPage(int $type): int
+    {
+        return productInfo::where('type_id', '=', $type)->count() / 12;
+
+    }
+
+    public function getStatus(): array
+    {
+        $statuses = [];
+        foreach ($this->status::all() as $status) $statuses[] = new KeyValueDto($status->id, $status->status);
+        return $statuses;
+    }
+
+    public function changeStatus(int $product_id, int $status)
+    {
+        $product = productInfo::where('id', '=', $product_id)->first();
+        $product->status_id = $status;
+        $product->save();
+
+    }
+
+    public function discountGetList()
+    {
+        $discounts = $this->discount::orderBy('start_date')->get();
+//        return $discounts;
+        return DiscountIndexCollection::collection($discounts);
     }
 }

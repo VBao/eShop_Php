@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Product;
 
 use App\Dto\Info\postInfoDto;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\DriveListResource;
 use App\Http\Resources\DriveUpdateResource;
 use App\Http\Resources\FilterResource;
 use App\Models\Product\Brand;
@@ -13,7 +12,7 @@ use App\Models\Product\Drive\DriveSpecs;
 use App\Models\Product\Drive\DriveType;
 use App\Models\Product\Image;
 use App\Models\Product\productInfo;
-use App\Models\Product\Type;
+use App\Models\ProductDiscount;
 use App\Service\IDriveService;
 use App\Service\IProductService;
 use App\Service\IValidate;
@@ -32,6 +31,7 @@ class DriveController extends Controller
      * @param IDriveService $driveService
      * @param IProductService $productService
      * @param Brand $brand
+     * @param IValidate $validate
      */
     public function __construct(IDriveService $driveService, IProductService $productService, Brand $brand, IValidate $validate)
     {
@@ -53,143 +53,26 @@ class DriveController extends Controller
 
     }
 
-    public function filter(): JsonResponse
+    public function getFilter(): JsonResponse
     {
-
-        $filter = [];
-        $drive['id'] = Type::where('type', '=', 'Drive')->first()->id;
-        $drive['value'] = (object)[
-            "drive_type" => DriveType::all(),
-            "capacities" => DriveCapacity::all(),
-
-        ];
-        $filter['filter'] = $drive;
+        $filter['filter'] = $this->driveService->filterCheck();
+        $filter['data'] = $this->driveService->list();
         return response()->json($filter);
     }
 
     public function postFilter(Request $request): JsonResponse
     {
-        $drive_brands = [];
-        foreach (Brand::where('type_id', '=', 2)->get(['id', 'brand']) as $brand)
-            $drive_brands[] = (object)[
-                "id" => $brand->id,
-                "value" => $brand->brand,
-                "active" => in_array($brand->id, $request->brand_drive)
-            ];
-        $filter = (object)[
-            'brands' => $drive_brands,
-            'capacities' => $this->capacityOption($request->drive_capacities),
-            'types' => $this->typeOption($request->drive_types)
-        ];
-
-        $rawInfo = [];
-        if ($request->brand_drive != null) {
-            if ($request->price != null) {
-                foreach ($request->brand_drive as $brand)
-                    $rawInfo = array_merge($rawInfo, productInfo::where('brand_id', '=', $brand)
-                        ->whereBetween('price', [$request->price[0], $request->price[1]])->get('id')->toArray());
-            } else {
-                foreach ($request->brand_drive as $brand) {
-                    $rawInfo = array_merge($rawInfo, productInfo::where('brand_id', '=', $brand)->get('id')->toArray());
-                }
-            }
-        } else {
-            $rawInfo = ($request->price != null) ? productInfo::where('type_id', '=', 2)->whereBetween('price', [$request->price[0], $request->price[1]])->get('id') :
-                productInfo::where('type_id', '=', 2)->get('id');
-        }
-        $data = [];
-        $activeType = [];
-        foreach ($request->drive_types as $item) {
-            foreach (DriveType::query()->where('value', 'LIKE', "%" . $item . "%")->get('id')->toArray() as $value)
-                $activeType[] = $value['id'];
-        }
-        $activeCapacity = [];
-        foreach ($request->drive_capacities as $item) {
-            foreach (DriveCapacity::query()->where('value', 'LIKE', "%" . $item . "%")->get(['id'])->toArray() as $value)
-                $activeCapacity[] = $value['id'];
-        }
-        if ($activeType != null || $activeCapacity != null) {
-            if ($activeType == null) {
-                foreach ($rawInfo as $info) {
-                    $checkDrive = DriveSpecs::find($info['id']);
-                    if (in_array($checkDrive->capacity_id, $activeCapacity))
-                        $data[] = new DriveListResource(productInfo::find($info['id']));
-                }
-            } else {
-                if ($activeCapacity == null) {
-                    foreach ($rawInfo as $info) {
-                        $checkDrive = DriveSpecs::find($info['id']);
-                        if (in_array($checkDrive->type_id, $activeType))
-                            $data[] = new DriveListResource(productInfo::find($info['id']));
-                    }
-                } else {
-                    foreach ($rawInfo as $info) {
-                        $checkDrive = DriveSpecs::find($info['id']);
-                        if (in_array($checkDrive->type_id, $activeType) && in_array($checkDrive->capacity_id, $activeCapacity))
-                            $data[] = new DriveListResource(productInfo::find($info['id']));
-                    }
-                }
-            }
-        } else {
-            foreach ($rawInfo as $item) $data[] = new DriveListResource(productInfo::find($item['id']));
-        }
-        $res = array_slice($data, ($request->page - 1) * 12, 12);
+        $filter = $this->driveService->filterCheck();
+        $data = $this->driveService->postFilter($request->get('brand'), $request->get('capacity'), $request->get('type'), $request->get('price'));
+        $data = array_slice($data, ($request->get('page') - 1) * 12, 12);
         return response()->json([
-            'type' => 'drive',
             'filter' => $filter,
-            'data' => $res,
-            'cur_page' => $request->page,
-            'max_page' => ceil(count($data) / 12),
+            'data' => $data,
+            'cur_page' => $request->get('page'),
+            'max_page' => ceil(count(productInfo::where('type_id', '=', 2)->get()) / 12),
         ]);
     }
 
-    private function capacityOption($requestCapacities): array
-    {
-        $capacityList = [];
-        $capacityCheck = [];
-        $capacities = [];
-        foreach (DriveCapacity::all() as $item) {
-            $capacity_value = explode(', ', $item->value, 2)[0];
-            if (!in_array($capacity_value, $capacityList)) {
-                $capacityList[] = $capacity_value;
-            }
-        }
-        if (!is_null($requestCapacities)) foreach ($requestCapacities as $searchCapacity) {
-            $activeType = DriveType::query()->where('value', 'LIKE', "%" . $searchCapacity . "%")->get(['id']);
-            if (!is_null($activeType)) {
-                $capacityCheck[] = $searchCapacity;
-                $capacities[] = ['value' => $searchCapacity, 'active' => true];
-            }
-        }
-        foreach (array_diff($capacityList, $capacityCheck) as $inactiveType) {
-            $capacities[] = ['value' => $inactiveType, 'active' => false];
-        }
-        return $capacities;
-    }
-
-    private function typeOption($requestType): array
-    {
-        $typeList = [];
-        $typeCheck = [];
-        $types = [];
-        foreach (DriveType::all() as $item) {
-            $type_value = explode(', ', $item->value, 2)[0];
-            if (!in_array($type_value, $typeList)) {
-                $typeList[] = $type_value;
-            }
-        }
-        if (!is_null($requestType)) foreach ($requestType as $searchType) {
-            $activeType = DriveType::query()->where('value', 'LIKE', "%" . $searchType . "%")->get(['id']);
-            if (!is_null($activeType)) {
-                $typeCheck[] = $searchType;
-                $types[] = ['value' => $searchType, 'active' => true];
-            }
-        }
-        foreach (array_diff($typeList, $typeCheck) as $inactiveType) {
-            $types[] = ['value' => $inactiveType, 'active' => false];
-        }
-        return $types;
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -211,17 +94,35 @@ class DriveController extends Controller
     {
         $err = $this->validate->checkPost($request);
         if (!is_null($err)) return response()->json($err, 422);
-        if (count(productInfo::where('name', 'LIKE', '%' . $request->info['name'] . '%')->get()->toArray()) != 0) return response()->json(['error' => 'Already have product with name - ' . $request->info['name']], 400);
-        if (count($request->image) < 3) return response()->json(['error' => 'Accept at least 3 image'], 400);
+        if (count(productInfo::where('name', 'LIKE', '%' . $request->get('info')['name'] . '%')->get()->toArray()) != 0) return response()->json(['error' => 'Already have product with name - ' . $request->get('info')['name']], 400);
+        if (count($request->get('image')) < 3) return response()->json(['error' => 'Accept at least 3 image'], 400);
+        if ($request->get('discount') !== null) {
+            $validator = \Validator::make($request->get('discount'), [
+                'percent' => 'required|integer|min:1|max:100',
+                'start_date' => 'required|date|after:now|date_format:Y-m-d H:i',
+                'end_date' => 'required|date|after:start_date|date_format:Y-m-d H:i'
+            ]);
+            if ($validator->fails()) return response()->json(['error' => $validator->errors()]);
+        }
         $info = new postInfoDto;
-        foreach ($request->info as $key => $val) {
+        foreach ($request->get('info') as $key => $val) {
             $info->$key = $val;
         }
         $response = [];
         $response['info'] = $this->productService->create($info);
-        $this->driveService->create($request->spec, $response['info']->id);
-        $this->productService->createImages($request->image, $response['info']->id);
-        return response()->json(['notify' => 'created'], 201);
+        $this->driveService->create($request->get('spec'), $response['info']->id);
+        $this->productService->createImages($request->get('image'), $response['info']->id);
+        if ($request->get('discount') !== null) {
+            $discount = new ProductDiscount();
+            $discount->created_at = now();
+            $discount->updated_at = now();
+            foreach ($validator->getData() as $key => $value) $discount->$key = $value;
+            $discount->product_id = $response['info']->id;
+            $current_price = productInfo::find($response['info']->id)->price;
+            $discount->discount_price = (int)round($current_price - ($current_price * $validator->getData()['percent']) / 100, -3);
+            $discount->save();
+        }
+        return response()->json(['message' => 'success', 'data' => $this->show($response['info']->id)], 201);
     }
 
 
@@ -258,13 +159,13 @@ class DriveController extends Controller
         $err = $this->validate->checkPost($request);
         if (!is_null($err)) return response()->json($err, 422);
         $info = new postInfoDto;
-        foreach ($request->info as $key => $val) {
+        foreach ($request->get('info') as $key => $val) {
             $info->$key = $val;
         }
         $response = [];
         $response['info'] = $this->productService->putInfo($info);
         $drive = DriveSpecs::find($response['info']->id);
-        foreach ($request->spec as $key => $value) {
+        foreach ($request->get('spec') as $key => $value) {
             if ($key == 'drive_type_id') {
                 $drive->type_id = $value;
             } else {
@@ -273,7 +174,7 @@ class DriveController extends Controller
         }
         $drive->save();
 //        $this->driveService->update($request->spec, $response['info']->id);
-        $this->productService->putImage($request->images, $response['info']->id);
+        $this->productService->putImage($request->get('images'), $response['info']->id);
         return response()->json(['notify' => 'updated'], 202);
 
     }

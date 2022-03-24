@@ -188,4 +188,82 @@ class LaptopImpl implements ILaptopService
     {
         return LaptopIndexResource::collection(Brand::where('type_id', 1)->get());
     }
+
+
+    public function postFilter(array $brand_id_list, array $ram_id_list, array $screen_id_list, array $cpu_id_list, array $price, string $search = null): array
+    {
+        if (count($brand_id_list) != 0) {
+            if (count($price) != 0) {
+                $temp_laptop = count($price) == 1 ?
+                    productInfo::where('type_id', '=', 1)->whereIn('brand_id', $brand_id_list)->whereBetween('price', [0, $price[0]]) :
+                    productInfo::where('type_id', '=', 1)->whereIn('brand_id', $brand_id_list)->whereBetween('price', [$price[0], $price[1]]);
+            } else {
+                $temp_laptop = productInfo::where('type_id', '=', 1)->whereIn('brand_id', $brand_id_list);
+            }
+        } else {
+            if (count($price) != 0) {
+                $temp_laptop = count($price) == 1 ?
+                    productInfo::where('type_id', '=', 1)->whereBetween('price', [0, $price[0]]) :
+                    productInfo::where('type_id', '=', 1)->whereBetween('price', [$price[0], $price[0]]);
+            } else {
+                $temp_laptop = productInfo::where('type_id', '=', 1);
+            }
+        }
+
+        if ($search != null) {
+            $temp_laptop = $temp_laptop->where('name', 'LIKE', '%' . $search . '%')->get();
+        } else {
+            $temp_laptop = $temp_laptop->get();
+        }
+//        $temp_laptop = $temp_laptop->limit(12)->offset(($page - 1) * 12)->get();
+
+        if (count($ram_id_list) != 0 || count($screen_id_list) != 0 || count($cpu_id_list) != 0) {
+            if (count($ram_id_list) != 0)
+                foreach ($temp_laptop as $i => $value) {
+                    $spec = laptopSpec::where('id', '=', $temp_laptop[$i]->id)->first();
+                    if (!in_array($spec->ram_id, $ram_id_list)) unset($temp_laptop[$i]);
+                }
+            if (count($screen_id_list) != 0)
+                foreach ($temp_laptop as $i => $value) {
+                    $spec = laptopSpec::where('id', '=', $temp_laptop[$i]->id)->first();
+                    if (!in_array($spec->screen_id, $screen_id_list)) unset($temp_laptop[$i]);
+                }
+            if (count($cpu_id_list) != 0)
+                foreach ($temp_laptop as $i => $value) {
+                    $spec = laptopSpec::where('id', '=', $temp_laptop[$i]->id)->first();
+                    if (!in_array($spec->cpu_id, $cpu_id_list)) unset($temp_laptop[$i]);
+                }
+        }
+        $result = [];
+        foreach ($temp_laptop as $laptop) {
+            $result[] = new ListLaptopResource($laptop);
+        }
+        return $result;
+    }
+
+    public function filterCheck(array $brand_id_list = null, array $ram_id_list = null, array $screen_id_list = null, array $cpu_id_list = null): array
+    {
+        $brand = Brand::query()->where('type_id', '=', 1)->get(['id', 'brand']);
+        foreach ($brand as $id => $value)
+            $brand[$id]['active'] = (($brand_id_list != null && count($brand_id_list) != 0) && in_array($value->id, $brand_id_list));
+
+        $ram = Screen::all();
+        foreach ($ram as $id => $value)
+            $ram[$id]['active'] = (($ram_id_list != null && count($ram_id_list) != 0) && in_array($value->id, $ram_id_list));
+
+        $screen = Screen::all();
+        foreach ($brand as $id => $value)
+            $screen[$id]['active'] = (($screen_id_list != null && count($screen_id_list) != 0) && in_array($value->id, $screen_id_list));
+
+        $cpu = Cpu::all();
+        foreach ($brand as $id => $value)
+            $cpu[$id]['active'] = (($cpu_id_list != null && count($cpu_id_list) != 0) && in_array($value->id, $cpu_id_list));
+
+        return [
+            'brand' => $brand,
+            'ram' => $ram,
+            'screen' => $screen,
+            'cpu' => $cpu,
+        ];
+    }
 }

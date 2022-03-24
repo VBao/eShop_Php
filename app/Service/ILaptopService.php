@@ -27,4 +27,8 @@ interface ILaptopService
     public function filter(array $filter);
 
     public function index();
+
+    public function filterCheck(array $brand_id_list, array $ram_id_list, array $screen_id_list, array $cpu_id_list): array;
+
+    public function postFilter(array $brand_id_list, array $ram_id_list, array $screen_id_list, array $cpu_id_list, array $price, string $search = null): array;
 }

@@ -124,7 +124,7 @@ class UserController extends Controller
 
     public function forgetPassword(Request $request): JsonResponse
     {
-        $usr = User::where('email', '=', $request->email)->first();
+        $usr = User::where('email', '=', $request->query('email'))->first();
         if ($usr == null) return \response()->json(['error' => 'Not found any user with provided mail'], 400);
         Password::sendResetLink(['email' => $usr->email]);
         return \response()->json(['result' => 'Reset email has been sent']);
@@ -132,6 +132,7 @@ class UserController extends Controller
 
     public function resetPassword(Request $request): JsonResponse
     {
+//        TODO validate token
         $validator = Validator::make($request->only('password', 'token'), [
             'password' => 'required|min:6|max:50',
             'token' => 'required|string'
@@ -150,10 +151,10 @@ class UserController extends Controller
 
     public function users(): JsonResponse
     {
-        return \response()->json([
+        return \response()->json(['data' => [
             'user' => ListUserResource::collection(User::query()->where('is_admin', '=', 0)->get()),
             'admin' => ListUserResource::collection(User::query()->where('is_admin', '=', 1)->get())
-        ]);
+        ]]);
     }
 
     public function createAdmin(Request $request): JsonResponse
@@ -186,7 +187,7 @@ class UserController extends Controller
                 $user->$key = $value;
             }
             $user->save();
-            $msg['result']='updated';
+            $msg['result'] = 'updated';
         } catch (QueryException $e) {
             if ($e->getCode() == "42S22")
                 return \response()->json(['error' => "Please re-check all key in json"], 400);
