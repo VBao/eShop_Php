@@ -32,6 +32,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|ProductDiscount whereStartDate($value)
  * @method static Builder|ProductDiscount whereUpdatedAt($value)
  * @mixin Eloquent
+ * @property-read \App\Models\Product\productInfo $product
  */
 class ProductDiscount extends Model
 {
