@@ -14,11 +14,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(LaptopSpecs::class);
+        $this->call(DriveSpecsSeeder::class);
         $this->call(TypeSeeder::class);
         $this->call(BrandSeeder::class);
+        $this->call(ProductStatusSeeder::class);
         $this->call(TestValues::class);
         $this->call(UserSeeder::class);
-        $this->call(DriveSpecsSeeder::class);
         $this->call(DriveTestSeeder::class);
 //        $this->call(Images::class);
         $this->call(OrderStatusSeeder::class);

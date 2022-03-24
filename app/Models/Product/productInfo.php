@@ -26,10 +26,20 @@ productInfo extends Model
         return $this->belongsTo('App\Models\Product\Brand', 'id');
     }
 
+    public function status(): BelongsTo
+    {
+        return $this->belongsTo('App\Models\Product\Status', 'id');
+    }
+
     public function types(): BelongsTo
     {
 //        return $this->belongsToMany('App\Models\Product\Type','types');
         return $this->belongsTo('App\Models\Product\Type', 'id');
+    }
+
+    public function discounts(): HasMany
+    {
+        return $this->hasMany('App\Models\ProductDiscount', 'id');
     }
 
     public function getIndex(int $brand_id)

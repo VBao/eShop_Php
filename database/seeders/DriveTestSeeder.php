@@ -42,6 +42,7 @@ class DriveTestSeeder extends Seeder
             foreach ($drive['info'] as $key => $val) {
                 $info->$key = $val;
             }
+            $info->status_id = 1;
             $response = [];
             $response['info'] = $this->productService->create($info);
             $this->driveService->create($drive['spec'], $response['info']->id);

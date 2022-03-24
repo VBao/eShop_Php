@@ -50,6 +50,30 @@ class InfoController extends Controller
         return response()->json($this->productService->brandIndex());
     }
 
+    public function listLaptop(Request $request): JsonResponse
+    {
+        $page = $request->query('page') !== null ? (int)$request->query('page') : 1;
+        if ($page == null) $page = 1;
+        $data = $this->productService->laptopList($page);
+        return response()->json([
+            'data' => $data,
+            'curr_page' => $page,
+            'max_page' => $this->productService->maxPage(1)
+        ]);
+    }
+
+    public function listDrive(Request $request): JsonResponse
+    {
+        $page = $request->query('page') !== null ? (int)$request->query('page') : 1;
+        $data = $this->productService->driveList($page);
+        return response()->json([
+            'data' => $data,
+            'curr_page' => $page,
+            'max_page' => $this->productService->maxPage(2)
+        ]);
+    }
+
+
     public function search(Request $request): JsonResponse
     {
 
@@ -57,9 +81,7 @@ class InfoController extends Controller
         $filter['laptop'] = $this->laptopService->filterCheck($request->get('laptop')['brand'], $request->get('laptop')['ram'], $request->get('laptop')['screen'], $request->get('laptop')['cpu']);
         $filter['drive'] = $this->driveService->filterCheck($request->get('drive')['brand'], $request->get('drive')['capacity'], $request->get('drive')['type']);
 
-//        $data = [];
-//        $data[] = ;
-        $data = array_merge($this->laptopService->postFilter($request->get('laptop')['brand'], $request->get('laptop')['ram'], $request->get('laptop')['screen'], $request->get('laptop')['cpu'], $request->get('price'), $request->get('keyword')),$this->driveService->postFilter($request->get('drive')['brand'], $request->get('drive')['capacity'], $request->get('drive')['type'], $request->get('price'), $request->get('keyword')));
+        $data = array_merge($this->laptopService->postFilter($request->get('laptop')['brand'], $request->get('laptop')['ram'], $request->get('laptop')['screen'], $request->get('laptop')['cpu'], $request->get('price'), $request->get('keyword')), $this->driveService->postFilter($request->get('drive')['brand'], $request->get('drive')['capacity'], $request->get('drive')['type'], $request->get('price'), $request->get('keyword')));
 
         $result = array_slice($data, ($request->get('page') - 1) * 12, 12);
 
@@ -102,7 +124,12 @@ class InfoController extends Controller
         return response()->json($res);
     }
 
-    public function setDiscount(Request $request)
+    public function getDiscount()
+    {
+        return $this->productService->discountGetList();
+    }
+
+    public function createDiscount(Request $request)
     {
         $validator = \Validator::make($request->only('product_id', 'percent', 'start_date', 'end_date'
         ), [
@@ -132,7 +159,7 @@ class InfoController extends Controller
     }
 
     public
-    function putDiscount(Request $request)
+    function editDiscount(Request $request)
     {
         $validator = \Validator::make($request->all(), [
             'id' => 'required|integer|exists:product_discounts',
@@ -183,13 +210,38 @@ class InfoController extends Controller
     }
 
     public
-    function delDiscount($id): JsonResponse
+    function delDiscount(Request $request): JsonResponse
     {
+        $id = $request->query('id');
         if (ProductDiscount::query()->find($id) == null) {
             return response()->json(['error' => 'Not found discount with id: ' . $id]);
         } else {
-            ProductDiscount::query()->find($id)->delete();
+            $discount = ProductDiscount::query()->find($id)->first();
+            $validate_result = \Validator::make([$discount->start_date, $discount->end_date], [
+                'start_date' => 'date|before:now|date_format:Y-m-d H:i',
+                'end_date' => 'date|after:now|date_format:Y-m-d H:i',
+            ]);
+            if ($validate_result->valid()) {
+                $product = productInfo::where('id', '=', $discount->product_id)->first();
+                $product->discount = false;
+                $product->save();
+            }
+            $discount->delete();
             return response()->json(['result' => 'Success']);
         }
+    }
+
+    public function changeStatus(Request $request)
+    {
+        $product_id = $request->query('id');
+        $status = $request->query('status');
+        $this->productService->changeStatus($product_id, $status);
+
+    }
+
+    private function checkStarEndDate($start_date, $end_date): bool
+    {
+
+        return false;
     }
 }
