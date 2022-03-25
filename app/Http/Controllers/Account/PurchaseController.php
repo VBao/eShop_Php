@@ -73,7 +73,9 @@ class PurchaseController extends Controller
         ];
         Mail::to($user->email)->send(new OrderReceive($mail));
         return response()->json(['message' => 'order succeed',
-                'data' => OrdersAdmin::collection(Order::query()->where('id', $order->id)->first())]
+//      TODO fix not get data
+//                'data' => OrdersAdmin::collection(Order::query()->where('id', $order->id)->first())
+            ]
             , 201);
     }
 

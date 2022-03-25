@@ -53,21 +53,14 @@ class DriveController extends Controller
 
     }
 
-    public function getFilter(): JsonResponse
-    {
-        $filter['filter'] = $this->driveService->filterCheck();
-        $filter['data'] = $this->driveService->list();
-        return response()->json($filter);
-    }
-
     public function postFilter(Request $request): JsonResponse
     {
-        $filter = $this->driveService->filterCheck();
+        $filter = $this->driveService->filterCheck($request->get('brand'), $request->get('capacity'), $request->get('type'));
         $data = $this->driveService->postFilter($request->get('brand'), $request->get('capacity'), $request->get('type'), $request->get('price'));
-        $data = array_slice($data, ($request->get('page') - 1) * 12, 12);
+        $data_page = array_slice($data, ($request->get('page') - 1) * 12, 12);
         return response()->json([
             'filter' => $filter,
-            'data' => $data,
+            'data' => $data_page,
             'cur_page' => $request->get('page'),
             'max_page' => ceil(count(productInfo::where('type_id', '=', 2)->get()) / 12),
         ]);

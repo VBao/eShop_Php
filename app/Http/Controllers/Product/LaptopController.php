@@ -56,23 +56,16 @@ class LaptopController extends Controller
         return $this->productService->getIndex();
     }
 
-    public function getFilter(): JsonResponse
-    {
-        $res['filter'] = $this->laptopService->filterCheck();
-        $res['data'] = $this->laptopService->getList();
-        return response()->json($res);
-    }
-
     public function postFilter(Request $request): JsonResponse
     {
         $filter = $this->laptopService->filterCheck($request->get('brand'), $request->get('ram'), $request->get('screen'), $request->get('cpu'));
 
         $data = $this->laptopService->postFilter($request->get('brand'), $request->get('ram'), $request->get('screen'), $request->get('cpu'), $request->get('price'));
-        $data = array_slice($data, ($request->get('page') - 1) * 12, 12);
+        $data_page = array_slice($data, ($request->get('page') - 1) * 12, 12);
         return response()->json([
             'type' => 'laptop',
             'filter' => $filter,
-            'data' => $data,
+            'data' => $data_page,
             'cur_page' => $request->get('page'),
             'max_page' => ceil(count($data) / 12),
         ]);

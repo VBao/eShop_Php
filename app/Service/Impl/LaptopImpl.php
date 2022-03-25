@@ -23,6 +23,7 @@ use App\Models\Product\productInfo;
 use App\Service\ILaptopService;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use JetBrains\PhpStorm\ArrayShape;
 
 
 class LaptopImpl implements ILaptopService
@@ -190,7 +191,7 @@ class LaptopImpl implements ILaptopService
     }
 
 
-    public function postFilter(array $brand_id_list, array $ram_id_list, array $screen_id_list, array $cpu_id_list, array $price, string $search = null): array
+    public function postFilter(array $brand_id_list, array $ram_list, array $screen_list, array $cpu_list, array $price, string $search = null)
     {
         if (count($brand_id_list) != 0) {
             if (count($price) != 0) {
@@ -215,24 +216,40 @@ class LaptopImpl implements ILaptopService
         } else {
             $temp_laptop = $temp_laptop->get();
         }
-//        $temp_laptop = $temp_laptop->limit(12)->offset(($page - 1) * 12)->get();
 
-        if (count($ram_id_list) != 0 || count($screen_id_list) != 0 || count($cpu_id_list) != 0) {
-            if (count($ram_id_list) != 0)
-                foreach ($temp_laptop as $i => $value) {
-                    $spec = laptopSpec::where('id', '=', $temp_laptop[$i]->id)->first();
-                    if (!in_array($spec->ram_id, $ram_id_list)) unset($temp_laptop[$i]);
-                }
-            if (count($screen_id_list) != 0)
-                foreach ($temp_laptop as $i => $value) {
-                    $spec = laptopSpec::where('id', '=', $temp_laptop[$i]->id)->first();
-                    if (!in_array($spec->screen_id, $screen_id_list)) unset($temp_laptop[$i]);
-                }
-            if (count($cpu_id_list) != 0)
-                foreach ($temp_laptop as $i => $value) {
-                    $spec = laptopSpec::where('id', '=', $temp_laptop[$i]->id)->first();
-                    if (!in_array($spec->cpu_id, $cpu_id_list)) unset($temp_laptop[$i]);
-                }
+        if (count($ram_list) != 0 || count($screen_list) != 0 || count($cpu_list) != 0) {
+            if (count($ram_list) != 0)
+                foreach ($ram_list as $ram_keyword)
+                    foreach ($temp_laptop as $i => $value) {
+                        $delete = true;
+                        foreach (Ram::where('value', 'LIKE', '%' . $ram_keyword . '%')->get() as $ram) {
+                            $spec = laptopSpec::where('id', '=', $temp_laptop[$i]->id)->first();
+                            if ($spec->ram_id == $ram->id) $delete = false;
+                        }
+                        if ($delete) unset($temp_laptop[$i]);
+                    }
+
+            if (count($screen_list) != 0)
+                foreach ($screen_list as $screen_keyword)
+                    foreach ($temp_laptop as $i => $value) {
+                        $delete = true;
+                        foreach (Screen::where('value', 'LIKE', '%' . $screen_keyword . '%')->get() as $screen) {
+                            $spec = laptopSpec::where('id', '=', $temp_laptop[$i]->id)->first();
+                            if ($spec->screen_id == $screen->id) $delete = false;
+                        }
+                        if ($delete) unset($temp_laptop[$i]);
+                    }
+
+            if (count($cpu_list) != 0)
+                foreach ($cpu_list as $cpu_keyword)
+                    foreach ($temp_laptop as $i => $value) {
+                        $delete = true;
+                        foreach (Cpu::where('value', 'LIKE', "%" . $cpu_keyword . "%")->get() as $cpu) {
+                            $spec = laptopSpec::where('id', '=', $temp_laptop[$i]->id)->first();
+                            if ($spec->cpu_id == $cpu->id) $delete = false;
+                        }
+                        if ($delete) unset($temp_laptop[$i]);
+                    }
         }
         $result = [];
         foreach ($temp_laptop as $laptop) {
@@ -241,6 +258,7 @@ class LaptopImpl implements ILaptopService
         return $result;
     }
 
+    #[ArrayShape(['brand' => "array", 'ram' => "array", 'screen' => "array", 'cpu' => "array"])]
     public function filterCheck(array $brand_id_list = null, array $ram_id_list = null, array $screen_id_list = null, array $cpu_id_list = null): array
     {
         $brand_list = [];
@@ -252,17 +270,9 @@ class LaptopImpl implements ILaptopService
                 'active' => (($brand_id_list != null && count($brand_id_list) != 0) && in_array($value->id, $brand_id_list))
             ];
 
-        $ram = Screen::all();
-        foreach ($ram as $id => $value)
-            $ram[$id]['active'] = (($ram_id_list != null && count($ram_id_list) != 0) && in_array($value->id, $ram_id_list));
-
-        $screen = Screen::all();
-        foreach ($screen as $id => $value)
-            $screen[$id]['active'] = (($screen_id_list != null && count($screen_id_list) != 0) && in_array($value->id, $screen_id_list));
-
-        $cpu = Cpu::all();
-        foreach ($cpu as $id => $value)
-            $cpu[$id]['active'] = (($cpu_id_list != null && count($cpu_id_list) != 0) && in_array($value->id, $cpu_id_list));
+        $ram = $this->ramOption($ram_id_list);
+        $screen = $this->screenOption($screen_id_list);
+        $cpu = $this->cpuOption($cpu_id_list);
 
         return [
             'brand' => $brand_list,
@@ -270,5 +280,77 @@ class LaptopImpl implements ILaptopService
             'screen' => $screen,
             'cpu' => $cpu,
         ];
+    }
+
+    private function ramOption($requestRam): array
+    {
+        $ramLis = [];
+        $ramCheck = [];
+        $rams = [];
+        foreach (Ram::all() as $item) {
+            $ram_size = explode(', ', $item->value, 2)[0];
+            if (!in_array($ram_size, $ramLis)) {
+                $ramLis[] = $ram_size;
+            }
+        }
+        if (count($requestRam) != 0) foreach ($requestRam as $searchRam) {
+            $activeRams = Ram::where('value', 'LIKE', "%" . $searchRam . "%")->get(['id']);
+            if (!is_null($activeRams)) {
+                $ramCheck[] = $searchRam;
+                $rams[] = ['value' => $searchRam, 'active' => true];
+            }
+        }
+        foreach (array_diff($ramLis, $ramCheck) as $inactiveRam) {
+            $rams[] = ['value' => $inactiveRam, 'active' => false];
+        }
+        return $rams;
+    }
+
+    private function screenOption($requestScreen): array
+    {
+        $screenList = [];
+        $screenCheck = [];
+        $screens = [];
+        foreach (Screen::all() as $item) {
+            $screen_size = explode(', ', $item->value, 2)[0];
+            if (!in_array($screen_size, $screenList)) {
+                $screenList[] = $screen_size;
+            }
+        }
+        if (count($requestScreen) != 0) foreach ($requestScreen as $searchScreen) {
+            $activeScreen = Screen::where('value', 'LIKE', "%" . $searchScreen . "%")->get(['id']);
+            if (!is_null($activeScreen)) {
+                $screenCheck[] = $searchScreen;
+                $screens[] = ['value' => $searchScreen, 'active' => true];
+            }
+        }
+        foreach (array_diff($screenList, $screenCheck) as $inactiveScreen) {
+            $screens[] = ['value' => $inactiveScreen, 'active' => false];
+        }
+        return $screens;
+    }
+
+    private function cpuOption($requestCpu): array
+    {
+        $cpuList = [];
+        $cpuCheck = [];
+        $cpus = [];
+        foreach (Cpu::all() as $item) {
+            $cpu_value = explode(', ', $item->value, 2)[0];
+            if (!in_array($cpu_value, $cpuList)) {
+                $cpuList[] = $cpu_value;
+            }
+        }
+        if (count($requestCpu) != 0) foreach ($requestCpu as $searchCpu) {
+            $activeCpu = Cpu::where('value', 'LIKE', "%" . $searchCpu . "%")->get(['id']);
+            if (!is_null($activeCpu)) {
+                $cpuCheck[] = $searchCpu;
+                $cpus[] = ['value' => $searchCpu, 'active' => true];
+            }
+        }
+        foreach (array_diff($cpuList, $cpuCheck) as $inactiveScreen) {
+            $cpus[] = ['value' => $inactiveScreen, 'active' => false];
+        }
+        return $cpus;
     }
 }
