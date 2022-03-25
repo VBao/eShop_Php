@@ -41,8 +41,8 @@ Route::prefix('products')->group(function () {
 
 // User routes group
 Route::group(['middleware' => ['check_login']], function () {
-    Route::post('/cart_post', [PurchaseController::class, 'purchase']);
-    Route::get('/orders', [PurchaseController::class, 'orders']);
+    Route::post('/order', [PurchaseController::class, 'purchase']);
+    Route::get('/order', [PurchaseController::class, 'orders']);
     Route::get('logout', [UserController::class, 'logout']);
 
     Route::prefix('/account')->group(function () {
