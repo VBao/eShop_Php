@@ -180,9 +180,14 @@ class DriveImpl implements IDriveService
 
     public function filterCheck(array $brand_list = null, array $capacity_list = null, array $type_list = null): array
     {
+        $brand_list_result = [];
         $brand = Brand::query()->where('type_id', '=', 2)->get(['id', 'brand']);
         foreach ($brand as $id => $value)
-            $brand[$id]['active'] = (($brand_list != null && count($brand_list) != 0) && in_array($value->id, $brand_list));
+            $brand_list_result[] = [
+                'id' => $value->id,
+                'value' => $value->brand,
+                'active' => (($brand_list != null && count($brand_list) != 0) && in_array($value->id, $brand_list))
+            ];
 
         $capacity = DriveCapacity::all();
         foreach ($capacity as $id => $value)
@@ -193,7 +198,7 @@ class DriveImpl implements IDriveService
             $type[$id]['active'] = (($type_list != null && count($type_list) != 0) && in_array($value->id, $type_list));
 
         return [
-            'brand' => $brand,
+            'brand' => $brand_list_result,
             'capacity' => $capacity,
             'drive_type' => $type
         ];

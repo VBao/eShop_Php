@@ -25,7 +25,6 @@ Route::prefix('products')->group(function () {
     Route::post('/filter', [InfoController::class, 'filter']);
 
     Route::prefix('laptop')->group(function () {
-        Route::get('/filter', [LaptopController::class, 'getFilter']);
         Route::post('/filter', [LaptopController::class, 'postFilter']);
         Route::get('/list', [InfoController::class, 'listLaptop']);
         Route::get('/get/{id}', [LaptopController::class, 'show']);
@@ -34,7 +33,6 @@ Route::prefix('products')->group(function () {
     Route::prefix('drive')->group(function () {
         Route::get('/list', [InfoController::class, 'listDrive']);
         Route::get('/get/{id}', [DriveController::class, 'show']);
-        Route::get('/filter', [DriveController::class, 'getFilter']);
         Route::post('/filter', [DriveController::class, 'postFilter']);
     });
 });

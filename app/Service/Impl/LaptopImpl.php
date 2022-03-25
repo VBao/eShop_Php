@@ -243,24 +243,29 @@ class LaptopImpl implements ILaptopService
 
     public function filterCheck(array $brand_id_list = null, array $ram_id_list = null, array $screen_id_list = null, array $cpu_id_list = null): array
     {
+        $brand_list = [];
         $brand = Brand::query()->where('type_id', '=', 1)->get(['id', 'brand']);
         foreach ($brand as $id => $value)
-            $brand[$id]['active'] = (($brand_id_list != null && count($brand_id_list) != 0) && in_array($value->id, $brand_id_list));
+            $brand_list[] = [
+                'id' => $value->id,
+                'value' => $value->brand,
+                'active' => (($brand_id_list != null && count($brand_id_list) != 0) && in_array($value->id, $brand_id_list))
+            ];
 
         $ram = Screen::all();
         foreach ($ram as $id => $value)
             $ram[$id]['active'] = (($ram_id_list != null && count($ram_id_list) != 0) && in_array($value->id, $ram_id_list));
 
         $screen = Screen::all();
-        foreach ($brand as $id => $value)
+        foreach ($screen as $id => $value)
             $screen[$id]['active'] = (($screen_id_list != null && count($screen_id_list) != 0) && in_array($value->id, $screen_id_list));
 
         $cpu = Cpu::all();
-        foreach ($brand as $id => $value)
+        foreach ($cpu as $id => $value)
             $cpu[$id]['active'] = (($cpu_id_list != null && count($cpu_id_list) != 0) && in_array($value->id, $cpu_id_list));
 
         return [
-            'brand' => $brand,
+            'brand' => $brand_list,
             'ram' => $ram,
             'screen' => $screen,
             'cpu' => $cpu,
