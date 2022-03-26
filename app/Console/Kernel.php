@@ -2,12 +2,8 @@
 
 namespace App\Console;
 
-use App\Console\Commands\CheckDiscountCommand;
-use App\Models\Product\productInfo;
-use App\Models\ProductDiscount;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use phpDocumentor\Reflection\DocBlock\Tags\Reference\Url;
 
 class Kernel extends ConsoleKernel
 {

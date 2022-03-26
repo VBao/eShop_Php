@@ -2,12 +2,10 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Product\Brand;
 use App\Models\Product\Drive\DriveCapacity;
 use App\Models\Product\Drive\DriveSpecs;
 use App\Models\Product\Drive\DriveType;
 use App\Models\Product\Image;
-use App\Models\Product\Laptop\Cpu;
 use App\Models\Product\Laptop\laptopSpec;
 use App\Models\Product\Laptop\Ram;
 use App\Models\Product\Laptop\Rom;
