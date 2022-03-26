@@ -21,7 +21,6 @@ use App\Models\Product\productInfo;
 use App\Service\IDriveService;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Collection;
-use JetBrains\PhpStorm\ArrayShape;
 
 class DriveImpl implements IDriveService
 {
@@ -36,7 +35,7 @@ class DriveImpl implements IDriveService
         $this->driveSpecs = $driveSpecs;
     }
 
-    #[ArrayShape(['info' => "array", 'spec' => "array"])] public function getForm(): array
+    public function getForm(): array
     {
         return [
             'info' => ['brands' => Brand::query()->where('type_id', 2)->get(['id', 'brand'])],
@@ -189,7 +188,7 @@ class DriveImpl implements IDriveService
         return $result;
     }
 
-    #[ArrayShape(['brand' => "array", 'capacity' => "array", 'drive_type' => "array"])] public function filterCheck(array $brand_list, array $capacity_list, array $type_list): array
+    public function filterCheck(array $brand_list, array $capacity_list, array $type_list): array
     {
         $brand_list_result = [];
         $brand = Brand::query()->where('type_id', '=', 2)->get(['id', 'brand']);

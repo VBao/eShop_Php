@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\Account\PurchaseController;
 use App\Http\Controllers\Account\UserController;
 use App\Http\Controllers\Product\DriveController;
 use App\Http\Controllers\Product\InfoController;
 use App\Http\Controllers\Product\LaptopController;
-use App\Http\Controllers\Account\PurchaseController;
 
 
 /*

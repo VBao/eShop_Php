@@ -23,7 +23,6 @@ use App\Models\Product\productInfo;
 use App\Service\ILaptopService;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use JetBrains\PhpStorm\ArrayShape;
 
 
 class LaptopImpl implements ILaptopService
@@ -258,7 +257,6 @@ class LaptopImpl implements ILaptopService
         return $result;
     }
 
-    #[ArrayShape(['brand' => "array", 'ram' => "array", 'screen' => "array", 'cpu' => "array"])]
     public function filterCheck(array $brand_id_list = null, array $ram_id_list = null, array $screen_id_list = null, array $cpu_id_list = null): array
     {
         $brand_list = [];

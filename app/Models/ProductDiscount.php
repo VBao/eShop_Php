@@ -36,8 +36,10 @@ use Illuminate\Support\Carbon;
  */
 class ProductDiscount extends Model
 {
-    public function product():BelongsTo{
+    public function product(): BelongsTo
+    {
         return $this->belongsTo('App\Models\Product\productInfo');
     }
+
     use HasFactory;
 }
