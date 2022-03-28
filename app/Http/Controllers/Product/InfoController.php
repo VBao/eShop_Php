@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Discount\IndexAdminResource;
 use App\Models\Product\productInfo;
 use App\Models\Product\Type;
 use App\Models\ProductDiscount;
@@ -79,17 +80,33 @@ class InfoController extends Controller
 
         $filter = [];
         $filter['laptop'] = $this->laptopService->filterCheck($request->get('laptop')['brand'], $request->get('laptop')['ram'], $request->get('laptop')['screen'], $request->get('laptop')['cpu']);
-        $filter['drive'] = $this->driveService->filterCheck($request->get('drive')['brand'], $request->get('drive')['capacity'], $request->get('drive')['type']);
+        $filter['drive'] = $this->driveService->filterCheck($request->get('drive')['brand'], $request->get('drive')['capacity'], $request->get('drive')['drive_type']);
 
-        $data = array_merge($this->laptopService->postFilter($request->get('laptop')['brand'], $request->get('laptop')['ram'], $request->get('laptop')['screen'], $request->get('laptop')['cpu'], $request->get('price'), $request->get('keyword')), $this->driveService->postFilter($request->get('drive')['brand'], $request->get('drive')['capacity'], $request->get('drive')['type'], $request->get('price'), $request->get('keyword')));
+        $data_laptop = $this->laptopService->postFilter($request->get('laptop')['brand'], $request->get('laptop')['ram'], $request->get('laptop')['screen'], $request->get('laptop')['cpu'], $request->get('price'), $request->get('keyword'));
+        $data_drive = $this->driveService->postFilter($request->get('drive')['brand'], $request->get('drive')['capacity'], $request->get('drive')['drive_type'], $request->get('price'), $request->get('keyword'));
 
-        $result = array_slice($data, ($request->get('page') - 1) * 12, 12);
 
         return response()->json([
-            'filter' => $filter,
-            'data' => $result,
-            'cur_page' => $request->get('page'),
-            'max_page' => ceil(count($data) / 12)
+            'filter' => [
+                'product_type' => [
+                    [
+                        'id' => 1,
+                        'value' => 'Laptop (' . count($data_laptop) . ')',
+                        'active' => true,
+                    ],
+                    [
+                        'id' => 2,
+                        'value' => 'Ổ cứng (' . count($data_drive) . ')',
+                        'active' => false,
+                    ],
+                ],
+                'laptop' => $filter['laptop'],
+                'drive' => $filter['drive']
+            ],
+            'data' => [
+                'laptop' => $data_laptop,
+                'drive' => $data_drive,
+            ]
         ]);
     }
 
@@ -124,9 +141,11 @@ class InfoController extends Controller
         return response()->json($res);
     }
 
-    public function getDiscount()
+    public function getDiscount(Request $request)
     {
-        return $this->productService->discountGetList();
+        $page=$request->query('page') == null ? 1 : $request->query('page');
+        $data=ProductDiscount::orderBy('start_date')->offset(($page - 1) * 15)->limit(15)->get();
+        return IndexAdminResource::collection($data);
     }
 
     public function createDiscount(Request $request)

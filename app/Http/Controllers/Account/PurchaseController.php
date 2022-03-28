@@ -45,9 +45,11 @@ class PurchaseController extends Controller
             $add_order = new OrderDetail();
             $add_order->product_id = $prop->id;
             $add_order->product_name = $prop->name;
-            $add_order->thumbnail = Image::where('info_id', '=', $prop->id)->first()->link_image;
+            $add_order->thumbnail = Image::where('info_id', '=', $prop->id)
+                ->first()->link_image;
             $add_order->quantity = $order_product['qty'];
             $add_order->price = $discount == null ? $prop->price : $discount->discount_price;
+//            $add_order->method_id=
             $total += $add_order->price * $add_order->quantity;
             $products[] = $add_order;
         }
@@ -72,8 +74,7 @@ class PurchaseController extends Controller
         ];
         Mail::to($user->email)->send(new OrderReceive($mail));
         return response()->json(['message' => 'order succeed',
-//      TODO fix not get data
-//                'data' => OrdersAdmin::collection(Order::query()->where('id', $order->id)->first())
+                'data' => OrdersAdmin::collection(Order::query()->where('id', $order->id)->get())[0]
             ]
             , 201);
     }
@@ -85,16 +86,24 @@ class PurchaseController extends Controller
         return response()->json(['data' => $res]);
     }
 
-    public function ordersAdmin(): JsonResponse
+    public function ordersAdmin(Request $request): JsonResponse
     {
-        return response()->json(['data' => OrdersAdmin::collection(Order::all())]);
+        $count = Order::all()->count();
+        $page = $request->query('page') == null ? 1 : $request->query('page');
+        $data = Order::offset(($page - 1) * 15)->limit(15)->get();
+        return response()->json([
+            'data' => OrdersAdmin::collection($data),
+            'curr_page' => $page,
+            'max_page' => ceil($count / 15)
+        ]);
     }
 
     public function changeStats(int $orderId, string $stat): JsonResponse
     {
         $order = Order::query()->where('id', '=', $orderId)->first();
         $stats = OrderStatus::all();
-        if ($order->status_id == $stats->where('status', '=', $stat)->first()->id) return response()->json(['result' => 'Already changed']);
+        if ($order->status_id == $stats->where('status', '=', $stat)->first()->id)
+            return response()->json(['result' => 'Already changed']);
         $order->status_id = $stats->where('status', '=', $stat)->first()->id;
         $order->save();
         return response()->json(['result' => 'Changed'], 202);

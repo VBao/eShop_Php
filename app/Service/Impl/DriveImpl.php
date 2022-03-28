@@ -145,7 +145,7 @@ class DriveImpl implements IDriveService
             if (count($price) != 0) {
                 $temp_drive = count($price) == 1 ?
                     productInfo::where('type_id', '=', 2)->whereBetween('price', [0, $price[0]]) :
-                    productInfo::where('type_id', '=', 2)->whereBetween('price', [$price[0], $price[0]]);
+                    productInfo::where('type_id', '=', 2)->whereBetween('price', [$price[0], $price[1]]);
             } else {
                 $temp_drive = productInfo::where('type_id', '=', 2);
             }

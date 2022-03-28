@@ -237,11 +237,18 @@ class LaptopController extends Controller
 //        return $res;
 //    }
 
-    public function adminProducts(): JsonResponse
+    public function adminProducts(Request $request): JsonResponse
     {
-        $data['data'] = adminIndex::collection(productInfo::where('type_id', '=', '1')->get());
-        $data['status'] = $this->productService->getStatus();
-        return response()->json(['result' => $data]);
+        $page = $request->query('page') == null ? 1 : $request->query('page');
+        $count = productInfo::where('type_id', '=', '1')->count();
+        $laps = productInfo::where('type_id', '=', '1')->offset(($page - 1) * 15)->limit(15)->get();
+        $data = adminIndex::collection($laps);
+        $status = $this->productService->getStatus();
+        return response()->json([
+            'status' => $status,
+            'data' => $data,
+            'curr_page' => $page,
+            'max_page' => ceil($count / 15)]);
     }
 
     private function dtoFromRequest()

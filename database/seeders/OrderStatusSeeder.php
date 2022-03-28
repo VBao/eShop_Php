@@ -19,5 +19,8 @@ class OrderStatusSeeder extends Seeder
         DB::table('order_statuses')->insert(['status' => 'ON_GOING']);
         DB::table('order_statuses')->insert(['status' => 'DELIVERED']);
         DB::table('order_statuses')->insert(['status' => 'CANCELLED']);
+
+        DB::table('payment_methods')->insert(['method' => 'COD']);
+        DB::table('payment_methods')->insert(['method' => 'PAYPAL']);
     }
 }
