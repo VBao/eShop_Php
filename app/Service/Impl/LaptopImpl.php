@@ -204,7 +204,7 @@ class LaptopImpl implements ILaptopService
             if (count($price) != 0) {
                 $temp_laptop = count($price) == 1 ?
                     productInfo::where('type_id', '=', 1)->whereBetween('price', [0, $price[0]]) :
-                    productInfo::where('type_id', '=', 1)->whereBetween('price', [$price[0], $price[0]]);
+                    productInfo::where('type_id', '=', 1)->whereBetween('price', [$price[0], $price[1]]);
             } else {
                 $temp_laptop = productInfo::where('type_id', '=', 1);
             }

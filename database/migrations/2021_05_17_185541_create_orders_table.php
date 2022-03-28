@@ -23,6 +23,9 @@ class CreateOrdersTable extends Migration
             $table->integer('total')->nullable(false);
             $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('status_id')->references('id')->on('order_statuses');
+//            $table->foreignId('method_id')->references('id')->on('payment_methods');
+//            $table->foreignId('payment_id')->references('id')->on('payment_histories');
+//            $table->boolean('is_paid')->default(false);
             $table->dateTime('created_at');
         });
     }

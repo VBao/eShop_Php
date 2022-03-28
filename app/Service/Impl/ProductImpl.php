@@ -256,7 +256,6 @@ class ProductImpl implements IProductService
     public function discountGetList()
     {
         $discounts = $this->discount::orderBy('start_date')->get();
-//        return $discounts;
-        return DiscountIndexCollection::collection($discounts);
+        return $discounts;
     }
 }
