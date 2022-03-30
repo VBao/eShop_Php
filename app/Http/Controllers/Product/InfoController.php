@@ -53,11 +53,12 @@ class InfoController extends Controller
 
     public function listLaptop(Request $request): JsonResponse
     {
-        $page = $request->query('page') !== null ? (int)$request->query('page') : 1;
+        $page = $request->query('page') != null ? (int)$request->query('page') : 1;
         if ($page == null) $page = 1;
         $data = $this->productService->laptopList($page);
+        $data_page = array_slice($data, ($page - 1) * 12, 12);
         return response()->json([
-            'data' => $data,
+            'data' => $data_page,
             'curr_page' => $page,
             'max_page' => $this->productService->maxPage(1)
         ]);
@@ -143,8 +144,8 @@ class InfoController extends Controller
 
     public function getDiscount(Request $request)
     {
-        $page=$request->query('page') == null ? 1 : $request->query('page');
-        $data=ProductDiscount::orderBy('start_date')->offset(($page - 1) * 15)->limit(15)->get();
+        $page = $request->query('page') == null ? 1 : $request->query('page');
+        $data = ProductDiscount::orderBy('start_date')->offset(($page - 1) * 15)->limit(15)->get();
         return IndexAdminResource::collection($data);
     }
 
