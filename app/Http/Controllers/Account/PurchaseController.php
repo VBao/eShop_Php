@@ -36,7 +36,7 @@ class PurchaseController extends Controller
         $products = [];
         $order_request = $request->get('order');
         foreach ($order_request as $order_product) {
-            $prop = productInfo::find($order_product['id'])->first();
+            $prop = productInfo::where('id', '=', $order_product['id'])->first();
             $discount = ProductDiscount::query()
                 ->where('start_date', '<', date('Y-m-d H:i:s'))
                 ->where('end_date', '>', date('Y-m-d H:i:s'))
