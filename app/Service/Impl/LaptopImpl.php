@@ -190,7 +190,7 @@ class LaptopImpl implements ILaptopService
     }
 
 
-    public function postFilter(array $brand_id_list, array $ram_list, array $screen_list, array $cpu_list, array $price, string $search = null)
+    public function postFilter(array $brand_id_list, array $ram_list, array $screen_list, array $cpu_list, array $price, string $search = null): array
     {
         if (count($brand_id_list) != 0) {
             if (count($price) != 0) {

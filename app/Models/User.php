@@ -62,7 +62,8 @@ class User extends Authenticate implements JWTSubject
         'email',
         'password',
         'phone',
-        'address'
+        'address',
+        'gender'
     ];
 
     /**

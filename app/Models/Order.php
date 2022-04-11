@@ -24,6 +24,16 @@ use Illuminate\Database\Eloquent\Model;
  * @method static Builder|Order whereTotal($value)
  * @method static Builder|Order whereUserId($value)
  * @mixin Eloquent
+ * @property string $name
+ * @property string $email
+ * @property string $phone
+ * @property string $address
+ * @property string|null $note
+ * @method static Builder|Order whereAddress($value)
+ * @method static Builder|Order whereEmail($value)
+ * @method static Builder|Order whereName($value)
+ * @method static Builder|Order whereNote($value)
+ * @method static Builder|Order wherePhone($value)
  */
 class Order extends Model
 {
