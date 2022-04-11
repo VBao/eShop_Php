@@ -22,22 +22,25 @@ class UserController extends Controller
 {
     public function register(Request $request): JsonResponse
     {
-        $data = $request->only('name', 'email', 'password', 'address', 'phone');
+        $data = $request->only('name', 'email', 'password', 'address', 'phone','gender');
         $validator = Validator::make($data, [
             'name' => 'required|string',
             'email' => 'required|string|unique:users',
             'password' => 'required|string|min:6|max:50',
             'address' => 'required|string',
-            'phone' => 'required|string|min:10|max:10'
+            'phone' => 'required|string|min:10|max:10',
+            'gender'=>'required|boolean'
         ]);
 
-        if ($validator->fails()) return response()->json(['error' => $validator->messages()], 200);
+        if ($validator->fails()) return response()->json(['error' => $validator->messages()], 400);
+//        error_log($request->gender);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'address' => $request->address,
             'phone' => $request->phone,
+            'gender' => $request->gender,
             'is_admin' => 0,
             'created_at' => now()
         ]);
