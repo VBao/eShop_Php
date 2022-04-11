@@ -85,7 +85,8 @@ class UserController extends Controller
                 'email' => \Auth::user()->email,
                 'phone' => \Auth::user()->phone,
                 'address' => \Auth::user()->address,
-                'admin' => \Auth::user()->is_admin
+                'admin' => \Auth::user()->is_admin,
+                'gender' => \Auth::user()->gender
             ]
         ]);
     }
@@ -211,7 +212,7 @@ class UserController extends Controller
         $msg = [];
         $user = Auth::user();
         try {
-            foreach ($request->data as $key => $value) {
+            foreach ($request->all() as $key => $value) {
                 if (strcmp($key, 'password') == 0) {
                     $msg['warning'] = 'Please update password separately';
                     continue;
