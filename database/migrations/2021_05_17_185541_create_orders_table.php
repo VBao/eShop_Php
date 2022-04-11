@@ -15,9 +15,17 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable(false);
+            $table->string('email')->nullable(false);
+            $table->string('phone')->nullable(false);
+            $table->string('address')->nullable(false);
+            $table->text('note')->nullable(true);
+            $table->integer('total')->nullable(false);
             $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('status_id')->references('id')->on('order_statuses');
-            $table->integer('total')->default(0);
+//            $table->foreignId('method_id')->references('id')->on('payment_methods');
+//            $table->foreignId('payment_id')->references('id')->on('payment_histories');
+//            $table->boolean('is_paid')->default(false);
             $table->dateTime('created_at');
         });
     }

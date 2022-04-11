@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\Account\PurchaseController;
 use App\Http\Controllers\Account\UserController;
 use App\Http\Controllers\Product\DriveController;
 use App\Http\Controllers\Product\InfoController;
 use App\Http\Controllers\Product\LaptopController;
-use App\Http\Controllers\Account\PurchaseController;
 
 
 /*
@@ -25,7 +25,6 @@ Route::prefix('products')->group(function () {
     Route::post('/filter', [InfoController::class, 'filter']);
 
     Route::prefix('laptop')->group(function () {
-        Route::get('/filter', [LaptopController::class, 'getFilter']);
         Route::post('/filter', [LaptopController::class, 'postFilter']);
         Route::get('/list', [InfoController::class, 'listLaptop']);
         Route::get('/get/{id}', [LaptopController::class, 'show']);
@@ -34,15 +33,14 @@ Route::prefix('products')->group(function () {
     Route::prefix('drive')->group(function () {
         Route::get('/list', [InfoController::class, 'listDrive']);
         Route::get('/get/{id}', [DriveController::class, 'show']);
-        Route::get('/filter', [DriveController::class, 'getFilter']);
         Route::post('/filter', [DriveController::class, 'postFilter']);
     });
 });
 
 // User routes group
 Route::group(['middleware' => ['check_login']], function () {
-    Route::post('/cart_post', [PurchaseController::class, 'purchase']);
-    Route::get('/orders', [PurchaseController::class, 'orders']);
+    Route::post('/order', [PurchaseController::class, 'purchase']);
+    Route::get('/order', [PurchaseController::class, 'orders']);
     Route::get('logout', [UserController::class, 'logout']);
 
     Route::prefix('/account')->group(function () {

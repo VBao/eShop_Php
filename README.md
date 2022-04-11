@@ -2,13 +2,14 @@
 </p>
 
 ## Installment
-1. Install [php v8.1](https://www.php.net/downloads) and [composer](https://getcomposer.org/)
+1. Install php with version later than 7.4.0 (https://www.php.net/downloads) and [composer](https://getcomposer.org/)
+
 2. Install and enable following plugin in **php**
     * mysql
     * xml
     * mbstring
     * curl
-3. Upgrades your dependencies 
+3. Upgrades your dependencies
     * `composer update`
 4. Generate **app key** and **jwt key**
     * `php artisan key:gen`
@@ -19,6 +20,9 @@
     * `php artisan migrate:fresh --seed`
 7. Run
     * `php artisan serve`
+
 ## About project
-This is part of my collage project to build ecommerce website, this project has 2 parts: [Front-end](https://github.com/nconghau/e-tech) and Back-end (this repo)
+
+This is part of my collage project to build ecommerce website, this project has 2
+parts: [Front-end](https://github.com/nconghau/e-tech) and Back-end (this repo)
 You can use [this](https://www.getpostman.com/collections/5d7de1e9a0583c877605) postman collection to get data

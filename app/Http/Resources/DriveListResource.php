@@ -32,7 +32,7 @@ class DriveListResource extends JsonResource
             'price' => $this->price,
             'spec1' => explode(', ', DriveType::find($spec->type_id)->value, 2)[0],
             'spec2' => explode(', ', DriveCapacity::find($spec->capacity_id)->value, 2)[0],
-            'images' => Image::where('info_id', $this->id)->get()->first()->link_image,
+            'image' => Image::where('info_id', $this->id)->get()->first()->link_image,
             'type' => 'drive',
             "discount_percent" => $discount == null ? 0 : $discount->percent,
             "discount_price" => $discount == null ? 0 : $discount->discount_price

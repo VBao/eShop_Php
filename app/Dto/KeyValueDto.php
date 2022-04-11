@@ -1,8 +1,10 @@
 <?php
+
 namespace App\Dto;
-class KeyValueDto{
+class KeyValueDto
+{
     public int $id;
-    public String $value;
+    public string $value;
 
     /**
      * @param int $id

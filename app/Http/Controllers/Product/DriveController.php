@@ -53,23 +53,16 @@ class DriveController extends Controller
 
     }
 
-    public function getFilter(): JsonResponse
-    {
-        $filter['filter'] = $this->driveService->filterCheck();
-        $filter['data'] = $this->driveService->list();
-        return response()->json($filter);
-    }
-
     public function postFilter(Request $request): JsonResponse
     {
-        $filter = $this->driveService->filterCheck();
-        $data = $this->driveService->postFilter($request->get('brand'), $request->get('capacity'), $request->get('type'), $request->get('price'));
-        $data = array_slice($data, ($request->get('page') - 1) * 12, 12);
+        $filter = $this->driveService->filterCheck($request->get('brand'), $request->get('capacity'), $request->get('drive_type'));
+        $data = $this->driveService->postFilter($request->get('brand'), $request->get('capacity'), $request->get('drive_type'), $request->get('price'));
+        $data_page = array_slice($data, ($request->get('page') - 1) * 12, 12);
         return response()->json([
             'filter' => $filter,
-            'data' => $data,
+            'data' => $data_page,
             'cur_page' => $request->get('page'),
-            'max_page' => ceil(count(productInfo::where('type_id', '=', 2)->get()) / 12),
+            'max_page' => ceil(count($data) / 12),
         ]);
     }
 
@@ -179,10 +172,11 @@ class DriveController extends Controller
 
     }
 
-    public function adminProducts(): array
+    public function adminProducts(Request $request): array
     {
         $res = [];
         $tempAdd = [];
+        $page = $request->query('page') == null ? 1 : $request->query('page');
         foreach ($this->productService->getByType(2) as $val) {
             $tempProduct = $this->productService->getById($val->id);
             $tempInfo = [];
@@ -197,12 +191,13 @@ class DriveController extends Controller
             foreach ($this->driveService->getSpecsAdmin($val->id) as $key1 => $value) $tempInfo[$key1] = $value;
             $tempAdd[] = $tempInfo;
         }
-        $res['data'] = $tempAdd;
+        $res['data'] = array_slice($tempAdd, ($page - 1) * 15, 15);
         $res['filter'] = [
             'Brand' => $this->brand->toArraysReact(2),
             'type' => FilterResource::collection(DriveType::all()),
-            'capacity' => FilterResource::collection(DriveCapacity::all()),
-        ];
+            'capacity' => FilterResource::collection(DriveCapacity::all()),];
+        $res['curr_page'] = intval($page);
+        $res['max_page'] = ceil(count($tempAdd) / 15);
         return $res;
     }
 }

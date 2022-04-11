@@ -13,8 +13,8 @@ class Discount extends Migration
      */
     public function up()
     {
-        Schema::create('product_discounts',function (Blueprint $table){
-            $table->bigInteger('id',true);
+        Schema::create('product_discounts', function (Blueprint $table) {
+            $table->bigInteger('id', true);
             $table->bigInteger('product_id');
             $table->unsignedInteger('percent');
             $table->unsignedBigInteger('discount_price');

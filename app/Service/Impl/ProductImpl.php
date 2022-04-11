@@ -215,7 +215,8 @@ class ProductImpl implements IProductService
     public function laptopList(int $page): array
     {
         $temp = [];
-        $drives = productInfo::where('type_id', '=', 1)->orderByDesc('created_at')->offset(($page - 1) * 12)->limit(12)->get();
+//        $drives = productInfo::where('type_id', '=', 1)->orderByDesc('created_at')->offset(($page - 1) * 12)->limit(12)->get();
+        $drives = productInfo::where('type_id', '=', 1)->orderByDesc('created_at')->get();
         foreach ($drives as $drive) {
             $temp[] = new ListLaptopResource($drive);
         }
@@ -234,7 +235,7 @@ class ProductImpl implements IProductService
 
     public function maxPage(int $type): int
     {
-        return productInfo::where('type_id', '=', $type)->count() / 12;
+        return ceil(productInfo::where('type_id', '=', $type)->count() / 12);
 
     }
 
@@ -256,7 +257,6 @@ class ProductImpl implements IProductService
     public function discountGetList()
     {
         $discounts = $this->discount::orderBy('start_date')->get();
-//        return $discounts;
-        return DiscountIndexCollection::collection($discounts);
+        return $discounts;
     }
 }

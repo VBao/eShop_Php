@@ -56,23 +56,16 @@ class LaptopController extends Controller
         return $this->productService->getIndex();
     }
 
-    public function getFilter(): JsonResponse
-    {
-        $res['filter'] = $this->laptopService->filterCheck();
-        $res['data'] = $this->laptopService->getList();
-        return response()->json($res);
-    }
-
     public function postFilter(Request $request): JsonResponse
     {
         $filter = $this->laptopService->filterCheck($request->get('brand'), $request->get('ram'), $request->get('screen'), $request->get('cpu'));
 
         $data = $this->laptopService->postFilter($request->get('brand'), $request->get('ram'), $request->get('screen'), $request->get('cpu'), $request->get('price'));
-        $data = array_slice($data, ($request->get('page') - 1) * 12, 12);
+        $data_page = array_slice($data, ($request->get('page') - 1) * 12, 12);
         return response()->json([
             'type' => 'laptop',
             'filter' => $filter,
-            'data' => $data,
+            'data' => $data_page,
             'cur_page' => $request->get('page'),
             'max_page' => ceil(count($data) / 12),
         ]);
@@ -244,11 +237,18 @@ class LaptopController extends Controller
 //        return $res;
 //    }
 
-    public function adminProducts(): JsonResponse
+    public function adminProducts(Request $request): JsonResponse
     {
-        $data['data'] = adminIndex::collection(productInfo::where('type_id', '=', '1')->get());
-        $data['status'] = $this->productService->getStatus();
-        return response()->json(['result' => $data]);
+        $page = $request->query('page') == null ? 1 : $request->query('page');
+        $count = productInfo::where('type_id', '=', '1')->count();
+        $laps = productInfo::where('type_id', '=', '1')->offset(($page - 1) * 15)->limit(15)->get();
+        $data = adminIndex::collection($laps);
+        $status = $this->productService->getStatus();
+        return response()->json([
+            'status' => $status,
+            'data' => $data,
+            'curr_page' => intval($page),
+            'max_page' => ceil($count / 15)]);
     }
 
     private function dtoFromRequest()

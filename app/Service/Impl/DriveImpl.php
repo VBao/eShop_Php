@@ -67,14 +67,14 @@ class DriveImpl implements IDriveService
         return $createDrive;
     }
 
-    public function update($drive)
+    public function update($drive): DriveDetailsResource
     {
         $createDrive = DriveSpecs::query()->where('id', $drive->id)->first();
         foreach ($drive as $property => $value) {
             $createDrive->$property = $value;
         }
         $createDrive->save();
-        return $createDrive;
+        return $this->get($drive->id);
     }
 
 
@@ -132,8 +132,7 @@ class DriveImpl implements IDriveService
 
     public function postFilter(array $brand_list, array $capacity_list, array $type_list, array $price, string $search = null): array
     {
-
-        // TODO: Implement postFilter() method.
+//        Search by brand and price
         if (count($brand_list) != 0) {
             if (count($price) != 0) {
                 $temp_drive = count($price) == 1 ?
@@ -146,30 +145,41 @@ class DriveImpl implements IDriveService
             if (count($price) != 0) {
                 $temp_drive = count($price) == 1 ?
                     productInfo::where('type_id', '=', 2)->whereBetween('price', [0, $price[0]]) :
-                    productInfo::where('type_id', '=', 2)->whereBetween('price', [$price[0], $price[0]]);
+                    productInfo::where('type_id', '=', 2)->whereBetween('price', [$price[0], $price[1]]);
             } else {
                 $temp_drive = productInfo::where('type_id', '=', 2);
             }
         }
 
+//        Add search by keyword
         if ($search != null) {
             $temp_drive = $temp_drive->where('name', 'LIKE', '%' . $search . '%')->get();
         } else {
             $temp_drive = $temp_drive->get();
         }
-//        $temp_drive = $temp_drive->limit(12)->offset(($page - 1) * 12)->get();
 
         if (count($capacity_list) != 0 || count($type_list) != 0) {
             if (count($capacity_list) != 0)
-                foreach ($temp_drive as $i => $value) {
-                    $spec = $this->driveSpecs::query()->where('id', '=', $temp_drive[$i]->id)->first();
-                    if (!in_array($spec->capacity_id, $capacity_list)) unset($temp_drive[$i]);
-                }
+                foreach ($capacity_list as $capacity_keyword)
+                    foreach ($temp_drive as $i => $value) {
+                        $delete = true;
+                        foreach (DriveCapacity::where('value', 'LIKE', "%" . $capacity_keyword . "%")->get() as $capacity_id) {
+                            $spec = $this->driveSpecs::query()->where('id', '=', $temp_drive[$i]->id)->first();
+                            if ($spec->capacity_id == $capacity_id->id) $delete = false;
+                        }
+                        if ($delete) unset($temp_drive[$i]);
+                    }
+
             if (count($type_list) != 0)
-                foreach ($temp_drive as $i => $value) {
-                    $spec = $this->driveSpecs::where('id', '=', $temp_drive[$i]->id)->first();
-                    if (!in_array($spec->type_id, $type_list)) unset($temp_drive[$i]);
-                }
+                foreach ($type_list as $type_keyword)
+                    foreach ($temp_drive as $i => $value) {
+                        $delete = true;
+                        foreach (DriveType::where('value', 'LIKE', $type_keyword)->get() as $type_id) {
+                            $spec = $this->driveSpecs::where('id', '=', $temp_drive[$i]->id)->first();
+                            if ($spec->type_id == $type_id->id) $delete = false;
+                        }
+                        if ($delete) unset($temp_drive[$i]);
+                    }
         }
         $result = [];
         foreach ($temp_drive as $drive) {
@@ -178,24 +188,72 @@ class DriveImpl implements IDriveService
         return $result;
     }
 
-    public function filterCheck(array $brand_list = null, array $capacity_list = null, array $type_list = null): array
+    public function filterCheck(array $brand_list, array $capacity_list, array $type_list): array
     {
+        $brand_list_result = [];
         $brand = Brand::query()->where('type_id', '=', 2)->get(['id', 'brand']);
-        foreach ($brand as $id => $value)
-            $brand[$id]['active'] = (($brand_list != null && count($brand_list) != 0) && in_array($value->id, $brand_list));
+        foreach ($brand as $value)
+            $brand_list_result[] = [
+                'id' => $value->id,
+                'value' => $value->brand,
+                'active' => (count($brand_list) != 0 && in_array($value->id, $brand_list))
+            ];
 
-        $capacity = DriveCapacity::all();
-        foreach ($capacity as $id => $value)
-            $capacity[$id]['active'] = (($capacity_list != null && count($capacity_list) != 0) && in_array($value->id, $capacity_list));
-
-        $type = DriveCapacity::all();
-        foreach ($type as $id => $value)
-            $type[$id]['active'] = (($type_list != null && count($type_list) != 0) && in_array($value->id, $type_list));
+        $capacity_filter = $this->capacityFilter($capacity_list);
+        $type_filter = $this->typeFilter($type_list);
 
         return [
-            'brand' => $brand,
-            'capacity' => $capacity,
-            'drive_type' => $type
+            'brand' => $brand_list_result,
+            'capacity' => $capacity_filter,
+            'drive_type' => $type_filter
         ];
+    }
+
+    private function capacityFilter(array $capacity_list): array
+    {
+        $capacityList = [];
+        $capacityCheck = [];
+        $capacities = [];
+        foreach (DriveCapacity::all() as $item) {
+            $capacity_value = explode(', ', $item->value, 2)[0];
+            if (!in_array($capacity_value, $capacityList)) {
+                $capacityList[] = $capacity_value;
+            }
+        }
+        if (count($capacity_list) != 0) foreach ($capacity_list as $searchCapacity) {
+            $activeType = DriveCapacity::query()->where('value', 'LIKE', "%" . $searchCapacity . "%")->get(['id']);
+            if (!is_null($activeType)) {
+                $capacityCheck[] = $searchCapacity;
+                $capacities[] = ['value' => $searchCapacity, 'active' => true];
+            }
+        }
+        foreach (array_diff($capacityList, $capacityCheck) as $inactiveType) {
+            $capacities[] = ['value' => $inactiveType, 'active' => false];
+        }
+        return $capacities;
+    }
+
+    private function typeFilter(array $type_list): array
+    {
+        $typeList = [];
+        $typeCheck = [];
+        $types = [];
+        foreach (DriveType::all() as $item) {
+            $type_value = explode(', ', $item->value, 2)[0];
+            if (!in_array($type_value, $typeList)) {
+                $typeList[] = $type_value;
+            }
+        }
+        if (count($type_list) != 0) foreach ($type_list as $searchType) {
+            $activeType = DriveType::query()->where('value', 'LIKE', $searchType)->get(['id']);
+            if (!is_null($activeType)) {
+                $typeCheck[] = $searchType;
+                $types[] = ['value' => $searchType, 'active' => true];
+            }
+        }
+        foreach (array_diff($typeList, $typeCheck) as $inactiveType) {
+            $types[] = ['value' => $inactiveType, 'active' => false];
+        }
+        return $types;
     }
 }

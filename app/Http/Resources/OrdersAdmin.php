@@ -2,10 +2,8 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Cart;
+use App\Models\OrderDetail;
 use App\Models\OrderStatus;
-use App\Models\Product\Image;
-use App\Models\Product\productInfo;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -22,13 +20,12 @@ class OrdersAdmin extends JsonResource
     public function toArray($request): array
     {
         $products = [];
-        foreach (Cart::query()->where('order_id', '=', $this->id)->get() as $item) {
-            $product = productInfo::find($item->product_id);
+        foreach (OrderDetail::query()->where('order_id', '=', $this->id)->get() as $item) {
             $products[] = (object)[
-                "id" => $item->id,
-                "name" => $product->name,
-                "image" => Image::where('info_id', "=", $product->id)->first()->link_image,
-                "price" => $product->price,
+                "id" => $item->product_id,
+                "name" => $item->product_name,
+                "image" => $item->thumbnail,
+                "price" => $item->price,
                 "qty" => $item->quantity
             ];
         }

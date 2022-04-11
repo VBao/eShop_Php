@@ -2,16 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product\Brand;
-use App\Models\Product\productInfo;
-use App\Models\Product\Type;
-use App\Service\IDriveService;
-use App\Service\ILaptopService;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
 
 class Controller
 {
