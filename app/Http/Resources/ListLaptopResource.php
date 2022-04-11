@@ -19,7 +19,7 @@ class ListLaptopResource extends JsonResource
      */
     public function toArray($request)
     {
-        $spec = laptopSpec::find($this->id);
+        $spec = laptopSpec::query()::where('id','=',$this->id)->get();
         if ($this->discount) {
             $discount = ProductDiscount::query()
                 ->where('start_date', '<', date('Y-m-d H:i:s'))

@@ -93,11 +93,13 @@ class InfoController extends Controller
                     [
                         'id' => 1,
                         'value' => 'Laptop (' . count($data_laptop) . ')',
+                        'type' => 'laptop',
                         'active' => true,
                     ],
                     [
                         'id' => 2,
                         'value' => 'Ổ cứng (' . count($data_drive) . ')',
+                        'type' => 'drive',
                         'active' => false,
                     ],
                 ],
