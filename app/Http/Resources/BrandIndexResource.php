@@ -17,10 +17,10 @@ class BrandIndexResource extends JsonResource
     {
         if ($this->type_id == 1) {
             $type = 'laptop';
-            $rs = ListLaptopResource::collection(productInfo::where('brand_id', $this->id)->orderBy('id', 'desc')->limit(4)->get());
+            $rs = ListLaptopResource::collection(productInfo::where('brand_id', $this->id)->orderBy('id', 'desc')->limit(8)->get());
         } elseif ($this->type_id == 2) {
             $type = 'drive';
-            $rs = DriveListResource::collection(productInfo::where('brand_id', $this->id)->orderBy('id', 'desc')->limit(4)->get());
+            $rs = DriveListResource::collection(productInfo::where('brand_id', $this->id)->orderBy('id', 'desc')->limit(8)->get());
         }
         return [
             'id' => $this->id,

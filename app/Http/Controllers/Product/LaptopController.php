@@ -247,7 +247,7 @@ class LaptopController extends Controller
         return response()->json([
             'status' => $status,
             'data' => $data,
-            'curr_page' => $page,
+            'curr_page' => intval($page),
             'max_page' => ceil($count / 15)]);
     }
 

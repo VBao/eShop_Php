@@ -93,7 +93,7 @@ class PurchaseController extends Controller
         $data = Order::offset(($page - 1) * 15)->limit(15)->get();
         return response()->json([
             'data' => OrdersAdmin::collection($data),
-            'curr_page' => $page,
+            'curr_page' => intval($page),
             'max_page' => ceil($count / 15)
         ]);
     }

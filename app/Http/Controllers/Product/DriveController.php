@@ -196,7 +196,7 @@ class DriveController extends Controller
             'Brand' => $this->brand->toArraysReact(2),
             'type' => FilterResource::collection(DriveType::all()),
             'capacity' => FilterResource::collection(DriveCapacity::all()),];
-        $res['curr_page'] = $page;
+        $res['curr_page'] = intval($page);
         $res['max_page'] = ceil(count($tempAdd) / 15);
         return $res;
     }
