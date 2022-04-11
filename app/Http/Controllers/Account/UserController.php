@@ -5,15 +5,19 @@ namespace App\Http\Controllers\Account;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Account\ListUserResource;
 use App\Models\User;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 use JWTAuth;
+use Mail;
+use Str;
 use Symfony\Component\HttpFoundation\Response;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
@@ -22,14 +26,14 @@ class UserController extends Controller
 {
     public function register(Request $request): JsonResponse
     {
-        $data = $request->only('name', 'email', 'password', 'address', 'phone','gender');
+        $data = $request->only('name', 'email', 'password', 'address', 'phone', 'gender');
         $validator = Validator::make($data, [
             'name' => 'required|string',
             'email' => 'required|string|unique:users',
             'password' => 'required|string|min:6|max:50',
             'address' => 'required|string',
             'phone' => 'required|string|min:10|max:10',
-            'gender'=>'required|boolean'
+            'gender' => 'required|boolean'
         ]);
 
         if ($validator->fails()) return response()->json(['error' => $validator->messages()], 400);
@@ -129,26 +133,51 @@ class UserController extends Controller
     {
         $usr = User::where('email', '=', $request->query('email'))->first();
         if ($usr == null) return \response()->json(['error' => 'Not found any user with provided mail'], 400);
-        Password::sendResetLink(['email' => $usr->email]);
+//        Password::sendResetLink(['email' => $usr->email]);
+        $token = Str::random(64);
+        DB::table('password_resets')->insert([
+            'email' => $request->email,
+            'token' => $token,
+            'created_at' => Carbon::now()
+        ]);
+        Mail::send('mails.forgetPassword', ['token' => $token, 'email' => $request->email], function ($message) use ($request) {
+            $message->to($request->email);
+            $message->subject('Reset Password');
+        });
         return \response()->json(['result' => 'Reset email has been sent']);
     }
 
     public function resetPassword(Request $request): JsonResponse
     {
 //        TODO validate token
-        $validator = Validator::make($request->only('password', 'token'), [
+        $validator = Validator::make($request->only('password', 'token', 'email'), [
             'password' => 'required|min:6|max:50',
-            'token' => 'required|string'
+            'token' => 'required|string',
+            'email' => 'required|string'
         ]);
-        if ($validator->fails()) return response()->json(['error' => $validator->messages()], 200);
+        if ($validator->fails()) return response()->json(['error' => $validator->messages()], 400);
 
-        \Password::reset($request->only('email', 'password', 'token'), function ($user, $password) {
-            $user->forceFill([
-                'password' => bcrypt($password)
-            ]);
-            $user->updated_at = now();
-            $user->save();
-        });
+//        \Password::reset($request->only('email', 'password', 'token'), function ($user, $password) {
+//            $user->forceFill([
+//                'password' => bcrypt($password)
+//            ]);
+//            $user->updated_at = now();
+//            $user->save();
+//        });
+
+        $updatePassword = DB::table('password_resets')
+            ->where([
+                'email' => $request->email,
+                'token' => $request->token
+            ])
+            ->first();
+
+        if (!$updatePassword) {
+            if ($validator->fails()) return response()->json(['error' => 'invalid token'], 400);
+        }
+        DB::table('password_resets')->where(['email'=> $request->email])->delete();
+        $user = User::where('email', $request->email)
+            ->update(['password' => bcrypt($request->password)]);
         return \response()->json(['result' => 'Password change successful'], 200);
     }
 
