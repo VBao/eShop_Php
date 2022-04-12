@@ -20,13 +20,11 @@ class ListLaptopResource extends JsonResource
     public function toArray($request)
     {
         $spec = laptopSpec::find($this->id);
-        if ($this->discount) {
-            $discount = ProductDiscount::query()
-                ->where('start_date', '<', date('Y-m-d H:i:s'))
-                ->where('end_date', '>', date('Y-m-d H:i:s'))
-                ->where('product_id', '=', $this->id)
-                ->first();
-        }
+        $discount = ProductDiscount::query()
+            ->where('start_date', '<', date('Y-m-d H:i:s'))
+            ->where('end_date', '>', date('Y-m-d H:i:s'))
+            ->where('product_id', '=', $this->id)
+            ->first();
         return [
             'id' => $this->id,
             'name' => $this->name,
@@ -36,8 +34,8 @@ class ListLaptopResource extends JsonResource
             'spec2' => explode(', ', Rom::find($spec->rom_id)->value, 2)[0],
             'image' => Image::where('info_id', $this->id)->get()->first()->link_image,
             'type' => 'laptop',
-            "discount_percent" => $this->discount ? $discount->discount_price : 0,
-            "discount_price" => $this->discount ? $discount->discount_price : 0
+            "discount_percent" => $discount ? $discount->discount_price : 0,
+            "discount_price" => $discount ? $discount->discount_price : 0
         ];
     }
 }
