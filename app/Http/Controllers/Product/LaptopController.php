@@ -76,7 +76,6 @@ class LaptopController extends Controller
         $response = new detailLaptopDto();
         $response->info = $this->productService->getById($id);
         $response->specs = $this->laptopService->getSpecs($id);
-
         $response->image = $this->productService->getImages($id);
         $discount = ProductDiscount::query()->where('product_id', '=', $id)->first();
         if ($discount == null || strtotime($discount->start_time) > now()) $discount = null;
