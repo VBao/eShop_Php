@@ -7,6 +7,7 @@ use App\Models\Product\Drive\DriveSpecs;
 use App\Models\Product\Drive\DriveType;
 use App\Models\Product\Image;
 use App\Models\ProductDiscount;
+use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class DriveListResource extends JsonResource
@@ -20,11 +21,16 @@ class DriveListResource extends JsonResource
     public function toArray($request)
     {
         $spec = DriveSpecs::find($this->id);
-        $discount = ProductDiscount::query()
-            ->where('start_date', '>', date('Y-m-d H:i:s'))
-            ->where('end_date', '<', date('Y-m-d H:i:s'))
+        $discounts = ProductDiscount::query()
             ->where('product_id', '=', $this->id)
-            ->first();
+            ->get();
+        $discount = null;
+        foreach ($discounts as $discount_temp) {
+            if (Carbon::parse($discount_temp->start_date) > Carbon::now() || Carbon::parse($discount_temp->end_date) < Carbon::now()) {
+                $discount = $discount_temp;
+                break;
+            }
+        }
         return [
             'id' => $this->id,
             'name' => $this->name,
@@ -33,8 +39,8 @@ class DriveListResource extends JsonResource
             'spec2' => explode(', ', DriveCapacity::find($spec->capacity_id)->value, 2)[0],
             'image' => Image::where('info_id', $this->id)->get()->first()->link_image,
             'type' => 'drive',
-            "discount_percent" => $discount ? $discount->percent : 0,
-            "discount_price" => $discount ? $discount->discount_price : 0
+            "discount_percent" => $discount != null ? $discount->percent : 0,
+            "discount_price" => $discount != null ? $discount->discount_price : 0
         ];
     }
 }
