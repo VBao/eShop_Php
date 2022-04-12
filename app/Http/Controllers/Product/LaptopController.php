@@ -17,6 +17,7 @@ use App\Models\ProductDiscount;
 use App\Service\ILaptopService;
 use App\Service\IProductService;
 use App\Service\IValidate;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -225,6 +226,16 @@ class LaptopController extends Controller
         $tempAdd = [];
         foreach ($this->productService->getByType(1) as $val) {
             $tempProduct = $this->productService->getById($val->id);
+            $discounts = ProductDiscount::query()
+                ->where('product_id', '=', $val->id)
+                ->get();
+            $discount = null;
+            foreach ($discounts as $discount_temp) {
+                if (Carbon::parse($discount_temp->start_date) > now() || Carbon::parse($discount_temp->end_date) < now()) {
+                    $discount = $discount_temp;
+                    break;
+                }
+            }
             $tempInfo = [];
             $tempInfo['id'] = $tempProduct->id;
             $tempInfo['name'] = $tempProduct->name;
@@ -232,6 +243,8 @@ class LaptopController extends Controller
             $tempInfo['brand'] = Brand::find($tempProduct->brand_id)->brand;
             $tempInfo['price'] = $tempProduct->price;
             $tempInfo['image'] = Image::where('info_id', '=', $tempProduct->id)->first()->link_image;
+            $tempInfo["discount_percent"] = $discount ? $discount->discount_price : 0;
+            $tempInfo["discount_price"] = $discount ? $discount->discount_price : 0;
             foreach ($this->laptopService->getSpecsAdmin($val->id) as $key => $value) $tempInfo[$key] = $value;
             $tempAdd[] = $tempInfo;
         }
