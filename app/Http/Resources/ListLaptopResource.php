@@ -7,6 +7,7 @@ use App\Models\Product\Laptop\laptopSpec;
 use App\Models\Product\Laptop\Ram;
 use App\Models\Product\Laptop\Rom;
 use App\Models\ProductDiscount;
+use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ListLaptopResource extends JsonResource
@@ -25,7 +26,7 @@ class ListLaptopResource extends JsonResource
             ->get();
         $discount = null;
         foreach ($discounts as $discount_temp) {
-            if (strtotime($discount_temp->start_date) > now() || strtotime($discount_temp->end_date) < now()) {
+            if (Carbon::parse($discount_temp->start_date) > now() || Carbon::parse($discount_temp->end_date) < now()) {
                 $discount = $discount_temp;
                 break;
             }
