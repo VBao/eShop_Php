@@ -34,5 +34,17 @@ class Cpu extends Model
         return $temp;
     }
 
+    public function toArraysReact(): array
+    {
+        $res = [];
+        foreach (Rom::all() as $cpu) {
+            $temp = [];
+            $temp['value'] = $cpu->value;
+            $temp['text'] = $cpu->value;
+            $res[] = $temp;
+        }
+        return $res;
+    }
+
 
 }

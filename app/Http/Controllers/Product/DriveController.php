@@ -115,7 +115,7 @@ class DriveController extends Controller
             $discount->discount_price = (int)round($current_price - ($current_price * $validator->getData()['percent']) / 100, -3);
             $discount->save();
         }
-        return response()->json(['message' => 'success', 'data' => $this->show($response['info']->id)], 201);
+        return response()->json(['message' => 'success'], 201);
     }
 
 
@@ -166,9 +166,8 @@ class DriveController extends Controller
             }
         }
         $drive->save();
-//        $this->driveService->update($request->spec, $response['info']->id);
-        $this->productService->putImage($request->get('images'), $response['info']->id);
-        return response()->json(['notify' => 'updated'], 202);
+        $this->productService->putImage($request->get('image'), $response['info']->id);
+        return response()->json(['message' => 'updated'], 202);
 
     }
 

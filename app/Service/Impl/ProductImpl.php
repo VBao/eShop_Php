@@ -23,6 +23,7 @@ use App\Models\Product\Type;
 use App\Models\ProductDiscount;
 use App\Service\ILaptopService;
 use App\Service\IProductService;
+use Carbon\Carbon;
 
 class ProductImpl implements IProductService
 {
@@ -142,7 +143,9 @@ class ProductImpl implements IProductService
     public function putImage($images, $id)
     {
         foreach ($images as $key => $value) {
+//            error_log($key);
             $oldImage = Image::query()->where('id', $key)->first();
+//            error_log($oldImage);
             $oldImage->link_image = $value;
             $oldImage->save();
         }
@@ -153,6 +156,23 @@ class ProductImpl implements IProductService
     {
         $oldInfo = $this->info->getById($newInfo->id);
         foreach ($newInfo as $key => $value) {
+            if ($key == 'price') {
+                if ($value != $oldInfo->price) {
+                    $discounts = ProductDiscount::query()
+                        ->where('product_id', '=', $oldInfo->id)
+                        ->get();
+                    $discount = null;
+                    foreach ($discounts as $discount_temp) {
+                        if (Carbon::parse($discount_temp->start_date) > now() || Carbon::parse($discount_temp->end_date) < now()) {
+                            $discount = $discount_temp;
+                            $discount->updated_at = now();
+                            $discount->discount_price = (int)round($value - ($value * $discount->percent) / 100, -3);
+                            $discount->save();
+                            break;
+                        }
+                    }
+                }
+            }
             $oldInfo->$key = $value;
         }
         $oldInfo->updated_at = date('Y-m-d H:i:s');
