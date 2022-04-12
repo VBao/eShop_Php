@@ -206,7 +206,7 @@ class LaptopController extends Controller
             return response()->json(['result' => 'Successful']);
         }
         error_log('================= Insert new laptop completed! =================');
-        return response()->json(['message' => 'success', 'data' => $this->show($postLaptop->id)], 201);
+        return response()->json(['message' => 'success'], 201);
     }
 //
 //    public
