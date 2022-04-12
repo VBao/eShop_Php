@@ -176,17 +176,20 @@ class UserController extends Controller
         if (!$updatePassword) {
             if ($validator->fails()) return response()->json(['error' => 'invalid token'], 400);
         }
-        DB::table('password_resets')->where(['email'=> $request->email])->delete();
+        DB::table('password_resets')->where(['email' => $request->email])->delete();
         $user = User::where('email', $request->email)
             ->update(['password' => bcrypt($request->password)]);
         return \response()->json(['result' => 'Password change successful'], 200);
     }
 
-    public function users(): JsonResponse
+    public function users(Request $request): JsonResponse
     {
+        $page = $request->query('page') == null ? 1 : intval($request->query('page'));
+        $users = User::limit(15)->offset(($page - 1) * 15)->get();
         return \response()->json(['data' => [
-            'user' => ListUserResource::collection(User::query()->where('is_admin', '=', 0)->get()),
-            'admin' => ListUserResource::collection(User::query()->where('is_admin', '=', 1)->get())
+            'data' => ListUserResource::collection($users),
+            'curr_page' => $page,
+            'max_page' => User::count()
         ]]);
     }
 
