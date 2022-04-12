@@ -25,7 +25,6 @@ class DriveListResource extends JsonResource
             ->where('end_date', '<', date('Y-m-d H:i:s'))
             ->where('product_id', '=', $this->id)
             ->first();
-        if ($discount == null || strtotime($discount->start_time) > now()) $discount = null;
         return [
             'id' => $this->id,
             'name' => $this->name,
@@ -34,8 +33,8 @@ class DriveListResource extends JsonResource
             'spec2' => explode(', ', DriveCapacity::find($spec->capacity_id)->value, 2)[0],
             'image' => Image::where('info_id', $this->id)->get()->first()->link_image,
             'type' => 'drive',
-            "discount_percent" => $discount == null ? 0 : $discount->percent,
-            "discount_price" => $discount == null ? 0 : $discount->discount_price
+            "discount_percent" => $discount ? $discount->percent : 0,
+            "discount_price" => $discount ? $discount->discount_price : 0
         ];
     }
 }
