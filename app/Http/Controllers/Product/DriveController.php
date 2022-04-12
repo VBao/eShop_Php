@@ -16,6 +16,7 @@ use App\Models\ProductDiscount;
 use App\Service\IDriveService;
 use App\Service\IProductService;
 use App\Service\IValidate;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -178,6 +179,16 @@ class DriveController extends Controller
         $page = $request->query('page') == null ? 1 : $request->query('page');
         foreach ($this->productService->getByType(2) as $val) {
             $tempProduct = $this->productService->getById($val->id);
+            $discounts = ProductDiscount::query()
+                ->where('product_id', '=', $val->id)
+                ->get();
+            $discount = null;
+            foreach ($discounts as $discount_temp) {
+                if (Carbon::parse($discount_temp->start_date) > now() || Carbon::parse($discount_temp->end_date) < now()) {
+                    $discount = $discount_temp;
+                    break;
+                }
+            }
             $tempInfo = [];
             $tempInfo['id'] = $tempProduct->id;
             $tempInfo['name'] = $tempProduct->name;
@@ -186,6 +197,8 @@ class DriveController extends Controller
             $tempInfo['description'] = $tempProduct->description;
             $tempInfo['brand'] = Brand::find($tempProduct->brand_id)->brand;
             $tempInfo['price'] = $tempProduct->price;
+            $tempInfo["discount_percent"] = $discount ? $discount->discount_price : 0;
+            $tempInfo["discount_price"] = $discount ? $discount->discount_price : 0;
             $tempInfo['image'] = Image::where('info_id', '=', $tempProduct->id)->first()->link_image;
             foreach ($this->driveService->getSpecsAdmin($val->id) as $key1 => $value) $tempInfo[$key1] = $value;
             $tempAdd[] = $tempInfo;

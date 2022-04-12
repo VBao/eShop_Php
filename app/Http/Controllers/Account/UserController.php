@@ -189,7 +189,7 @@ class UserController extends Controller
         return \response()->json(['data' => [
             'data' => ListUserResource::collection($users),
             'curr_page' => $page,
-            'max_page' => User::count()
+            'max_page' => ceil(User::count() / 15)
         ]]);
     }
 
