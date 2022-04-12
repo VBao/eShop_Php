@@ -173,7 +173,9 @@ class InfoController extends Controller
         $discount = new ProductDiscount();
         $discount->created_at = now();
         $discount->updated_at = now();
-        foreach ($validator->getData() as $key => $value) $discount->$key = $value;
+        $discount->start_date = $validator->getData()['start_date'];
+        $discount->end_date = $validator->getData()['end_date'];
+        $discount->product_id = $validator->getData()['product_id'];
         $current_price = productInfo::find($validator->getData()['product_id'])->price;
         $discount->discount_price = (int)round($current_price - ($current_price * $validator->getData()['percent']) / 100, -3);
         $discount->save();
@@ -192,7 +194,11 @@ class InfoController extends Controller
         if ($validator->fails()) return response()->json(['error' => $validator->errors()]);
         $discount = ProductDiscount::query()->find($request->id);
         $product_check = ProductDiscount::query()->where('product_id', '=', $discount->product_id)->get();
-        if ($request->has('percent')) $discount->percent = $request->percent;
+        if ($request->has('percent')) {
+            $current_price = productInfo::find($validator->getData()['product_id'])->price;
+            $discount->percent = $request->percent;
+            $discount->discount_price = (int)round($current_price - ($current_price * $request->percent) / 100, -3);
+        }
         if ($request->has('start_date') && $request->has('end_date')) {
             foreach ($product_check as $item) {
                 if ((($request->start_date <= $item->start_date && ($item->start_date <= $request->end_date && $request->end_date <= $item->end_date))

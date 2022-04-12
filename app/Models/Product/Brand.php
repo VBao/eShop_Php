@@ -44,7 +44,6 @@ class Brand extends Model
             $res[] = $temp_brand;
         }
         return $res;
-
     }
 
 }

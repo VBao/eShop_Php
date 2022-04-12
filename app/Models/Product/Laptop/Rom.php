@@ -34,4 +34,16 @@ class Rom extends Model
         return $temp;
     }
 
+    public function toArraysReact(): array
+    {
+        $res = [];
+        foreach (Rom::all() as $rom) {
+            $temp = [];
+            $temp['value'] = $rom->value;
+            $temp['text'] = $rom->value;
+            $res[] = $temp;
+        }
+        return $res;
+    }
+
 }

@@ -34,4 +34,16 @@ class Ram extends Model
         return $temp;
     }
 
+    public function toArraysReact(): array
+    {
+        $res = [];
+        foreach (Ram::all() as $ram) {
+            $temp = [];
+            $temp['value'] = $ram->value;
+            $temp['text'] = $ram->value;
+            $res[] = $temp;
+        }
+        return $res;
+    }
+
 }
