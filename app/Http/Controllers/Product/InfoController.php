@@ -176,6 +176,7 @@ class InfoController extends Controller
         $discount->start_date = $validator->getData()['start_date'];
         $discount->end_date = $validator->getData()['end_date'];
         $discount->product_id = $validator->getData()['product_id'];
+        $discount->percent = $validator->getData()['percent'];
         $current_price = productInfo::find($validator->getData()['product_id'])->price;
         $discount->discount_price = (int)round($current_price - ($current_price * $validator->getData()['percent']) / 100, -3);
         $discount->save();

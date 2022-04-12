@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Account;
 
+use App\Models\Order;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ListUserResource extends JsonResource
@@ -21,6 +22,8 @@ class ListUserResource extends JsonResource
             'email' => $this->email,
             'phone' => $this->phone,
             'address' => $this->address,
-        ];
+            'gender' => $this->gender,
+            'is_admin' => (bool)$this->is_admin,
+            'order' => Order::where('user_id', '=', $this->id)->count()];
     }
 }
