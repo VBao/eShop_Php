@@ -34,7 +34,7 @@ jobs:
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Add cache folder
-      run: sudo mkdir -p /storage/framework/sessions && sudo mkdir -p /storage/framework/cache && sudo mkdir -p /storage/framework/views
+      run: mkdir -p storage/framework/sessions && mkdir -p storage/framework/cache && mkdir -p storage/framework/views
     - name: Update Composer
       run: sudo composer self-update --no-interaction
     - name: Run Composer Install
