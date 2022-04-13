@@ -24,5 +24,5 @@
 ## About project
 
 This is part of my collage project to build ecommerce website, this project has 2
-parts: [Front-end](https://github.com/nconghau/e-tech) and Back-end (this repo)
+parts: [Front-end](https://gitlab.com/nconghau/e-tech) and Back-end (this repo)
 You can use [this](https://www.getpostman.com/collections/5d7de1e9a0583c877605) postman collection to get data
