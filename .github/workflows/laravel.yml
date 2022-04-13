@@ -1,35 +1,52 @@
 name: Laravel
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [push, pull_request]
 
 jobs:
   laravel-tests:
-
+    
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        operating-system: ['ubuntu-latest']
+        php-versions: ['7.4']
+        phpunit-versions: ['latest']
+        include:
+          - operating-system: 'ubuntu-latest'
+            php-versions: '7.4'
+    services:
+      mysql:
+        image: mysql:latest
+        env:
+          MYSQL_DATABASE: etech
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_USER: admin
+          MYSQL_PASSWORD: password
+          MYSQL_ROOT_PASSWORD: password
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
-    - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+    - uses: nanasess/setup-php@master
       with:
-        php-version: '8.0'
+        php-version: '7.4'
     - uses: actions/checkout@v3
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+    - name: Update Composer
+      run: sudo composer self-update 1.10.15 --no-interaction
+    - name: Run Composer Install
+      run: composer install --no-interaction
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
     - name: Generate key
       run: php artisan key:generate
+    - name: Generate jwt key
+      run: php artisan jwt:secret
+    - name: Create migrate database table
+      run: php artisan migrate:install
+    - name: php artisan migrate:fresh --seed
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
-    - name: Create Database
-      run: |
-        mkdir -p database
-        touch database/database.sqlite
-    - name: Execute tests (Unit and Feature tests) via PHPUnit
-      env:
-        DB_CONNECTION: sqlite
-        DB_DATABASE: database/database.sqlite
-      run: vendor/bin/phpunit
+#     - name: Execute tests (Unit and Feature tests) via PHPUnit
+#       run: vendor/bin/phpunit
