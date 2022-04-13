@@ -45,7 +45,8 @@ jobs:
       run: php artisan jwt:secret
     - name: Create migrate database table
       run: php artisan migrate:install
-    - name: php artisan migrate:fresh --seed
+    - name: Generate data
+      run: php artisan migrate:fresh --seed
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
 #     - name: Execute tests (Unit and Feature tests) via PHPUnit
