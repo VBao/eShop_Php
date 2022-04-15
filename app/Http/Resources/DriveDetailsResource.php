@@ -42,7 +42,9 @@ class DriveDetailsResource extends JsonResource
             'images' => ImageResource::collection(Image::where('info_id', $this->id)->get()),
             'discount' => [
                 "discount_percent" => $discount == null ? 0 : $discount->percent,
-                "discount_price" => $discount == null ? 0 : $discount->discount_price
+                "discount_price" => $discount == null ? 0 : $discount->discount_price,
+                "discount_Start" => $discount == null ? 0 : $discount->start_date,
+                "discount_end" => $discount == null ? 0 : $discount->end_date,
             ]
         ];
     }
