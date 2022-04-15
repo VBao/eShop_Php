@@ -52,6 +52,7 @@ Route::group(['middleware' => ['check_login']], function () {
 // Admin route group
 Route::group(['middleware' => ['role.isAdmin']], function () {
     Route::prefix('admin')->group(function () {
+        Route::get('summary', [InfoController::class, 'summaryAdmin']);
         Route::get('order', [PurchaseController::class, 'ordersAdmin']);
         Route::get('orderStat/order_id/{orderId}/stat/{stat}', [PurchaseController::class, 'changeStats']);
 

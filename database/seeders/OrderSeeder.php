@@ -16,8 +16,8 @@ class OrderSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i < 10000; $i++) {
-            $user = User::where('id', '=', random_int(3, 10))->first();
+        for ($i = 1; $i < 1000; $i++) {
+            $user = User::where('id', '=', random_int(3, 1000))->first();
             \DB::table('orders')->insert([
                 'user_id' => $user->id,
                 'name' => $user->name,
@@ -27,11 +27,12 @@ class OrderSeeder extends Seeder
                 'note' => 'Ship in the afternoon',
                 'status_id' => random_int(1, 4),
                 'total' => rand(100000, 50000000),
-                'created_at' => \Date::now(),
+                'created_at' => date("Y-m-d H:i:s",random_int(1568546464,1650021664)),
+//                'created_at' => strval($this->randomDate()),
             ]);
         }
 
-        for ($i = 1; $i < 10000; $i++) {
+        for ($i = 1; $i < 1000; $i++) {
             $sum = 0;
             for ($j = 0; $j < random_int(1, 5); $j++) {
                 $product_id = random_int(1, 100);
@@ -57,4 +58,18 @@ class OrderSeeder extends Seeder
 
 
     }
+
+    private function randomDate()
+    {// Convert to timetamps
+        $min = strtotime("2018/10/20");
+        $max = strtotime("2022/04/15");
+
+        // Generate random number using above bounds
+        $val = rand($min, $max);
+
+        // Convert back to desired date format
+        return date('Y-m-d H:i:s', $val);
+    }
+
+
 }

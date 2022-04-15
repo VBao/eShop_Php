@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Discount\IndexAdminResource;
+use App\Models\Order;
 use App\Models\Product\productInfo;
 use App\Models\Product\Type;
 use App\Models\ProductDiscount;
+use App\Models\User;
 use App\Service\IDriveService;
 use App\Service\ILaptopService;
 use App\Service\IProductService;
@@ -266,6 +268,29 @@ class InfoController extends Controller
         $status = $request->query('status');
         $this->productService->changeStatus($product_id, $status);
 
+    }
+
+    public function summaryAdmin(): JsonResponse
+    {
+        $chart = [];
+        for ($i = -13; $i < 0; $i++) {
+            $sum = 0;
+            $ordersTemp = Order::whereBetween('created_at', [date("Y-m", strtotime($i . " month")) . "-01", date("Y-m", strtotime(($i + 1) . " month")) . "-01"])->get();
+            error_log(date("Y-m", strtotime($i . " month")) . "-01\t\t" . date("Y-m", strtotime(($i + 1) . " month")) . "-01");
+            foreach ($ordersTemp as $orderTemp) $sum += $orderTemp->total;
+            $chart[] = [
+                'id' => $i + 14,
+                'month' => date("m/y", strtotime($i . " month")),
+                'total' => $sum
+            ];
+        }
+        return response()->json([
+            "totalUser" => User::all()->count(),
+            "newUserInMonth" => User::whereBetween('created_at', [date("y-m-d H:i", strtotime("-1 month")), now()])->count(),
+            "totalOrder" => Order::all()->count(),
+            "newOrderInMonth" => Order::whereBetween('created_at', [date("y-m-d H:i", strtotime("-1 month")), now()])->where('status_id', '!=', 4)->count(),
+            "chart" => $chart
+        ]);
     }
 
     private function checkStarEndDate($start_date, $end_date): bool

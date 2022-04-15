@@ -33,10 +33,11 @@ class OrdersAdmin extends JsonResource
         return [
             'billId' => $this->id,
             'userId' => $this->user_id,
-            'name' => $user->name,
-            'phone' => $user->phone,
-            'email' => $user->email,
-            'address' => $user->address,
+            'name' => $this->name,
+            'phone' => $this->phone,
+            'email' => $this->email,
+            'address' => $this->address,
+            'note' => $this->note,
             'status' => OrderStatus::query()->where('id', '=', $this->status_id)->first()->status,
             'bill' => [
                 'billId' => $this->id,
