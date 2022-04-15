@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
 
     public function run()
     {
-        $gen = $this->rand->generateNames(20);
+        $gen = $this->rand->generateNames(5000);
         \DB::table('users')->insert(['name' => 'My name is Admin', 'email' => 'admin@etech.com', 'phone' => $this->phone(), 'gender' => rand(0, 1), 'address' => \Str::random(30), 'password' => bcrypt('admin123456'), 'is_admin' => true, 'created_at' => now(), 'updated_at' => now()]);
         \DB::table('users')->insert(['name' => 'My name is user', 'email' => 'user@gmail.com', 'phone' => $this->phone(), 'gender' => rand(0, 1), 'address' => \Str::random(30), 'password' => bcrypt('user123456'), 'is_admin' => false, 'created_at' => now(), 'updated_at' => now()]);
 //        for ($i = 0; $i < 20; $i++) {
