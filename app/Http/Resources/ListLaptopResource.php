@@ -40,7 +40,7 @@ class ListLaptopResource extends JsonResource
             'spec2' => explode(', ', Rom::find($spec->rom_id)->value, 2)[0],
             'image' => Image::where('info_id', $this->id)->get()->first()->link_image,
             'type' => 'laptop',
-            "discount_percent" => $discount ? $discount->discount_price : 0,
+            "discount_percent" => $discount ? $discount->percent : 0,
             "discount_price" => $discount ? $discount->discount_price : 0
         ];
     }

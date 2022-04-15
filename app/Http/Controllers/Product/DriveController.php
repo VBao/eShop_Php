@@ -197,8 +197,10 @@ class DriveController extends Controller
             $tempInfo['description'] = $tempProduct->description;
             $tempInfo['brand'] = Brand::find($tempProduct->brand_id)->brand;
             $tempInfo['price'] = $tempProduct->price;
-            $tempInfo["discount_percent"] = $discount ? $discount->discount_price : 0;
+            $tempInfo["discount_percent"] = $discount ? $discount->percent : 0;
             $tempInfo["discount_price"] = $discount ? $discount->discount_price : 0;
+            $tempInfo["discount_start"] = $discount ? $discount->start_date : 0;
+            $tempInfo["discount_end"] = $discount ? $discount->end_date : 0;
             $tempInfo['image'] = Image::where('info_id', '=', $tempProduct->id)->first()->link_image;
             foreach ($this->driveService->getSpecsAdmin($val->id) as $key1 => $value) $tempInfo[$key1] = $value;
             $tempAdd[] = $tempInfo;

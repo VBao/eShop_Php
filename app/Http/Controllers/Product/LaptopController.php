@@ -103,7 +103,9 @@ class LaptopController extends Controller
             'images' => $response->image,
             'discount' => [
                 "discount_percent" => $discount == null ? 0 : $discount->percent,
-                "discount_price" => $discount == null ? 0 : $discount->discount_price
+                "discount_price" => $discount == null ? 0 : $discount->discount_price,
+                "discount_start" => $discount == null ? 0 : $discount->start_date,
+                "discount_end" => $discount == null ? 0 : $discount->end_date
             ]
         ];
         return response()->json($a);
@@ -243,8 +245,10 @@ class LaptopController extends Controller
             $tempInfo['brand'] = Brand::find($tempProduct->brand_id)->brand;
             $tempInfo['price'] = $tempProduct->price;
             $tempInfo['image'] = Image::where('info_id', '=', $tempProduct->id)->first()->link_image;
-            $tempInfo["discount_percent"] = $discount ? $discount->discount_price : 0;
+            $tempInfo["discount_percent"] = $discount ? $discount->percent : 0;
             $tempInfo["discount_price"] = $discount ? $discount->discount_price : 0;
+            $tempInfo["discount_start"] = $discount ? $discount->start_date : 0;
+            $tempInfo["discount_end"] = $discount ? $discount->end_date : 0;
             foreach ($this->laptopService->getSpecsAdmin($val->id) as $key => $value) $tempInfo[$key] = $value;
             $tempAdd[] = $tempInfo;
         }
