@@ -28,6 +28,7 @@ class PurchaseController extends Controller
         $order->status_id = 1;
         $order->created_at = now();
         $order->name = $info['name'];
+        $order->note = $info['note'];
         $order->email = $info['email'];
         $order->phone = $info['phone'];
         $order->address = $info['address'];
