@@ -16,7 +16,7 @@ class OrderSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i < 1000; $i++) {
+        for ($i = 1; $i < 300; $i++) {
             $user = User::where('id', '=', random_int(3, 1000))->first();
             \DB::table('orders')->insert([
                 'user_id' => $user->id,
@@ -32,7 +32,7 @@ class OrderSeeder extends Seeder
             ]);
         }
 
-        for ($i = 1; $i < 1000; $i++) {
+        for ($i = 1; $i < 300; $i++) {
             $sum = 0;
             for ($j = 0; $j < random_int(1, 5); $j++) {
                 $product_id = random_int(1, 100);

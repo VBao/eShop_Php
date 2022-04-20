@@ -1,0 +1,38 @@
+version: '3.1'
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    #    command: [ '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci','--default-authentication-plugin=mysql_native_password' ]
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: etechpassword
+      MYSQL_DATABASE: etech
+      MYSQL_USER: csvobao
+      MYSQL_PASSWORD: etechpassword
+#    volumes:
+#      - ./mysql/mysqldata:/var/lib/mysql
+    ports:
+      - "3306:3306"
+      - "33060:33060"
+
+  backend:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    environment:
+      MAIL_HOST: smtp.mailtrap.io
+      MAIL_USERNAME: 1ce900dac80e6b
+      MAIL_PASSWORD: 988247eb1a3b05
+      MAIL_FROM_ADDRESS: etech@gmail.com
+#    deploy:
+#      mode: replicated
+#      replicas: 1
+    restart: on-failure
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+      - "9000:9000"
+

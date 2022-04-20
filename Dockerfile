@@ -31,16 +31,16 @@ RUN apt update && apt install -y \
 
 COPY --from=composer --chown=www:www /usr/bin/composer /usr/bin/composer
 COPY . .
-RUN chown -R www:www /var/www
-
-USER www
 COPY .env.example .env
+
+RUN chown -R www:www /var/www
+USER www
 
 RUN echo MAIL_HOST=${MAIL_HOST} >> .env && \
       echo MAIL_USERNAME=${DB_PASSWORD_PRODUCT} >> .env && \
       echo MAIL_PASSWORD=${DB_PASSWORD_PRODUCT} >> .env && \
       echo MAIL_FROM_ADDRESS=${DB_PASSWORD_PRODUCT} >> .env && \
-      composer install && \
+      composer install -q && \
       chmod +x ./docker/wait-for-it.sh
 
 EXPOSE 9000
