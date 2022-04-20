@@ -1,7 +1,8 @@
 name: Laravel
 
 on: [push, pull_request]
-
+env:
+  HOST: $
 jobs:
   laravel-tests:
     
@@ -20,9 +21,9 @@ jobs:
         env:
           MYSQL_DATABASE: etech
           MYSQL_HOST: 127.0.0.1
-          MYSQL_USER: admin
-          MYSQL_PASSWORD: password
-          MYSQL_ROOT_PASSWORD: password
+          MYSQL_USER: csvobao
+          MYSQL_PASSWORD: etechpassword
+          MYSQL_ROOT_PASSWORD: etechpassword
         ports:
           - 3306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
