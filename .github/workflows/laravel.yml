@@ -20,7 +20,7 @@ jobs:
         image: mysql:latest
         env:
           MYSQL_DATABASE: etech
-          MYSQL_HOST: 127.0.0.1
+          MYSQL_HOST: localhost
           MYSQL_USER: csvobao
           MYSQL_PASSWORD: etechpassword
           MYSQL_ROOT_PASSWORD: etechpassword
