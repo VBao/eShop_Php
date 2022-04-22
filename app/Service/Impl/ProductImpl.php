@@ -12,6 +12,7 @@ use App\Http\Resources\BrandIndexResource;
 use App\Http\Resources\DriveListResource;
 use App\Http\Resources\ListLaptopResource;
 use App\Models\Cart;
+use App\Models\Order;
 use App\Models\Product\Brand;
 use App\Models\Product\Image;
 use App\Models\Product\Laptop\Cpu;
@@ -219,7 +220,7 @@ class ProductImpl implements IProductService
             $rs['new'] = ['id' => 1, 'title' => 'New product', 'result' => $temp];
         }
         $temp = [];
-        foreach (Cart::query()->select('product_id', \DB::raw('sum(quantity) as TotalQty'))->groupBy('product_id')->limit(8)->get() as $product) {
+        foreach (Order::query()->select('product_id', \DB::raw('sum(quantity) as TotalQty'))->groupBy('product_id')->limit(8)->get() as $product) {
             $product = productInfo::query()->where('id', '=', $product->product_id)->first();
             if ($product->type_id == 1) {
                 $temp[] = new ListLaptopResource($product);
